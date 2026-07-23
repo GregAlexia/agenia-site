@@ -367,7 +367,15 @@
           </ul>
         </div>
 
-        <form class="contact__form reveal" id="contactForm" action="mailto:contact@agenia.pro" method="post" enctype="text/plain" novalidate>
+        <form class="contact__form reveal" id="contactForm" action="https://api.web3forms.com/submit" method="POST" novalidate>
+          <!-- Clé d'accès Web3Forms : à remplacer par la vôtre (voir README).
+               Tant qu'elle n'est pas renseignée, le formulaire affiche un message. -->
+          <input type="hidden" name="access_key" value="REMPLACER_PAR_VOTRE_CLE_WEB3FORMS" />
+          <input type="hidden" name="subject" value="Nouvelle demande depuis agenia.pro" />
+          <input type="hidden" name="from_name" value="Site Agenia" />
+          <!-- Anti-spam (honeypot) : masqué aux humains, piège les robots -->
+          <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off" />
+
           <div class="field">
             <label for="name">Nom</label>
             <input id="name" name="name" type="text" autocomplete="name" required placeholder="Votre nom" />
@@ -385,7 +393,7 @@
             <textarea id="message" name="message" rows="4" required placeholder="Décrivez la tâche ou le processus que vous souhaitez améliorer…"></textarea>
           </div>
           <button class="btn btn--primary btn--lg" type="submit">Envoyer ma demande</button>
-          <p class="form__note" id="formNote" role="status"></p>
+          <p class="form__note" id="formNote" role="status" aria-live="polite"></p>
         </form>
       </div>
     </section>

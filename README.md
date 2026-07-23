@@ -33,10 +33,28 @@ python3 -m http.server 8000
 
 - **Email** : `contact@agenia.pro` (liens `mailto:` dans `index.html` et le pied de page)
 - **Téléphone** : `+33 6 51 74 81 33` — **valeur factice à remplacer**
-- **Formulaire** : ouvre le client mail (`mailto:`). Pour une vraie soumission,
-  branchez Formspree, Basin, ou un webhook n8n (attribut `action` du `<form>`).
+- **Formulaire** : envoie les messages par email via **Web3Forms**. À activer
+  en 1 minute (voir « Activer le formulaire de contact » ci-dessous).
 - **Mentions légales / Confidentialité** : liens dans le pied de page à compléter.
 - **Chiffres** (-70 %, x3, etc.) : illustratifs, à ajuster à votre réalité.
+
+## Activer le formulaire de contact (Web3Forms)
+
+Le formulaire envoie les demandes par email via [Web3Forms](https://web3forms.com)
+(gratuit, sans compte, 250 messages/mois). Pour l'activer :
+
+1. Allez sur **https://web3forms.com** → saisissez l'email de réception
+   (ex. `contact@agenia.pro`) → vous recevez une **clé d'accès** (Access Key)
+   par email.
+2. Dans `index.html`, remplacez `REMPLACER_PAR_VOTRE_CLE_WEB3FORMS` par cette clé :
+   ```html
+   <input type="hidden" name="access_key" value="votre-cle-ici" />
+   ```
+3. Poussez la modif sur `main` → le site se redéploie, le formulaire est actif.
+
+> Tant que la clé n'est pas renseignée, le formulaire affiche un message
+> d'avertissement au lieu d'envoyer. Les messages arrivent ensuite directement
+> dans la boîte email indiquée à l'étape 1.
 
 ## Domaine personnalisé (optionnel)
 

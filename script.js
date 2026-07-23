@@ -67,21 +67,81 @@
     revealEls.forEach(function (el) { el.classList.add("is-visible"); });
   }
 
-  /* ---- Formulaire de contact ---- */
+  /* ---- Formulaire de contact (envoi AJAX vers Web3Forms) ---- */
   var form = document.getElementById("contactForm");
   var note = document.getElementById("formNote");
   if (form) {
+    var submitBtn = form.querySelector('button[type="submit"]');
+    var setNote = function (msg, ok) {
+      if (!note) return;
+      note.textContent = msg;
+      note.style.color = ok === false ? "#ff8a8a" : "var(--accent-3)";
+    };
+
     form.addEventListener("submit", function (e) {
-      // Validation simple ; on laisse le mailto s'ouvrir si valide
+      e.preventDefault();
+
+      // Validation navigateur native
       if (!form.checkValidity()) {
-        e.preventDefault();
         form.reportValidity();
         return;
       }
-      if (note) {
-        note.textContent =
-          "Merci ! Votre client mail va s'ouvrir. Nous revenons vers vous sous 24 h.";
+
+      // Garde-fou : clé Web3Forms non configurée
+      var key = form.querySelector('input[name="access_key"]');
+      if (key && /REMPLACER/.test(key.value)) {
+        setNote(
+          "Formulaire pas encore activé : ajoutez votre clé Web3Forms (voir README).",
+          false
+        );
+        return;
       }
+
+      var original = submitBtn ? submitBtn.textContent : "";
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Envoi en cours…";
+      }
+      setNote("");
+
+      var data = new FormData(form);
+
+      fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: data,
+      })
+        .then(function (res) {
+          return res.json().then(function (json) {
+            return { ok: res.ok, json: json };
+          });
+        })
+        .then(function (r) {
+          if (r.ok && r.json.success) {
+            form.reset();
+            setNote(
+              "Merci ! Votre demande a bien été envoyée. Nous revenons vers vous sous 24 h.",
+              true
+            );
+          } else {
+            setNote(
+              "Oups, l'envoi a échoué. Réessayez ou écrivez-nous à contact@agenia.pro.",
+              false
+            );
+          }
+        })
+        .catch(function () {
+          setNote(
+            "Problème de connexion. Réessayez ou écrivez-nous à contact@agenia.pro.",
+            false
+          );
+        })
+        .finally(function () {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = original;
+          }
+        });
     });
   }
 })();
