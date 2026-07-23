@@ -32,7 +32,7 @@ python3 -m http.server 8000
 ## À personnaliser
 
 - **Email** : `contact@agenia.pro` (liens `mailto:` dans `index.html` et le pied de page)
-- **Téléphone** : `+33 6 00 00 00 00` — **valeur factice à remplacer**
+- **Téléphone** : `+33 6 51 74 81 33` — **valeur factice à remplacer**
 - **Formulaire** : ouvre le client mail (`mailto:`). Pour une vraie soumission,
   branchez Formspree, Basin, ou un webhook n8n (attribut `action` du `<form>`).
 - **Mentions légales / Confidentialité** : liens dans le pied de page à compléter.
