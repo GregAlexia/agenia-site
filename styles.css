@@ -112,6 +112,8 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.15; margin: 0; le
 .header__inner { display: flex; align-items: center; gap: 24px; height: 72px; }
 .brand { display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-head); font-weight: 700; font-size: 1.2rem; }
 .brand__mark { display: inline-flex; }
+.brand__logo { height: 58px; width: auto; display: block; }
+.brand--footer .brand__logo { height: 52px; }
 .nav { display: flex; gap: 6px; margin-left: 12px; }
 .nav a {
   padding: 8px 14px; border-radius: 999px; color: var(--text-muted); font-size: .94rem; font-weight: 500;
