@@ -222,6 +222,19 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.15; margin: 0; le
   background: var(--grad-soft); border: 1px solid var(--accent-1);
 }
 
+/* Bouton en pied de carte. Seules les cartes du bloc « Notre produit » en
+   portent un — les cartes de services n'ont rien vers quoi pointer. La règle
+   annule la marge basse héritée de `.card p` et écarte le bouton de la liste.
+
+   Le passage en colonne flexible est volontairement limité à `#produit` : il
+   sert à coller les deux boutons en bas quelles que soient les longueurs de
+   texte, et il n'y a aucune raison de modifier le comportement des cartes de
+   services pour obtenir ça. */
+.card__cta { margin: 22px 0 0; }
+#produit .card { display: flex; flex-direction: column; align-items: flex-start; }
+#produit .card > p:not(.card__cta), #produit .card__list { width: 100%; }
+#produit .card__cta { margin-top: auto; padding-top: 22px; }
+
 /* ---------- Steps ---------- */
 .steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; counter-reset: step; }
 .step {
