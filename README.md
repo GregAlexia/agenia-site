@@ -56,6 +56,34 @@ Le formulaire envoie les demandes par email via [Web3Forms](https://web3forms.co
 > d'avertissement au lieu d'envoyer. Les messages arrivent ensuite directement
 > dans la boîte email indiquée à l'étape 1.
 
+## Documentation protégée (/documentation)
+
+La page `documentation/index.html` contient le guide interne, **chiffré en
+AES-256-GCM** (clé dérivée du mot de passe par PBKDF2-SHA256, 250 000
+itérations). Le déchiffrement se fait dans le navigateur après saisie du mot
+de passe ; la source publique ne contient aucun contenu lisible.
+
+### Changer (réinitialiser) le mot de passe — self-service
+
+1. Ouvrez l'onglet **Actions** du dépôt →
+   workflow **« Changer le mot de passe de la documentation »** →
+   bouton **« Run workflow »**.
+2. Saisissez le **mot de passe actuel** et le **nouveau** (12 caractères
+   minimum — conseil : 4 mots séparés par des tirets, ex. `Mot-Mot-Mot-Mot-42`).
+3. Lancez : la page est re-chiffrée, commitée et le site redéployé
+   automatiquement (1 à 2 minutes). L'ancien mot de passe ne fonctionne plus.
+
+Notes :
+- Un **mauvais mot de passe actuel** fait échouer le workflow **sans rien
+  modifier** — seul un détenteur du mot de passe en cours peut le changer.
+- Les mots de passe ne sont ni stockés ni affichés dans les journaux.
+- En local, la même rotation se fait avec :
+  `ANCIEN_MDP=... NOUVEAU_MDP=... node outils/rotation-mdp.cjs` puis commit/push.
+- **Mot de passe actuel oublié ?** Le contenu n'est pas récupérable depuis le
+  dépôt (c'est le but du chiffrement). Il faut alors régénérer la page depuis
+  le document source (voir `build_doc_protegee.py` du dossier de livraison)
+  et remplacer `documentation/index.html`.
+
 ## Domaine personnalisé (optionnel)
 
 Pour servir le site sur `www.agenia.pro` :
