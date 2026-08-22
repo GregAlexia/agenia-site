@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>20 tâches à automatiser en premier — AgenIA</title>
+  <meta name="description" content="Les tâches les plus rentables à automatiser dans une PME, classées par domaine, avec pour chacune ce qu'elle coûte à laisser manuelle." />
+  <meta name="theme-color" content="#f0efe8" />
+  <meta name="robots" content="noindex, follow" />
+
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src https://api.web3forms.com; form-action 'self' https://api.web3forms.com; base-uri 'self'; object-src 'none'" />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%236d8bff'/%3E%3Cstop offset='1' stop-color='%23b06bff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='8' fill='%23070b18'/%3E%3Cpath d='M16 6l8 20h-4l-1.4-3.8h-5.2L12 26H8L16 6zm0 7.2l-1.6 4.4h3.2L16 13.2z' fill='url(%23g)'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <header class="site-header" id="top">
+    <div class="container header__inner">
+      <a class="brand" href="../index.html" aria-label="Agenia, accueil">
+        <img class="brand__logo" src="../assets/logo_agenia-hd.png" width="330" height="220"
+             alt="Agenia — Des solutions pour gagner du temps" />
+      </a>
+      <div class="header__cta" style="margin-left:auto">
+        <a class="btn btn--ghost" href="index.html">← Toutes les ressources</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="res-article">
+    <div class="container res-article__inner">
+      <span class="pill">Checklist</span>
+      <h1 class="res__title" style="margin-top:16px">20 tâches à automatiser en premier</h1>
+      <p class="res-article__meta">AgenIA · Août 2026 · Lecture 6 min</p>
+
+      <p class="res-article__lede">
+        Toutes les tâches ne se valent pas face à l'automatisation. Certaines sont
+        risquées à automatiser tant qu'on n'a pas d'historique fiable ; d'autres,
+        très répétitives et peu sujettes à exception, sont rentabilisées en
+        quelques semaines. Voici vingt tâches courantes en PME, classées par
+        domaine, avec pour chacune ce qu'elle coûte concrètement à laisser
+        manuelle et une indication sur comment s'y prendre.
+      </p>
+
+      <!-- ============ PORTAIL (visible tant que non débloqué) ============ -->
+      <div class="res-gate" id="portail">
+        <div class="res-gate__card">
+          <h2>Débloquez la liste complète</h2>
+          <p>
+            Renseignez vos coordonnées pour lire immédiatement les 20 tâches,
+            classées par domaine (finance, commercial, support, RH).
+          </p>
+
+          <form id="formRessource" novalidate>
+            <input type="hidden" name="access_key" value="659aaa00-f8c4-45f0-a1b7-7f5e5937b082" />
+            <input type="hidden" name="subject" value="Nouveau prospect ressource — 20 tâches à automatiser" />
+            <input type="hidden" name="from_name" value="Ressources — Site Agenia" />
+            <input type="hidden" name="ressource" value="20 tâches à automatiser en premier" />
+            <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" />
+
+            <div class="field">
+              <label for="rPrenom">Prénom</label>
+              <input id="rPrenom" name="prenom" type="text" autocomplete="given-name" required placeholder="Votre prénom" />
+            </div>
+            <div class="field">
+              <label for="rEmail">Email professionnel</label>
+              <input id="rEmail" name="email" type="email" autocomplete="email" required placeholder="vous@entreprise.com" />
+            </div>
+            <div class="field">
+              <label for="rTel">Téléphone</label>
+              <input id="rTel" name="telephone" type="tel" autocomplete="tel" required placeholder="06 12 34 56 78" />
+            </div>
+
+            <label class="res-gate__consent">
+              <input type="checkbox" id="rConsent" required />
+              <span>
+                J'accepte d'être recontacté(e) par AgenIA au sujet de ses services.
+                Voir la <a href="../mentions-legales.html#confidentialite" target="_blank" rel="noopener">politique de confidentialité</a>.
+              </span>
+            </label>
+
+            <button class="btn btn--primary btn--lg" type="submit">Lire la ressource</button>
+            <p class="form__note" id="rNote" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+
+      <!-- ============ CONTENU (masqué tant que non débloqué) ============ -->
+      <div class="res-locked" id="contenu" hidden>
+
+        <h2>Finance &amp; administratif</h2>
+        <ol class="res-list">
+          <li><strong>Saisie des factures fournisseurs.</strong> Ressaisir à la main un montant, un numéro de facture, une date coûte quelques minutes par facture — mais se répète des centaines de fois par an et génère l'essentiel des erreurs de rapprochement. Une extraction automatique (OCR + IA) élimine la ressaisie et fiabilise le classement comptable.</li>
+          <li><strong>Rapprochement bancaire.</strong> Faire correspondre à la main les lignes du relevé bancaire et les factures est une tâche fastidieuse et sujette à erreur. Un rapprochement automatique par règles (montant, date, libellé) traite en quelques secondes ce qui prend des heures chaque mois.</li>
+          <li><strong>Relances d'impayés.</strong> Sans automatisation, les relances partent tard ou pas du tout — souvent par manque de temps, pas de volonté. Une séquence de relances programmées selon le retard (J+7, J+15, J+30) améliore mécaniquement les délais de paiement.</li>
+          <li><strong>Notes de frais.</strong> La saisie manuelle de notes de frais est chronophage pour les salariés et pour la compta. Une photo du ticket suivie d'une extraction et d'une ventilation automatique par catégorie réduit ce temps à quelques secondes par note.</li>
+          <li><strong>Génération de devis et factures.</strong> Recopier les mêmes informations (coordonnées, prestations, conditions) d'un document à l'autre est une perte de temps pure. Un modèle alimenté automatiquement par les données du CRM élimine cette recopie.</li>
+        </ol>
+
+        <h2>Commercial &amp; prospection</h2>
+        <ol class="res-list" start="6">
+          <li><strong>Qualification des leads entrants.</strong> Trier manuellement chaque demande entrante (secteur, taille, urgence) retarde la réponse et laisse passer les opportunités chaudes. Un tri automatique par IA priorise et route directement vers le bon commercial.</li>
+          <li><strong>Prise de rendez-vous.</strong> Les allers-retours par email pour caler un créneau font perdre des jours et des prospects. Un agenda synchronisé avec confirmation et rappel automatiques élimine ces échanges.</li>
+          <li><strong>Relances de prospects.</strong> Un prospect qui ne répond pas est trop souvent oublié faute de suivi systématique. Des séquences de relance programmées selon l'inactivité maintiennent le contact sans effort manuel.</li>
+          <li><strong>Mise à jour du CRM.</strong> Ressaisir dans le CRM les informations déjà présentes dans un email ou un formulaire est une double saisie évitable. La création automatique de fiche depuis ces sources garde le CRM à jour sans effort.</li>
+          <li><strong>Reporting commercial hebdomadaire.</strong> Compiler à la main les chiffres de la semaine (leads, RDV, signatures) prend facilement une heure. Un tableau de bord généré automatiquement à partir des mêmes données est disponible en continu.</li>
+        </ol>
+
+        <h2>Support &amp; relation client</h2>
+        <ol class="res-list" start="11">
+          <li><strong>Réponses aux questions fréquentes.</strong> Répondre plusieurs fois par jour aux mêmes questions (horaires, délais, tarifs) mobilise du temps humain sur des réponses à faible valeur ajoutée. Un assistant IA connecté à votre documentation traite ces questions en continu.</li>
+          <li><strong>Tri des emails entrants.</strong> Une boîte mail commune où chacun doit ouvrir et rediriger manuellement chaque message ralentit le traitement. Une catégorisation et un routage automatique vers le bon service accélèrent la prise en charge.</li>
+          <li><strong>Envoi de confirmations.</strong> Confirmer manuellement chaque commande, rendez-vous ou livraison est répétitif et sans risque d'erreur d'automatisation. Un envoi automatique déclenché par l'événement libère ce temps.</li>
+          <li><strong>Suivi de satisfaction.</strong> Sans automatisation, l'enquête de satisfaction après une prestation est souvent oubliée. Un envoi automatique déclenché en fin de mission garantit un retour systématique.</li>
+          <li><strong>Comptes-rendus de réunions et d'appels.</strong> Prendre des notes en réunion tout en y participant est difficile, et la rédaction du compte-rendu prend du temps après coup. Une transcription et un résumé automatiques libèrent l'attention pendant l'échange.</li>
+        </ol>
+
+        <h2>RH &amp; organisation interne</h2>
+        <ol class="res-list" start="16">
+          <li><strong>Plannings d'équipe.</strong> Construire un planning à la main en tenant compte des disponibilités, absences et compétences de chacun prend du temps et génère des erreurs. Une génération automatique selon les contraintes déclarées fiabilise le résultat.</li>
+          <li><strong>Onboarding des nouveaux arrivants.</strong> Réunir et envoyer manuellement les documents, accès et informations d'un nouvel arrivant est facile à oublier partiellement. Une checklist et un envoi automatisés garantissent qu'aucune étape n'est sautée.</li>
+          <li><strong>Suivi des congés et absences.</strong> Valider une demande de congé et répercuter l'information sur le planning à la main crée des décalages. Une validation et une mise à jour automatique du planning évitent ces oublis.</li>
+          <li><strong>Rapports d'activité consolidés.</strong> Rassembler à la main des données dispersées entre plusieurs outils (tableur, logiciel métier, emails) pour produire un rapport prend un temps disproportionné par rapport à sa fréquence. Une consolidation automatique élimine cette collecte manuelle.</li>
+          <li><strong>Archivage de documents.</strong> Classer manuellement les pièces jointes reçues par email (factures, contrats, justificatifs) dans les bons dossiers est une tâche de fond jamais prioritaire, donc rarement faite correctement. Un classement automatique par règles ou par IA maintient l'archivage à jour sans y penser.</li>
+        </ol>
+
+        <div class="res-article__cta">
+          <h2>Par où commencer&nbsp;?</h2>
+          <p>
+            La bonne première tâche à automatiser n'est pas la plus impressionnante,
+            c'est la plus répétitive et la plus fiable dans son schéma — celle qui
+            revient chaque semaine, toujours de la même façon. C'est ce que nous
+            identifions ensemble lors d'un premier échange.
+          </p>
+          <p class="card__cta">
+            <a class="btn btn--primary btn--lg" href="../index.html#contact">Discuter de mon projet</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer__bottom">
+      <p>© <span id="year">2026</span> AgenIA — SASU au capital de 1 000 € — RCS Thonon-les-Bains 108 486 598.</p>
+      <p class="footer__legal"><a href="../mentions-legales.html">Mentions légales</a> · <a href="../mentions-legales.html#confidentialite">Confidentialité</a> · <a href="../documentation/">Documentation</a></p>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
+  <script src="gate.js"></script>
+</body>
+</html>
