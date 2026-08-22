@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  N'y figurent que les pages indexables (robots: index,follow).
+  Les 3 articles /ressources/*.html sont volontairement absents : ils
+  portent noindex,follow — le contenu qu'un visiteur non identifié verrait
+  serait le portail de capture, pas l'article, donc rien d'utile à indexer.
+  Idem pour /documentation/, protégée par mot de passe.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://www.agenia.pro/</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.agenia.pro/ressources/</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.agenia.pro/mentions-legales.html</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+</urlset>
