@@ -67,6 +67,19 @@
     revealEls.forEach(function (el) { el.classList.add("is-visible"); });
   }
 
+  /* ---- Présélection de l'objet du formulaire ----
+     Les boutons « Réserver mon audit », « Être recontacté » (produits)
+     portent data-objet : au clic, le menu « Votre demande » est prérempli,
+     pour que chaque lead arrive déjà qualifié. */
+  var objetSelect = document.getElementById("objet");
+  if (objetSelect) {
+    document.querySelectorAll("a[data-objet]").forEach(function (lien) {
+      lien.addEventListener("click", function () {
+        objetSelect.value = lien.getAttribute("data-objet");
+      });
+    });
+  }
+
   /* ---- Formulaire de contact (envoi AJAX vers Web3Forms) ---- */
   var form = document.getElementById("contactForm");
   var note = document.getElementById("formNote");
@@ -103,6 +116,13 @@
         submitBtn.textContent = "Envoi en cours…";
       }
       setNote("");
+
+      // Le sujet de l'email reprend l'objet choisi : les leads se trient
+      // d'un coup d'œil dans la boîte de réception (Audit / Duopilot / Keo…).
+      var sujet = form.querySelector('input[name="subject"]');
+      if (sujet && objetSelect && objetSelect.value) {
+        sujet.value = "Demande " + objetSelect.value + " — agenia.pro";
+      }
 
       var data = new FormData(form);
 

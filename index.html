@@ -179,7 +179,7 @@
           votre efficacité — et votre rentabilité.
         </p>
         <div class="hero__actions reveal">
-          <a class="btn btn--primary" href="#contact">Démarrer un projet</a>
+          <a class="btn btn--primary" href="#audit" data-objet="Audit gratuit">Réserver un audit gratuit</a>
           <a class="btn btn--ghost" href="#services">Découvrir nos services</a>
         </div>
 
@@ -426,6 +426,9 @@
               <a class="btn btn--primary" href="https://margeo.vercel.app" target="_blank" rel="noopener">
                 Découvrir Duopilot
               </a>
+              <a class="btn btn--ghost" href="#contact" data-objet="Duopilot">
+                Être recontacté
+              </a>
             </p>
           </article>
 
@@ -450,6 +453,9 @@
             <p class="card__cta">
               <a class="btn btn--primary" href="https://immomail-studio.vercel.app" target="_blank" rel="noopener">
                 Voir la démo interactive de Keo
+              </a>
+              <a class="btn btn--ghost" href="#contact" data-objet="Keo">
+                Être recontacté
               </a>
             </p>
           </article>
@@ -479,14 +485,77 @@
       </div>
     </section>
 
-    <!-- CTA band -->
-    <section class="cta-band">
+    <!-- Audit gratuit — le point de conversion principal du site.
+         Le CTA pointe sur le formulaire de contact avec l'objet présélectionné
+         (data-objet) ; le jour où un agenda en ligne existe (Cal.com), c'est ce
+         lien-ci qu'il faut remplacer, et lui seul. -->
+    <section class="cta-band" id="audit">
       <div class="container cta-band__inner reveal">
         <div>
-          <h2>Prêt à passer à l'IA sans complexité&nbsp;?</h2>
-          <p>Un premier échange gratuit pour identifier vos meilleurs cas d'usage.</p>
+          <span class="eyebrow">Audit gratuit — 30 minutes</span>
+          <h2>Découvrez ce que l'IA peut faire gagner à votre entreprise</h2>
+          <p>Un échange sans engagement, en visio ou par téléphone&nbsp;:</p>
+          <ul class="cta-band__points">
+            <li>Vos processus passés en revue, avec un œil extérieur</li>
+            <li>Les tâches automatisables identifiées et priorisées</li>
+            <li>Une estimation concrète du temps récupérable</li>
+          </ul>
         </div>
-        <a class="btn btn--primary btn--lg" href="#contact">Réserver un échange</a>
+        <a class="btn btn--primary btn--lg" href="#contact" data-objet="Audit gratuit">Réserver mon audit gratuit</a>
+      </div>
+    </section>
+
+    <!-- Ressources : les guides étaient invisibles depuis l'accueil (menu
+         seulement) alors qu'ils sont le principal outil de capture de
+         prospects du site — d'où cette vitrine. -->
+    <section class="section" id="guides">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="eyebrow">Ressources</span>
+          <h2 class="section__title">Des guides gratuits pour passer à l'action</h2>
+          <p class="section__sub">
+            Checklists et méthodes concrètes sur l'automatisation en PME,
+            à consulter librement.
+          </p>
+        </div>
+
+        <div class="res__grid">
+          <article class="res-card reveal">
+            <span class="pill">Checklist</span>
+            <h3 class="res-card__title">
+              <a href="ressources/20-taches-a-automatiser.html">20 tâches à automatiser en premier</a>
+            </h3>
+            <p class="res-card__excerpt">
+              Les tâches les plus rentables à automatiser, classées par domaine,
+              avec ce que chacune coûte à laisser manuelle.
+            </p>
+            <a class="res-card__link" href="ressources/20-taches-a-automatiser.html">Lire la ressource →</a>
+          </article>
+
+          <article class="res-card reveal">
+            <span class="pill">Guide</span>
+            <h3 class="res-card__title">
+              <a href="ressources/calculer-roi-automatisation.html">Calculer le ROI d'une automatisation</a>
+            </h3>
+            <p class="res-card__excerpt">
+              La formule simple pour savoir, avant de se lancer, si une
+              automatisation est rentable — avec un exemple chiffré.
+            </p>
+            <a class="res-card__link" href="ressources/calculer-roi-automatisation.html">Lire la ressource →</a>
+          </article>
+
+          <article class="res-card reveal">
+            <span class="pill">Article</span>
+            <h3 class="res-card__title">
+              <a href="ressources/auditer-process-pme.html">Pourquoi auditer vos process avant d'automatiser</a>
+            </h3>
+            <p class="res-card__excerpt">
+              Ce qu'un audit révèle vraiment, et pourquoi il doit toujours
+              précéder l'automatisation.
+            </p>
+            <a class="res-card__link" href="ressources/auditer-process-pme.html">Lire la ressource →</a>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -564,12 +633,25 @@
           <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off" />
 
           <div class="field">
+            <label for="objet">Votre demande</label>
+            <select id="objet" name="objet" required>
+              <option value="Audit gratuit">Réserver un audit gratuit (30 min)</option>
+              <option value="Duopilot">Informations sur Duopilot (restauration)</option>
+              <option value="Keo">Informations sur Keo (immobilier)</option>
+              <option value="Autre">Autre demande</option>
+            </select>
+          </div>
+          <div class="field">
             <label for="name">Nom</label>
             <input id="name" name="name" type="text" autocomplete="name" required placeholder="Votre nom" />
           </div>
           <div class="field">
             <label for="email">Email professionnel</label>
             <input id="email" name="email" type="email" autocomplete="email" required placeholder="vous@entreprise.com" />
+          </div>
+          <div class="field">
+            <label for="tel">Téléphone</label>
+            <input id="tel" name="telephone" type="tel" autocomplete="tel" required placeholder="06 12 34 56 78" />
           </div>
           <div class="field">
             <label for="company">Entreprise</label>

@@ -180,7 +180,7 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.12; margin: 0; le
 }
 .card__list li::before { content: "\2192\2002"; color: var(--text); font-family: var(--font-ui); font-size: .85em; }
 /* Cartes produits : boutons alignés en bas malgré des textes de longueurs différentes */
-.card__cta { margin: 22px 0 0; }
+.card__cta { margin: 22px 0 0; display: flex; flex-wrap: wrap; gap: 10px; }
 #produit .card { display: flex; flex-direction: column; align-items: flex-start; }
 #produit .card > p:not(.card__cta), #produit .card__list { width: 100%; }
 #produit .card__cta { margin-top: auto; padding-top: 22px; }
@@ -228,8 +228,15 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.12; margin: 0; le
 }
 .cta-band h2 { font-size: clamp(1.5rem, 3.4vw, 2.1rem); font-weight: 700; }
 .cta-band p { color: #c9c6bb; margin: 8px 0 0; }
+.cta-band .eyebrow { color: #a5a195; }
 .cta-band .btn--primary { background: var(--ink-text); color: var(--ink); }
 .cta-band .btn--primary:hover { background: #ffffff; }
+.cta-band__points {
+  list-style: none; margin: 16px 0 0; padding: 0;
+  display: flex; flex-direction: column; gap: 8px; color: #c9c6bb;
+}
+.cta-band__points li { position: relative; padding-left: 22px; }
+.cta-band__points li::before { content: "\2713"; position: absolute; left: 0; color: var(--ink-text); font-weight: 700; }
 
 /* ---------- FAQ ---------- */
 .faq { max-width: 780px; }
@@ -267,14 +274,14 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.12; margin: 0; le
 }
 .field { display: flex; flex-direction: column; gap: 7px; }
 .field label { font-size: .78rem; font-weight: 600; color: var(--text-muted); font-family: var(--font-ui); letter-spacing: .08em; text-transform: uppercase; }
-.field input, .field textarea {
+.field input, .field textarea, .field select {
   width: 100%; padding: 13px 15px; border-radius: 9px;
   background: var(--bg); border: 1px solid var(--border); color: var(--text);
   font-family: var(--font-body); font-size: 1rem; resize: vertical;
   transition: border-color .2s ease, box-shadow .2s ease;
 }
 .field input::placeholder, .field textarea::placeholder { color: var(--text-dim); }
-.field input:focus, .field textarea:focus { outline: none; border-color: var(--ink); box-shadow: 0 0 0 3px rgba(18, 18, 16, .12); }
+.field input:focus, .field textarea:focus, .field select:focus { outline: none; border-color: var(--ink); box-shadow: 0 0 0 3px rgba(18, 18, 16, .12); }
 .form__note { font-size: .92rem; margin: 4px 0 0; min-height: 1.2em; color: #1f7a43; }
 
 /* ---------- WhatsApp flottant ---------- */
