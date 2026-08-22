@@ -97,8 +97,8 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.12; margin: 0; le
 .header__inner { display: flex; align-items: center; gap: 24px; height: 76px; }
 .brand { display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-head); font-weight: 700; font-size: 1.2rem; }
 .brand__mark { display: inline-flex; }
-.brand__logo { height: 50px; width: auto; display: block; border-radius: 10px; }
-.brand--footer .brand__logo { height: 44px; }
+.brand__logo { height: 58px; width: auto; display: block; border-radius: 10px; }
+.brand--footer .brand__logo { height: 52px; }
 .nav { display: flex; gap: 4px; margin-left: auto; }
 .nav a {
   padding: 8px 14px; border-radius: 999px; color: var(--text); font-size: .95rem; font-weight: 500;
