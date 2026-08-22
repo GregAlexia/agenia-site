@@ -14,6 +14,7 @@ automatiquement sur **GitHub Pages** à chaque push sur `main`.
 | `styles.css` | Design (thème sombre, dégradés, responsive, animations) |
 | `script.js`  | Menu mobile, apparition au scroll, formulaire |
 | `.github/workflows/deploy-pages.yml` | Déploiement automatique sur GitHub Pages |
+| `REFERENCEMENT.md` | Ce qui est en place pour le SEO (sitemap, canonical, données structurées) et la procédure Search Console |
 
 ## Modifier le site depuis n'importe quel PC
 
@@ -91,3 +92,9 @@ Pour servir le site sur `www.agenia.pro` :
 1. Repo → **Settings → Pages → Custom domain** : saisir `www.agenia.pro`.
 2. Chez votre registrar, créer un enregistrement **CNAME** `www` → `gregalexia.github.io`.
 3. Cocher **Enforce HTTPS** une fois le certificat émis.
+
+## Référencement (SEO)
+
+Voir **[`REFERENCEMENT.md`](REFERENCEMENT.md)** : ce qui est en place
+(sitemap, canonical, Open Graph, données structurées) et la procédure pour
+déclarer le site à Google Search Console.
