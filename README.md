@@ -57,33 +57,49 @@ Le formulaire envoie les demandes par email via [Web3Forms](https://web3forms.co
 > d'avertissement au lieu d'envoyer. Les messages arrivent ensuite directement
 > dans la boîte email indiquée à l'étape 1.
 
-## Documentation protégée (/documentation)
+## Documentation interne (/documentation)
 
-La page `documentation/index.html` contient le guide interne, **chiffré en
-AES-256-GCM** (clé dérivée du mot de passe par PBKDF2-SHA256, 250 000
-itérations). Le déchiffrement se fait dans le navigateur après saisie du mot
-de passe ; la source publique ne contient aucun contenu lisible.
+La page s'ouvre avec le **compte administrateur du site**, et lui seul. Le
+contenu du guide n'est plus dans ce dépôt : il vit dans la base Supabase, table
+`documentation_contenu`, dont une politique RLS n'en autorise la lecture qu'à ce
+compte. La page ne fait que l'afficher après connexion.
 
-### Changer (réinitialiser) le mot de passe — self-service
+### Pourquoi ce modèle a remplacé le précédent
 
-1. Ouvrez l'onglet **Actions** du dépôt →
-   workflow **« Changer le mot de passe de la documentation »** →
-   bouton **« Run workflow »**.
-2. Saisissez le **mot de passe actuel** et le **nouveau** (12 caractères
-   minimum — conseil : 4 mots séparés par des tirets, ex. `Mot-Mot-Mot-Mot-42`).
-3. Lancez : la page est re-chiffrée, commitée et le site redéployé
-   automatiquement (1 à 2 minutes). L'ancien mot de passe ne fonctionne plus.
+L'ancienne version chiffrait le guide avec une clé **dérivée du mot de passe**.
+C'était solide, mais cela liait le contenu au mot de passe : celui-ci perdu, le
+guide devenait définitivement illisible — ce qui est arrivé le 24 août 2026. Le
+bloc chiffré d'origine n'a pas été détruit, il reste dans l'historique Git
+(commit `f244f29`) et redeviendrait exploitable si le mot de passe refaisait
+surface.
 
-Notes :
-- Un **mauvais mot de passe actuel** fait échouer le workflow **sans rien
-  modifier** — seul un détenteur du mot de passe en cours peut le changer.
-- Les mots de passe ne sont ni stockés ni affichés dans les journaux.
-- En local, la même rotation se fait avec :
-  `ANCIEN_MDP=... NOUVEAU_MDP=... node outils/rotation-mdp.cjs` puis commit/push.
-- **Mot de passe actuel oublié ?** Le contenu n'est pas récupérable depuis le
-  dépôt (c'est le but du chiffrement). Il faut alors régénérer la page depuis
-  le document source (voir `build_doc_protegee.py` du dossier de livraison)
-  et remplacer `documentation/index.html`.
+Désormais le mot de passe n'ouvre que le compte ; le contenu, lui, ne dépend
+plus de lui. Le perdre ne fait plus rien perdre.
+
+### Mot de passe oublié
+
+Bouton **« Mot de passe oublié ? »** sur la page : un code à 6 chiffres part
+vers l'adresse du compte, à saisir sur place avec le nouveau mot de passe.
+Aucun lien, aucune redirection — donc rien qui dépende de la configuration
+d'une autre application.
+
+Deux fonctions Postgres portent ce parcours (migrations `documentation_agenia_*`
+du projet Supabase) :
+
+| Fonction | Rôle |
+|---|---|
+| `documentation_demander_code()` | Tire un code aléatoire, n'en conserve que l'empreinte SHA-256, et l'envoie par email. **N'accepte aucune adresse en paramètre** : la destination est fixée côté serveur, un appelant ne peut donc pas détourner le code vers la sienne |
+| `documentation_reinitialiser(code, mdp)` | Vérifie le code, puis pose le nouveau mot de passe (bcrypt, coût 10) |
+
+Garde-fous : un envoi par minute, code valable 15 minutes, usage unique, cinq
+tentatives au plus — la tentative est décomptée **avant** la vérification, sans
+quoi un code faux ne coûterait rien et la recherche exhaustive redeviendrait
+possible.
+
+### Mettre le contenu à jour
+
+Une écriture dans `documentation_contenu.html` suffit. Il n'y a plus rien à
+chiffrer, à recompiler ni à redéployer : la page lit la base à chaque ouverture.
 
 ## Domaine personnalisé (optionnel)
 
