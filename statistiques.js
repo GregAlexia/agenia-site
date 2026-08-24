@@ -71,8 +71,14 @@
   // (voir ce fichier) : la réinitialisation d'agenia.pro reste entièrement
   // indépendante de l'application Duopilot (margeo.vercel.app), même si les
   // deux comptes vivent dans le même projet Supabase.
+  //
+  // Adresse FIXE (pas location.origin) : le site répond à la fois sur
+  // agenia.pro et www.agenia.pro, et Supabase n'autorise que les adresses
+  // de redirection explicitement déclarées (Authentication > URL
+  // Configuration > Redirect URLs) — une seule adresse fixe, toujours la
+  // même, évite un décalage selon le domaine d'où l'on clique.
   function demanderReinitialisation() {
-    var redirection = location.origin + "/reinitialiser-mot-de-passe.html";
+    var redirection = "https://www.agenia.pro/reinitialiser-mot-de-passe.html";
     return fetch(
       SUPABASE_URL + "/auth/v1/recover?redirect_to=" + encodeURIComponent(redirection),
       {
