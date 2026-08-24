@@ -96,10 +96,23 @@ tentatives au plus — la tentative est décomptée **avant** la vérification, 
 quoi un code faux ne coûterait rien et la recherche exhaustive redeviendrait
 possible.
 
+### Ce que contient la page
+
+Le **guide consolidé ZénithIA** — la synthèse des échanges de la communauté,
+190 Ko de HTML, 29 chapitres, 49 tableaux et 214 ancres.
+
+Il est rangé **compressé** : gzip puis base64. C'est 76 Ko au lieu de 190 sur le
+réseau, et la colonne reste du texte, donc transportable par n'importe quel
+outil SQL. `documentation.js` reconnaît le format à la lecture plutôt qu'à un
+drapeau en base : un contenu qui commence par `<` est du HTML tel quel, tout
+autre est décodé puis décompressé par `DecompressionStream("gzip")`.
+
 ### Mettre le contenu à jour
 
 Une écriture dans `documentation_contenu.html` suffit. Il n'y a plus rien à
 chiffrer, à recompiler ni à redéployer : la page lit la base à chaque ouverture.
+Y écrire du HTML en clair fonctionne aussi — c'est le sens de la détection
+ci-dessus.
 
 ## Domaine personnalisé (optionnel)
 
