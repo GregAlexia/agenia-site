@@ -24,7 +24,6 @@
   var msg = document.getElementById("msg");
   var bouton = document.getElementById("valider");
   var champMdp = document.getElementById("mdp");
-  var lienOubli = document.getElementById("lienOubli");
   var deconnexion = document.getElementById("deconnexion");
 
   var LIBELLES_SOURCE = {
@@ -63,21 +62,6 @@
     }).then(function (res) {
       return res.json().then(function (json) { return { ok: res.ok, json: json }; });
     });
-  }
-
-  // Déclenche l'email de réinitialisation Supabase — le lien renvoie vers le
-  // même écran que "mot de passe oublié" sur margeo.vercel.app/login, seul
-  // endroit qui sait poser un nouveau mot de passe (pas de duplication ici).
-  function demanderReinitialisation() {
-    var redirection = DUOPILOT + "/auth/callback?next=/reset-password";
-    return fetch(
-      SUPABASE_URL + "/auth/v1/recover?redirect_to=" + encodeURIComponent(redirection),
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json", apikey: SUPABASE_ANON_KEY },
-        body: JSON.stringify({ email: COMPTE_EMAIL }),
-      }
-    );
   }
 
   function chargerStats(jeton) {
@@ -207,20 +191,6 @@
   champMdp.addEventListener("keydown", function (e) {
     if (e.key === "Enter") bouton.click();
   });
-
-  if (lienOubli) {
-    lienOubli.addEventListener("click", function (e) {
-      e.preventDefault();
-      setMsg("Envoi en cours…", false);
-      demanderReinitialisation()
-        .then(function () {
-          setMsg("Si le compte existe, un lien de réinitialisation vient d'être envoyé à l'adresse associée.", false);
-        })
-        .catch(function () {
-          setMsg("Problème de connexion. Réessayez.", true);
-        });
-    });
-  }
 
   if (deconnexion) {
     deconnexion.addEventListener("click", function () {
