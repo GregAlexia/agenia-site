@@ -66,11 +66,13 @@
   }
 
   // Déclenche l'email de réinitialisation Supabase pour le seul compte
-  // autorisé — sans quitter cette page ni en ouvrir une autre (le lien
-  // reçu par email, lui, ouvre margeo.vercel.app pour poser le nouveau
-  // mot de passe : c'est inévitable, la base des comptes est là-bas).
+  // autorisé — sans quitter cette page ni en ouvrir une autre. Le lien reçu
+  // par email pointe vers reinitialiser-mot-de-passe.html, SUR CE MÊME site
+  // (voir ce fichier) : la réinitialisation d'agenia.pro reste entièrement
+  // indépendante de l'application Duopilot (margeo.vercel.app), même si les
+  // deux comptes vivent dans le même projet Supabase.
   function demanderReinitialisation() {
-    var redirection = DUOPILOT + "/auth/callback?next=/reset-password";
+    var redirection = location.origin + "/reinitialiser-mot-de-passe.html";
     return fetch(
       SUPABASE_URL + "/auth/v1/recover?redirect_to=" + encodeURIComponent(redirection),
       {
