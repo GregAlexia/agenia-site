@@ -13,11 +13,12 @@
 
   var LIBELLES_SOURCE = {
     contact: "Formulaire de contact",
+    demo_duopilot: "Duopilot",
     demo_keo: "Démo Keo",
     demo_outils: "Outils Duopilot",
     ressources: "Guides (ressources)",
   };
-  var ORDRE_SOURCES = ["contact", "demo_keo", "demo_outils", "ressources"];
+  var ORDRE_SOURCES = ["contact", "demo_duopilot", "demo_keo", "demo_outils", "ressources"];
 
   function echapper(s) {
     var d = document.createElement("div");

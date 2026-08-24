@@ -8,13 +8,13 @@ automatiquement sur **GitHub Pages** à chaque push sur `main`.
 
 ## Structure
 
-**Pages publiques** — huit, toutes autonomes, toutes avec le même en-tête et le
+**Pages publiques** — neuf, toutes autonomes, toutes avec le même en-tête et le
 même pied de page :
 
 | Fichier | Rôle |
 |---------|------|
 | `index.html` | Page de vente principale, à ancres (`#services`, `#methode`, `#resultats`, `#secteurs`, `#produit`, `#faq`, `#contact`) |
-| `demo-keo.html` · `essai-outils.html` | Démonstrations, contenu déverrouillé contre coordonnées |
+| `demo-duopilot.html` · `demo-keo.html` · `essai-outils.html` | Les trois produits : contenu déverrouillé contre coordonnées, avant d'ouvrir l'application |
 | `ressources/index.html` + 3 articles | Guides, même déverrouillage |
 | `mentions-legales.html` | Mentions et confidentialité (ancre `#confidentialite`) |
 
@@ -33,14 +33,14 @@ même pied de page :
 |---------|------|
 | `styles.css` | Design du site public (thème sombre, dégradés, responsive, animations) |
 | `script.js` | Menu mobile, apparition au scroll, formulaire — **et la mesure d'audience** |
-| `ressources/gate.js` | Le déverrouillage contre coordonnées, commun aux six pages qui en ont un |
+| `ressources/gate.js` | Le déverrouillage contre coordonnées, commun aux sept pages qui en ont un |
 | `.github/workflows/deploy-pages.yml` | Déploiement automatique sur GitHub Pages |
 | `REFERENCEMENT.md` | Ce qui est en place pour le SEO (sitemap, canonical, données structurées) et la procédure Search Console |
 
 Le site n'a **ni build ni dépendance** : ce qui est dans le dépôt est
 exactement ce qui est servi. Un fichier modifié est en ligne en une à deux
 minutes, sans étape intermédiaire — c'est la contrepartie de devoir répéter
-l'en-tête et le pied de page dans huit fichiers.
+l'en-tête et le pied de page dans neuf fichiers.
 
 ## Modifier le site depuis n'importe quel PC
 
@@ -77,10 +77,10 @@ ailleurs.
 
 `script.js` écrit **directement dans Supabase** : une ligne par page vue
 (`site_agenia_vues`), une ligne par formulaire abouti (`site_agenia_prospects`,
-avec l'origine : contact, démo Keo, démo outils, ressources). Les résultats se
-lisent sur `documentation/statistiques.html`.
+avec l'origine : contact, Duopilot, démo Keo, outils, ressources). Les résultats
+se lisent sur `documentation/statistiques.html`.
 
-Trois propriétés qui ne sont pas des détails :
+Quatre propriétés qui ne sont pas des détails :
 
 - **Écriture seule.** Les policies n'autorisent que l'insertion. Ces tables sont
   illisibles depuis le navigateur, y compris avec la clé publique du dépôt ; la
@@ -95,6 +95,12 @@ Trois propriétés qui ne sont pas des détails :
   n'était jamais émis. Aucune alerte — une mesure silencieusement morte est pire
   que pas de mesure, puisqu'on la croit vraie. Écrire en direct a supprimé la
   panne **et sa cause** : les deux produits ne se conditionnent plus.
+- **La liste des origines est fermée**, côté base. Ajouter une page à portail
+  demande donc trois gestes solidaires : la source dans `ressources/gate.js`, le
+  libellé dans `documentation/statistiques.js`, et **une migration** qui étend la
+  contrainte de la policy d'insertion. Sans le troisième, la ligne est rejetée et
+  le prospect perdu sans erreur visible — l'écriture étant volontairement non
+  bloquante.
 
 ## Documentation interne (/documentation)
 

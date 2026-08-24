@@ -33,15 +33,16 @@ est derrière AgenIA.
 
 ---
 
-## Le piège de fond : huit fichiers, un seul en-tête
+## Le piège de fond : neuf fichiers, un seul en-tête
 
 Il n'y a pas de gabarit. L'en-tête, la navigation, le menu mobile et le pied de
-page sont **répétés dans les huit pages publiques** :
+page sont **répétés dans les neuf pages publiques** :
 
 ```
-index.html · demo-keo.html · essai-outils.html · mentions-legales.html
-ressources/index.html · ressources/20-taches-a-automatiser.html
-ressources/auditer-process-pme.html · ressources/calculer-roi-automatisation.html
+index.html · demo-duopilot.html · demo-keo.html · essai-outils.html
+mentions-legales.html · ressources/index.html
+ressources/20-taches-a-automatiser.html · ressources/auditer-process-pme.html
+ressources/calculer-roi-automatisation.html
 ```
 
 Toucher à la navigation sans les traiter toutes laisse un site incohérent, sans
