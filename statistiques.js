@@ -24,6 +24,7 @@
   var msg = document.getElementById("msg");
   var bouton = document.getElementById("valider");
   var champMdp = document.getElementById("mdp");
+  var boutonOubli = document.getElementById("boutonOubli");
   var deconnexion = document.getElementById("deconnexion");
 
   var LIBELLES_SOURCE = {
@@ -62,6 +63,22 @@
     }).then(function (res) {
       return res.json().then(function (json) { return { ok: res.ok, json: json }; });
     });
+  }
+
+  // Déclenche l'email de réinitialisation Supabase pour le seul compte
+  // autorisé — sans quitter cette page ni en ouvrir une autre (le lien
+  // reçu par email, lui, ouvre margeo.vercel.app pour poser le nouveau
+  // mot de passe : c'est inévitable, la base des comptes est là-bas).
+  function demanderReinitialisation() {
+    var redirection = DUOPILOT + "/auth/callback?next=/reset-password";
+    return fetch(
+      SUPABASE_URL + "/auth/v1/recover?redirect_to=" + encodeURIComponent(redirection),
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json", apikey: SUPABASE_ANON_KEY },
+        body: JSON.stringify({ email: COMPTE_EMAIL }),
+      }
+    );
   }
 
   function chargerStats(jeton) {
@@ -191,6 +208,23 @@
   champMdp.addEventListener("keydown", function (e) {
     if (e.key === "Enter") bouton.click();
   });
+
+  if (boutonOubli) {
+    boutonOubli.addEventListener("click", function () {
+      boutonOubli.disabled = true;
+      setMsg("Envoi en cours…", false);
+      demanderReinitialisation()
+        .then(function () {
+          setMsg("Un email de réinitialisation vient d'être envoyé à contact@agenia.pro.", false);
+        })
+        .catch(function () {
+          setMsg("Problème de connexion. Réessayez.", true);
+        })
+        .then(function () {
+          boutonOubli.disabled = false;
+        });
+    });
+  }
 
   if (deconnexion) {
     deconnexion.addEventListener("click", function () {
