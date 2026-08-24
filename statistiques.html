@@ -44,6 +44,9 @@
     button:hover { background: #9d4726; }
     button:disabled { opacity: .55; cursor: default; }
     #valider { width: 100%; margin-top: 18px; }
+    #oubli { margin: 12px 0 0; text-align: center; font-size: 13px; }
+    #oubli a { color: var(--mu); text-decoration: none; }
+    #oubli a:hover { color: var(--ac); text-decoration: underline; }
     #msg { margin-top: 14px; font-size: 13.5px; color: var(--mu); min-height: 19px; }
 
     /* ---- Contenu (après connexion) ---- */
@@ -85,15 +88,13 @@
   <div id="portail">
     <div id="carte">
       <h1>Statistiques agenia.pro</h1>
-      <p>Réservé à contact@agenia.pro.</p>
+      <p>Réservé au compte administrateur.</p>
 
-      <label for="email">Email</label>
-      <input id="email" type="email" autocomplete="username" value="contact@agenia.pro" />
-
-      <label for="mdp">Mot de passe</label>
+      <label for="mdp">Mot de passe du compte</label>
       <input id="mdp" type="password" autocomplete="current-password" />
 
       <button id="valider">Se connecter</button>
+      <p id="oubli"><a href="#" id="lienOubli">Mot de passe oublié ?</a></p>
       <div id="msg"></div>
     </div>
   </div>

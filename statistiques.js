@@ -14,14 +14,17 @@
   var SUPABASE_ANON_KEY = "sb_publishable_yYSJTuUgs-IVI3TmPiuHYA_jAzEgFfx";
   var DUOPILOT = "https://margeo.vercel.app";
   var STOCKAGE = "agenia_stats_jeton";
+  // Seul compte autorisé — jamais affiché ni modifiable depuis la page (voir
+  // aussi le garde côté serveur, estAdminSite, qui revérifie indépendamment).
+  var COMPTE_EMAIL = "contact@agenia.pro";
 
   var portail = document.getElementById("portail");
   var contenu = document.getElementById("contenu");
   var corps = document.getElementById("corps");
   var msg = document.getElementById("msg");
   var bouton = document.getElementById("valider");
-  var champEmail = document.getElementById("email");
   var champMdp = document.getElementById("mdp");
+  var lienOubli = document.getElementById("lienOubli");
   var deconnexion = document.getElementById("deconnexion");
 
   var LIBELLES_SOURCE = {
@@ -52,14 +55,29 @@
     });
   }
 
-  function connecter(email, motdepasse) {
+  function connecter(motdepasse) {
     return fetch(SUPABASE_URL + "/auth/v1/token?grant_type=password", {
       method: "POST",
       headers: { "Content-Type": "application/json", apikey: SUPABASE_ANON_KEY },
-      body: JSON.stringify({ email: email, password: motdepasse }),
+      body: JSON.stringify({ email: COMPTE_EMAIL, password: motdepasse }),
     }).then(function (res) {
       return res.json().then(function (json) { return { ok: res.ok, json: json }; });
     });
+  }
+
+  // Déclenche l'email de réinitialisation Supabase — le lien renvoie vers le
+  // même écran que "mot de passe oublié" sur margeo.vercel.app/login, seul
+  // endroit qui sait poser un nouveau mot de passe (pas de duplication ici).
+  function demanderReinitialisation() {
+    var redirection = DUOPILOT + "/auth/callback?next=/reset-password";
+    return fetch(
+      SUPABASE_URL + "/auth/v1/recover?redirect_to=" + encodeURIComponent(redirection),
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json", apikey: SUPABASE_ANON_KEY },
+        body: JSON.stringify({ email: COMPTE_EMAIL }),
+      }
+    );
   }
 
   function chargerStats(jeton) {
@@ -166,18 +184,17 @@
   }
 
   bouton.addEventListener("click", function () {
-    var email = champEmail.value.trim();
     var motdepasse = champMdp.value;
-    if (!email || !motdepasse) return;
+    if (!motdepasse) return;
     bouton.disabled = true;
     setMsg("Connexion en cours…", false);
-    connecter(email, motdepasse)
+    connecter(motdepasse)
       .then(function (r) {
         bouton.disabled = false;
         if (r.ok && r.json.access_token) {
           ouvrirSession(r.json.access_token);
         } else {
-          setMsg("Email ou mot de passe incorrect.", true);
+          setMsg("Mot de passe incorrect.", true);
           champMdp.value = "";
         }
       })
@@ -190,6 +207,20 @@
   champMdp.addEventListener("keydown", function (e) {
     if (e.key === "Enter") bouton.click();
   });
+
+  if (lienOubli) {
+    lienOubli.addEventListener("click", function (e) {
+      e.preventDefault();
+      setMsg("Envoi en cours…", false);
+      demanderReinitialisation()
+        .then(function () {
+          setMsg("Si le compte existe, un lien de réinitialisation vient d'être envoyé à l'adresse associée.", false);
+        })
+        .catch(function () {
+          setMsg("Problème de connexion. Réessayez.", true);
+        });
+    });
+  }
 
   if (deconnexion) {
     deconnexion.addEventListener("click", function () {
