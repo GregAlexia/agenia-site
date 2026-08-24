@@ -8,13 +8,39 @@ automatiquement sur **GitHub Pages** à chaque push sur `main`.
 
 ## Structure
 
+**Pages publiques** — huit, toutes autonomes, toutes avec le même en-tête et le
+même pied de page :
+
 | Fichier | Rôle |
 |---------|------|
-| `index.html` | Structure et contenu (page unique à ancres) |
-| `styles.css` | Design (thème sombre, dégradés, responsive, animations) |
-| `script.js`  | Menu mobile, apparition au scroll, formulaire |
+| `index.html` | Page de vente principale, à ancres (`#services`, `#methode`, `#resultats`, `#secteurs`, `#produit`, `#faq`, `#contact`) |
+| `demo-keo.html` · `essai-outils.html` | Démonstrations, contenu déverrouillé contre coordonnées |
+| `ressources/index.html` + 3 articles | Guides, même déverrouillage |
+| `mentions-legales.html` | Mentions et confidentialité (ancre `#confidentialite`) |
+
+**Espace interne** — `documentation/`, fermé au seul compte administrateur :
+
+| Fichier | Rôle |
+|---------|------|
+| `documentation/index.html` | Le guide ZénithIA, lu en base après connexion |
+| `documentation/statistiques.html` | Audience du site et prospects collectés |
+| `documentation/acces.js` | Connexion et réinitialisation, **partagé par les deux pages** |
+| `documentation/style.css` | Feuille propre à l'espace interne |
+
+**Communs** :
+
+| Fichier | Rôle |
+|---------|------|
+| `styles.css` | Design du site public (thème sombre, dégradés, responsive, animations) |
+| `script.js` | Menu mobile, apparition au scroll, formulaire — **et la mesure d'audience** |
+| `ressources/gate.js` | Le déverrouillage contre coordonnées, commun aux six pages qui en ont un |
 | `.github/workflows/deploy-pages.yml` | Déploiement automatique sur GitHub Pages |
 | `REFERENCEMENT.md` | Ce qui est en place pour le SEO (sitemap, canonical, données structurées) et la procédure Search Console |
+
+Le site n'a **ni build ni dépendance** : ce qui est dans le dépôt est
+exactement ce qui est servi. Un fichier modifié est en ligne en une à deux
+minutes, sans étape intermédiaire — c'est la contrepartie de devoir répéter
+l'en-tête et le pied de page dans huit fichiers.
 
 ## Modifier le site depuis n'importe quel PC
 
@@ -30,32 +56,45 @@ python3 -m http.server 8000
 # puis http://localhost:8000
 ```
 
-## À personnaliser
+## Reste à ajuster
 
-- **Email** : `contact@agenia.pro` (liens `mailto:` dans `index.html` et le pied de page)
-- **Téléphone** : `+33 6 51 74 81 33` — **valeur factice à remplacer**
-- **Formulaire** : envoie les messages par email via **Web3Forms**. À activer
-  en 1 minute (voir « Activer le formulaire de contact » ci-dessous).
-- **Mentions légales / Confidentialité** : liens dans le pied de page à compléter.
-- **Chiffres** (-70 %, x3, etc.) : illustratifs, à ajuster à votre réalité.
+- **Chiffres de la page de vente** (-70 %, ×3, etc.) : illustratifs, à remplacer
+  par des résultats réels dès qu'il y en a.
 
-## Activer le formulaire de contact (Web3Forms)
+Le formulaire, l'email et le téléphone, eux, sont en service.
 
-Le formulaire envoie les demandes par email via [Web3Forms](https://web3forms.com)
-(gratuit, sans compte, 250 messages/mois). Pour l'activer :
+## Formulaires (Web3Forms)
 
-1. Allez sur **https://web3forms.com** → saisissez l'email de réception
-   (ex. `contact@agenia.pro`) → vous recevez une **clé d'accès** (Access Key)
-   par email.
-2. Dans `index.html`, remplacez `REMPLACER_PAR_VOTRE_CLE_WEB3FORMS` par cette clé :
-   ```html
-   <input type="hidden" name="access_key" value="votre-cle-ici" />
-   ```
-3. Poussez la modif sur `main` → le site se redéploie, le formulaire est actif.
+Les formulaires envoient par email via [Web3Forms](https://web3forms.com)
+(250 messages/mois, sans compte). La clé d'accès est **publique par
+construction** : Web3Forms ne sait délivrer qu'à l'adresse propriétaire de la
+clé, `contact@agenia.pro`. Quelqu'un qui la copie ne peut donc que vous écrire.
+C'est aussi pourquoi elle sert de mailer à `documentation_demander_code()` côté
+Postgres : un code de réinitialisation ne peut structurellement pas partir
+ailleurs.
 
-> Tant que la clé n'est pas renseignée, le formulaire affiche un message
-> d'avertissement au lieu d'envoyer. Les messages arrivent ensuite directement
-> dans la boîte email indiquée à l'étape 1.
+## Mesure d'audience et prospects
+
+`script.js` écrit **directement dans Supabase** : une ligne par page vue
+(`site_agenia_vues`), une ligne par formulaire abouti (`site_agenia_prospects`,
+avec l'origine : contact, démo Keo, démo outils, ressources). Les résultats se
+lisent sur `documentation/statistiques.html`.
+
+Trois propriétés qui ne sont pas des détails :
+
+- **Écriture seule.** Les policies n'autorisent que l'insertion. Ces tables sont
+  illisibles depuis le navigateur, y compris avec la clé publique du dépôt ; la
+  lecture passe par une fonction agrégée réservée au compte administrateur.
+- **Jamais bloquant.** Une erreur réseau ne doit empêcher ni l'affichage d'une
+  page ni l'aboutissement d'un formulaire. Web3Forms reste l'envoi principal,
+  celui qui prévient par email ; la base n'est là que pour le décompte.
+- **Sans passer par une autre application.** Ces écritures transitaient d'abord
+  par des routes de Duopilot. Le 24 août 2026 on a relevé **zéro ligne
+  collectée** : la production de cette autre application était restée sur du
+  code où les routes n'existaient pas, le pré-vol CORS échouait, et le POST
+  n'était jamais émis. Aucune alerte — une mesure silencieusement morte est pire
+  que pas de mesure, puisqu'on la croit vraie. Écrire en direct a supprimé la
+  panne **et sa cause** : les deux produits ne se conditionnent plus.
 
 ## Documentation interne (/documentation)
 
