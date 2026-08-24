@@ -8,21 +8,32 @@
   document.documentElement.classList.add("js");
 
   /* ============================================================
-     Suivi côté Duopilot (margeo.vercel.app) — pages vues + prospects
-     Le site est statique (GitHub Pages, sans base de données) : les deux
-     routes ci-dessous sont celles de l'appli Duopilot, qui a le backend.
-     Jamais bloquant : une erreur réseau ne doit jamais empêcher la page de
-     s'afficher ni un formulaire d'aboutir (Web3Forms reste l'envoi principal).
+     Mesure d'audience et prospects — écriture directe dans Supabase
+     Le site est statique (GitHub Pages) : la base lui sert de dos.
+     Écriture SEULE : les policies n'autorisent que l'insertion, jamais la
+     lecture — ces tables restent donc illisibles depuis le navigateur, y
+     compris avec la clé publique ci-dessous.
+     Jamais bloquant : une erreur réseau ne doit empêcher ni l'affichage de
+     la page ni l'aboutissement d'un formulaire (Web3Forms reste l'envoi
+     principal, celui qui prévient par email).
      ============================================================ */
-  var DUOPILOT = "https://margeo.vercel.app";
+  var SUPABASE_URL = "https://quygyeesmtxgykerjtjr.supabase.co";
+  var SUPABASE_ANON_KEY = "sb_publishable_yYSJTuUgs-IVI3TmPiuHYA_jAzEgFfx";
 
-  function poster(chemin, donnees) {
+  function poster(table, donnees) {
     try {
-      fetch(DUOPILOT + chemin, {
+      fetch(SUPABASE_URL + "/rest/v1/" + table, {
         method: "POST",
         mode: "cors",
         keepalive: true,
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          apikey: SUPABASE_ANON_KEY,
+          Authorization: "Bearer " + SUPABASE_ANON_KEY,
+          // Sans quoi la base renverrait la ligne créée — inutile ici, et
+          // surtout inutilement bavard.
+          Prefer: "return=minimal",
+        },
         body: JSON.stringify(donnees),
       }).catch(function () {});
     } catch (e) {
@@ -32,7 +43,7 @@
 
   // Une vue par chargement de page — aucun cookie, aucun identifiant de
   // visiteur (voir RGPD-REGISTRE.md).
-  poster("/api/site-agenia/vues", {
+  poster("site_agenia_vues", {
     chemin: location.pathname,
     referrer: document.referrer || null,
   });
@@ -43,7 +54,7 @@
   window.AgeniaTrack = {
     prospect: function (source, form) {
       var data = new FormData(form);
-      poster("/api/site-agenia/prospects", {
+      poster("site_agenia_prospects", {
         source: source,
         nom: data.get("prenom") || data.get("name") || "",
         email: data.get("email") || "",
