@@ -7,6 +7,56 @@
   /* ---- Active le mode "JS" (le masquage des .reveal ne s'applique qu'alors) ---- */
   document.documentElement.classList.add("js");
 
+  /* ============================================================
+     Suivi côté Duopilot (margeo.vercel.app) — pages vues + prospects
+     Le site est statique (GitHub Pages, sans base de données) : les deux
+     routes ci-dessous sont celles de l'appli Duopilot, qui a le backend.
+     Jamais bloquant : une erreur réseau ne doit jamais empêcher la page de
+     s'afficher ni un formulaire d'aboutir (Web3Forms reste l'envoi principal).
+     ============================================================ */
+  var DUOPILOT = "https://margeo.vercel.app";
+
+  function poster(chemin, donnees) {
+    try {
+      fetch(DUOPILOT + chemin, {
+        method: "POST",
+        mode: "cors",
+        keepalive: true,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(donnees),
+      }).catch(function () {});
+    } catch (e) {
+      /* fetch indisponible ou bloqué : tant pis, ce n'est qu'une statistique */
+    }
+  }
+
+  // Une vue par chargement de page — aucun cookie, aucun identifiant de
+  // visiteur (voir RGPD-REGISTRE.md).
+  poster("/api/site-agenia/vues", {
+    chemin: location.pathname,
+    referrer: document.referrer || null,
+  });
+
+  // Exposé pour ressources/gate.js, qui capture les mêmes prospects que
+  // Web3Forms (démo Keo, démo outils Duopilot, ressources) mais n'a pas sa
+  // propre logique réseau.
+  window.AgeniaTrack = {
+    prospect: function (source, form) {
+      var data = new FormData(form);
+      poster("/api/site-agenia/prospects", {
+        source: source,
+        nom: data.get("prenom") || data.get("name") || "",
+        email: data.get("email") || "",
+        telephone: data.get("telephone") || "",
+        entreprise: data.get("company") || "",
+        objet: data.get("objet") || "",
+        ressource: data.get("ressource") || "",
+        message: data.get("message") || "",
+        page: location.pathname,
+      });
+    },
+  };
+
   /* ---- Année dynamique dans le footer ---- */
   var yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
@@ -138,6 +188,7 @@
         })
         .then(function (r) {
           if (r.ok && r.json.success) {
+            window.AgeniaTrack.prospect("contact", form);
             form.reset();
             setNote(
               "Merci ! Votre demande a bien été envoyée. Nous revenons vers vous sous 24 h.",

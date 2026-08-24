@@ -16,6 +16,14 @@
   var slug = location.pathname.split("/").pop();
   var cleStockage = "agenia_ressource_" + slug;
 
+  // Ce même script gate demo-keo.html, essai-outils.html et les articles de
+  // ressources/ : la source se déduit du chemin plutôt que d'un champ répété
+  // dans chaque page.
+  var source =
+    location.pathname.indexOf("demo-keo.html") !== -1 ? "demo_keo" :
+    location.pathname.indexOf("essai-outils.html") !== -1 ? "demo_outils" :
+    "ressources";
+
   var debloquer = function () {
     portail.hidden = true;
     contenu.hidden = false;
@@ -66,6 +74,7 @@
       })
       .then(function (r) {
         if (r.ok && r.json.success) {
+          if (window.AgeniaTrack) window.AgeniaTrack.prospect(source, form);
           try {
             localStorage.setItem(cleStockage, "ok");
           } catch (e) {
