@@ -13,12 +13,12 @@
 
   var LIBELLES_SOURCE = {
     contact: "Formulaire de contact",
-    demo_duopilot: "Duopilot",
+    demo_margeo: "Margeo",
     demo_keo: "Démo Keo",
-    demo_outils: "Outils Duopilot",
+    demo_outils: "Outils Margeo",
     ressources: "Guides (ressources)",
   };
-  var ORDRE_SOURCES = ["contact", "demo_duopilot", "demo_keo", "demo_outils", "ressources"];
+  var ORDRE_SOURCES = ["contact", "demo_margeo", "demo_keo", "demo_outils", "ressources"];
 
   function echapper(s) {
     var d = document.createElement("div");
@@ -84,7 +84,7 @@
     stats.innerHTML =
       '<h1 class="titre">Statistiques du site</h1>' +
       '<p class="sousTitre">Fréquentation d’agenia.pro et visiteurs ayant laissé leur email ' +
-      "pour ouvrir un document — guides, démo Keo, outils Duopilot ou formulaire de contact.</p>" +
+      "pour ouvrir un document — guides, démo Keo, outils Margeo ou formulaire de contact.</p>" +
 
       '<div class="tuiles">' +
         tuile(d.totalProspects, "Emails recueillis (total)") +

@@ -39,7 +39,7 @@ Il n'y a pas de gabarit. L'en-tête, la navigation, le menu mobile et le pied de
 page sont **répétés dans les neuf pages publiques** :
 
 ```
-index.html · demo-duopilot.html · demo-keo.html · essai-outils.html
+index.html · demo-margeo.html · demo-keo.html · essai-outils.html
 mentions-legales.html · ressources/index.html
 ressources/20-taches-a-automatiser.html · ressources/auditer-process-pme.html
 ressources/calculer-roi-automatisation.html
@@ -81,9 +81,9 @@ Deux pages, un seul module d'accès (`acces.js`) : le guide et les statistiques.
   confidentielle. Ne pas la réintroduire, même dans un message d'aide.
 - **La réinitialisation passe par un code à 6 chiffres, jamais par un lien.**
   Ce point a coûté plusieurs allers-retours : un lien de récupération Supabase
-  ouvre l'URL de l'application *Duopilot*, parce qu'une adresse de redirection
+  ouvre l'URL de l'application *Margeo*, parce qu'une adresse de redirection
   absente de la liste blanche du projet est **ignorée en silence** au profit de
-  la Site URL. Le code supprime la dépendance entière. **agenia.pro et Duopilot
+  la Site URL. Le code supprime la dépendance entière. **agenia.pro et Margeo
   sont deux applications à gérer indépendamment** — ne jamais réintroduire de
   lien de l'une vers l'authentification de l'autre.
 

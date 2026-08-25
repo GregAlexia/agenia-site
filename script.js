@@ -49,7 +49,7 @@
   });
 
   // Exposé pour ressources/gate.js, qui capture les mêmes prospects que
-  // Web3Forms (démo Keo, démo outils Duopilot, ressources) mais n'a pas sa
+  // Web3Forms (démo Keo, démo outils Margeo, ressources) mais n'a pas sa
   // propre logique réseau.
   window.AgeniaTrack = {
     prospect: function (source, form) {
@@ -179,7 +179,7 @@
       setNote("");
 
       // Le sujet de l'email reprend l'objet choisi : les leads se trient
-      // d'un coup d'œil dans la boîte de réception (Audit / Duopilot / Keo…).
+      // d'un coup d'œil dans la boîte de réception (Audit / Margeo / Keo…).
       var sujet = form.querySelector('input[name="subject"]');
       if (sujet && objetSelect && objetSelect.value) {
         sujet.value = "Demande " + objetSelect.value + " — agenia.pro";

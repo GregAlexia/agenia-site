@@ -14,7 +14,7 @@ même pied de page :
 | Fichier | Rôle |
 |---------|------|
 | `index.html` | Page de vente principale, à ancres (`#services`, `#methode`, `#resultats`, `#secteurs`, `#produit`, `#faq`, `#contact`) |
-| `demo-duopilot.html` · `demo-keo.html` · `essai-outils.html` | Les trois produits : contenu déverrouillé contre coordonnées, avant d'ouvrir l'application |
+| `demo-margeo.html` · `demo-keo.html` · `essai-outils.html` | Les trois produits : contenu déverrouillé contre coordonnées, avant d'ouvrir l'application |
 | `ressources/index.html` + 3 articles | Guides, même déverrouillage |
 | `mentions-legales.html` | Mentions et confidentialité (ancre `#confidentialite`) |
 
@@ -77,7 +77,7 @@ ailleurs.
 
 `script.js` écrit **directement dans Supabase** : une ligne par page vue
 (`site_agenia_vues`), une ligne par formulaire abouti (`site_agenia_prospects`,
-avec l'origine : contact, Duopilot, démo Keo, outils, ressources). Les résultats
+avec l'origine : contact, Margeo, démo Keo, outils, ressources). Les résultats
 se lisent sur `documentation/statistiques.html`.
 
 Quatre propriétés qui ne sont pas des détails :
@@ -89,7 +89,7 @@ Quatre propriétés qui ne sont pas des détails :
   page ni l'aboutissement d'un formulaire. Web3Forms reste l'envoi principal,
   celui qui prévient par email ; la base n'est là que pour le décompte.
 - **Sans passer par une autre application.** Ces écritures transitaient d'abord
-  par des routes de Duopilot. Le 24 août 2026 on a relevé **zéro ligne
+  par des routes de Margeo. Le 24 août 2026 on a relevé **zéro ligne
   collectée** : la production de cette autre application était restée sur du
   code où les routes n'existaient pas, le pré-vol CORS échouait, et le POST
   n'était jamais émis. Aucune alerte — une mesure silencieusement morte est pire
