@@ -71,7 +71,9 @@ Chaque page porte sa CSP en `<meta http-equiv>`. Deux conséquences :
 
 ## Espace interne (`documentation/`)
 
-Deux pages, un seul module d'accès (`acces.js`) : le guide et les statistiques.
+Trois pages, un seul module d'accès (`acces.js`) : le guide, les statistiques et
+l'audit. **Un onglet ajouté doit l'être dans les trois** — c'est le même piège
+que l'en-tête des pages publiques, en plus petit.
 
 - **Un seul compte y entre.** Une politique RLS Supabase n'ouvre le contenu
   qu'à l'adresse administrateur, et la fonction de statistiques refuse tout
@@ -130,6 +132,12 @@ doit reprendre son cas `[hidden]`**.
 
 Autre piège de test : rejouer la même page en ne changeant que le `#fragment`
 ne réexécute pas le script. Ouvrir une page neuve par scénario.
+
+**`documentation/audit.html` contrôle le site en continu** — cohérence des menus,
+liens morts, CSP, sitemap, intégrité des portails, vivacité de la collecte.
+L'ouvrir après une modification structurelle coûte dix secondes et remplace une
+relecture. Et un audit vert doit rester capable de virer au rouge : le vérifier
+en injectant une faute, puis en la retirant.
 
 ---
 

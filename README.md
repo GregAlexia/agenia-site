@@ -24,7 +24,8 @@ même pied de page :
 |---------|------|
 | `documentation/index.html` | Le guide ZénithIA, lu en base après connexion |
 | `documentation/statistiques.html` | Audience du site et prospects collectés |
-| `documentation/acces.js` | Connexion et réinitialisation, **partagé par les deux pages** |
+| `documentation/audit.html` | Audit technique et fonctionnel, **exécuté à chaque ouverture** |
+| `documentation/acces.js` | Connexion et réinitialisation, **partagé par les trois pages** |
 | `documentation/style.css` | Feuille propre à l'espace interne |
 
 **Communs** :
@@ -101,6 +102,29 @@ Quatre propriétés qui ne sont pas des détails :
   contrainte de la policy d'insertion. Sans le troisième, la ligne est rejetée et
   le prospect perdu sans erreur visible — l'écriture étant volontairement non
   bloquante.
+
+## Audit du site (/documentation/audit.html)
+
+Un audit qui **s'exécute** plutôt qu'un rapport qui se rédige. Il relit les pages
+réellement servies et rend son verdict à chaque ouverture ; un rapport écrit
+serait juste le jour de sa rédaction, puis faux sans prévenir — et il rassurerait
+d'autant plus.
+
+Il **explore** au lieu de lister : il part de l'accueil et suit les liens. Une
+liste de pages inscrite dans le code oublierait une page nouvelle exactement
+comme l'en-tête l'oublie — le défaut qu'il est censé attraper. Ce qu'il contrôle
+est donc ce que le site expose.
+
+Ce qu'il vérifie : cohérence des deux menus page à page, titres et
+méta-descriptions, canoniques, viewport, CSP (dont la présence des hôtes
+réellement contactés), liens internes morts, sitemap contre pages indexables,
+textes alternatifs, intégrité des portails (formulaire, clé Web3Forms, case de
+consentement, contenu bien masqué à l'arrivée), et enfin **la chaîne de collecte
+vue depuis la base** — c'est le seul contrôle qui distingue une mesure vivante
+d'une mesure morte.
+
+Ce qu'il ne voit pas est écrit en bas de la page, et cela n'est pas décoratif :
+un audit qui tait ses angles morts est plus dangereux qu'un audit absent.
 
 ## Documentation interne (/documentation)
 
