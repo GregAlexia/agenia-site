@@ -106,3 +106,16 @@ font-weight:600;white-space:nowrap}
 table.donnees code{font-size:12.5px;color:var(--mu);word-break:break-all}
 ul.note{padding-left:20px;margin-top:0}
 ul.note li{margin-bottom:6px}
+
+/* ---- Barre d'outils du tableau des visiteurs ---- */
+.outils{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 12px}
+.outils button{background:#fff;color:var(--tx);border:1px solid var(--ln);border-radius:8px;
+padding:7px 13px;font-size:13px;cursor:pointer}
+.outils button:hover:not(:disabled){background:var(--sb)}
+.outils button:disabled{opacity:.45;cursor:default}
+/* La suppression est définitive : son bouton ne doit pas ressembler aux autres. */
+.outils button.danger{color:#a8342a;border-color:#e6c9c4}
+.outils button.danger:hover:not(:disabled){background:#fbe9e6}
+.outils .compte{font-size:13px;color:var(--mu)}
+table.donnees th.coche,table.donnees td.coche{width:34px;padding-right:0}
+table.donnees input[type=checkbox]{width:16px;height:16px;cursor:pointer;accent-color:var(--ac)}

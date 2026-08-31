@@ -24,7 +24,7 @@ même pied de page :
 | Fichier | Rôle |
 |---------|------|
 | `documentation/index.html` | Le guide ZénithIA, lu en base après connexion |
-| `documentation/statistiques.html` | Audience du site et prospects collectés |
+| `documentation/statistiques.html` | Audience du site, prospects collectés, export tableur et suppression |
 | `documentation/audit.html` | Audit technique et fonctionnel, **exécuté à chaque ouverture** |
 | `documentation/acces.js` | Connexion et réinitialisation, **partagé par les trois pages** |
 | `documentation/style.css` | Feuille propre à l'espace interne |
@@ -140,6 +140,32 @@ Quatre propriétés qui ne sont pas des détails :
   contrainte de la policy d'insertion. Sans le troisième, la ligne est rejetée et
   le prospect perdu sans erreur visible — l'écriture étant volontairement non
   bloquante.
+
+## Exporter et supprimer des prospects
+
+L'écran des statistiques permet de cocher des visiteurs, de les **exporter** et
+de les **supprimer**. Deux décisions valent d'être connues.
+
+**L'export produit un CSV, pas un `.xlsx`.** Un vrai classeur Excel est un ZIP de
+fichiers XML, qu'on ne fabrique pas sans bibliothèque — et la CSP du site
+n'autorise aucun script externe. Le CSV est donc calibré pour Excel français :
+BOM UTF-8 (sans lui, Excel lit en ANSI et massacre les accents) et
+point-virgule comme séparateur. Il s'ouvre par double-clic. Les retours à la
+ligne d'un message sont aplatis, les guillemets doublés.
+
+Sans sélection, l'export prend tout : c'est le geste attendu quand on clique
+« exporter » sans avoir rien coché.
+
+**La suppression passe par une fonction, pas par une policy DELETE.** La table
+n'a volontairement aucune policy de lecture ; ouvrir une porte d'écriture en
+créerait une seconde à surveiller. `site_agenia_supprimer_prospects(uuid[])` est
+gardée comme la fonction de statistiques — hors du compte administrateur, elle
+lève `42501` — et **un tableau vide ne supprime rien**, sans quoi un appel
+malformé viderait la table en silence. Après suppression l'écran se recharge :
+retirer les lignes à la main laisserait les totaux faux sans que rien ne le dise.
+
+Côté RGPD, c'est ce qui rend l'effacement praticable : une demande de suppression
+se traite en deux clics, là où il fallait auparavant intervenir en base.
 
 ## Audit du site (/documentation/audit.html)
 
