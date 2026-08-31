@@ -76,10 +76,29 @@ Deux règles tenues dans les cartes :
   ouverte à la main, parce que la seule application de prospection en ligne
   aujourd'hui s'annonce « outil interne », sans marque ni contrôle d'accès.
 
+## Le prix
+
+Un « à partir de » par produit, plutôt que rien : c'est la première question du
+visiteur d'un SaaS, et beaucoup repartent sans la poser. Il situe le budget tout
+en laissant la main sur le devis, et écarte d'emblée ceux qui n'ont pas le
+budget — ce qui fait gagner du temps des deux côtés.
+
+**Margeo : 149 € HT/mois, 14 jours d'essai.** Ce chiffre n'est pas décoratif, il
+vient de la page tarifs de l'application elle-même (`Landing.tsx`, offre Solo ;
+Multi à 249 €). **S'il change là-bas, il doit changer ici** — deux prix
+différents pour le même produit se paient au premier prospect qui les compare.
+
+Prospeo, Keo et Planeo n'affichent pas encore de prix : ils n'en ont pas de
+public. Ne pas en inventer.
+
 ## Reste à ajuster
 
-- **Chiffres de la page de vente** (-70 %, ×3, etc.) : illustratifs, à remplacer
-  par des résultats réels dès qu'il y en a.
+- **Chiffres de la page de vente** (-70 %, ×3, < 6 sem.) : ce sont des **ordres
+  de grandeur**, et la page le dit désormais explicitement, deux fois. À
+  remplacer par des résultats réels dès qu'il y en a — un chiffre sourcé vaut
+  trois chiffres ronds, et un chiffre non étayé sur une page de vente est une
+  pratique commerciale trompeuse au sens du code de la consommation.
+- **Prix de Prospeo, Keo et Planeo**, quand ils seront arrêtés.
 
 Le formulaire, l'email et le téléphone, eux, sont en service.
 

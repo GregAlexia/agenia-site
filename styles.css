@@ -416,3 +416,14 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.12; margin: 0; le
 .card__tag{display:inline-block;vertical-align:middle;margin-left:8px;padding:2px 9px;
 border:1px solid currentColor;border-radius:999px;font-size:11px;font-weight:600;
 letter-spacing:.02em;opacity:.65;text-transform:uppercase;white-space:nowrap}
+
+/* Mention qui qualifie les chiffres de la page. Ils sont des ordres de grandeur,
+   pas des mesures : le dire coûte un peu de force de frappe et évite au visiteur
+   de se sentir trompé — ce qu'un chiffre rond non étayé produit tôt ou tard. */
+.hero__note{max-width:640px;margin:18px auto 0;font-size:13px;line-height:1.6;opacity:.62}
+.stat__avertissement{grid-column:1/-1;margin:4px 0 0;font-size:12.5px;line-height:1.6;opacity:.62}
+
+/* Le prix, sur la carte produit : c'est la première question du visiteur, et
+   beaucoup repartent plutôt que de la poser. */
+.card__prix{margin:16px 0 0;font-size:13.5px;opacity:.78}
+.card__prix b{font-size:15px;opacity:1}
