@@ -14,11 +14,12 @@
   var LIBELLES_SOURCE = {
     contact: "Formulaire de contact",
     demo_margeo: "Margeo",
+    demo_prospeo: "Prospeo",
     demo_keo: "Démo Keo",
     demo_outils: "Outils Margeo",
     ressources: "Guides (ressources)",
   };
-  var ORDRE_SOURCES = ["contact", "demo_margeo", "demo_keo", "demo_outils", "ressources"];
+  var ORDRE_SOURCES = ["contact", "demo_margeo", "demo_prospeo", "demo_keo", "demo_outils", "ressources"];
 
   function echapper(s) {
     var d = document.createElement("div");

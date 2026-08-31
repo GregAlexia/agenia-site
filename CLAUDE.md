@@ -33,14 +33,14 @@ est derrière AgenIA.
 
 ---
 
-## Le piège de fond : neuf fichiers, un seul en-tête
+## Le piège de fond : dix fichiers, un seul en-tête
 
 Il n'y a pas de gabarit. L'en-tête, la navigation, le menu mobile et le pied de
-page sont **répétés dans les neuf pages publiques** :
+page sont **répétés dans les dix pages publiques** :
 
 ```
-index.html · demo-margeo.html · demo-keo.html · essai-outils.html
-mentions-legales.html · ressources/index.html
+index.html · demo-margeo.html · demo-prospeo.html · demo-keo.html
+essai-outils.html · mentions-legales.html · ressources/index.html
 ressources/20-taches-a-automatiser.html · ressources/auditer-process-pme.html
 ressources/calculer-roi-automatisation.html
 ```
@@ -52,6 +52,23 @@ navigation, compter les occurrences** — et attention aux chemins : les pages d
 
 C'est le prix assumé de l'absence de build : ce qui est dans le dépôt est
 exactement ce qui est servi.
+
+---
+
+## La gamme : quatre logiciels, et ce qu'on promet de chacun
+
+**Margeo** (marges, restauration) · **Prospeo** (prospection) · **Keo** (agence
+immobilière) · **Planeo** (visualisation 3D de plans). Sans accent : c'est ce
+que portent les URL, et c'est ce qui se dicte au téléphone.
+
+Un produit n'a de page à portail **que s'il ouvre vraiment**. Planeo n'en a pas :
+il est annoncé « bientôt », avec un simple « être prévenu ». Annoncer une démo
+qui n'existe pas coûte un prospect déçu, et une seule fois suffit à le perdre.
+
+Prospeo ne renvoie vers aucune application : la seule qui existe aujourd'hui
+s'annonce **outil interne**, sans marque ni contrôle d'accès. Sa page recueille
+donc une demande d'accès, ouverte à la main. Le jour où une version publique
+existe, c'est un `href` à changer — pas avant.
 
 ---
 
