@@ -25,6 +25,7 @@
     location.pathname.indexOf("demo-margeo.html") !== -1 ? "demo_margeo" :
     location.pathname.indexOf("demo-prospeo.html") !== -1 ? "demo_prospeo" :
     location.pathname.indexOf("demo-keo.html") !== -1 ? "demo_keo" :
+    location.pathname.indexOf("demo-planeo.html") !== -1 ? "demo_planeo" :
     location.pathname.indexOf("essai-outils.html") !== -1 ? "demo_outils" :
     "ressources";
 

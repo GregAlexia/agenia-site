@@ -16,10 +16,11 @@
     demo_margeo: "Margeo",
     demo_prospeo: "Prospeo",
     demo_keo: "Démo Keo",
+    demo_planeo: "Démo Planeo",
     demo_outils: "Outils Margeo",
     ressources: "Guides (ressources)",
   };
-  var ORDRE_SOURCES = ["contact", "demo_margeo", "demo_prospeo", "demo_keo", "demo_outils", "ressources"];
+  var ORDRE_SOURCES = ["contact", "demo_margeo", "demo_prospeo", "demo_keo", "demo_planeo", "demo_outils", "ressources"];
 
   function echapper(s) {
     var d = document.createElement("div");
@@ -85,7 +86,7 @@
     stats.innerHTML =
       '<h1 class="titre">Statistiques du site</h1>' +
       '<p class="sousTitre">Fréquentation d’agenia.pro et visiteurs ayant laissé leur email ' +
-      "pour ouvrir un document — guides, démo Keo, outils Margeo ou formulaire de contact.</p>" +
+      "pour ouvrir un document — guides, démos produit, outils gratuits ou formulaire de contact.</p>" +
 
       '<div class="tuiles">' +
         tuile(d.totalProspects, "Emails recueillis (total)") +

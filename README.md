@@ -9,13 +9,13 @@ automatiquement sur **GitHub Pages** à chaque push sur `main`.
 
 ## Structure
 
-**Pages publiques** — dix, toutes autonomes, toutes avec le même en-tête et le
+**Pages publiques** — onze, toutes autonomes, toutes avec le même en-tête et le
 même pied de page :
 
 | Fichier | Rôle |
 |---------|------|
 | `index.html` | Page de vente principale, à ancres (`#services`, `#methode`, `#resultats`, `#secteurs`, `#produit`, `#faq`, `#contact`) |
-| `demo-margeo.html` · `demo-prospeo.html` · `demo-keo.html` · `essai-outils.html` | Les produits ouverts : contenu déverrouillé contre coordonnées. **Planeo n'en a pas** — il n'ouvre pas encore |
+| `demo-margeo.html` · `demo-prospeo.html` · `demo-keo.html` · `demo-planeo.html` · `essai-outils.html` | Un portail par produit : contenu déverrouillé contre coordonnées, avant d'ouvrir la démo |
 | `ressources/index.html` + 3 articles | Guides, même déverrouillage |
 | `mentions-legales.html` | Mentions et confidentialité (ancre `#confidentialite`) |
 
@@ -35,14 +35,14 @@ même pied de page :
 |---------|------|
 | `styles.css` | Design du site public (thème sombre, dégradés, responsive, animations) |
 | `script.js` | Menu mobile, apparition au scroll, formulaire — **et la mesure d'audience** |
-| `ressources/gate.js` | Le déverrouillage contre coordonnées, commun aux huit pages qui en ont un |
+| `ressources/gate.js` | Le déverrouillage contre coordonnées, commun aux neuf pages qui en ont un |
 | `.github/workflows/deploy-pages.yml` | Déploiement automatique sur GitHub Pages |
 | `REFERENCEMENT.md` | Ce qui est en place pour le SEO (sitemap, canonical, données structurées) et la procédure Search Console |
 
 Le site n'a **ni build ni dépendance** : ce qui est dans le dépôt est
 exactement ce qui est servi. Un fichier modifié est en ligne en une à deux
 minutes, sans étape intermédiaire — c'est la contrepartie de devoir répéter
-l'en-tête et le pied de page dans dix fichiers.
+l'en-tête et le pied de page dans onze fichiers.
 
 ## Modifier le site depuis n'importe quel PC
 
@@ -68,9 +68,10 @@ conseil sur mesure restant plus bas, comme ce qui a rendu ces produits possibles
 
 Deux règles tenues dans les cartes :
 
-- **Pas de portail sans produit ouvert.** Planeo est annoncé « bientôt » et
-  n'offre qu'un « être prévenu ». Une démo annoncée qui n'existe pas ne se
-  rattrape pas auprès du visiteur qui l'a cliquée.
+- **Pas de portail sans produit ouvert.** Une démo annoncée qui n'existe pas ne
+  se rattrape pas auprès du visiteur qui l'a cliquée. Corollaire découvert le
+  31 août : vérifier avant de conclure qu'un produit est fermé — Planeo a porté
+  un « bientôt » pendant une matinée alors que sa démo tournait déjà.
 - **Pas de lien vers un outil interne.** Prospeo recueille une demande d'accès
   ouverte à la main, parce que la seule application de prospection en ligne
   aujourd'hui s'annonce « outil interne », sans marque ni contrôle d'accès.
@@ -96,7 +97,7 @@ ailleurs.
 
 `script.js` écrit **directement dans Supabase** : une ligne par page vue
 (`site_agenia_vues`), une ligne par formulaire abouti (`site_agenia_prospects`,
-avec l'origine : contact, Margeo, Prospeo, démo Keo, outils, ressources). Les résultats
+avec l'origine : contact, Margeo, Prospeo, Keo, Planeo, outils, ressources). Les résultats
 se lisent sur `documentation/statistiques.html`.
 
 Quatre propriétés qui ne sont pas des détails :

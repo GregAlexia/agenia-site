@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Démo interactive de Planeo — AgenIA</title>
+  <meta name="description" content="Démo 3D de Planeo : parcourez une maison générée depuis les plans du permis de construire, avec le soleil et le vent réels de la parcelle." />
+  <meta name="theme-color" content="#f0efe8" />
+  <meta name="robots" content="noindex, follow" />
+  <link rel="canonical" href="https://www.agenia.pro/demo-planeo.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="AgenIA" />
+  <meta property="og:title" content="Démo interactive de Planeo — AgenIA" />
+  <meta property="og:description" content="Démo 3D de Planeo : parcourez une maison générée depuis les plans du permis de construire, avec le soleil et le vent réels de la parcelle." />
+  <meta property="og:url" content="https://www.agenia.pro/demo-planeo.html" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:image" content="https://www.agenia.pro/assets/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Démo interactive de Planeo — AgenIA" />
+  <meta name="twitter:description" content="Démo 3D de Planeo : parcourez une maison générée depuis les plans du permis de construire, avec le soleil et le vent réels de la parcelle." />
+  <meta name="twitter:image" content="https://www.agenia.pro/assets/og-image.jpg" />
+
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src https://api.web3forms.com https://quygyeesmtxgykerjtjr.supabase.co; form-action 'self' https://api.web3forms.com; base-uri 'self'; object-src 'none'" />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%236d8bff'/%3E%3Cstop offset='1' stop-color='%23b06bff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='8' fill='%23070b18'/%3E%3Cpath d='M16 6l8 20h-4l-1.4-3.8h-5.2L12 26H8L16 6zm0 7.2l-1.6 4.4h3.2L16 13.2z' fill='url(%23g)'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Données structurées : fil d'Ariane -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.agenia.pro/" },
+      { "@type": "ListItem", "position": 2, "name": "Démo interactive de Planeo", "item": "https://www.agenia.pro/demo-planeo.html" }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header" id="top">
+    <div class="container header__inner">
+      <a class="brand" href="index.html" aria-label="Agenia, accueil">
+        <img class="brand__logo" src="assets/logo_agenia-hd.png" width="330" height="220"
+             alt="Agenia — Des solutions pour gagner du temps" />
+      </a>
+
+      <nav class="nav" aria-label="Navigation principale">
+        <a href="index.html#services">Services</a>
+        <a href="index.html#methode">Méthode</a>
+        <a href="index.html#resultats">Résultats</a>
+        <a href="index.html#secteurs">Secteurs</a>
+        <a href="index.html#produit">Produits</a>
+        <a href="ressources/">Ressources</a>
+        <a href="documentation/">Documentation</a>
+        <a href="index.html#faq">FAQ</a>
+      </nav>
+
+      <div class="header__cta">
+        <a class="btn btn--ghost" href="index.html#contact">Parler à un expert</a>
+      </div>
+
+      <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu" hidden>
+      <a href="index.html#services">Services</a>
+      <a href="index.html#methode">Méthode</a>
+      <a href="index.html#resultats">Résultats</a>
+      <a href="index.html#secteurs">Secteurs</a>
+      <a href="index.html#produit">Produits</a>
+      <a href="ressources/">Ressources</a>
+      <a href="documentation/">Documentation</a>
+      <a href="index.html#faq">FAQ</a>
+      <a class="btn btn--primary" href="index.html#contact">Parler à un expert</a>
+    </div>
+  </header>
+
+  <main class="res-article">
+    <div class="container res-article__inner">
+      <span class="pill">Démo</span>
+      <h1 class="res__title" style="margin-top:16px">Démo interactive de Planeo</h1>
+      <p class="res-article__meta">AgenIA · Visualisation 3D de plans de construction</p>
+
+      <p class="res-article__lede">
+        Une maison réelle, générée depuis les plans de son permis de construire.
+        On y marche, on monte à l'étage, on sort au jardin — et on voit tomber
+        le soleil de n'importe quelle date de l'année, à n'importe quelle heure.
+      </p>
+
+      <!-- ============ PORTAIL (visible tant que non débloqué) ============ -->
+      <div class="res-gate" id="portail">
+        <div class="res-gate__card">
+          <h2>Accédez à la démo</h2>
+          <p>
+            Renseignez vos coordonnées pour ouvrir immédiatement la visite 3D.
+          </p>
+
+          <form id="formRessource" novalidate>
+            <input type="hidden" name="access_key" value="659aaa00-f8c4-45f0-a1b7-7f5e5937b082" />
+            <input type="hidden" name="subject" value="Nouveau prospect démo — Planeo" />
+            <input type="hidden" name="from_name" value="Démo Planeo — Site Agenia" />
+            <input type="hidden" name="ressource" value="Démo interactive Planeo" />
+            <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" />
+
+            <div class="field">
+              <label for="rPrenom">Prénom</label>
+              <input id="rPrenom" name="prenom" type="text" autocomplete="given-name" required placeholder="Votre prénom" />
+            </div>
+            <div class="field">
+              <label for="rEmail">Email professionnel</label>
+              <input id="rEmail" name="email" type="email" autocomplete="email" required placeholder="vous@entreprise.com" />
+            </div>
+            <div class="field">
+              <label for="rTel">Téléphone</label>
+              <input id="rTel" name="telephone" type="tel" autocomplete="tel" required placeholder="06 12 34 56 78" />
+            </div>
+
+            <label class="res-gate__consent">
+              <input type="checkbox" id="rConsent" required />
+              <span>
+                J'accepte d'être recontacté(e) par AgenIA au sujet de ses services.
+                Voir la <a href="mentions-legales.html#confidentialite" target="_blank" rel="noopener">politique de confidentialité</a>.
+              </span>
+            </label>
+
+            <button class="btn btn--primary btn--lg" type="submit">Accéder à la démo</button>
+            <p class="form__note" id="rNote" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+
+      <!-- ============ CONTENU (masqué tant que non débloqué) ============ -->
+      <div class="res-locked" id="contenu" hidden>
+        <div class="res-article__cta">
+          <h2>La démo est prête</h2>
+          <p>
+            Elle s'ouvre dans un nouvel onglet et tourne dans le navigateur, sans
+            rien à installer. Comptez quelques secondes de chargement&nbsp;: c'est
+            une scène 3D complète, pas une image.
+          </p>
+          <p class="card__cta">
+            <a class="btn btn--primary btn--lg" href="https://planeo-3d.vercel.app" target="_blank" rel="noopener">
+              Ouvrir la démo Planeo
+            </a>
+          </p>
+        </div>
+
+        <h2 style="margin-top:40px">Ce qu'il faut essayer en premier</h2>
+        <ul>
+          <li><strong>Marcher dedans.</strong> Mode « visite à pied »&nbsp;: on entre, on
+            monte, on ressort. C'est là que le client comprend les volumes — un plan
+            en deux dimensions ne les montre pas, il les fait deviner.</li>
+          <li><strong>Déplacer le curseur des heures.</strong> Le soleil est calculé pour
+            la position réelle de la parcelle. Choisissez le 21 décembre à 9&nbsp;h,
+            puis le 21 juin à 18&nbsp;h&nbsp;: c'est la question que tout maître
+            d'ouvrage pose, et qu'on ne sait normalement pas trancher avant d'habiter.</li>
+          <li><strong>Couper le toit.</strong> La maison devient une maquette vue de
+            dessus, pièce par pièce.</li>
+          <li><strong>Ouvrir l'ensoleillement du jardin.</strong> Combien d'heures de
+            soleil direct à chaque endroit du terrain — de quoi placer une terrasse
+            ou un potager sans se tromper d'orientation.</li>
+        </ul>
+
+        <p class="res-article__meta" style="margin-top:24px">
+          La maison de la démo est anonymisée. Un projet est modélisé à partir des
+          plans du permis&nbsp;: rien à redessiner.
+        </p>
+
+        <p class="res-article__meta" style="margin-top:16px">
+          <a href="index.html#produit">← Retour aux produits</a>
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer__bottom">
+      <p>© <span id="year">2026</span> AgenIA — SASU au capital de 1 000 € — RCS Thonon-les-Bains 108 486 598.</p>
+      <p class="footer__legal"><a href="mentions-legales.html">Mentions légales</a> · <a href="mentions-legales.html#confidentialite">Confidentialité</a> · <a href="documentation/">Documentation</a></p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="ressources/gate.js"></script>
+</body>
+</html>
