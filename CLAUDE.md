@@ -94,9 +94,9 @@ Chaque page porte sa CSP en `<meta http-equiv>`. Deux conséquences :
 
 ## Espace interne (`documentation/`)
 
-Trois pages, un seul module d'accès (`acces.js`) : le guide, les statistiques et
-l'audit. **Un onglet ajouté doit l'être dans les trois** — c'est le même piège
-que l'en-tête des pages publiques, en plus petit.
+Quatre pages, un seul module d'accès (`acces.js`) : le guide, le playbook de
+prospection, les statistiques et l'audit. **Un onglet ajouté doit l'être dans les
+quatre** — c'est le même piège que l'en-tête des pages publiques, en plus petit.
 
 - **Un seul compte y entre.** Une politique RLS Supabase n'ouvre le contenu
   qu'à l'adresse administrateur, et la fonction de statistiques refuse tout
@@ -112,12 +112,35 @@ que l'en-tête des pages publiques, en plus petit.
   sont deux applications à gérer indépendamment** — ne jamais réintroduire de
   lien de l'une vers l'authentification de l'autre.
 
-### Le contenu du guide vit en base, compressé
+### Les documents vivent en base, compressés
 
-`documentation_contenu.html` contient le guide ZénithIA en **gzip puis base64**
-(76 Ko au lieu de 190). `documentation.js` reconnaît le format à la lecture : un
-contenu commençant par `<` est du HTML tel quel, tout autre est décompressé.
-Écrire du HTML en clair dans la colonne reste donc valide.
+Table `documentation_pages`, une ligne par document (`cle` = `guide`,
+`prospection`). Ils y sont rangés en **gzip puis base64** : la colonne reste du
+texte, donc écrivable par n'importe quel outil SQL, et il transite trois fois
+moins d'octets. `acces.js` expose `outils.decompresser`, qui reconnaît le format
+à la lecture — un contenu commençant par `<` est du HTML tel quel. Écrire du HTML
+en clair reste donc valide.
+
+**Un document apporte souvent sa propre feuille de style.** Elle doit être
+cloisonnée sous `#doc` avant d'être stockée, sinon ses règles `body` et `:root`
+repeignent la page entière, barre de navigation comprise. Attention aux trois
+pièges rencontrés en important le playbook : retirer les commentaires CSS
+**avant** de préfixer (sinon le préfixe se colle au commentaire et le sélecteur
+suivant reste global), traiter aussi ce qui suit une requête média, et supprimer
+les blocs `prefers-color-scheme: dark` — l'espace interne est en clair, un
+article qui bascule seul donnerait un encart noir au milieu du blanc.
+
+**Un `<script>` injecté par `innerHTML` ne s'exécute jamais.** Le comportement
+qui accompagne un document (boutons « Copier », replis…) vit donc dans le
+fichier `.js` de la page.
+
+### Transférer un document volumineux
+
+La base n'est joignable que par un canal qui ne transporte que des requêtes SQL,
+et **une recopie manuelle altère silencieusement des caractères** : quatre l'ont
+été en important le playbook, pour une longueur pourtant identique. Donc
+**toujours vérifier `md5(html)` contre l'empreinte locale** après écriture, et
+bisecter par `md5(substr(...))` en cas d'écart plutôt que de tout renvoyer.
 
 ---
 

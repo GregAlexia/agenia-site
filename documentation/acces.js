@@ -42,6 +42,21 @@
     });
   }
 
+  /* Les documents volumineux sont rangés compressés (gzip puis base64) : la
+     colonne reste du texte, donc écrivable par n'importe quel outil SQL, et il
+     transite trois fois moins d'octets. Le format se reconnaît à la lecture
+     plutôt qu'à un drapeau en base — un contenu qui commence par « < » est du
+     HTML tel quel. DecompressionStream est présent partout depuis 2023 ; on ne
+     réimporte pas une bibliothèque pour cela. */
+  function decompresser(charge) {
+    if (charge.charAt(0) === "<") return Promise.resolve(charge);
+    var binaire = atob(charge);
+    var octets = new Uint8Array(binaire.length);
+    for (var i = 0; i < binaire.length; i++) octets[i] = binaire.charCodeAt(i);
+    var flux = new Blob([octets]).stream().pipeThrough(new DecompressionStream("gzip"));
+    return new Response(flux).text();
+  }
+
   function retourPortail(texte) {
     try { sessionStorage.removeItem(STOCKAGE); } catch (e) { /* stockage indisponible */ }
     contenu.hidden = true;
@@ -61,6 +76,7 @@
       },
       echec: retourPortail,
       requete: requete,
+      decompresser: decompresser,
     });
   }
 

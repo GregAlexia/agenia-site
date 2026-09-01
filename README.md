@@ -24,9 +24,10 @@ même pied de page :
 | Fichier | Rôle |
 |---------|------|
 | `documentation/index.html` | Le guide ZénithIA, lu en base après connexion |
+| `documentation/prospection.html` | Le playbook de cold mailing vers les artisans |
 | `documentation/statistiques.html` | Audience du site, prospects collectés, export tableur et suppression |
 | `documentation/audit.html` | Audit technique et fonctionnel, **exécuté à chaque ouverture** |
-| `documentation/acces.js` | Connexion et réinitialisation, **partagé par les trois pages** |
+| `documentation/acces.js` | Connexion, réinitialisation et décompression, **partagé par les quatre pages** |
 | `documentation/style.css` | Feuille propre à l'espace interne |
 
 **Communs** :
@@ -242,7 +243,7 @@ autre est décodé puis décompressé par `DecompressionStream("gzip")`.
 
 ### Mettre le contenu à jour
 
-Une écriture dans `documentation_contenu.html` suffit. Il n'y a plus rien à
+Une écriture dans `documentation_pages.html`, à la bonne clé, suffit. Il n'y a plus rien à
 chiffrer, à recompiler ni à redéployer : la page lit la base à chaque ouverture.
 Y écrire du HTML en clair fonctionne aussi — c'est le sens de la détection
 ci-dessus.
