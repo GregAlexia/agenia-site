@@ -15,7 +15,8 @@ même pied de page :
 | Fichier | Rôle |
 |---------|------|
 | `index.html` | Page de vente principale, à ancres (`#services`, `#methode`, `#resultats`, `#secteurs`, `#produit`, `#faq`, `#contact`) |
-| `demo-margeo.html` · `demo-prospeo.html` · `demo-keo.html` · `demo-planeo.html` · `essai-outils.html` | Un portail par produit : contenu déverrouillé contre coordonnées, avant d'ouvrir la démo |
+| `demo-margeo.html` · `demo-prospeo.html` · `demo-keo.html` · `demo-planeo.html` | Un portail par produit : contenu déverrouillé contre coordonnées, avant d'ouvrir la démo |
+| `essai-outils.html` | Les calculateurs gratuits. **Plus lié depuis nulle part** depuis le 3 septembre — la carte qui y menait a été retirée. La page fonctionne encore pour qui a l'adresse |
 | `ressources/index.html` + 3 articles | Guides, même déverrouillage |
 | `mentions-legales.html` | Mentions et confidentialité (ancre `#confidentialite`) |
 
@@ -67,6 +68,10 @@ AgenIA édite quatre logiciels — **Margeo** (marges en restauration), **Prospe
 est remontée juste après l'accroche : c'est elle qu'on vient voir désormais, le
 conseil sur mesure restant plus bas, comme ce qui a rendu ces produits possibles.
 
+La carte « Huit calculateurs gratuits » a été retirée le 3 septembre : la section
+ne porte plus que les quatre logiciels, et la grille tombe juste en deux lignes
+de deux au lieu de laisser une carte orpheline.
+
 Deux règles tenues dans les cartes :
 
 - **Pas de portail sans produit ouvert.** Une démo annoncée qui n'existe pas ne
@@ -77,20 +82,15 @@ Deux règles tenues dans les cartes :
   ouverte à la main, parce que la seule application de prospection en ligne
   aujourd'hui s'annonce « outil interne », sans marque ni contrôle d'accès.
 
-## Le prix
+## Le prix : aucun, volontairement
 
-Un « à partir de » par produit, plutôt que rien : c'est la première question du
-visiteur d'un SaaS, et beaucoup repartent sans la poser. Il situe le budget tout
-en laissant la main sur le devis, et écarte d'emblée ceux qui n'ont pas le
-budget — ce qui fait gagner du temps des deux côtés.
+Margeo a affiché « à partir de 149 € HT/mois » le 31 août ; le propriétaire l'a
+retiré le 3 septembre. **Ne pas le réintroduire sans demande explicite.**
 
-**Margeo : 149 € HT/mois, 14 jours d'essai.** Ce chiffre n'est pas décoratif, il
-vient de la page tarifs de l'application elle-même (`Landing.tsx`, offre Solo ;
-Multi à 249 €). **S'il change là-bas, il doit changer ici** — deux prix
-différents pour le même produit se paient au premier prospect qui les compare.
-
-Prospeo, Keo et Planeo n'affichent pas encore de prix : ils n'en ont pas de
-public. Ne pas en inventer.
+Si la question revient : le prix reste consultable sur la page tarifs de
+l'application (`Landing.tsx`, offre Solo à 149 €, Multi à 249 €). Le jour où un
+prix réapparaît ici, il doit venir de là — deux prix différents pour le même
+produit se paient au premier prospect qui les compare.
 
 ## Reste à ajuster
 
