@@ -46,6 +46,9 @@ ressources/20-taches-a-automatiser.html · ressources/auditer-process-pme.html
 ressources/calculer-roi-automatisation.html
 ```
 
+La **grille des ressources** est dupliquée de la même façon, entre l'accueil
+(`#guides`) et `ressources/index.html`.
+
 Toucher à la navigation sans les traiter toutes laisse un site incohérent, sans
 erreur ni test rouge pour le signaler. **Après toute modification de
 navigation, compter les occurrences** — et attention aux chemins : les pages de
@@ -59,8 +62,10 @@ exactement ce qui est servi.
 ## La gamme : quatre logiciels, et ce qu'on promet de chacun
 
 **Margeo** (marges, restauration) · **Prospeo** (prospection) · **Keo** (agence
-immobilière) · **Planeo** (visualisation 3D de plans). Sans accent : c'est ce
-que portent les URL, et c'est ce qui se dicte au téléphone.
+immobilière) · **Planeo** (visualisation 3D de plans). **Sans accent** — tranché
+par le propriétaire le 3 septembre 2026 : c'est ce que portent les URL, et ce qui
+se dicte au téléphone. L'application, elle, s'écrit encore « Margéo » dans son
+propre dépôt ; c'est le site qui fait foi sur le nom.
 
 **Un produit n'a de page à portail que s'il ouvre vraiment.** Annoncer une démo
 qui n'existe pas coûte un prospect déçu, et une seule fois suffit à le perdre.

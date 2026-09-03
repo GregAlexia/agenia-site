@@ -16,7 +16,7 @@ même pied de page :
 |---------|------|
 | `index.html` | Page de vente principale, à ancres (`#services`, `#methode`, `#resultats`, `#secteurs`, `#produit`, `#faq`, `#contact`) |
 | `demo-margeo.html` · `demo-prospeo.html` · `demo-keo.html` · `demo-planeo.html` | Un portail par produit : contenu déverrouillé contre coordonnées, avant d'ouvrir la démo |
-| `essai-outils.html` | Les calculateurs gratuits. **Plus lié depuis nulle part** depuis le 3 septembre — la carte qui y menait a été retirée. La page fonctionne encore pour qui a l'adresse |
+| `essai-outils.html` | Les calculateurs gratuits, atteints depuis la section Ressources |
 | `ressources/index.html` + 3 articles | Guides, même déverrouillage |
 | `mentions-legales.html` | Mentions et confidentialité (ancre `#confidentialite`) |
 
@@ -68,9 +68,14 @@ AgenIA édite quatre logiciels — **Margeo** (marges en restauration), **Prospe
 est remontée juste après l'accroche : c'est elle qu'on vient voir désormais, le
 conseil sur mesure restant plus bas, comme ce qui a rendu ces produits possibles.
 
-La carte « Huit calculateurs gratuits » a été retirée le 3 septembre : la section
-ne porte plus que les quatre logiciels, et la grille tombe juste en deux lignes
-de deux au lieu de laisser une carte orpheline.
+La carte « Huit calculateurs gratuits » a quitté la section produits le
+3 septembre pour la section **Ressources**, où elle est à sa place : ce n'est pas
+un produit, c'est une porte d'entrée gratuite. Les deux grilles y gagnent — quatre
+logiciels d'un côté, quatre ressources de l'autre, deux lignes de deux chacune.
+
+⚠️ **La grille des ressources existe en double** : sur l'accueil (`#guides`) et
+sur `ressources/index.html`. Une ressource ajoutée d'un seul côté passe
+inaperçue — l'audit ne le voit pas, les deux pages restant valides.
 
 Deux règles tenues dans les cartes :
 
