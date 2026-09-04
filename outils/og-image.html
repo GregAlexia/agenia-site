@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!-- Gabarit de l'image de partage (assets/og-image.jpg), 1200 × 630.
+     Pour la régénérer après un changement d'accroche :
+       python3 -m http.server 8420        (à la racine du site)
+       puis capturer http://localhost:8420/outils/og-image.html en 1200×630,
+       deviceScaleFactor 2, et réduire à 1200×630 en JPEG qualité 88.
+     Ce fichier n'est lié depuis nulle part : c'est un outil, pas une page. -->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<style>
+  /* Mêmes fontes et mêmes teintes que le site : l'aperçu de partage est la
+     première image qu'on voit d'AgenIA, elle doit être reconnaissable. */
+  @font-face { font-family:"Archivo"; font-style:normal; font-weight:600;
+    src:url("../assets/fonts/archivo-latin-600-normal.woff2") format("woff2"); }
+  @font-face { font-family:"Archivo"; font-style:normal; font-weight:700;
+    src:url("../assets/fonts/archivo-latin-700-normal.woff2") format("woff2"); }
+  @font-face { font-family:"Source Serif 4"; font-style:normal; font-weight:400;
+    src:url("../assets/fonts/source-serif-4-latin-400-normal.woff2") format("woff2"); }
+  @font-face { font-family:"Source Serif 4"; font-style:italic; font-weight:600;
+    src:url("../assets/fonts/source-serif-4-latin-400-italic.woff2") format("woff2"); }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{width:1200px;height:630px;background:#f0efe8;color:#171613;
+       font-family:"Source Serif 4",Georgia,serif;overflow:hidden}
+  .cadre{height:100%;padding:56px 72px;display:flex;flex-direction:column}
+
+  .marque{display:flex;align-items:center;gap:16px;margin-bottom:52px}
+  .marque img{width:62px;height:62px;border-radius:12px}
+  .marque span{font-family:"Archivo",sans-serif;font-weight:700;font-size:23px;
+       letter-spacing:.06em}
+
+  .pastille{font-family:"Archivo",sans-serif;font-weight:600;font-size:15px;
+       letter-spacing:.14em;text-transform:uppercase;color:#57534a;
+       display:flex;align-items:center;gap:12px;margin-bottom:26px}
+  .pastille::before{content:"";width:9px;height:9px;border-radius:50%;background:#171613}
+
+  h1{font-family:"Archivo",sans-serif;font-weight:600;font-size:72px;line-height:1.08;
+     letter-spacing:-.02em}
+  h1 em{font-family:"Source Serif 4",Georgia,serif;font-style:italic;font-weight:600;
+     letter-spacing:0}
+
+  .accroche{font-size:26px;line-height:1.5;color:#57534a;margin-top:26px;max-width:900px}
+
+  .pied{margin-top:auto;padding-top:24px;border-top:1px solid #d3ccbc;
+     display:flex;justify-content:space-between;align-items:baseline;
+     font-family:"Archivo",sans-serif;font-size:17px}
+  .pied .url{font-weight:700}
+  .pied .gamme{color:#57534a;letter-spacing:.03em}
+</style>
+</head>
+<body>
+  <div class="cadre">
+    <div class="marque">
+      <img src="../assets/logo_agenia-hd.png" alt="">
+      <span>AGENIA</span>
+    </div>
+
+    <div class="pastille">Éditeur de logiciels IA · PME &amp; ETI</div>
+
+    <h1>Développez <em>vos idées</em>.<br>On automatise les processus.</h1>
+
+    <p class="accroche">
+      Margeo, Prospeo, Keo, Planeo — des logiciels métier édités et opérés
+      par AgenIA, et le sur-mesure quand aucun ne convient.
+    </p>
+
+    <div class="pied">
+      <span class="url">www.agenia.pro</span>
+      <span class="gamme">Marges · Prospection · Immobilier · Construction</span>
+    </div>
+  </div>
+</body>
+</html>

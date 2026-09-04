@@ -39,6 +39,7 @@ même pied de page :
 | `script.js` | Menu mobile, apparition au scroll, formulaire — **et la mesure d'audience** |
 | `ressources/gate.js` | Le déverrouillage contre coordonnées, commun aux neuf pages qui en ont un |
 | `.github/workflows/deploy-pages.yml` | Déploiement automatique sur GitHub Pages |
+| `outils/og-image.html` | Gabarit de l'image de partage. **Non liée depuis le site** : c'est un outil, pas une page |
 | `REFERENCEMENT.md` | Ce qui est en place pour le SEO (sitemap, canonical, données structurées) et la procédure Search Console |
 
 Le site n'a **ni build ni dépendance** : ce qui est dans le dépôt est
@@ -107,6 +108,25 @@ produit se paient au premier prospect qui les compare.
 - **Prix de Prospeo, Keo et Planeo**, quand ils seront arrêtés.
 
 Le formulaire, l'email et le téléphone, eux, sont en service.
+
+## L'aperçu de partage
+
+Ce qui s'affiche quand quelqu'un colle l'adresse dans LinkedIn, WhatsApp ou
+Slack : `og:title`, `og:description` et surtout **`assets/og-image.jpg`**, la
+seule moitié qu'on regarde vraiment.
+
+**Ces trois éléments doivent dire la même chose que l'accroche de la page.** Un
+titre de partage qui promet autre chose que ce qu'on lit en arrivant fait
+repartir — et l'image, elle, avait gardé le positionnement d'agence pendant deux
+refontes d'accroche, sans que rien ne le signale : aucun contrôle ne lit une
+image.
+
+Pour la régénérer, `outils/og-image.html` est son gabarit — mêmes fontes et
+mêmes teintes que le site, le mode d'emploi est dans son en-tête.
+
+⚠️ **Les réseaux sociaux mettent l'image en cache**, parfois des semaines. Après
+un changement, forcer la relecture par leur outil de débogage plutôt que
+conclure que le déploiement a échoué.
 
 ## Formulaires (Web3Forms)
 
