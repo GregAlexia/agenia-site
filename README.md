@@ -111,9 +111,8 @@ Le formulaire, l'email et le téléphone, eux, sont en service.
 
 ## Les démos vidéo
 
-Les cartes produits et les pages produit portent un cadre de démo. **Margeo, Keo
-et Planeo** ont leur vidéo ; **Prospeo** n'en a pas et affiche à la place un
-cadre en pointillés « Démo sur demande ».
+Les quatre cartes produits et les quatre pages produit portent leur vidéo de
+démonstration.
 
 Le cadre est une **façade** : rien n'est demandé à YouTube avant le clic, pas
 même la vignette. Le détail et la raison — le site ne pose aucun cookie et s'en

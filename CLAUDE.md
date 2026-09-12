@@ -108,10 +108,10 @@ Les cartes produits **et les pages produit** portent une **façade** : un cadre
 derrière le portail : la vidéo est ce qu'on obtient en laissant ses coordonnées,
 pas ce qu'on voit avant.
 
-Trois produits sur quatre en ont une. **Prospeo n'a pas de vidéo** et porte à la
-place un cadre en pointillés — la grille s'alignant sur la carte la plus haute,
-un vide s'y lirait comme un défaut. Son texte dit ce que sa page promet
-réellement, un accès ouvert sous 24 h.
+Les quatre produits en ont une. Si un cinquième arrivait sans vidéo, **ne pas
+laisser sa carte vide** : la grille s'aligne sur la carte la plus haute, et un
+vide s'y lit comme un défaut plutôt que comme une absence — le cadre en
+pointillés qu'a porté Prospeo une journée est dans l'historique.
 
 Ce n'est pas une optimisation, c'est une contrainte. Le site ne pose aucun
 cookie et s'en prévaut — l'écran des statistiques affiche « comptage sans cookie

@@ -287,9 +287,17 @@
               <li>Fiches entreprises constituées automatiquement</li>
               <li>Suivi par étape&nbsp;: à contacter, contacté, rendez-vous, client</li>
             </ul>
-            <div class="demo demo--vide" aria-hidden="true">
-              <span class="demo--vide__texte">Démo sur demande</span>
-              <span class="demo--vide__note">Accès nominatif ouvert sous 24&nbsp;h ouvrées</span>
+            <!-- Façade de démo : rien n'est demandé à YouTube avant le clic.
+                 Le site ne pose aucun cookie et s'en prévaut ; quatre lecteurs
+                 chargés d'office en poseraient avant tout consentement. -->
+            <div class="demo">
+              <button class="demo__ouvrir" type="button"
+                      data-video="JzoPV_M07pU"
+                      aria-label="Voir la démo vidéo de Prospeo">
+                <span class="demo__play" aria-hidden="true"></span>
+                <span class="demo__titre">Voir la démo en vidéo</span>
+                <span class="demo__note">La lecture charge YouTube</span>
+              </button>
             </div>
             <p class="card__cta">
               <a class="btn btn--primary" href="demo-prospeo.html">
