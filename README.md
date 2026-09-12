@@ -109,6 +109,24 @@ produit se paient au premier prospect qui les compare.
 
 Le formulaire, l'email et le téléphone, eux, sont en service.
 
+## Les démos vidéo
+
+Les cartes produits et les pages produit portent un cadre de démo. **Margeo, Keo
+et Planeo** ont leur vidéo ; **Prospeo** n'en a pas et affiche à la place un
+cadre en pointillés « Démo sur demande ».
+
+Le cadre est une **façade** : rien n'est demandé à YouTube avant le clic, pas
+même la vignette. Le détail et la raison — le site ne pose aucun cookie et s'en
+prévaut — sont dans `CLAUDE.md`.
+
+Sur les pages produit, la façade vit derrière le portail : la vidéo est ce qu'on
+obtient en laissant ses coordonnées.
+
+Les vidéos sont hébergées sur la chaîne YouTube d'AgenIA. **Une vidéo passée en
+« privée » afficherait « Vidéo non disponible »** sur la page d'accueil : le
+réglage qui convient est « non répertoriée », qui s'intègre sans apparaître dans
+la recherche.
+
 ## L'aperçu de partage
 
 Ce qui s'affiche quand quelqu'un colle l'adresse dans LinkedIn, WhatsApp ou

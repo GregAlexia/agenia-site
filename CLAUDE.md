@@ -102,8 +102,16 @@ Chaque page porte sa CSP en `<meta http-equiv>`. Deux conséquences :
 
 ## Les démos vidéo ne chargent rien avant le clic
 
-Les cartes produits portent une **façade** : un cadre 16/9 en HTML statique, que
-`script.js` remplace par un lecteur `youtube-nocookie` **au clic seulement**.
+Les cartes produits **et les pages produit** portent une **façade** : un cadre
+16/9 en HTML statique, que `script.js` remplace par un lecteur `youtube-nocookie`
+**au clic seulement**. Sur les pages produit elle vit dans `#contenu`, donc
+derrière le portail : la vidéo est ce qu'on obtient en laissant ses coordonnées,
+pas ce qu'on voit avant.
+
+Trois produits sur quatre en ont une. **Prospeo n'a pas de vidéo** et porte à la
+place un cadre en pointillés — la grille s'alignant sur la carte la plus haute,
+un vide s'y lirait comme un défaut. Son texte dit ce que sa page promet
+réellement, un accès ouvert sous 24 h.
 
 Ce n'est pas une optimisation, c'est une contrainte. Le site ne pose aucun
 cookie et s'en prévaut — l'écran des statistiques affiche « comptage sans cookie
