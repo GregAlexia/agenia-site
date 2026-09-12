@@ -226,4 +226,31 @@
         });
     });
   }
+
+  /* ============================================================
+     Démos vidéo — chargement au clic seulement
+     La façade est du HTML statique ; le lecteur n'apparaît qu'au clic.
+     Deux raisons, dans cet ordre : le site ne pose aucun cookie et le dit
+     dans ses mentions, or un lecteur YouTube chargé d'office en poserait
+     avant tout consentement ; et quatre lecteurs sur la page d'accueil
+     coûteraient plus cher en chargement que toute la page.
+     Domaine `youtube-nocookie` : même lecteur, sans cookie publicitaire
+     tant que la vidéo n'est pas lancée.
+     ============================================================ */
+  Array.prototype.forEach.call(document.querySelectorAll(".demo__ouvrir"), function (bouton) {
+    bouton.addEventListener("click", function () {
+      var id = bouton.getAttribute("data-video");
+      if (!id) return;
+      var cadre = document.createElement("iframe");
+      cadre.src = "https://www.youtube-nocookie.com/embed/" + id +
+                  "?autoplay=1&rel=0&modestbranding=1";
+      cadre.title = bouton.getAttribute("aria-label") || "Démo vidéo";
+      cadre.allow = "autoplay; encrypted-media; fullscreen; picture-in-picture";
+      cadre.setAttribute("allowfullscreen", "");
+      cadre.setAttribute("loading", "lazy");
+      var hote = bouton.parentNode;
+      hote.replaceChild(cadre, bouton);
+      cadre.focus();
+    });
+  });
 })();

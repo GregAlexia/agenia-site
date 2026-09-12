@@ -89,11 +89,37 @@ Chaque page porte sa CSP en `<meta http-equiv>`. Deux conséquences :
 
 - **Un nouvel hôte contacté doit être ajouté à `connect-src`** de toutes les
   pages concernées, sinon la requête est refusée en silence côté navigateur.
-  Aujourd'hui : `api.web3forms.com` et le projet Supabase.
+  Aujourd'hui : `api.web3forms.com` et le projet Supabase. Les lecteurs vidéo
+  demandent en plus **`frame-src https://www.youtube-nocookie.com`** sur
+  `index.html` : `frame-src` non déclaré retombe sur `default-src 'self'`, donc
+  l'iframe est bloquée.
 - **`style-src` doit garder `'unsafe-inline'`.** Sans lui, toute largeur posée
   en JavaScript est ignorée — les barres de jauge des statistiques ne s'étaient
   pas affichées, sans la moindre erreur visible — et le contenu importé de la
   documentation perdrait sa mise en forme.
+
+---
+
+## Les démos vidéo ne chargent rien avant le clic
+
+Les cartes produits portent une **façade** : un cadre 16/9 en HTML statique, que
+`script.js` remplace par un lecteur `youtube-nocookie` **au clic seulement**.
+
+Ce n'est pas une optimisation, c'est une contrainte. Le site ne pose aucun
+cookie et s'en prévaut — l'écran des statistiques affiche « comptage sans cookie
+ni identifiant de visiteur », et il n'y a donc pas de bandeau de consentement.
+Un lecteur YouTube chargé d'office déposerait des traceurs tiers avant tout
+consentement, rendrait cette phrase fausse et exigerait le bandeau. **Ne jamais
+remplacer la façade par une iframe posée directement dans le HTML.**
+
+La façade n'appelle pas non plus la vignette YouTube : `i.ytimg.com` est un
+tiers comme un autre.
+
+⚠️ **Piège de mise en page** : `#produit .card` est un flex colonne en
+`align-items: flex-start`, qui rétrécit ses enfants. La largeur de la façade est
+restaurée par la règle `#produit .card > p…, .card__list, #produit .demo` — un
+nouvel élément pleine largeur dans ces cartes doit y être ajouté, sinon il
+s'affiche à la largeur de son texte.
 
 ---
 

@@ -182,7 +182,7 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.12; margin: 0; le
 /* Cartes produits : boutons alignés en bas malgré des textes de longueurs différentes */
 .card__cta { margin: 22px 0 0; display: flex; flex-wrap: wrap; gap: 10px; }
 #produit .card { display: flex; flex-direction: column; align-items: flex-start; }
-#produit .card > p:not(.card__cta), #produit .card__list { width: 100%; }
+#produit .card > p:not(.card__cta), #produit .card__list, #produit .demo { width: 100%; }
 #produit .card__cta { margin-top: auto; padding-top: 22px; }
 
 /* ---------- Méthode (étapes) ---------- */
@@ -423,3 +423,37 @@ letter-spacing:.02em;opacity:.65;text-transform:uppercase;white-space:nowrap}
 .hero__note{max-width:640px;margin:18px auto 0;font-size:13px;line-height:1.6;opacity:.62}
 .stat__avertissement{grid-column:1/-1;margin:4px 0 0;font-size:12.5px;line-height:1.6;opacity:.62}
 
+
+/* ---- Façade de démo vidéo ----
+   Un cadre 16/9 cliquable qui ne devient un lecteur YouTube qu'au clic. Le
+   site ne pose aucun cookie et l'affiche dans ses mentions ; un lecteur chargé
+   d'office en poserait avant tout consentement, et rendrait cette phrase
+   fausse. La façade n'émet aucune requête vers un tiers avant le geste du
+   visiteur — pas même la vignette, qui viendrait de i.ytimg.com. */
+.demo { margin: 18px 0 0; }  /* largeur : voir #produit .demo plus haut */
+.demo__ouvrir {
+  width: 100%; aspect-ratio: 16 / 9; border: 1px solid var(--border-strong);
+  padding: 0;
+  border-radius: 14px; background: var(--ink); color: var(--ink-text);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 10px; cursor: pointer; font-family: var(--font-ui);
+  transition: background .18s ease, transform .18s ease;
+}
+.demo__ouvrir:hover { background: #1d1d1a; transform: translateY(-1px); }
+.demo__play {
+  width: 54px; height: 54px; border-radius: 50%; background: var(--ink-text);
+  display: grid; place-items: center;
+}
+.demo__play::after {
+  content: ""; width: 0; height: 0; margin-left: 4px;
+  border-left: 17px solid var(--ink);
+  border-top: 11px solid transparent; border-bottom: 11px solid transparent;
+}
+.demo__titre { font-size: 15px; font-weight: 600; letter-spacing: -0.01em; }
+.demo__note { font-size: 12.5px; opacity: .62; }
+/* Le lecteur remplace la façade dans le même cadre : pas de saut de mise en page. */
+.demo iframe {
+  width: 100%; aspect-ratio: 16 / 9; border: 0;
+  border-radius: 14px; display: block; background: var(--ink);
+}
+@media (prefers-reduced-motion: reduce) { .demo__ouvrir { transition: none; } }

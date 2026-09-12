@@ -28,7 +28,7 @@
   <meta name="twitter:image" content="https://www.agenia.pro/assets/og-image.jpg" />
 
   <!-- Sécurité : Content-Security-Policy (polices auto-hébergées, envoi formulaire vers Web3Forms uniquement) -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src https://api.web3forms.com https://quygyeesmtxgykerjtjr.supabase.co; form-action 'self' https://api.web3forms.com; base-uri 'self'; object-src 'none'" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; frame-src https://www.youtube-nocookie.com; connect-src https://api.web3forms.com https://quygyeesmtxgykerjtjr.supabase.co; form-action 'self' https://api.web3forms.com; base-uri 'self'; object-src 'none'" />
 
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%236d8bff'/%3E%3Cstop offset='1' stop-color='%23b06bff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='8' fill='%23070b18'/%3E%3Cpath d='M16 6l8 20h-4l-1.4-3.8h-5.2L12 26H8L16 6zm0 7.2l-1.6 4.4h3.2L16 13.2z' fill='url(%23g)'/%3E%3C/svg%3E" />
   <link rel="stylesheet" href="styles.css" />
@@ -247,6 +247,18 @@
               <li>Coût matière juste, pertes de parage comprises</li>
               <li>Compte de résultat et prévision de trésorerie</li>
             </ul>
+            <!-- Façade de démo : rien n'est demandé à YouTube avant le clic.
+                 Le site ne pose aucun cookie et s'en prévaut ; quatre lecteurs
+                 chargés d'office en poseraient avant tout consentement. -->
+            <div class="demo">
+              <button class="demo__ouvrir" type="button"
+                      data-video="zhr0xS7wp38"
+                      aria-label="Voir la démo vidéo de Margeo">
+                <span class="demo__play" aria-hidden="true"></span>
+                <span class="demo__titre">Voir la démo en vidéo</span>
+                <span class="demo__note">La lecture charge YouTube</span>
+              </button>
+            </div>
             <!-- Comme les autres portails : on identifie le visiteur avant
                  d'ouvrir l'application. -->
             <p class="card__cta">
@@ -301,6 +313,18 @@
               <li>Réponses et confirmations de visite automatiques</li>
               <li>Quittances de loyer PDF générées et envoyées</li>
             </ul>
+            <!-- Façade de démo : rien n'est demandé à YouTube avant le clic.
+                 Le site ne pose aucun cookie et s'en prévaut ; quatre lecteurs
+                 chargés d'office en poseraient avant tout consentement. -->
+            <div class="demo">
+              <button class="demo__ouvrir" type="button"
+                      data-video="R8yhOfOeuoU"
+                      aria-label="Voir la démo vidéo de Keo">
+                <span class="demo__play" aria-hidden="true"></span>
+                <span class="demo__titre">Voir la démo en vidéo</span>
+                <span class="demo__note">La lecture charge YouTube</span>
+              </button>
+            </div>
             <!-- La démo interactive tourne sur données fictives : elle passe par
                  demo-keo.html, qui identifie le visiteur avant de l'ouvrir. -->
             <p class="card__cta">
@@ -329,6 +353,18 @@
               <li>Soleil et vent réels de la parcelle, à la date de votre choix</li>
               <li>Visite dans le navigateur, sans logiciel à installer</li>
             </ul>
+            <!-- Façade de démo : rien n'est demandé à YouTube avant le clic.
+                 Le site ne pose aucun cookie et s'en prévaut ; quatre lecteurs
+                 chargés d'office en poseraient avant tout consentement. -->
+            <div class="demo">
+              <button class="demo__ouvrir" type="button"
+                      data-video="qWreOfE93Lo"
+                      aria-label="Voir la démo vidéo de Planeo">
+                <span class="demo__play" aria-hidden="true"></span>
+                <span class="demo__titre">Voir la démo en vidéo</span>
+                <span class="demo__note">La lecture charge YouTube</span>
+              </button>
+            </div>
             <!-- La démo tourne sur un projet de démonstration, qui ne désigne
                  aucun client : elle passe par demo-planeo.html, qui identifie le
                  visiteur avant de l'ouvrir. -->
