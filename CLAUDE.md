@@ -123,6 +123,12 @@ remplacer la façade par une iframe posée directement dans le HTML.**
 La façade n'appelle pas non plus la vignette YouTube : `i.ytimg.com` est un
 tiers comme un autre.
 
+**Le son part coupé** (`mute=1`). Une vidéo qui se met à parler dans un bureau
+ou un transport se referme aussitôt, et le visiteur est perdu. C'est aussi ce
+qui rend `autoplay` fiable : les navigateurs refusent la lecture automatique
+avec son. La façade l'annonce — sans quoi on croit la vidéo muette et on ne
+pense pas à rétablir le son.
+
 ⚠️ **Piège de mise en page** : `#produit .card` est un flex colonne en
 `align-items: flex-start`, qui rétrécit ses enfants. La largeur de la façade est
 restaurée par la règle `#produit .card > p…, .card__list, #produit .demo` — un

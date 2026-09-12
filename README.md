@@ -121,6 +121,9 @@ prévaut — sont dans `CLAUDE.md`.
 Sur les pages produit, la façade vit derrière le portail : la vidéo est ce qu'on
 obtient en laissant ses coordonnées.
 
+**Le son part coupé**, et la façade le dit. Le visiteur rétablit le son d'un
+clic sur le lecteur.
+
 Les vidéos sont hébergées sur la chaîne YouTube d'AgenIA. **Une vidéo passée en
 « privée » afficherait « Vidéo non disponible »** sur la page d'accueil : le
 réglage qui convient est « non répertoriée », qui s'intègre sans apparaître dans

@@ -236,6 +236,10 @@
      coûteraient plus cher en chargement que toute la page.
      Domaine `youtube-nocookie` : même lecteur, sans cookie publicitaire
      tant que la vidéo n'est pas lancée.
+     `mute=1` : le son part coupé. Une vidéo qui se met à parler dans un
+     bureau ou un transport se referme aussitôt, et le visiteur est perdu.
+     C'est aussi ce qui rend `autoplay` fiable — les navigateurs refusent
+     la lecture automatique avec son.
      ============================================================ */
   Array.prototype.forEach.call(document.querySelectorAll(".demo__ouvrir"), function (bouton) {
     bouton.addEventListener("click", function () {
@@ -243,7 +247,7 @@
       if (!id) return;
       var cadre = document.createElement("iframe");
       cadre.src = "https://www.youtube-nocookie.com/embed/" + id +
-                  "?autoplay=1&rel=0&modestbranding=1";
+                  "?autoplay=1&mute=1&rel=0&modestbranding=1";
       cadre.title = bouton.getAttribute("aria-label") || "Démo vidéo";
       cadre.allow = "autoplay; encrypted-media; fullscreen; picture-in-picture";
       cadre.setAttribute("allowfullscreen", "");
