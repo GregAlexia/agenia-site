@@ -148,6 +148,20 @@ mêmes teintes que le site, le mode d'emploi est dans son en-tête.
 un changement, forcer la relecture par leur outil de débogage plutôt que
 conclure que le déploiement a échoué.
 
+## Les réseaux sociaux
+
+Le pied de page des onze pages porte trois icônes — Facebook, Instagram,
+YouTube — qui ouvrent les comptes d'AgenIA dans un nouvel onglet.
+
+Les icônes sont des **SVG écrits dans le HTML** : aucune requête
+supplémentaire, aucune fonte d'icônes, et la couleur suit le texte
+(`fill: currentColor`), donc elles s'adaptent seules si la palette change.
+
+Le bloc est **rigoureusement identique dans les onze fichiers** parce que les
+adresses sont absolues : contrairement à la navigation, il n'a pas de variante
+en `../` pour les pages de `ressources/`. Un compte ajouté se copie donc tel
+quel partout.
+
 ## Formulaires (Web3Forms)
 
 Les formulaires envoient par email via [Web3Forms](https://web3forms.com)

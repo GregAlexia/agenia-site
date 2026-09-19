@@ -462,3 +462,17 @@ letter-spacing:.02em;opacity:.65;text-transform:uppercase;white-space:nowrap}
    propre largeur et un peu d'air avant le bloc d'action qui la suit. */
 .demo--page { max-width: 760px; margin: 0 0 36px; }
 
+
+/* ---- Réseaux sociaux, dans le pied de page ----
+   Le bloc est identique sur les onze pages : les URL étant absolues, il n'y a
+   pas de variante ../ à oublier dans ressources/. Les icônes sont des SVG
+   posés dans le HTML — aucune requête, aucune police d'icônes, et elles
+   suivent la couleur du texte qui les entoure. */
+.social { display: flex; align-items: center; gap: 14px; }
+.social a {
+  display: grid; place-items: center; width: 34px; height: 34px;
+  border-radius: 9px; color: var(--text-dim);
+  transition: color .18s ease, background .18s ease;
+}
+.social a:hover, .social a:focus-visible { color: var(--text); background: var(--surface); }
+.social svg { width: 19px; height: 19px; fill: currentColor; display: block; }

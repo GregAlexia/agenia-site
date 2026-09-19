@@ -49,6 +49,10 @@ ressources/calculer-roi-automatisation.html
 La **grille des ressources** est dupliquée de la même façon, entre l'accueil
 (`#guides`) et `ressources/index.html`.
 
+Le bloc `<nav class="social">` du pied de page l'est aussi — mais il fait
+exception : ses adresses étant absolues, il est **strictement identique dans les
+onze fichiers**, sans variante en `../`. Un compte ajouté se recopie tel quel.
+
 Toucher à la navigation sans les traiter toutes laisse un site incohérent, sans
 erreur ni test rouge pour le signaler. **Après toute modification de
 navigation, compter les occurrences** — et attention aux chemins : les pages de
