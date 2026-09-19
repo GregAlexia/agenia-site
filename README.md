@@ -153,8 +153,12 @@ conclure que le déploiement a échoué.
 
 ## Les réseaux sociaux
 
-Le pied de page des douze pages porte trois icônes — Facebook, Instagram,
-YouTube — qui ouvrent les comptes d'AgenIA dans un nouvel onglet.
+Le pied de page des douze pages porte quatre icônes — Facebook, Instagram,
+YouTube, Pinterest — qui ouvrent les comptes d'AgenIA dans un nouvel onglet.
+
+Chaque compte ajouté ici doit l'être **aussi dans le `sameAs`** des données
+structurées de l'accueil, sinon c'est un signal de plus perdu pour distinguer
+AgenIA de ses homonymes (voir `REFERENCEMENT.md`).
 
 Les icônes sont des **SVG écrits dans le HTML** : aucune requête
 supplémentaire, aucune fonte d'icônes, et la couleur suit le texte

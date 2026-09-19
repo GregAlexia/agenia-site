@@ -51,7 +51,8 @@ La **grille des ressources** est dupliquée de la même façon, entre l'accueil
 
 Le bloc `<nav class="social">` du pied de page l'est aussi — mais il fait
 exception : ses adresses étant absolues, il est **strictement identique dans les
-douze fichiers**, sans variante en `../`. Un compte ajouté se recopie tel quel.
+douze fichiers**, sans variante en `../`. Un compte ajouté se recopie tel quel
+— et se déclare **aussi dans le `sameAs`** de l'accueil.
 
 Toucher à la navigation sans les traiter toutes laisse un site incohérent, sans
 erreur ni test rouge pour le signaler. **Après toute modification de
@@ -144,11 +145,10 @@ s'affiche à la largeur de son texte.
 ## Ce qui doit être trouvé doit être lisible sans rien remplir
 
 Le 19 septembre 2026, **huit des onze pages publiques d'alors portaient
-`noindex`**,
-parce que leur contenu était masqué par un formulaire. Le site n'était donc
-indexable que sur l'accueil et les mentions légales — et invisible de Google
-jusque sur son propre nom, que se disputent par ailleurs `agenia.ai`, une
-société italienne, une application brésilienne et une police de caractères.
+`noindex`** parce que leur contenu était masqué par un formulaire. Le site
+n'était donc indexable que sur l'accueil et les mentions légales — invisible
+de Google jusque sur son propre nom, que se disputent par ailleurs `agenia.ai`,
+une société italienne, une application brésilienne et une police de caractères.
 
 Depuis, la ligne de partage est la suivante, et **elle ne se renégocie pas page
 par page** :
