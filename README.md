@@ -30,7 +30,8 @@ même pied de page, et **toutes indexables** depuis le 19 septembre 2026 :
 | `documentation/prospection.html` | Le playbook de cold mailing vers les artisans |
 | `documentation/statistiques.html` | Audience du site, prospects collectés, export tableur et suppression |
 | `documentation/audit.html` | Audit technique et fonctionnel, **exécuté à chaque ouverture** |
-| `documentation/acces.js` | Connexion, réinitialisation et décompression, **partagé par les quatre pages** |
+| `documentation/referencement.html` | Le plan de référencement : pourquoi chaque action, et comment la faire |
+| `documentation/acces.js` | Connexion, réinitialisation et décompression, **partagé par les cinq pages** |
 | `documentation/style.css` | Feuille propre à l'espace interne |
 
 **Communs** :
@@ -316,6 +317,14 @@ Une écriture dans `documentation_pages.html`, à la bonne clé, suffit. Il n'y 
 chiffrer, à recompiler ni à redéployer : la page lit la base à chaque ouverture.
 Y écrire du HTML en clair fonctionne aussi — c'est le sens de la détection
 ci-dessus.
+
+Trois clés aujourd'hui : `guide`, `prospection`, `referencement`. La colonne
+`titre` est **obligatoire**.
+
+⚠️ **Le contenu ne doit jamais être écrit dans le fichier `.html` de la page.**
+Le dépôt est public et servi tel quel&nbsp;: l'attribut `[hidden]` cache le bloc
+à l'œil, pas au téléchargement. Ce qui protège ces documents, c'est la politique
+RLS de la base — rien d'autre.
 
 ## Domaine personnalisé (optionnel)
 

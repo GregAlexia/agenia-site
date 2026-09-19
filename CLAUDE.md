@@ -187,9 +187,16 @@ Profile, le dépôt GitHub à passer en privé — est dans
 
 ## Espace interne (`documentation/`)
 
-Quatre pages, un seul module d'accès (`acces.js`) : le guide, le playbook de
-prospection, les statistiques et l'audit. **Un onglet ajouté doit l'être dans les
-quatre** — c'est le même piège que l'en-tête des pages publiques, en plus petit.
+Cinq pages, un seul module d'accès (`acces.js`) : le guide, le playbook de
+prospection, les statistiques, l'audit et le plan de référencement. **Un onglet
+ajouté doit l'être dans les cinq** — c'est le même piège que l'en-tête des pages
+publiques, en plus petit.
+
+⚠️ **Le contenu d'un onglet va en base, jamais dans la page.** Le dépôt est
+public et servi tel quel : `[hidden]` cache à l'œil, pas au téléchargement. La
+page Référencement a été écrite en clair dans son fichier avant d'être corrigée
+— n'importe qui aurait lu le plan dans le source, alors que le portail laisse
+croire l'inverse. Ce qui est protégé ici l'est par une policy RLS.
 
 - **Un seul compte y entre.** Une politique RLS Supabase n'ouvre le contenu
   qu'à l'adresse administrateur, et la fonction de statistiques refuse tout

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="robots" content="noindex,nofollow">
-  <title>AgenIA — Prospection</title>
+  <title>AgenIA — Plan de référencement</title>
 
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src https://quygyeesmtxgykerjtjr.supabase.co; form-action 'self'; base-uri 'self'; object-src 'none'">
 
@@ -48,18 +48,25 @@
     <div class="barre">
       <nav class="menu" aria-label="Espace interne">
         <a href="index.html">Documentation</a>
-        <a href="prospection.html" class="actif" aria-current="page">Prospection</a>
+        <a href="prospection.html">Prospection</a>
         <a href="statistiques.html">Statistiques</a>
         <a href="audit.html">Audit</a>
-        <a href="referencement.html">Référencement</a>
+        <a href="referencement.html" class="actif" aria-current="page">Référencement</a>
       </nav>
       <button id="deconnexion" type="button">Se déconnecter</button>
     </div>
+
+    <!-- Le texte vit en base, sous la clé « referencement », comme la
+         Documentation et la Prospection. Première version écrite dans la page :
+         [hidden] cache à l'œil, pas au téléchargement — n'importe qui aurait lu
+         le plan dans le source, alors que le portail laisse croire l'inverse.
+         Dans cet espace, ce qui est protégé l'est par une policy RLS, jamais
+         par un attribut HTML. -->
     <div id="doc"><div id="chargement">Chargement…</div></div>
   </div>
 </div>
 
 <script src="acces.js"></script>
-<script src="prospection.js"></script>
+<script src="referencement.js"></script>
 </body>
 </html>
