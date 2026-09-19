@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Essayer les outils gratuits Margeo — AgenIA</title>
-  <meta name="description" content="Accédez aux huit calculateurs gratuits de Margeo — coût de revient, prix de vente, seuil de rentabilité, écart de livraison, allergènes INCO." />
+  <title>Calculateurs gratuits pour la restauration — Margeo</title>
+  <meta name="description" content="Huit calculateurs gratuits pour restaurateurs : coût de revient d'une recette, prix de vente, prime cost, seuil de rentabilité, allergènes INCO, pricing vin." />
   <meta name="theme-color" content="#f0efe8" />
-  <meta name="robots" content="noindex, follow" />
+  <!-- Indexable depuis le 19/09/2026 : ce que fait chaque calculateur est
+       public, seul le lien d'ouverture reste derrière le formulaire.
+       Voir REFERENCEMENT.md. -->
+  <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://www.agenia.pro/essai-outils.html" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="AgenIA" />
-  <meta property="og:title" content="Essayer les outils gratuits Margeo — AgenIA" />
-  <meta property="og:description" content="Accédez aux huit calculateurs gratuits de Margeo — coût de revient, prix de vente, seuil de rentabilité, écart de livraison, allergènes INCO." />
+  <meta property="og:title" content="Calculateurs gratuits pour la restauration — Margeo" />
+  <meta property="og:description" content="Huit calculateurs gratuits pour restaurateurs : coût de revient d'une recette, prix de vente, prime cost, seuil de rentabilité, allergènes INCO, pricing vin." />
   <meta property="og:url" content="https://www.agenia.pro/essai-outils.html" />
   <meta property="og:locale" content="fr_FR" />
   <meta property="og:image" content="https://www.agenia.pro/assets/og-image.jpg" />
@@ -22,8 +25,8 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Essayer les outils gratuits Margeo — AgenIA" />
-  <meta name="twitter:description" content="Accédez aux huit calculateurs gratuits de Margeo — coût de revient, prix de vente, seuil de rentabilité, écart de livraison, allergènes INCO." />
+  <meta name="twitter:title" content="Calculateurs gratuits pour la restauration — Margeo" />
+  <meta name="twitter:description" content="Huit calculateurs gratuits pour restaurateurs : coût de revient d'une recette, prix de vente, prime cost, seuil de rentabilité, allergènes INCO, pricing vin." />
   <meta name="twitter:image" content="https://www.agenia.pro/assets/og-image.jpg" />
 
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src https://api.web3forms.com https://quygyeesmtxgykerjtjr.supabase.co; form-action 'self' https://api.web3forms.com; base-uri 'self'; object-src 'none'" />
@@ -38,7 +41,7 @@
     "@type": "BreadcrumbList",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.agenia.pro/" },
-      { "@type": "ListItem", "position": 2, "name": "Essayer les outils gratuits Margeo", "item": "https://www.agenia.pro/essai-outils.html" }
+      { "@type": "ListItem", "position": 2, "name": "Calculateurs gratuits pour la restauration", "item": "https://www.agenia.pro/essai-outils.html" }
     ]
   }
   </script>
@@ -48,7 +51,7 @@
     <div class="container header__inner">
       <a class="brand" href="index.html" aria-label="Agenia, accueil">
         <img class="brand__logo" src="assets/logo_agenia-hd.png" width="330" height="220"
-             alt="Agenia — Des solutions pour gagner du temps" />
+             alt="Agenia" />
       </a>
 
       <nav class="nav" aria-label="Navigation principale">
@@ -87,8 +90,8 @@
   <main class="res-article">
     <div class="container res-article__inner">
       <span class="pill">Outils</span>
-      <h1 class="res__title" style="margin-top:16px">Les outils gratuits de Margeo</h1>
-      <p class="res-article__meta">AgenIA · Huit calculateurs pour la restauration</p>
+      <h1 class="res__title" style="margin-top:16px">Huit calculateurs gratuits pour la restauration</h1>
+      <p class="res-article__meta">Offerts par Margeo, édité par AgenIA</p>
 
       <p class="res-article__lede">
         Coût de revient, prix de vente conseillé, seuil de rentabilité, écart
@@ -97,7 +100,76 @@
         tels quels ou comme démonstration de Margeo.
       </p>
 
+      <p class="card__cta" style="margin-top:26px">
+        <a class="btn btn--primary btn--lg" href="#acces">Ouvrir les calculateurs</a>
+      </p>
+
+      <h2>Les huit calculateurs</h2>
+      <ul>
+        <li><strong>Coût de revient d'une recette</strong> — le coût matière
+          réel d'un plat, pertes de parage comprises. Une perte de 50&nbsp;%
+          <em>double</em> le coût d'un ingrédient&nbsp;: elle se divise,
+          <code>quantité × prix ÷ (1 − perte)</code>, elle ne s'ajoute pas.</li>
+        <li><strong>Prix de vente d'un plat</strong> — du coût matière au prix
+          carte, par food cost cible, par coefficient ou par marge en euros,
+          avec la TVA applicable.</li>
+        <li><strong>Coefficient multiplicateur</strong> — le passage du coût
+          matière au prix, et ce que le coefficient cache quand le plat est
+          bon marché.</li>
+        <li><strong>Prime cost</strong> — coût matière plus masse salariale
+          chargée. C'est le ratio qui prédit si un établissement tient&nbsp;:
+          au-delà de 70&nbsp;%, aucun autre poste ne rattrape la
+          rentabilité.</li>
+        <li><strong>Seuil de rentabilité</strong> — le chiffre d'affaires à
+          partir duquel le mois est couvert.</li>
+        <li><strong>Écart de livraison</strong> — le livré confronté au
+          facturé, ligne à ligne, avec la réclamation prête à envoyer.</li>
+        <li><strong>Tableau des allergènes</strong> — la déclaration INCO des
+          quatorze allergènes à afficher.</li>
+        <li><strong>Pricing vin</strong> — la cohérence d'une carte des vins,
+          bouteille par bouteille.</li>
+      </ul>
+
+      <h2>Gratuits, et sans contrepartie cachée</h2>
+      <p>
+        Les calculs tournent dans votre navigateur&nbsp;: aucune de vos données
+        de recette n'est envoyée ni conservée. Ils sont utilisables seuls,
+        indéfiniment. Ce qu'ils ne font pas, c'est tenir vos chiffres à jour
+        toute l'année — c'est le travail du
+        <a href="demo-margeo.html">logiciel de marges</a>, qui lit les factures
+        et recalcule sans ressaisie.
+      </p>
+
+      <h2>Questions fréquentes</h2>
+      <h3>Comment calcule-t-on le coût de revient d'un plat&nbsp;?</h3>
+      <p>
+        En additionnant le coût de chaque ingrédient à la quantité réellement
+        utilisée — donc après parage. Le piège est là&nbsp;: la perte se divise.
+        Un filet acheté 20&nbsp;€/kg avec 50&nbsp;% de parage revient à
+        40&nbsp;€/kg utile, pas à 30&nbsp;€. La formule est
+        <code>quantité × prix ÷ (1 − perte)</code>.
+      </p>
+      <h3>Qu'est-ce qu'un bon prime cost&nbsp;?</h3>
+      <p>
+        Sous 65&nbsp;%, il reste de quoi payer le loyer, l'énergie et les
+        assurances et dégager un résultat. Entre 65 et 70&nbsp;%, l'équilibre
+        tient sans marge d'erreur. Au-delà de 70&nbsp;%, le problème n'est plus
+        dans les charges fixes&nbsp;: il est dans la carte ou dans le planning.
+      </p>
+      <h3>Faut-il raisonner en pourcentage ou en euros de marge&nbsp;?</h3>
+      <p>
+        En euros. Un plat à 25&nbsp;% de food cost qui rapporte 6&nbsp;€ pèse
+        moins qu'un plat à 35&nbsp;% qui en rapporte 14. Ce sont les euros qui
+        paient le loyer, pas les pourcentages.
+      </p>
+      <h3>Mes recettes sont-elles enregistrées quelque part&nbsp;?</h3>
+      <p>
+        Non. Les calculateurs s'exécutent dans le navigateur&nbsp;: rien de ce
+        que vous saisissez ne quitte votre appareil.
+      </p>
+
       <!-- ============ PORTAIL (visible tant que non débloqué) ============ -->
+      <div id="acces">
       <div class="res-gate" id="portail">
         <div class="res-gate__card">
           <h2>Accédez aux outils</h2>
@@ -149,6 +221,7 @@
             un email y sera à nouveau demandé une seule fois, indépendamment
             de celui-ci.
           </p>
+          <!-- URL Margeo (2/2). Voir le commentaire jumeau de demo-margeo.html. -->
           <p class="card__cta">
             <a class="btn btn--primary btn--lg" href="https://margeo.vercel.app/outils" target="_blank" rel="noopener">
               Ouvrir les outils Margeo
@@ -159,6 +232,14 @@
           <a href="index.html#produit">← Retour aux produits</a>
         </p>
       </div>
+      </div><!-- /#acces -->
+
+      <h2>À lire aussi</h2>
+      <ul>
+        <li><a href="demo-margeo.html">Margeo, le logiciel de marges en restauration</a>
+          — ce que les calculateurs font une fois, tenu à jour toute l'année.</li>
+        <li><a href="ressources/calculer-roi-automatisation.html">Calculer le ROI d'une automatisation</a>.</li>
+      </ul>
     </div>
   </main>
 

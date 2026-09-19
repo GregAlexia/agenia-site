@@ -1,24 +1,94 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
   N'y figurent que les pages indexables (robots: index,follow).
-  Les 3 articles /ressources/*.html sont volontairement absents : ils
-  portent noindex,follow — le contenu qu'un visiteur non identifié verrait
-  serait le portail de capture, pas l'article, donc rien d'utile à indexer.
-  Idem pour /documentation/, protégée par mot de passe.
+
+  Au 19/09/2026, ce sont toutes les pages publiques : les quatre pages produit,
+  la page des calculateurs et les trois guides ont été ouverts ce jour-là. Ils
+  portaient jusque-là noindex parce que leur contenu était masqué par un
+  formulaire — un choix qui rendait le site invisible de Google partout sauf
+  sur l'accueil. Le raisonnement est dans REFERENCEMENT.md.
+
+  /documentation/ reste hors sitemap : noindex, protégée par mot de passe.
+  /ressources/pdf/ aussi, et en plus refusé au crawl dans robots.txt — ces PDF
+  reprennent mot pour mot l'article qui les précède, et deux versions du même
+  texte se font concurrence dans l'index.
+
+  lastmod n'est un signal que s'il est vrai : ne le bouger que quand le contenu
+  de la page a réellement changé.
 -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.agenia.pro/</loc>
-    <lastmod>2026-08-22</lastmod>
+    <lastmod>2026-09-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
+
+  <!-- Les logiciels : les pages qui doivent ressortir sur les requêtes d'achat. -->
   <url>
-    <loc>https://www.agenia.pro/ressources/</loc>
-    <lastmod>2026-08-22</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.agenia.pro/demo-margeo.html</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.agenia.pro/demo-prospeo.html</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.agenia.pro/demo-keo.html</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.agenia.pro/demo-planeo.html</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.agenia.pro/agence-ia-haute-savoie.html</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://www.agenia.pro/essai-outils.html</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Les guides : le trafic qui arrive avant l'intention d'achat. -->
+  <url>
+    <loc>https://www.agenia.pro/ressources/</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.agenia.pro/ressources/20-taches-a-automatiser.html</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.agenia.pro/ressources/auditer-process-pme.html</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.agenia.pro/ressources/calculer-roi-automatisation.html</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
   <url>
     <loc>https://www.agenia.pro/mentions-legales.html</loc>
     <lastmod>2026-08-22</lastmod>

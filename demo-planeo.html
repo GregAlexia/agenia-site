@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Démo interactive de Planeo — AgenIA</title>
-  <meta name="description" content="Démo 3D de Planeo : parcourez une maison générée depuis les plans du permis de construire, avec le soleil et le vent réels de la parcelle." />
+  <title>Visualiser un plan de permis de construire en 3D — Planeo</title>
+  <meta name="description" content="Planeo transforme les plans de votre permis de construire en maison 3D visitable, avec le soleil et le vent réels de la parcelle. Démo dans le navigateur." />
   <meta name="theme-color" content="#f0efe8" />
-  <meta name="robots" content="noindex, follow" />
+  <!-- Indexable depuis le 19/09/2026 : la description du produit est publique,
+       seuls la vidéo et la visite 3D restent derrière le formulaire.
+       Une page noindex ne peut ramener personne. Voir REFERENCEMENT.md. -->
+  <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://www.agenia.pro/demo-planeo.html" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="AgenIA" />
-  <meta property="og:title" content="Démo interactive de Planeo — AgenIA" />
-  <meta property="og:description" content="Démo 3D de Planeo : parcourez une maison générée depuis les plans du permis de construire, avec le soleil et le vent réels de la parcelle." />
+  <meta property="og:title" content="Visualiser un plan de permis de construire en 3D — Planeo" />
+  <meta property="og:description" content="Planeo transforme les plans de votre permis de construire en maison 3D visitable, avec le soleil et le vent réels de la parcelle. Démo dans le navigateur." />
   <meta property="og:url" content="https://www.agenia.pro/demo-planeo.html" />
   <meta property="og:locale" content="fr_FR" />
   <meta property="og:image" content="https://www.agenia.pro/assets/og-image.jpg" />
@@ -22,8 +25,8 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Démo interactive de Planeo — AgenIA" />
-  <meta name="twitter:description" content="Démo 3D de Planeo : parcourez une maison générée depuis les plans du permis de construire, avec le soleil et le vent réels de la parcelle." />
+  <meta name="twitter:title" content="Visualiser un plan de permis de construire en 3D — Planeo" />
+  <meta name="twitter:description" content="Planeo transforme les plans de votre permis de construire en maison 3D visitable, avec le soleil et le vent réels de la parcelle. Démo dans le navigateur." />
   <meta name="twitter:image" content="https://www.agenia.pro/assets/og-image.jpg" />
 
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; frame-src https://www.youtube-nocookie.com; connect-src https://api.web3forms.com https://quygyeesmtxgykerjtjr.supabase.co; form-action 'self' https://api.web3forms.com; base-uri 'self'; object-src 'none'" />
@@ -38,8 +41,36 @@
     "@type": "BreadcrumbList",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.agenia.pro/" },
-      { "@type": "ListItem", "position": 2, "name": "Démo interactive de Planeo", "item": "https://www.agenia.pro/demo-planeo.html" }
+      { "@type": "ListItem", "position": 2, "name": "Planeo, visualisation 3D de plans de construction", "item": "https://www.agenia.pro/demo-planeo.html" }
     ]
+  }
+  </script>
+  <!-- Le produit lui-même. Volontairement sans "offers" ni "aggregateRating" :
+       les inventer pour décrocher un extrait enrichi est une fausse déclaration
+       que Google sanctionne. Voir REFERENCEMENT.md. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Planeo",
+    "url": "https://www.agenia.pro/demo-planeo.html",
+    "applicationCategory": "DesignApplication",
+    "applicationSubCategory": "Visualisation 3D de plans de construction",
+    "operatingSystem": "Navigateur web",
+    "inLanguage": "fr-FR",
+    "description": "Planeo g\u00e9n\u00e8re une maison 3D visitable \u00e0 partir des plans d'un permis de construire, implant\u00e9e sur sa parcelle r\u00e9elle, avec la course du soleil et l'exposition au vent du lieu.",
+    "featureList": [
+      "G\u00e9n\u00e9ration de la maquette 3D depuis les plans du permis",
+      "Visite \u00e0 pied dans le navigateur",
+      "Course du soleil \u00e0 la date et l'heure choisies",
+      "Ensoleillement du terrain heure par heure",
+      "Coupe du toit et vue en maquette"
+    ],
+    "audience": {
+      "@type": "Audience",
+      "audienceType": "Constructeurs, ma\u00eetres d'\u0153uvre, architectes et particuliers qui font construire"
+    },
+    "publisher": { "@type": "Organization", "name": "AgenIA", "url": "https://www.agenia.pro/" }
   }
   </script>
 </head>
@@ -48,7 +79,7 @@
     <div class="container header__inner">
       <a class="brand" href="index.html" aria-label="Agenia, accueil">
         <img class="brand__logo" src="assets/logo_agenia-hd.png" width="330" height="220"
-             alt="Agenia — Des solutions pour gagner du temps" />
+             alt="Agenia" />
       </a>
 
       <nav class="nav" aria-label="Navigation principale">
@@ -86,15 +117,82 @@
 
   <main class="res-article">
     <div class="container res-article__inner">
-      <span class="pill">Démo</span>
-      <h1 class="res__title" style="margin-top:16px">Démo interactive de Planeo</h1>
-      <p class="res-article__meta">AgenIA · Visualisation 3D de plans de construction</p>
+      <span class="pill">Produit</span>
+      <h1 class="res__title" style="margin-top:16px">Visualiser un plan de permis de construire en 3D</h1>
+      <p class="res-article__meta">Planeo, édité par AgenIA · Constructeurs, maîtres d'œuvre et particuliers</p>
 
       <p class="res-article__lede">
         Une maison réelle, générée depuis les plans de son permis de construire.
         On y marche, on monte à l'étage, on sort au jardin — et on voit tomber
         le soleil de n'importe quelle date de l'année, à n'importe quelle heure.
       </p>
+
+      <p class="card__cta" style="margin-top:26px">
+        <a class="btn btn--primary btn--lg" href="#acces">Ouvrir la visite 3D</a>
+      </p>
+
+      <h2>Un plan en deux dimensions ne se lit pas, il se devine</h2>
+      <p>
+        Un maître d'ouvrage qui signe un permis de construire regarde des
+        coupes, des façades et un plan de masse. Il lui est demandé d'en
+        déduire un volume, une hauteur sous plafond, la lumière d'une pièce à
+        16&nbsp;h en novembre — des choses qu'un professionnel lit d'un coup
+        d'œil et qu'un particulier ne lit pas du tout.
+      </p>
+      <p>
+        Les modifications coûteuses arrivent alors tard&nbsp;: au moment du
+        gros œuvre, quand la fenêtre est déjà posée du mauvais côté. C'est ce
+        décalage que Planeo supprime, en montrant le projet avant qu'il soit
+        construit.
+      </p>
+
+      <h2>Ce que fait Planeo</h2>
+      <ul>
+        <li><strong>La maquette est générée depuis vos plans</strong> — ceux du
+          permis de construire. Rien à redessiner.</li>
+        <li><strong>Le projet est posé sur sa parcelle</strong>, à son
+          orientation réelle, avec le relief du terrain.</li>
+        <li><strong>La course du soleil est celle du lieu</strong>, à la date et
+          à l'heure choisies. Le 21&nbsp;décembre à 9&nbsp;h et le 21&nbsp;juin
+          à 18&nbsp;h sont les deux questions que tout le monde se pose et que
+          personne ne sait trancher avant d'habiter.</li>
+        <li><strong>L'ensoleillement du jardin</strong> heure par heure — de
+          quoi placer une terrasse ou un potager sans se tromper
+          d'orientation.</li>
+        <li><strong>Visite à pied dans le navigateur</strong>, sans rien
+          installer, et coupe du toit pour voir la maison en maquette.</li>
+      </ul>
+
+      <h2>Pour qui</h2>
+      <p>
+        Constructeurs de maisons individuelles, maîtres d'œuvre, architectes et
+        agences immobilières qui vendent sur plan — et les particuliers qui
+        veulent comprendre ce qu'ils s'apprêtent à signer. Pour une vente de
+        terrain à bâtir, la maquette fait se projeter un acquéreur bien mieux
+        qu'une perspective d'artiste, parce qu'elle est mesurable.
+      </p>
+
+      <h2>Questions fréquentes</h2>
+      <h3>Faut-il fournir un fichier 3D&nbsp;?</h3>
+      <p>
+        Non. Les plans du permis suffisent&nbsp;: plans de niveaux, coupes,
+        façades et plan de masse.
+      </p>
+      <h3>Est-ce que ça tourne sur un ordinateur ordinaire&nbsp;?</h3>
+      <p>
+        Oui, dans le navigateur, sans installation. Comptez quelques secondes
+        de chargement&nbsp;: c'est une scène 3D complète, pas une image.
+      </p>
+      <h3>Est-ce une étude thermique&nbsp;?</h3>
+      <p>
+        Non, et il ne faut pas le lui faire dire. Planeo montre la géométrie et
+        l'ensoleillement&nbsp;; le calcul réglementaire reste le travail d'un
+        bureau d'études.
+      </p>
+
+      <!-- Enveloppe les deux états : le lien « Ouvrir la visite 3D » en haut de
+           page doit atteindre une cible qui existe aussi après déverrouillage. -->
+      <div id="acces">
 
       <!-- ============ PORTAIL (visible tant que non débloqué) ============ -->
       <div class="res-gate" id="portail">
@@ -194,6 +292,17 @@
           <a href="index.html#produit">← Retour aux produits</a>
         </p>
       </div>
+      </div><!-- /#acces -->
+
+      <h2>À lire aussi</h2>
+      <ul>
+        <li><a href="demo-keo.html">Keo, l'automatisation pour agence immobilière</a>
+          — qualification des demandes, visites, quittances.</li>
+        <li><a href="ressources/auditer-process-pme.html">Auditer ses process avant d'automatiser</a>
+          — pourquoi commencer par regarder, même sur un projet de construction.</li>
+        <li><a href="index.html#produit">Les autres logiciels édités par AgenIA</a>
+          — Margeo, Prospeo et Keo.</li>
+      </ul>
     </div>
   </main>
 

@@ -44,6 +44,17 @@
     return true;
   }
 
+  /**
+   * Un fichier téléchargeable est un lien interne parfaitement valide — et son
+   * absence est un vrai défaut, donc il reste vérifié — mais ce n'est pas une
+   * page : l'explorer reviendrait à lui reprocher de n'avoir ni titre, ni menu,
+   * ni CSP, ce qu'aucun PDF n'a jamais eu. Les guides en ont introduit trois le
+   * 19/09/2026, et l'audit les a comptés comme quinze points à corriger.
+   */
+  function estPage(chemin) {
+    return !/\.(pdf|zip|jpe?g|png|svg|webp|gif|ico|csv|xlsx?|docx?)$/i.test(chemin);
+  }
+
   function texteNav(doc, selecteur) {
     var liens = doc.querySelectorAll(selecteur);
     return Array.prototype.map.call(liens, function (a) {
@@ -236,6 +247,7 @@
           liensAttendus[l] = (liensAttendus[l] || 0) + 1;
           // L'espace interne a son propre gabarit : on ne l'audite pas comme une page publique.
           if (l.indexOf("/documentation/") === 0) return;
+          if (!estPage(l)) return;
           if (!vues[l] && aVoir.indexOf(l) === -1) aVoir.push(l);
         });
         return suivant();

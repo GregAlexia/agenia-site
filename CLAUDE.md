@@ -33,15 +33,15 @@ est derrière AgenIA.
 
 ---
 
-## Le piège de fond : onze fichiers, un seul en-tête
+## Le piège de fond : douze fichiers, un seul en-tête
 
 Il n'y a pas de gabarit. L'en-tête, la navigation, le menu mobile et le pied de
-page sont **répétés dans les onze pages publiques** :
+page sont **répétés dans les douze pages publiques** :
 
 ```
 index.html · demo-margeo.html · demo-prospeo.html · demo-keo.html
-demo-planeo.html · essai-outils.html · mentions-legales.html
-ressources/index.html
+demo-planeo.html · essai-outils.html · agence-ia-haute-savoie.html
+mentions-legales.html · ressources/index.html
 ressources/20-taches-a-automatiser.html · ressources/auditer-process-pme.html
 ressources/calculer-roi-automatisation.html
 ```
@@ -51,7 +51,7 @@ La **grille des ressources** est dupliquée de la même façon, entre l'accueil
 
 Le bloc `<nav class="social">` du pied de page l'est aussi — mais il fait
 exception : ses adresses étant absolues, il est **strictement identique dans les
-onze fichiers**, sans variante en `../`. Un compte ajouté se recopie tel quel.
+douze fichiers**, sans variante en `../`. Un compte ajouté se recopie tel quel.
 
 Toucher à la navigation sans les traiter toutes laisse un site incohérent, sans
 erreur ni test rouge pour le signaler. **Après toute modification de
@@ -138,6 +138,44 @@ pense pas à rétablir le son.
 restaurée par la règle `#produit .card > p…, .card__list, #produit .demo` — un
 nouvel élément pleine largeur dans ces cartes doit y être ajouté, sinon il
 s'affiche à la largeur de son texte.
+
+---
+
+## Ce qui doit être trouvé doit être lisible sans rien remplir
+
+Le 19 septembre 2026, **huit des onze pages publiques d'alors portaient
+`noindex`**,
+parce que leur contenu était masqué par un formulaire. Le site n'était donc
+indexable que sur l'accueil et les mentions légales — et invisible de Google
+jusque sur son propre nom, que se disputent par ailleurs `agenia.ai`, une
+société italienne, une application brésilienne et une police de caractères.
+
+Depuis, la ligne de partage est la suivante, et **elle ne se renégocie pas page
+par page** :
+
+| Public, donc indexable | Derrière le formulaire |
+|---|---|
+| Ce que fait le produit, pour qui, la FAQ | La **vidéo** et l'**accès** à l'application |
+| L'article entier d'un guide | Sa version **PDF** |
+
+La capture de prospects n'a pas été sacrifiée : elle a été déplacée, et elle
+qualifie mieux — quelqu'un qui remplit après avoir lu sait ce qu'il demande.
+
+⚠️ **Le piège est silencieux.** Remonter un formulaire devant un contenu, ou
+réintroduire un `noindex`, annule des mois de positionnement sans qu'aucun test
+ne rougisse. La vérification tient en dix secondes : ouvrir la page en
+navigation privée, sans rien remplir — ce qui est lisible est ce que Google
+verra. `documentation/audit.html` dit aussi, page par page, si elle est
+indexable.
+
+**Ne jamais inventer d'avis, de note ou de prix** dans les données structurées,
+même « en attendant » : c'est une fausse déclaration que Google sanctionne.
+C'est pourquoi les quatre `SoftwareApplication` n'ont ni `offers` ni
+`aggregateRating`, alors que ce sont eux qui donnent les étoiles.
+
+Le reste — requêtes visées page par page, Search Console, fiche Google Business
+Profile, le dépôt GitHub à passer en privé — est dans
+[`REFERENCEMENT.md`](REFERENCEMENT.md).
 
 ---
 

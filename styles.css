@@ -344,6 +344,21 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.12; margin: 0; le
   font-family: var(--font-ui); font-weight: 700; font-size: .82rem;
   display: flex; align-items: center; justify-content: center;
 }
+/* Les pages produit et les guides sont devenus de vraies pages de contenu
+   (19/09/2026) : il leur faut un niveau de titre de plus, et un rendu pour les
+   formules citées dans le corps du texte. */
+.res-article h3 { font-size: 1.05rem; font-weight: 700; margin: 26px 0 8px; }
+.res-article code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: .9em; background: var(--surface); border: 1px solid var(--border);
+  border-radius: 5px; padding: 1px 5px;
+  /* Une formule qui passe à la ligne garderait sinon une bordure ouverte d'un
+     côté et absente de l'autre. */
+  -webkit-box-decoration-break: clone; box-decoration-break: clone;
+}
+.res-article__inner > ul { color: var(--text-muted); }
+.res-article__inner > ul strong { color: var(--text); }
+
 .res-article__cta { margin-top: 48px; padding: 32px; border-radius: var(--radius); background: var(--surface); }
 .res-article__cta h2 { border: none; margin-top: 0; padding-bottom: 0; }
 .res-article__cta p:not(.card__cta) { color: var(--text-muted); }

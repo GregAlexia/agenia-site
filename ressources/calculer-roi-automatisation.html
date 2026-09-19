@@ -3,10 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Calculer le ROI d'une automatisation — AgenIA</title>
+  <title>Calculer le ROI d'une automatisation — formule et exemple</title>
   <meta name="description" content="La méthode simple pour savoir, avant de se lancer, si une automatisation est rentable pour votre PME — formule, exemple chiffré et erreurs à éviter." />
   <meta name="theme-color" content="#f0efe8" />
-  <meta name="robots" content="noindex, follow" />
+  <!-- Indexable depuis le 19/09/2026 : l'article est public, le formulaire
+       n'offre plus que la version PDF. Voir REFERENCEMENT.md. -->
+  <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://www.agenia.pro/ressources/calculer-roi-automatisation.html" />
 
   <!-- Open Graph -->
@@ -43,13 +45,47 @@
     ]
   }
   </script>
+  <!-- L'article. "author" est l'organisation et non une personne :
+       le nom du propriétaire n'apparaît nulle part sur ce site. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Calculer le ROI d'une automatisation",
+    "description": "La méthode simple pour savoir, avant de se lancer, si une automatisation est rentable pour votre PME — formule, exemple chiffré et erreurs à éviter.",
+    "inLanguage": "fr-FR",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.agenia.pro/ressources/calculer-roi-automatisation.html"
+    },
+    "url": "https://www.agenia.pro/ressources/calculer-roi-automatisation.html",
+    "image": "https://www.agenia.pro/assets/og-image.jpg",
+    "datePublished": "2026-08-22",
+    "dateModified": "2026-09-19",
+    "author": {
+      "@type": "Organization",
+      "name": "AgenIA",
+      "url": "https://www.agenia.pro/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "AgenIA",
+      "url": "https://www.agenia.pro/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.agenia.pro/assets/logo_agenia-hd.png"
+      }
+    },
+    "isAccessibleForFree": true
+  }
+  </script>
 </head>
 <body>
   <header class="site-header" id="top">
     <div class="container header__inner">
       <a class="brand" href="../index.html" aria-label="Agenia, accueil">
         <img class="brand__logo" src="../assets/logo_agenia-hd.png" width="330" height="220"
-             alt="Agenia — Des solutions pour gagner du temps" />
+             alt="Agenia" />
       </a>
 
       <nav class="nav" aria-label="Navigation principale">
@@ -99,14 +135,106 @@
         automatisation est rentable — et en combien de temps.
       </p>
 
-      <!-- ============ PORTAIL (visible tant que non débloqué) ============ -->
+      <h2>La question à se poser avant de calculer quoi que ce soit</h2>
+      <p>
+        Toutes les tâches répétitives ne sont pas de bonnes candidates à
+        l'automatisation. La question n'est pas seulement « est-ce
+        répétitif ? » mais « est-ce répétitif <em>et</em> prévisible ? ».
+        Une tâche qui suit toujours le même schéma, avec peu d'exceptions,
+        se prête bien au calcul ci-dessous. Une tâche qui change de forme à
+        chaque fois demande d'abord à être clarifiée, sinon le calcul de
+        rentabilité sera faux dès le départ.
+      </p>
+
+      <h2>La formule de base</h2>
+      <p>
+        Le gain de temps annuel d'une automatisation se calcule avec trois
+        chiffres que vous avez déjà, ou pouvez estimer en quelques minutes :
+      </p>
+      <ol class="res-list">
+        <li><strong>Temps unitaire.</strong> Combien de minutes prend la tâche à chaque fois qu'elle est effectuée manuellement.</li>
+        <li><strong>Fréquence annuelle.</strong> Combien de fois cette tâche revient dans l'année (par jour × jours ouvrés, par exemple).</li>
+        <li><strong>Coût horaire chargé.</strong> Le coût réel d'une heure de travail de la personne qui l'effectue (salaire chargé, pas seulement le salaire net).</li>
+        <li><strong>Coût de mise en place.</strong> Le temps ou le budget nécessaire pour automatiser la tâche, à ramener en euros.</li>
+      </ol>
+      <p>
+        Le calcul tient alors en une ligne&nbsp;:
+      </p>
+      <p>
+        <strong>Gain annuel = (temps unitaire × fréquence annuelle × coût horaire) − coût de mise en place</strong>
+      </p>
+
+      <h2>Un exemple chiffré</h2>
+      <p>
+        Prenons une relance de factures impayées effectuée manuellement,
+        qui prend 8 minutes et revient 3 fois par semaine (environ 150 fois
+        par an), pour un coût horaire chargé de 30&nbsp;€&nbsp;:
+      </p>
+      <ol class="res-list">
+        <li><strong>Temps annuel passé.</strong> 8 minutes × 150 = 1 200 minutes, soit 20 heures par an.</li>
+        <li><strong>Coût annuel de la tâche manuelle.</strong> 20 heures × 30&nbsp;€ = 600&nbsp;€ par an.</li>
+        <li><strong>Coût de mise en place estimé.</strong> Une séquence de relances automatiques représente en général quelques heures de configuration, disons 400&nbsp;€ tout compris la première année.</li>
+        <li><strong>Gain net la première année.</strong> 600&nbsp;€ − 400&nbsp;€ = 200&nbsp;€, puis 600&nbsp;€ par an ensuite, sans nouveau coût de mise en place.</li>
+      </ol>
+      <p>
+        Ce chiffre seul ne dit pas tout — il ignore par exemple les
+        impayés récupérés plus vite grâce à des relances plus
+        régulières — mais il donne un seuil de décision simple et
+        vérifiable avec vos propres chiffres.
+      </p>
+
+      <h2>Les coûts qu'on oublie souvent d'inclure</h2>
+      <ul class="res-list">
+        <li><strong>Le temps de correction des erreurs.</strong> Une tâche manuelle génère des erreurs qui coûtent du temps ailleurs (une facture mal ressaisie qui fausse un rapprochement bancaire, par exemple). Ce temps de correction fait partie du coût réel de la tâche manuelle.</li>
+        <li><strong>Le temps d'attente.</strong> Une tâche qui dépend d'une personne disponible seulement à certains moments (validation, envoi) ralentit tout ce qui vient après. Ce délai a un coût, même s'il ne figure sur aucune fiche de paie.</li>
+        <li><strong>Le coût de maintenance.</strong> Une automatisation n'est pas gratuite après sa mise en place — elle demande un minimum de suivi si les outils ou les process changent. À intégrer, même modestement, dans le calcul.</li>
+      </ul>
+
+      <h2>Le seuil simple pour se décider</h2>
+      <p>
+        En pratique, une automatisation mérite d'être lancée dès que le
+        gain net de la première année est positif <em>et</em> que le gain
+        annuel récurrent (années suivantes) dépasse clairement le coût de
+        maintenance estimé. Si le calcul est proche de zéro, ce n'est pas
+        forcément une mauvaise idée — mais ce n'est probablement pas la
+        priorité par rapport à une autre tâche au ratio plus favorable.
+      </p>
+
+      <h2>Trois erreurs fréquentes</h2>
+      <ol class="res-list">
+        <li><strong>Sous-estimer le coût horaire chargé.</strong> Beaucoup de PME raisonnent en salaire net, ce qui minore artificiellement le gain réel d'une automatisation.</li>
+        <li><strong>Ne compter que le temps, jamais les erreurs évitées.</strong> Le calcul minimal ci-dessus est déjà utile, mais il sous-estime souvent le vrai gain d'une automatisation fiable.</li>
+        <li><strong>Automatiser la tâche la plus visible plutôt que la plus rentable.</strong> La tâche la plus irritante au quotidien n'est pas toujours celle qui a le meilleur ratio gain/coût — le calcul permet de trancher objectivement.</li>
+      </ol>
+
+      <div class="res-article__cta">
+        <h2>Envie de faire ce calcul sur vos propres tâches&nbsp;?</h2>
+        <p>
+          Nous pouvons le faire ensemble, sur 2 ou 3 tâches concrètes de
+          votre activité, lors d'un premier échange sans engagement.
+        </p>
+        <p class="card__cta">
+          <a class="btn btn--primary btn--lg" href="../index.html#audit">Réserver un audit gratuit</a>
+        </p>
+      </div>
+
+
+      <h2>À lire ensuite</h2>
+      <ul>
+        <li><a href="auditer-process-pme.html">Auditer ses process avant d'automatiser</a> — ce qu'il faut avoir regardé avant de chiffrer.</li>
+        <li><a href="20-taches-a-automatiser.html">20 tâches à automatiser en premier</a> — les candidates les plus souvent rentables.</li>
+        <li><a href="../index.html#contact">Faire le point sur vos process</a> — trente minutes, sans engagement.</li>
+      </ul>
+
+      <!-- Le formulaire ne cache plus l'article — il est descendu ici et
+           n'offre que la version PDF. Un article masqué ne pouvait être ni
+           indexé ni lu : personne ne remplit un formulaire pour un texte dont
+           il ne sait rien. Les identifiants #portail et #contenu sont ceux
+           qu'attend gate.js, qui n'a pas eu à changer. -->
       <div class="res-gate" id="portail">
         <div class="res-gate__card">
-          <h2>Débloquez le guide complet</h2>
-          <p>
-            Renseignez vos coordonnées pour lire immédiatement la méthode de
-            calcul, un exemple chiffré et les erreurs les plus fréquentes.
-          </p>
+          <h2>La version PDF, avec la feuille de calcul</h2>
+          <p>L'article en un document imprimable, et le tableau de calcul à remplir pour votre propre cas.</p>
 
           <form id="formRessource" novalidate>
             <input type="hidden" name="access_key" value="659aaa00-f8c4-45f0-a1b7-7f5e5937b082" />
@@ -136,95 +264,23 @@
               </span>
             </label>
 
-            <button class="btn btn--primary btn--lg" type="submit">Lire la ressource</button>
+            <button class="btn btn--primary btn--lg" type="submit">Recevoir le PDF</button>
             <p class="form__note" id="rNote" role="status" aria-live="polite"></p>
           </form>
         </div>
       </div>
 
-      <!-- ============ CONTENU (masqué tant que non débloqué) ============ -->
+      <!-- ============ LIEN DE TÉLÉCHARGEMENT (révélé après envoi) ============ -->
       <div class="res-locked" id="contenu" hidden>
-
-        <h2>La question à se poser avant de calculer quoi que ce soit</h2>
-        <p>
-          Toutes les tâches répétitives ne sont pas de bonnes candidates à
-          l'automatisation. La question n'est pas seulement « est-ce
-          répétitif ? » mais « est-ce répétitif <em>et</em> prévisible ? ».
-          Une tâche qui suit toujours le même schéma, avec peu d'exceptions,
-          se prête bien au calcul ci-dessous. Une tâche qui change de forme à
-          chaque fois demande d'abord à être clarifiée, sinon le calcul de
-          rentabilité sera faux dès le départ.
-        </p>
-
-        <h2>La formule de base</h2>
-        <p>
-          Le gain de temps annuel d'une automatisation se calcule avec trois
-          chiffres que vous avez déjà, ou pouvez estimer en quelques minutes :
-        </p>
-        <ol class="res-list">
-          <li><strong>Temps unitaire.</strong> Combien de minutes prend la tâche à chaque fois qu'elle est effectuée manuellement.</li>
-          <li><strong>Fréquence annuelle.</strong> Combien de fois cette tâche revient dans l'année (par jour × jours ouvrés, par exemple).</li>
-          <li><strong>Coût horaire chargé.</strong> Le coût réel d'une heure de travail de la personne qui l'effectue (salaire chargé, pas seulement le salaire net).</li>
-          <li><strong>Coût de mise en place.</strong> Le temps ou le budget nécessaire pour automatiser la tâche, à ramener en euros.</li>
-        </ol>
-        <p>
-          Le calcul tient alors en une ligne&nbsp;:
-        </p>
-        <p>
-          <strong>Gain annuel = (temps unitaire × fréquence annuelle × coût horaire) − coût de mise en place</strong>
-        </p>
-
-        <h2>Un exemple chiffré</h2>
-        <p>
-          Prenons une relance de factures impayées effectuée manuellement,
-          qui prend 8 minutes et revient 3 fois par semaine (environ 150 fois
-          par an), pour un coût horaire chargé de 30&nbsp;€&nbsp;:
-        </p>
-        <ol class="res-list">
-          <li><strong>Temps annuel passé.</strong> 8 minutes × 150 = 1 200 minutes, soit 20 heures par an.</li>
-          <li><strong>Coût annuel de la tâche manuelle.</strong> 20 heures × 30&nbsp;€ = 600&nbsp;€ par an.</li>
-          <li><strong>Coût de mise en place estimé.</strong> Une séquence de relances automatiques représente en général quelques heures de configuration, disons 400&nbsp;€ tout compris la première année.</li>
-          <li><strong>Gain net la première année.</strong> 600&nbsp;€ − 400&nbsp;€ = 200&nbsp;€, puis 600&nbsp;€ par an ensuite, sans nouveau coût de mise en place.</li>
-        </ol>
-        <p>
-          Ce chiffre seul ne dit pas tout — il ignore par exemple les
-          impayés récupérés plus vite grâce à des relances plus
-          régulières — mais il donne un seuil de décision simple et
-          vérifiable avec vos propres chiffres.
-        </p>
-
-        <h2>Les coûts qu'on oublie souvent d'inclure</h2>
-        <ul class="res-list">
-          <li><strong>Le temps de correction des erreurs.</strong> Une tâche manuelle génère des erreurs qui coûtent du temps ailleurs (une facture mal ressaisie qui fausse un rapprochement bancaire, par exemple). Ce temps de correction fait partie du coût réel de la tâche manuelle.</li>
-          <li><strong>Le temps d'attente.</strong> Une tâche qui dépend d'une personne disponible seulement à certains moments (validation, envoi) ralentit tout ce qui vient après. Ce délai a un coût, même s'il ne figure sur aucune fiche de paie.</li>
-          <li><strong>Le coût de maintenance.</strong> Une automatisation n'est pas gratuite après sa mise en place — elle demande un minimum de suivi si les outils ou les process changent. À intégrer, même modestement, dans le calcul.</li>
-        </ul>
-
-        <h2>Le seuil simple pour se décider</h2>
-        <p>
-          En pratique, une automatisation mérite d'être lancée dès que le
-          gain net de la première année est positif <em>et</em> que le gain
-          annuel récurrent (années suivantes) dépasse clairement le coût de
-          maintenance estimé. Si le calcul est proche de zéro, ce n'est pas
-          forcément une mauvaise idée — mais ce n'est probablement pas la
-          priorité par rapport à une autre tâche au ratio plus favorable.
-        </p>
-
-        <h2>Trois erreurs fréquentes</h2>
-        <ol class="res-list">
-          <li><strong>Sous-estimer le coût horaire chargé.</strong> Beaucoup de PME raisonnent en salaire net, ce qui minore artificiellement le gain réel d'une automatisation.</li>
-          <li><strong>Ne compter que le temps, jamais les erreurs évitées.</strong> Le calcul minimal ci-dessus est déjà utile, mais il sous-estime souvent le vrai gain d'une automatisation fiable.</li>
-          <li><strong>Automatiser la tâche la plus visible plutôt que la plus rentable.</strong> La tâche la plus irritante au quotidien n'est pas toujours celle qui a le meilleur ratio gain/coût — le calcul permet de trancher objectivement.</li>
-        </ol>
-
         <div class="res-article__cta">
-          <h2>Envie de faire ce calcul sur vos propres tâches&nbsp;?</h2>
+          <h2>Votre PDF est prêt</h2>
           <p>
-            Nous pouvons le faire ensemble, sur 2 ou 3 tâches concrètes de
-            votre activité, lors d'un premier échange sans engagement.
+            L'article et son tableau de calcul en un document imprimable, à remplir avec vos propres chiffres.
           </p>
           <p class="card__cta">
-            <a class="btn btn--primary btn--lg" href="../index.html#audit">Réserver un audit gratuit</a>
+            <a class="btn btn--primary btn--lg" href="pdf/calculer-roi-automatisation.pdf" download>
+              Télécharger le PDF
+            </a>
           </p>
         </div>
       </div>

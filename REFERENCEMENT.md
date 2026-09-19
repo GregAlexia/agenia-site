@@ -1,120 +1,213 @@
 # Référencement (SEO)
 
-Ce document recense ce qui a été mis en place pour le référencement du site,
-et la procédure pour le déclarer aux moteurs de recherche. À tenir à jour
-quand une page indexable apparaît ou disparaît.
+Ce que le site fait pour être trouvé sur Google, **pourquoi** il le fait ainsi,
+et ce qui reste à faire à la main. À tenir à jour quand une page indexable
+apparaît ou disparaît.
+
+---
+
+## Le point de départ, 19 septembre 2026
+
+Trois constats, vérifiés et non supposés, qui expliquent tout ce qui suit.
+
+**1. Le site n'était indexable que sur trois pages, dont les mentions légales.**
+Les quatre pages produit, la page des calculateurs et les trois guides portaient
+`noindex` — leur contenu était caché derrière un formulaire, donc il n'y avait
+rien à indexer. Google n'avait qu'une seule page commerciale : l'accueil. **Un
+site à une page ne se classe sur rien.** C'était la cause racine, et tout le
+reste du référencement n'était qu'un décor autour d'elle.
+
+**2. Le nom « Agenia » est très disputé.** Une recherche sur `agenia.pro`
+remonte `agenia.ai`, `agenia.app.br`, Agenia SRL (une société de conseil
+italienne), une police de caractères du même nom, un thème WordPress — et le
+dépôt GitHub du site, qui sortait avant le site lui-même. **La marque seule ne
+ramènera pas de trafic.** Il faut viser ce que le client tape quand il ne nous
+connaît pas encore.
+
+**3. « Margeo » est déjà occupé dans sa propre niche.** `margeo.co` se présente
+comme « gestion des coûts alimentaires pour restaurants », et il existe aussi
+`margeoapp.com` et une fiche Capterra au même nom. Se battre sur le mot
+« Margeo » coûterait cher pour un résultat improbable. **On vise donc le
+problème, pas le nom du produit** : « logiciel calcul marge restaurant »,
+« coût de revient d'un plat », pas « Margeo ».
+
+---
+
+## La règle qui découle de tout ça
+
+> **Ce qui doit être trouvé doit être lisible sans rien remplir.**
+
+Un formulaire placé devant le contenu est un mur pour Google exactement comme
+pour un visiteur qui ne nous connaît pas. La capture de prospects n'a pas
+disparu pour autant — elle a changé de place :
+
+| Type de page | Ce qui est public | Ce qui reste derrière le formulaire |
+|---|---|---|
+| Pages produit | Le problème, ce que fait le logiciel, pour qui, la FAQ | La **vidéo** de démo et l'**accès** à l'application |
+| Calculateurs | Ce que fait chacun des huit, la FAQ | Le **lien d'ouverture** des outils |
+| Guides | L'**article entier** | La version **PDF** imprimable |
+
+Le point de capture est donc conservé partout, et il est même mieux qualifié :
+quelqu'un qui remplit après avoir lu sait ce qu'il demande.
+
+**Test avant de pousser une page** : afficher la page dans une fenêtre de
+navigation privée, sans rien remplir. Ce qui est lisible est ce que Google
+verra. Si c'est un formulaire, la page ne ramènera personne.
+
+---
 
 ## Ce qui est en place
 
 | Élément | Où | Détail |
 |---|---|---|
-| `robots.txt` | racine | Autorise tout le crawl, référence le sitemap |
-| `sitemap.xml` | racine | Liste uniquement les pages **indexables** (voir plus bas) |
-| `<link rel="canonical">` | 6 pages publiques | Une URL de référence par page, évite le contenu dupliqué |
-| Open Graph + Twitter Card | 6 pages publiques | Titre, description, image de partage (1200×630) pour un rendu correct sur LinkedIn/WhatsApp/Slack |
-| `assets/og-image.jpg` | racine assets | Image de partage sociale, générée dans la charte éditoriale du site (logo, accroche, 60 Ko) |
-| JSON-LD `Organization` + `WebSite` | `index.html` | Identité de l'entreprise — **aucun nom de personne physique**, cf. `mentions-legales.html` |
-| JSON-LD `FAQPage` | `index.html` | Les 5 questions de la section FAQ, éligibles aux extraits enrichis Google |
-| JSON-LD `BreadcrumbList` | 5 pages (toutes sauf l'accueil) | Fil d'Ariane pour le contexte de navigation |
-| JSON-LD `ItemList` | `ressources/index.html` | Liste des guides disponibles |
+| `robots.txt` | racine | Autorise le crawl, refuse `/ressources/pdf/`, déclare le sitemap |
+| `sitemap.xml` | racine | Les **12 pages indexables**, avec `lastmod` réel |
+| `<link rel="canonical">` | 12 pages publiques | Une URL de référence par page |
+| Open Graph + Twitter Card | 12 pages publiques | Rendu correct sur LinkedIn, WhatsApp, Slack |
+| `assets/og-image.jpg` | `assets/` | Image de partage 1200×630, gabarit dans `outils/og-image.html` |
+| JSON-LD `Organization` | `index.html` | Identité, marques, RCS, et **`sameAs`** vers les trois comptes sociaux |
+| JSON-LD `WebSite` | `index.html` | — |
+| JSON-LD `FAQPage` | `index.html` | Les 5 questions de la section FAQ |
+| JSON-LD `SoftwareApplication` | 4 pages produit | Le logiciel décrit comme une entité : catégorie, fonctions, public |
+| JSON-LD `Article` | 3 guides | Titre, dates, auteur = l'organisation |
+| JSON-LD `ProfessionalService` | `agence-ia-haute-savoie.html` | Adresse, coordonnées, zone desservie |
+| JSON-LD `BreadcrumbList` | toutes sauf l'accueil | Fil d'Ariane |
+| JSON-LD `ItemList` | `ressources/index.html` | Liste des guides |
 
-### Pages indexables vs `noindex`
+### `sameAs` : à quoi il sert vraiment ici
 
-Seules 3 pages sont dans `sitemap.xml` et autorisées à l'indexation
-(`index, follow`) : l'accueil, `/ressources/` et `mentions-legales.html`.
+Ce n'est pas un ornement. Avec cinq homonymes qui occupent le nom, `sameAs` est
+ce qui dit à Google que *cette* entreprise-ci est celle qui tient ces comptes
+Facebook, Instagram et YouTube. **Tout compte social ajouté doit être ajouté
+là**, sinon c'est un signal perdu.
 
-Les 3 articles de `/ressources/*.html` portent `noindex, follow` : le
-contenu est masqué tant qu'un formulaire n'est pas rempli (voir
-`README.md` de la section Ressources), donc ce qu'un robot verrait sans
-soumettre le formulaire n'est que le portail de capture — rien d'utile à
-indexer. Le lien reste malgré tout partageable (Open Graph fonctionne,
-seul le référencement Google est désactivé).
+### Ce qu'on ne déclare pas, et pourquoi
 
-`/documentation/` porte `noindex, nofollow` (contenu chiffré, protégé par
-mot de passe) et n'apparaît pas non plus dans le sitemap.
+Les `SoftwareApplication` ne portent **ni `offers` ni `aggregateRating`**. Ce
+sont pourtant eux qui déclenchent l'extrait enrichi avec les étoiles. Les
+inventer est une fausse déclaration que Google sanctionne — et il n'y a
+aujourd'hui ni grille tarifaire publique (décision du 3 septembre 2026) ni
+avis clients réels. Le jour où l'un des deux existe, c'est là qu'il se déclare.
 
-**Quand ajouter une page au sitemap** : uniquement si elle porte
-`index, follow` (ou aucune balise `robots`, ce qui revient au même par
-défaut). Une page `noindex` n'a rien à faire dans le sitemap.
+Même raison pour l'absence de `SearchAction` dans `WebSite` : le site n'a pas
+de moteur de recherche interne, et en déclarer un produirait une boîte de
+recherche qui ne marche pas.
+
+### Pages indexables
+
+Les **12 pages publiques** sont toutes indexables et toutes au sitemap.
+
+Restent hors index, volontairement :
+
+- **`/documentation/`** — `noindex, nofollow`, protégée par mot de passe. Elle
+  n'est **pas** refusée dans `robots.txt`, et c'est délibéré : un robot à qui
+  l'on interdit d'explorer une page ne peut pas lire le `noindex` qu'elle
+  contient, et elle finirait indexée sans titre plutôt qu'absente.
+- **`/ressources/pdf/`** — refusé au crawl. Ces PDF reprennent mot pour mot
+  l'article qui les précède ; laissés libres, ils lui feraient concurrence dans
+  l'index, et c'est parfois le PDF qui l'emporte — un document sans navigation,
+  sans lien et sans formulaire.
+
+**Quand ajouter une page au sitemap** : dès qu'elle porte `index, follow`. Une
+page `noindex` n'a rien à y faire, et une page indexable absente du sitemap est
+trouvée plus tard.
 
 ---
 
-## Déclarer le site à Google Search Console
+## Ce que chaque page doit aller chercher
 
-Le domaine servi est `www.agenia.pro` (fichier `CNAME` à la racine).
+Le titre et le `h1` sont écrits pour ces intentions-là. Les changer sans raison
+casse un travail de positionnement qui met des mois à s'installer.
 
-### 1. Compte
+| Page | Intention visée |
+|---|---|
+| `/` | La marque, et « éditeur de logiciels IA pour PME » |
+| `demo-margeo.html` | logiciel calcul marge restaurant · coût de revient d'un plat · food cost |
+| `demo-prospeo.html` | logiciel prospection commerciale IA · outil de prospection B2B |
+| `demo-keo.html` | logiciel gestion agence immobilière · automatisation quittance de loyer |
+| `demo-planeo.html` | plan de permis de construire en 3D · visualiser sa maison avant construction |
+| `essai-outils.html` | calculateur coût de revient restaurant gratuit · calcul prime cost |
+| `agence-ia-haute-savoie.html` | agence IA Annecy · automatisation PME Haute-Savoie |
+| `ressources/*` | quelles tâches automatiser · auditer ses process · calculer le ROI |
 
-Ouvrir **search.google.com/search-console** avec le compte Google qui doit
-gérer le site (idéalement `contact@agenia.pro` si ce Gmail existe, sinon un
-compte personnel — l'outil n'affiche rien de public).
+**Un titre passe sous 60 caractères**, sinon Google le tronque et la promesse
+se perd en plein milieu. Une méta-description reste sous 155.
 
-### 2. Ajouter la propriété — type « Préfixe d'URL »
+### Maillage interne
 
-Deux types de propriété existent :
+Le pied de page de l'accueil porte la colonne **Logiciels** : ce sont les seuls
+liens internes vers les pages produit depuis la page la mieux référencée du
+site. Une page sans lien entrant est explorée tard et mal. Chaque page se
+termine par un bloc « À lire aussi » pour la même raison.
 
-- **Domaine** — couvre `agenia.pro` + `www.agenia.pro` + tous les
-  sous-domaines, mais exige un enregistrement TXT chez le registrar DNS (OVH)
-- **Préfixe d'URL** — couvre uniquement `https://www.agenia.pro/`, vérifiable
-  par un simple fichier ou une balise HTML, sans toucher au DNS
+Le lien externe vers `margeo.vercel.app` qu'y portait le pied de page a été
+retiré le 19/09/2026 : il envoyait l'autorité de l'accueil vers un autre domaine
+à l'endroit exact où les pages produit en avaient besoin. Les deux liens qui
+restent vers ce domaine sont dans le contenu déverrouillé, là où ils servent.
 
-→ Choisir **Préfixe d'URL**, saisir `https://www.agenia.pro/`. Le site ne
-répond que sur `www` (pas sur le domaine nu), inutile de complexifier.
+---
 
-### 3. Vérifier la propriété — balise HTML meta
+## Ce qui reste à faire à la main
 
-Méthode la plus simple pour ce site :
+### 1. Google Search Console — indispensable, et non fait
 
-1. Choisir « Balise HTML » dans la liste des méthodes de vérification
-2. Google fournit une ligne du type :
-   ```html
-   <meta name="google-site-verification" content="XXXXXXXXXXXXXXXXXXXX" />
-   ```
-3. Ajouter cette ligne dans le `<head>` de `index.html`, commit + push sur
-   `main` → le site se redéploie automatiquement (~20-30 secondes)
-4. Revenir sur Search Console et cliquer **Vérifier**
+Rien de ce qui précède ne se mesure sans elle, et l'indexation initiale peut
+être demandée plutôt qu'attendue.
 
-*(Alternative sans toucher au code : méthode « fichier HTML » — déposer
-soi-même le fichier `.html` fourni par Google à la racine du dépôt via
-l'interface GitHub.)*
+1. Ouvrir **search.google.com/search-console** avec le compte Google qui doit
+   gérer le site.
+2. Propriété de type **Préfixe d'URL**, saisir `https://www.agenia.pro/`. Le
+   type « Domaine » couvre plus large mais exige un enregistrement TXT chez OVH,
+   et le site ne répond que sur `www`.
+3. Vérification par **balise HTML** : Google fournit une ligne
+   `<meta name="google-site-verification" content="…" />`, à coller dans le
+   `<head>` de `index.html`, puis commit + push → en ligne en une à deux minutes.
+4. Menu **Sitemaps** → saisir `sitemap.xml` → Envoyer. Le fichier est déjà en
+   ligne, l'étape doit passer en « Réussite » immédiatement.
+5. **Inspection de l'URL** → « Demander une indexation » sur l'accueil et sur
+   les quatre pages produit. C'est ce qui remplace l'attente du crawl naturel.
 
-### 4. Soumettre le sitemap
+Compter de quelques jours à deux semaines pour les premières indexations, et
+**trois à six mois** avant de juger un positionnement.
 
-Propriété vérifiée → menu latéral **Sitemaps** → champ « Ajouter un
-sitemap » → saisir `sitemap.xml` (Search Console complète automatiquement
-avec `https://www.agenia.pro/`) → **Envoyer**.
+### 2. Fiche Google Business Profile — le levier local
 
-Le fichier est déjà en ligne à `https://www.agenia.pro/sitemap.xml`, cette
-étape doit passer en statut « Réussite » immédiatement.
+Sur une zone peu concurrentielle, c'est ce qui rapporte le plus vite, et c'est
+gratuit. **business.google.com** → créer la fiche avec exactement les mêmes
+nom, adresse et téléphone que les mentions légales — une incohérence entre la
+fiche et le site annule le bénéfice. Catégorie principale suggérée :
+« Éditeur de logiciels » ; secondaire : « Consultant en informatique ».
+La validation se fait par courrier postal ou par téléphone.
 
-### 5. Suivre l'indexation
+### 3. Le dépôt GitHub
 
-- **Pages** (menu latéral) : quelles pages sont indexées vs explorées mais
-  non indexées, au fil des jours
-- **Inspection de l'URL** (barre de recherche en haut) : coller une URL
-  précise et cliquer « Demander une indexation » force un passage du robot
-  plus rapide que d'attendre le crawl naturel — utile pour l'accueil et
-  `/ressources/` juste après une mise à jour
+`GregAlexia/agenia-site` est public et sort avant le site sur les requêtes de
+marque. Il expose aussi un identifiant rattachable au propriétaire, ce que la
+règle d'anonymat du site interdit partout ailleurs. **Décision du 19/09/2026 :
+le passer en privé.** Attention : GitHub Pages depuis un dépôt privé exige un
+compte **GitHub Pro** — sur un compte gratuit, le site cesserait d'être publié.
+Vérifier le plan avant de basculer.
 
-L'indexation initiale prend généralement de quelques jours à deux semaines.
+### 4. Bing Webmaster Tools — dix minutes
 
-### 6. Optionnel — Bing Webmaster Tools
-
-Bing (et Yahoo, qui utilise son index) reste une part non négligeable du
-trafic en France. **bing.com/webmasters** propose un **import direct depuis
-Google Search Console** (connexion au même compte Google), qui reprend la
-vérification et le sitemap en un clic.
+**bing.com/webmasters** propose un **import direct depuis Google Search
+Console**, qui reprend vérification et sitemap en un clic. Bing et Yahoo restent
+une part non négligeable du trafic français.
 
 ---
 
 ## Maintenir dans le temps
 
-- Toute nouvelle page publique indexable (`index, follow` ou pas de balise
-  `robots`) doit être ajoutée à `sitemap.xml`, avec `canonical`, Open Graph
-  et Twitter Card — copier le bloc `<head>` d'une page existante comme
-  `ressources/index.html`
-- Toute page gated ou protégée reste en `noindex` et hors sitemap
-- Le fichier `assets/og-image.jpg` sert d'image de partage par défaut à
-  toutes les pages ; une page qui mériterait sa propre image (un article à
-  fort potentiel de partage, par exemple) peut définir son propre
-  `og:image` sans toucher aux autres pages
+- Toute page publique nouvelle : `index, follow`, `canonical`, Open Graph,
+  Twitter Card, un `BreadcrumbList`, une entrée au sitemap, et **au moins un
+  lien entrant** depuis une page existante. Copier le `<head>` de
+  `agence-ia-haute-savoie.html`, qui est le plus complet.
+- `lastmod` n'est un signal que s'il est vrai. Ne le bouger que quand le
+  contenu change réellement.
+- **Ne jamais inventer d'avis, de note ou de prix** dans les données
+  structurées, même « en attendant ».
+- Un contenu qui redevient invisible — un formulaire remonté devant un article,
+  un `noindex` réintroduit — annule des mois de travail sans qu'aucun test ne
+  rougisse. `documentation/audit.html` affiche, pour chaque page explorée, si
+  elle est indexable : la colonne de droite doit dire « oui » partout sauf pour
+  ce qui est listé plus haut.

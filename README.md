@@ -9,15 +9,17 @@ automatiquement sur **GitHub Pages** à chaque push sur `main`.
 
 ## Structure
 
-**Pages publiques** — onze, toutes autonomes, toutes avec le même en-tête et le
-même pied de page :
+**Pages publiques** — douze, toutes autonomes, toutes avec le même en-tête et le
+même pied de page, et **toutes indexables** depuis le 19 septembre 2026 :
 
 | Fichier | Rôle |
 |---------|------|
 | `index.html` | Page de vente principale, à ancres (`#services`, `#methode`, `#resultats`, `#secteurs`, `#produit`, `#faq`, `#contact`) |
-| `demo-margeo.html` · `demo-prospeo.html` · `demo-keo.html` · `demo-planeo.html` | Un portail par produit : contenu déverrouillé contre coordonnées, avant d'ouvrir la démo |
-| `essai-outils.html` | Les calculateurs gratuits, atteints depuis la section Ressources |
-| `ressources/index.html` + 3 articles | Guides, même déverrouillage |
+| `demo-margeo.html` · `demo-prospeo.html` · `demo-keo.html` · `demo-planeo.html` | Une page de vente par produit. Le contenu est public ; seuls la vidéo et l'accès à l'application se déverrouillent contre coordonnées |
+| `essai-outils.html` | Les huit calculateurs gratuits, décrits en clair ; le lien d'ouverture est déverrouillé |
+| `agence-ia-haute-savoie.html` | Page de référencement local : Annecy, le Genevois, la Haute-Savoie |
+| `ressources/index.html` + 3 articles | Guides, lisibles en entier ; c'est la version PDF qui est déverrouillée |
+| `ressources/pdf/` | Les trois guides en PDF, régénérés depuis les pages elles-mêmes |
 | `mentions-legales.html` | Mentions et confidentialité (ancre `#confidentialite`) |
 
 **Espace interne** — `documentation/`, fermé au seul compte administrateur :
@@ -40,12 +42,13 @@ même pied de page :
 | `ressources/gate.js` | Le déverrouillage contre coordonnées, commun aux neuf pages qui en ont un |
 | `.github/workflows/deploy-pages.yml` | Déploiement automatique sur GitHub Pages |
 | `outils/og-image.html` | Gabarit de l'image de partage. **Non liée depuis le site** : c'est un outil, pas une page |
-| `REFERENCEMENT.md` | Ce qui est en place pour le SEO (sitemap, canonical, données structurées) et la procédure Search Console |
+| `outils/faire-pdf.cjs` | Régénère les PDF des guides depuis les pages elles-mêmes |
+| `REFERENCEMENT.md` | La stratégie de référencement, les requêtes visées page par page, et ce qui reste à faire à la main |
 
 Le site n'a **ni build ni dépendance** : ce qui est dans le dépôt est
 exactement ce qui est servi. Un fichier modifié est en ligne en une à deux
 minutes, sans étape intermédiaire — c'est la contrepartie de devoir répéter
-l'en-tête et le pied de page dans onze fichiers.
+l'en-tête et le pied de page dans douze fichiers.
 
 ## Modifier le site depuis n'importe quel PC
 
@@ -150,14 +153,14 @@ conclure que le déploiement a échoué.
 
 ## Les réseaux sociaux
 
-Le pied de page des onze pages porte trois icônes — Facebook, Instagram,
+Le pied de page des douze pages porte trois icônes — Facebook, Instagram,
 YouTube — qui ouvrent les comptes d'AgenIA dans un nouvel onglet.
 
 Les icônes sont des **SVG écrits dans le HTML** : aucune requête
 supplémentaire, aucune fonte d'icônes, et la couleur suit le texte
 (`fill: currentColor`), donc elles s'adaptent seules si la palette change.
 
-Le bloc est **rigoureusement identique dans les onze fichiers** parce que les
+Le bloc est **rigoureusement identique dans les douze fichiers** parce que les
 adresses sont absolues : contrairement à la navigation, il n'a pas de variante
 en `../` pour les pages de `ressources/`. Un compte ajouté se copie donc tel
 quel partout.
@@ -317,6 +320,31 @@ Pour servir le site sur `www.agenia.pro` :
 
 ## Référencement (SEO)
 
-Voir **[`REFERENCEMENT.md`](REFERENCEMENT.md)** : ce qui est en place
-(sitemap, canonical, Open Graph, données structurées) et la procédure pour
-déclarer le site à Google Search Console.
+Le site était indexable sur **trois pages**, dont les mentions légales — tout
+le reste portait `noindex` parce qu'un formulaire cachait le contenu. Le
+19 septembre 2026, les neuf autres ont été ouvertes : ce qui décrit un produit
+ou compose un guide est public, seuls la vidéo, l'accès à l'application et la
+version PDF restent derrière le formulaire. Douze pages sont maintenant
+indexables.
+
+⚠️ **C'est réversible sans bruit.** Remonter un formulaire devant un contenu, ou
+réintroduire un `noindex`, ne fait rougir aucun test. Le contrôle tient en dix
+secondes : ouvrir la page en navigation privée sans rien remplir.
+
+Le détail — requêtes visées page par page, ce qu'on ne déclare pas dans les
+données structurées et pourquoi, Search Console, fiche Google Business Profile,
+et le dépôt GitHub à passer en privé — est dans
+**[`REFERENCEMENT.md`](REFERENCEMENT.md)**.
+
+### Régénérer les PDF des guides
+
+Ils sont produits depuis les pages elles-mêmes, pour n'avoir qu'un seul texte à
+maintenir. **Après toute modification d'un guide, relancer la génération** —
+sinon le PDF promis par le formulaire décrit une version périmée de l'article.
+
+```bash
+python3 -m http.server 8420 &
+node outils/faire-pdf.cjs
+```
+
+Le mode d'emploi complet est dans l'en-tête du script.

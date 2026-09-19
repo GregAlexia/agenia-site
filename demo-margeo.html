@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Découvrir Margeo — AgenIA</title>
-  <meta name="description" content="Margeo, le logiciel de marges pour la restauration : factures lues par l'IA, coût réel de chaque plat, compte de résultat et trésorerie à treize semaines." />
+  <title>Logiciel de calcul des marges en restauration — Margeo</title>
+  <meta name="description" content="Margeo calcule le coût de revient réel de chaque plat : factures lues par l'IA, ventes importées, compte de résultat et trésorerie à treize semaines." />
   <meta name="theme-color" content="#f0efe8" />
-  <meta name="robots" content="noindex, follow" />
+  <!-- Indexable depuis le 19/09/2026 : la description du produit est publique,
+       seuls la vidéo et l'accès à l'application restent derrière le formulaire.
+       Une page noindex ne peut ramener personne. Voir REFERENCEMENT.md. -->
+  <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://www.agenia.pro/demo-margeo.html" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="AgenIA" />
-  <meta property="og:title" content="Découvrir Margeo — AgenIA" />
-  <meta property="og:description" content="Margeo, le logiciel de marges pour la restauration : factures lues par l'IA, coût réel de chaque plat, compte de résultat et trésorerie à treize semaines." />
+  <meta property="og:title" content="Logiciel de calcul des marges en restauration — Margeo" />
+  <meta property="og:description" content="Margeo calcule le coût de revient réel de chaque plat : factures lues par l'IA, ventes importées, compte de résultat et trésorerie à treize semaines." />
   <meta property="og:url" content="https://www.agenia.pro/demo-margeo.html" />
   <meta property="og:locale" content="fr_FR" />
   <meta property="og:image" content="https://www.agenia.pro/assets/og-image.jpg" />
@@ -22,8 +25,8 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Découvrir Margeo — AgenIA" />
-  <meta name="twitter:description" content="Margeo, le logiciel de marges pour la restauration : factures lues par l'IA, coût réel de chaque plat, compte de résultat et trésorerie à treize semaines." />
+  <meta name="twitter:title" content="Logiciel de calcul des marges en restauration — Margeo" />
+  <meta name="twitter:description" content="Margeo calcule le coût de revient réel de chaque plat : factures lues par l'IA, ventes importées, compte de résultat et trésorerie à treize semaines." />
   <meta name="twitter:image" content="https://www.agenia.pro/assets/og-image.jpg" />
 
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; frame-src https://www.youtube-nocookie.com; connect-src https://api.web3forms.com https://quygyeesmtxgykerjtjr.supabase.co; form-action 'self' https://api.web3forms.com; base-uri 'self'; object-src 'none'" />
@@ -38,8 +41,44 @@
     "@type": "BreadcrumbList",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.agenia.pro/" },
-      { "@type": "ListItem", "position": 2, "name": "Découvrir Margeo", "item": "https://www.agenia.pro/demo-margeo.html" }
+      { "@type": "ListItem", "position": 2, "name": "Margeo, logiciel de marges en restauration", "item": "https://www.agenia.pro/demo-margeo.html" }
     ]
+  }
+  </script>
+
+  <!-- Le produit lui-même. Volontairement sans "offers" ni "aggregateRating" :
+       ce sont eux qui déclenchent l'extrait enrichi, mais les inventer est une
+       fausse déclaration que Google sanctionne, et le site n'affiche aucun prix
+       (décision du 3 septembre 2026). Le jour où une grille tarifaire et de
+       vrais avis existent, c'est ici qu'ils se déclarent. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Margeo",
+    "url": "https://www.agenia.pro/demo-margeo.html",
+    "applicationCategory": "BusinessApplication",
+    "applicationSubCategory": "Logiciel de gestion pour la restauration",
+    "operatingSystem": "Navigateur web",
+    "inLanguage": "fr-FR",
+    "description": "Logiciel de calcul des marges pour restaurants : lecture des factures fournisseurs par IA, coût de revient réel par plat, compte de résultat et prévision de trésorerie à treize semaines.",
+    "featureList": [
+      "Lecture automatique des factures fournisseurs",
+      "Coût de revient par plat et par recette",
+      "Suivi des marges par famille de carte",
+      "Compte de résultat mensuel",
+      "Prévision de trésorerie à treize semaines",
+      "Inventaire et valorisation de cave"
+    ],
+    "audience": {
+      "@type": "Audience",
+      "audienceType": "Restaurants, bars, brasseries et traiteurs"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "AgenIA",
+      "url": "https://www.agenia.pro/"
+    }
   }
   </script>
 </head>
@@ -48,7 +87,7 @@
     <div class="container header__inner">
       <a class="brand" href="index.html" aria-label="Agenia, accueil">
         <img class="brand__logo" src="assets/logo_agenia-hd.png" width="330" height="220"
-             alt="Agenia — Des solutions pour gagner du temps" />
+             alt="Agenia" />
       </a>
 
       <nav class="nav" aria-label="Navigation principale">
@@ -87,8 +126,8 @@
   <main class="res-article">
     <div class="container res-article__inner">
       <span class="pill">Produit</span>
-      <h1 class="res__title" style="margin-top:16px">Margeo — la marge, plat par plat</h1>
-      <p class="res-article__meta">AgenIA · Logiciel de gestion pour la restauration</p>
+      <h1 class="res__title" style="margin-top:16px">Logiciel de calcul des marges pour la restauration</h1>
+      <p class="res-article__meta">Margeo, édité par AgenIA · Restaurants, bars, brasseries et traiteurs</p>
 
       <p class="res-article__lede">
         Les factures fournisseurs sont photographiées et lues par l'IA, les
@@ -96,10 +135,106 @@
         jusqu'au compte de résultat et à la trésorerie à treize semaines.
       </p>
 
+      <p class="card__cta" style="margin-top:26px">
+        <a class="btn btn--primary btn--lg" href="#acces">Voir la démo et ouvrir Margeo</a>
+      </p>
+
+      <h2>Une fiche technique au tableur se trompe sans que rien ne le signale</h2>
+      <p>
+        Un coût de revient calculé à la main produit toujours un nombre. Le
+        problème est qu'il reste plausible même quand il est faux — et qu'on
+        fixe un prix de vente dessus pendant des mois. Trois erreurs reviennent
+        dans presque tous les tableurs que nous ouvrons :
+      </p>
+      <ul>
+        <li><strong>Les pertes sont ajoutées au lieu d'être divisées.</strong>
+          Un parage de 50&nbsp;% <em>double</em> le coût du produit, il ne
+          l'augmente pas de moitié. La formule juste est
+          <code>quantité × prix ÷ (1 − perte)</code> ; <code>× (1 + perte)</code>
+          sous-estime systématiquement, et d'autant plus que le parage est fort.</li>
+        <li><strong>Le coût matière est pris sur les achats</strong> au lieu du
+          consommé — stock initial + achats − stock final. Un mois où l'on
+          remplit la cave paraît alors catastrophique, et le suivant excellent,
+          sans qu'un seul plat ait changé.</li>
+        <li><strong>Les prix fournisseurs dorment.</strong> Une fiche technique
+          bâtie en janvier et jamais rouverte décrit une carte qui n'existe
+          plus dès que deux ou trois tarifs ont bougé.</li>
+      </ul>
+
+      <h2>Ce que Margeo calcule à votre place</h2>
+      <ul>
+        <li><strong>Lecture des factures fournisseurs par IA</strong> —
+          photographiez la facture : le produit, la quantité et le prix au kilo
+          sont lus et rattachés à votre catalogue. Aucune ressaisie, et les
+          prix de la fiche technique suivent d'eux-mêmes.</li>
+        <li><strong>Coût de revient réel par plat</strong>, pertes de parage
+          divisées et non ajoutées, coût pris sur le consommé.</li>
+        <li><strong>Marge par plat et par famille de carte</strong>, avec la
+          dispersion des prix par la méthode Omnès — à ne pas confondre avec
+          l'ingénierie de menu anglo-saxonne, qui classe sur marge × popularité
+          et répond à une autre question.</li>
+        <li><strong>Compte de résultat mensuel</strong> tenu à jour sans
+          ressaisie, ventes de caisse importées en CSV.</li>
+        <li><strong>Trésorerie à treize semaines</strong> — l'horizon qui
+          permet de voir venir un trou avant qu'il soit là.</li>
+        <li><strong>Inventaire et cave</strong> : le stock est une somme de
+          mouvements — dernier comptage plus mouvements postérieurs — et non un
+          compteur, qui perdrait son histoire le jour où il devient faux.</li>
+      </ul>
+
+      <h2>Pour qui</h2>
+      <p>
+        Restaurants indépendants, bars, brasseries et traiteurs qui tiennent
+        leurs marges au tableur, ou qui ne les tiennent plus. Margeo est pensé
+        pour un établissement unique comme pour un petit groupe : chaque
+        établissement a ses propres données, ses propres fournisseurs et son
+        propre compte de résultat.
+      </p>
+
+      <h2>Ce que ça remplace</h2>
+      <p>
+        Le classeur de fiches techniques, le tableur de coûts matière, la
+        saisie manuelle des factures, et le point mensuel avec le comptable où
+        l'on découvre le résultat six semaines après les faits. Les huit
+        <a href="essai-outils.html">calculateurs gratuits</a> donnent un avant-goût
+        des calculs, sans création de compte.
+      </p>
+
+      <h2>Questions fréquentes</h2>
+      <h3>Faut-il ressaisir les factures&nbsp;?</h3>
+      <p>
+        Non. Elles sont photographiées et lues. C'est ce qui fait tenir la
+        méthode dans la durée : un suivi de marges qui demande une heure de
+        saisie par semaine est abandonné au bout d'un mois.
+      </p>
+      <h3>Margeo remplace-t-il mon logiciel de caisse&nbsp;?</h3>
+      <p>
+        Non, il le complète. Les ventes sont importées depuis votre caisse en
+        CSV ; Margeo s'occupe de ce qu'une caisse ne calcule pas — le coût de
+        ce qui a été vendu.
+      </p>
+      <h3>Et mon comptable&nbsp;?</h3>
+      <p>
+        Il reste votre comptable. Margeo donne le compte de résultat en cours
+        de mois, quand une décision est encore possible ; la comptabilité
+        officielle, elle, arrive après.
+      </p>
+      <h3>Mes données sont-elles isolées des autres restaurants&nbsp;?</h3>
+      <p>
+        Oui, par construction : chaque requête est exécutée dans le contexte de
+        votre établissement, et une requête sans contexte ne renvoie aucune
+        ligne plutôt que toutes.
+      </p>
+
+      <!-- Enveloppe les deux états : le lien « Voir la démo » en haut de page
+           doit atteindre une cible qui existe aussi après déverrouillage, sinon
+           il ne scrolle nulle part pour un visiteur déjà connu. -->
+      <div id="acces">
+
       <!-- ============ PORTAIL (visible tant que non débloqué) ============ -->
       <div class="res-gate" id="portail">
         <div class="res-gate__card">
-          <h2>Accédez à Margeo</h2>
+          <h2>Voir la démo et ouvrir Margeo</h2>
           <p>
             Renseignez vos coordonnées pour ouvrir immédiatement le logiciel et
             son essai gratuit.
@@ -162,9 +297,12 @@
             de compte y est demandée une seule fois, indépendamment de
             celui-ci.
           </p>
-          <!-- URL Margeo (1/3). À changer ici, dans essai-outils.html et dans
-               le pied de page d'index.html le jour où le domaine propre est en
-               service — § 4 et § 28 de TODO_LIST.md, dépôt margeresto-ia. -->
+          <!-- URL Margeo (1/2). À changer ici et dans essai-outils.html le jour
+               où le domaine propre est en service — § 4 et § 28 de
+               TODO_LIST.md, dépôt margeresto-ia. Le lien qu'en portait le pied
+               de page de l'accueil a été retiré le 19/09/2026 : il envoyait
+               l'autorité du site vers un autre domaine à l'endroit même où les
+               pages produit en avaient besoin. -->
           <p class="card__cta">
             <a class="btn btn--primary btn--lg" href="https://margeo.vercel.app" target="_blank" rel="noopener">
               Ouvrir Margeo
@@ -172,25 +310,21 @@
           </p>
         </div>
 
-        <h2 style="margin-top:40px">Ce que fait le logiciel</h2>
-        <ul>
-          <li><strong>Extraction des factures par IA</strong> — photographiez, le prix
-            au kilo et la ligne de produit sont lus. Aucune ressaisie.</li>
-          <li><strong>Coût matière juste</strong> — les pertes de parage sont divisées,
-            pas ajoutées : un parage de 50 % double le coût d'un produit, il ne
-            l'augmente pas de moitié. C'est l'erreur la plus fréquente des
-            fiches techniques faites au tableur.</li>
-          <li><strong>Coût pris sur le consommé</strong>, pas sur les achats — sans quoi
-            un mois de remplissage de cave paraît catastrophique et le suivant
-            excellent, sans qu'un seul plat ait changé.</li>
-          <li><strong>Compte de résultat et trésorerie à treize semaines</strong>, tenus
-            à jour sans ressaisie.</li>
-        </ul>
-
         <p class="res-article__meta" style="margin-top:24px">
           <a href="index.html#produit">← Retour aux produits</a>
         </p>
       </div>
+      </div><!-- /#acces -->
+
+      <h2>À lire aussi</h2>
+      <ul>
+        <li><a href="essai-outils.html">Les huit calculateurs gratuits de Margeo</a>
+          — coût de revient, prix de vente, seuil de rentabilité, sans compte à créer.</li>
+        <li><a href="ressources/calculer-roi-automatisation.html">Calculer le ROI d'une automatisation</a>
+          — la méthode pour savoir, avant de se lancer, si le temps gagné paie l'outil.</li>
+        <li><a href="index.html#produit">Les autres logiciels édités par AgenIA</a>
+          — Prospeo, Keo et Planeo.</li>
+      </ul>
     </div>
   </main>
 

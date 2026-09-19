@@ -1,4 +1,15 @@
 User-agent: *
 Allow: /
 
+# Les PDF des guides reprennent mot pour mot l'article qui les précède. Laissés
+# au crawl, ils entreraient en concurrence avec lui dans l'index, et c'est
+# parfois le PDF qui l'emporte — une page sans navigation, sans lien et sans
+# formulaire. On refuse donc le dossier plutôt que de choisir au cas par cas.
+Disallow: /ressources/pdf/
+
+# /documentation/ n'est PAS refusée ici, volontairement : elle porte déjà
+# noindex, et un robot à qui l'on interdit d'explorer une page ne peut pas lire
+# le noindex qu'elle contient. Interdire ici reviendrait à la rendre
+# indexable-sans-titre plutôt qu'absente.
+
 Sitemap: https://www.agenia.pro/sitemap.xml

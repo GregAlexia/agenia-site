@@ -3,16 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Démo interactive Keo — AgenIA</title>
-  <meta name="description" content="Accédez à la démo interactive de Keo, l'automatisation pour agences immobilières conçue par AgenIA — qualification des leads, réponses automatiques, quittances PDF." />
+  <title>Logiciel d'automatisation pour agence immobilière — Keo</title>
+  <meta name="description" content="Keo qualifie les demandes entrantes, crée la fiche CRM sans ressaisie, répond immédiatement, confirme les visites et édite les quittances de loyer en PDF." />
   <meta name="theme-color" content="#f0efe8" />
-  <meta name="robots" content="noindex, follow" />
+  <!-- Indexable depuis le 19/09/2026 : la description du produit est publique,
+       seuls la vidéo et la démo interactive restent derrière le formulaire.
+       Une page noindex ne peut ramener personne. Voir REFERENCEMENT.md. -->
+  <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://www.agenia.pro/demo-keo.html" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="AgenIA" />
-  <meta property="og:title" content="Démo interactive Keo — AgenIA" />
+  <meta property="og:title" content="Logiciel d'automatisation pour agence immobilière — Keo" />
   <meta property="og:description" content="Accédez à la démo interactive de Keo, l'automatisation pour agences immobilières conçue par AgenIA." />
   <meta property="og:url" content="https://www.agenia.pro/demo-keo.html" />
   <meta property="og:locale" content="fr_FR" />
@@ -22,7 +25,7 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Démo interactive Keo — AgenIA" />
+  <meta name="twitter:title" content="Logiciel d'automatisation pour agence immobilière — Keo" />
   <meta name="twitter:description" content="Accédez à la démo interactive de Keo, l'automatisation pour agences immobilières conçue par AgenIA." />
   <meta name="twitter:image" content="https://www.agenia.pro/assets/og-image.jpg" />
 
@@ -38,8 +41,36 @@
     "@type": "BreadcrumbList",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.agenia.pro/" },
-      { "@type": "ListItem", "position": 2, "name": "Démo interactive Keo", "item": "https://www.agenia.pro/demo-keo.html" }
+      { "@type": "ListItem", "position": 2, "name": "Keo, automatisation pour agence immobilière", "item": "https://www.agenia.pro/demo-keo.html" }
     ]
+  }
+  </script>
+  <!-- Le produit lui-même. Volontairement sans "offers" ni "aggregateRating" :
+       les inventer pour décrocher un extrait enrichi est une fausse déclaration
+       que Google sanctionne. Voir REFERENCEMENT.md. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Keo",
+    "url": "https://www.agenia.pro/demo-keo.html",
+    "applicationCategory": "BusinessApplication",
+    "applicationSubCategory": "Logiciel de gestion pour agence immobili\u00e8re",
+    "operatingSystem": "Navigateur web",
+    "inLanguage": "fr-FR",
+    "description": "Automatisation pour agences immobili\u00e8res : qualification des demandes entrantes par IA, cr\u00e9ation de la fiche CRM sans ressaisie, r\u00e9ponse imm\u00e9diate au prospect, confirmation des visites et \u00e9dition des quittances de loyer en PDF.",
+    "featureList": [
+      "Qualification des demandes entrantes",
+      "Cr\u00e9ation automatique de la fiche CRM",
+      "R\u00e9ponse imm\u00e9diate et routage vers le bon agent",
+      "Confirmation et rappel des visites",
+      "\u00c9dition des quittances de loyer en PDF"
+    ],
+    "audience": {
+      "@type": "Audience",
+      "audienceType": "Agences immobili\u00e8res, transaction et gestion locative"
+    },
+    "publisher": { "@type": "Organization", "name": "AgenIA", "url": "https://www.agenia.pro/" }
   }
   </script>
 </head>
@@ -48,7 +79,7 @@
     <div class="container header__inner">
       <a class="brand" href="index.html" aria-label="Agenia, accueil">
         <img class="brand__logo" src="assets/logo_agenia-hd.png" width="330" height="220"
-             alt="Agenia — Des solutions pour gagner du temps" />
+             alt="Agenia" />
       </a>
 
       <nav class="nav" aria-label="Navigation principale">
@@ -86,9 +117,9 @@
 
   <main class="res-article">
     <div class="container res-article__inner">
-      <span class="pill">Démo</span>
-      <h1 class="res__title" style="margin-top:16px">Démo interactive de Keo</h1>
-      <p class="res-article__meta">AgenIA · Automatisation pour agences immobilières</p>
+      <span class="pill">Produit</span>
+      <h1 class="res__title" style="margin-top:16px">Automatisation pour agence immobilière</h1>
+      <p class="res-article__meta">Keo, édité par AgenIA · Transaction et gestion locative</p>
 
       <p class="res-article__lede">
         Keo qualifie les demandes entrantes par l'IA, crée la fiche CRM sans
@@ -96,6 +127,73 @@
         confirme les visites et génère les quittances de loyer en PDF. La démo
         tourne sur des données fictives, dans une fenêtre interactive séparée.
       </p>
+
+      <p class="card__cta" style="margin-top:26px">
+        <a class="btn btn--primary btn--lg" href="#acces">Ouvrir la démo interactive</a>
+      </p>
+
+      <h2>Le premier qui répond emporte le mandat</h2>
+      <p>
+        Une demande arrivée sur un portail d'annonces part souvent à plusieurs
+        agences en même temps. Celle qui répond dans l'heure obtient la visite,
+        les autres arrivent après. Le problème n'est pas la volonté de
+        répondre&nbsp;: c'est qu'une demande tombe à 20&nbsp;h&nbsp;30, un
+        samedi, ou pendant une visite — et qu'entre-temps il faut encore
+        recopier le nom, le bien concerné et le budget dans le logiciel
+        métier.
+      </p>
+      <p>
+        La gestion locative pose la même question à l'autre bout du mois&nbsp;:
+        les quittances se produisent une par une, à date fixe, pour un travail
+        sans aucune valeur ajoutée.
+      </p>
+
+      <h2>Ce que fait Keo</h2>
+      <ul>
+        <li><strong>Qualification des demandes entrantes</strong> — portail
+          d'annonces, formulaire du site, email&nbsp;: le bien concerné, le
+          budget et le projet sont lus et rangés.</li>
+        <li><strong>Fiche CRM créée sans ressaisie</strong>, rattachée au bon
+          mandat.</li>
+        <li><strong>Réponse immédiate et routage</strong> vers l'agent dont
+          c'est le secteur, à toute heure — le prospect reçoit un message qui
+          répond à sa question, pas un accusé de réception type.</li>
+        <li><strong>Confirmation et rappel des visites</strong>, ce qui réduit
+          les rendez-vous non honorés.</li>
+        <li><strong>Quittances de loyer en PDF</strong>, éditées et envoyées
+          pour tout le portefeuille.</li>
+      </ul>
+
+      <h2>Pour qui</h2>
+      <p>
+        Agences indépendantes et petits réseaux, en transaction comme en
+        gestion locative, dont les demandes arrivent de plusieurs portails à la
+        fois et qui n'ont personne pour les trier en continu.
+      </p>
+
+      <h2>Questions fréquentes</h2>
+      <h3>Keo remplace-t-il notre logiciel métier&nbsp;?</h3>
+      <p>
+        Non. Il travaille avant lui&nbsp;: il reçoit, qualifie, répond et
+        prépare la fiche. Le mandat, le compromis et la comptabilité restent
+        où ils sont.
+      </p>
+      <h3>L'IA répond-elle à notre place&nbsp;?</h3>
+      <p>
+        Elle rédige la première réponse, celle qui doit partir dans l'heure. La
+        suite de l'échange est reprise par l'agent&nbsp;: c'est là que se joue
+        le mandat, et cela ne se délègue pas.
+      </p>
+      <h3>Que voit-on dans la démo&nbsp;?</h3>
+      <p>
+        Un parcours complet sur des données fictives, de la demande entrante à
+        la quittance. Aucune donnée réelle d'agence n'y figure.
+      </p>
+
+      <!-- Enveloppe les deux états : le lien « Ouvrir la démo » en haut de page
+           doit atteindre une cible qui existe aussi après déverrouillage, sinon
+           il ne scrolle nulle part pour un visiteur déjà connu. -->
+      <div id="acces">
 
       <!-- ============ PORTAIL (visible tant que non débloqué) ============ -->
       <div class="res-gate" id="portail">
@@ -172,6 +270,17 @@
           <a href="index.html#produit">← Retour aux produits</a>
         </p>
       </div>
+      </div><!-- /#acces -->
+
+      <h2>À lire aussi</h2>
+      <ul>
+        <li><a href="demo-planeo.html">Planeo, le projet de construction en 3D</a>
+          — utile pour faire se projeter un acquéreur sur un terrain nu.</li>
+        <li><a href="ressources/20-taches-a-automatiser.html">20 tâches à automatiser en premier</a>
+          — la réponse aux demandes entrantes y figure en bonne place.</li>
+        <li><a href="index.html#produit">Les autres logiciels édités par AgenIA</a>
+          — Margeo, Prospeo et Planeo.</li>
+      </ul>
     </div>
   </main>
 
