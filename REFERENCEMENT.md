@@ -74,6 +74,22 @@ verra. Si c'est un formulaire, la page ne ramènera personne.
 | JSON-LD `BreadcrumbList` | toutes sauf l'accueil | Fil d'Ariane |
 | JSON-LD `ItemList` | `ressources/index.html` | Liste des guides |
 
+### Les balises de vérification de propriété
+
+`index.html` porte, juste après le `canonical`, les jetons par lesquels les
+plateformes vérifient qu'on est bien chez soi. Aujourd'hui : **Pinterest**
+(`p:domain_verify`, posé le 19/09/2026). Search Console posera le sien au même
+endroit.
+
+Ce ne sont **pas des secrets** — ils sont faits pour être lus publiquement, et
+ne donnent aucun droit sur le site ; ils prouvent l'inverse. En revanche,
+**ne jamais les retirer** : la revendication est revérifiée périodiquement, et
+une balise disparue la révoque sans prévenir.
+
+Elles vont sur **`index.html` uniquement**, pas sur les douze pages : la
+plateforme vérifie l'URL qu'on lui a donnée, et douze copies d'un jeton sont
+douze occasions d'en oublier une.
+
 ### `sameAs` : à quoi il sert vraiment ici
 
 Ce n'est pas un ornement. Avec cinq homonymes qui occupent le nom, `sameAs` est
@@ -173,11 +189,59 @@ Compter de quelques jours à deux semaines pour les premières indexations, et
 ### 2. Fiche Google Business Profile — le levier local
 
 Sur une zone peu concurrentielle, c'est ce qui rapporte le plus vite, et c'est
-gratuit. **business.google.com** → créer la fiche avec exactement les mêmes
-nom, adresse et téléphone que les mentions légales — une incohérence entre la
-fiche et le site annule le bénéfice. Catégorie principale suggérée :
-« Éditeur de logiciels » ; secondaire : « Consultant en informatique ».
-La validation se fait par courrier postal ou par téléphone.
+gratuit. La fiche apparaît dans le encadré de droite sur une recherche de
+marque, et dans le bloc cartographique sur « agence IA Annecy ».
+
+**La règle qui décide de tout : le NAP.** Nom, adresse, téléphone doivent être
+**identiques au caractère près** entre la fiche, `mentions-legales.html` et le
+JSON-LD de `agence-ia-haute-savoie.html`. Une incohérence — « Rte » au lieu de
+« Route », un 04 au lieu du 06 — et Google cesse de croire qu'il s'agit de la
+même entreprise. C'est l'erreur qui annule le bénéfice de la fiche.
+
+Aujourd'hui, la référence est :
+
+```
+AgenIA
+2303 Route de Croasse, 74270 Desingy, France
++33 6 51 74 81 33
+contact@agenia.pro
+https://www.agenia.pro/
+```
+
+**Marche à suivre**
+
+1. **business.google.com** → « Gérer maintenant », avec le compte Google qui
+   gérera aussi Search Console.
+2. Nom : **AgenIA**, exactement. Pas « AgenIA — logiciels IA », pas de
+   mot-clé ajouté : Google suspend les fiches dont le nom ne correspond pas à
+   l'enseigne réelle, et le gain de référencement est nul.
+3. **Catégorie principale : « Éditeur de logiciels ».** C'est elle qui
+   détermine sur quelles recherches la fiche peut sortir, donc c'est le champ
+   le plus important de la fiche. Catégories secondaires :
+   « Consultant en informatique », « Service d'assistance informatique ».
+4. **Adresse** : l'activité se fait chez le client ou à distance, donc cocher
+   **« Je livre des biens et services à mes clients »** et masquer l'adresse.
+   Une adresse de domicile affichée n'apporte rien et expose. Définir ensuite
+   la **zone desservie** : Haute-Savoie, plus Annecy, Annemasse,
+   Saint-Julien-en-Genevois, Rumilly, Thonon-les-Bains.
+5. **Validation** : par téléphone, par courrier postal (carte avec code, 5 à
+   14 jours) ou par vidéo selon ce que Google propose. Tant qu'elle n'est pas
+   faite, la fiche n'existe pas publiquement.
+6. Une fois validée : **site web** → `https://www.agenia.pro/`, description de
+   750 caractères reprenant les mots de la page locale, **horaires**, et
+   quelques **photos** — logo, captures des logiciels. Une fiche sans photo
+   reçoit nettement moins de clics.
+
+**Ensuite, deux choses seulement comptent :**
+
+- **Les avis.** C'est le premier critère de classement local, et le seul qui
+  ne s'achète pas honnêtement. Demander un avis à chaque client satisfait, au
+  moment où il est satisfait. Répondre à tous, y compris les mauvais.
+- **Publier de temps en temps.** Une actualité par mois suffit à signaler que
+  la fiche est vivante.
+
+Quand la fiche est en ligne, **ajouter son URL dans le `sameAs`** de
+`index.html` : c'est un signal de plus pour trancher l'homonymie.
 
 ### 3. Le dépôt GitHub
 
