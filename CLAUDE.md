@@ -62,6 +62,12 @@ navigation, compter les occurrences** — et attention aux chemins : les pages d
 C'est le prix assumé de l'absence de build : ce qui est dans le dépôt est
 exactement ce qui est servi.
 
+**Et il faut le prendre au pied de la lettre** : le dépôt est publié en entier,
+donc `CLAUDE.md`, `README.md` et les gabarits d'`outils/` sont téléchargeables
+depuis le site. C'est à quoi sert `_redirects`, qui les renvoie à l'accueil —
+**un document interne ajouté à la racine doit y être ajouté**. Attention, ce
+fichier n'est lu que par Cloudflare Pages.
+
 ---
 
 ## La gamme : quatre logiciels, et ce qu'on promet de chacun

@@ -1,0 +1,27 @@
+# Ce que le site NE doit pas servir.
+#
+# Le dépôt est publié en entier — c'était déjà vrai de GitHub Pages, dont le
+# workflow portait `path: .`, et ce l'est de Cloudflare Pages, dont le
+# répertoire de sortie est la racine. Conséquence : tout fichier posé ici est
+# téléchargeable par qui en tape l'adresse. Rien n'y est un secret, mais les
+# notes de travail et les gabarits d'outils n'ont pas à être publics.
+#
+# Ce fichier est lu par Cloudflare Pages et n'est pas lui-même servi. Il ne
+# fonctionne PAS sur GitHub Pages : tant que le site y est hébergé, les
+# adresses ci-dessous restent atteignables. Il est posé en avance pour que la
+# protection soit déjà active au tout premier déploiement Cloudflare, y compris
+# sur l'adresse *.pages.dev.
+#
+# Une redirection 301 vers l'accueil plutôt qu'un 404 : elle ne dépend d'aucune
+# page d'erreur, et un visiteur égaré atterrit quelque part d'utile.
+#
+# ⚠️ Un document interne ajouté à la racine doit être ajouté ici. C'est le prix
+# de la règle « ce qui est dans le dépôt est exactement ce qui est servi ».
+
+/CLAUDE.md         /  301
+/README.md         /  301
+/REFERENCEMENT.md  /  301
+
+# Gabarit de l'image de partage et script de génération des PDF : des outils,
+# pas des pages. Le dossier entier, pour ne pas avoir à y revenir.
+/outils/*          /  301

@@ -43,6 +43,7 @@ même pied de page, et **toutes indexables** depuis le 19 septembre 2026 :
 | `.github/workflows/deploy-pages.yml` | Déploiement automatique sur GitHub Pages |
 | `outils/og-image.html` | Gabarit de l'image de partage. **Non liée depuis le site** : c'est un outil, pas une page |
 | `outils/faire-pdf.cjs` | Régénère les PDF des guides depuis les pages elles-mêmes |
+| `_redirects` | Ce que l'hébergeur ne doit **pas** servir : notes de travail et outils. Lu par Cloudflare Pages |
 | `REFERENCEMENT.md` | La stratégie de référencement, les requêtes visées page par page, et ce qui reste à faire à la main |
 
 Le site n'a **ni build ni dépendance** : ce qui est dans le dépôt est
