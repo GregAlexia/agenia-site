@@ -243,14 +243,67 @@ https://www.agenia.pro/
 Quand la fiche est en ligne, **ajouter son URL dans le `sameAs`** de
 `index.html` : c'est un signal de plus pour trancher l'homonymie.
 
-### 3. Le dépôt GitHub
+### 3. Le dépôt GitHub — sortir du public, sans payer
 
-`GregAlexia/agenia-site` est public et sort avant le site sur les requêtes de
-marque. Il expose aussi un identifiant rattachable au propriétaire, ce que la
-règle d'anonymat du site interdit partout ailleurs. **Décision du 19/09/2026 :
-le passer en privé.** Attention : GitHub Pages depuis un dépôt privé exige un
-compte **GitHub Pro** — sur un compte gratuit, le site cesserait d'être publié.
-Vérifier le plan avant de basculer.
+Le dépôt `agenia-site` est public. Il sort avant le site sur les requêtes de
+marque, mais ce n'est pas le pire : **il expose le propriétaire, et pas
+seulement dans son URL.**
+
+L'historique porte **34 commits signés d'un nom de personne et d'une adresse
+Gmail personnelle**, lisibles par n'importe qui. C'est la constatation qui a
+tranché la décision, le 19/09/2026 :
+
+- **Transférer le dépôt à une organisation ne suffit pas.** L'URL change,
+  l'historique part avec. Idée écartée pour cette raison.
+- **Réécrire l'historique n'est pas une option** — interdit par les règles du
+  projet, et GitHub garde de toute façon les anciens commits accessibles par
+  leur empreinte.
+- Donc **seul un dépôt privé referme réellement la fuite.**
+
+Or **un dépôt privé est gratuit**. Ce qui exige GitHub Pro (4 $/mois), c'est
+uniquement *publier un site GitHub Pages depuis un dépôt privé*. Il suffit donc
+que le site soit servi par un autre hébergeur.
+
+**Décision : dépôt privé + Cloudflare Pages**, qui déploie depuis un dépôt
+GitHub privé gratuitement, usage commercial autorisé, domaine personnalisé
+compris. Coût : zéro, plus un enregistrement DNS à changer.
+
+**L'ordre compte, sous peine de couper le site :**
+
+1. Créer le projet Cloudflare Pages sur le dépôt **encore public**, et vérifier
+   qu'il sert bien le site sur son adresse `*.pages.dev`.
+2. Déclarer le domaine `www.agenia.pro` dans Cloudflare Pages.
+3. Chez OVH, faire pointer le CNAME `www` vers l'adresse `*.pages.dev` au lieu
+   de `gregalexia.github.io`. ⚠️ **Ne pas déléguer les serveurs de noms à
+   Cloudflare** : la zone porte les enregistrements de messagerie, et le piège
+   du double SPF est documenté dans `EMAIL-CONTACT.md` du dépôt de
+   l'application. Un seul enregistrement change, rien d'autre.
+4. Vérifier que `www.agenia.pro` répond bien depuis Cloudflare, certificat
+   compris.
+5. **Alors seulement**, passer le dépôt en privé. GitHub dépubliera son Pages,
+   ce qui n'a plus d'importance.
+6. Retirer `.github/workflows/deploy-pages.yml` et le fichier `CNAME`, tous
+   deux devenus sans objet.
+
+**À faire en plus, gratuit et immédiat** : GitHub → Settings → Emails →
+*« Keep my email addresses private »* et *« Block command line pushes that
+expose my email »*. Ça n'efface pas les 34 commits, ça arrête d'en produire.
+
+**Une fois le dépôt privé**, demander la suppression de l'ancienne URL sur
+`search.google.com/search-console/remove-outdated-content` — l'outil public,
+qui accepte une URL devenue 404. Celui de Search Console ne vaut que pour ses
+propres propriétés, et `github.com` n'en est pas une.
+
+### 3 bis. Le dépôt entier est servi en ligne
+
+`deploy-pages.yml` publie `path: .`, c'est-à-dire **tout le dépôt**. Donc
+`www.agenia.pro/CLAUDE.md`, `/README.md` et `/REFERENCEMENT.md` — ce fichier —
+sont téléchargeables par qui tape l'adresse. Rien n'y est un secret au sens
+strict, mais ce sont des notes internes, et elles n'ont pas à être publiques.
+
+À refermer au moment de la bascule vers Cloudflare, dont le fichier
+`_redirects` permet de les rendre inaccessibles sans introduire d'étape de
+construction.
 
 ### 4. Bing Webmaster Tools — dix minutes
 
