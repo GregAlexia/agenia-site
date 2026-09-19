@@ -153,8 +153,10 @@ conclure que le déploiement a échoué.
 
 ## Les réseaux sociaux
 
-Le pied de page des douze pages porte quatre icônes — Facebook, Instagram,
-YouTube, Pinterest — qui ouvrent les comptes d'AgenIA dans un nouvel onglet.
+Le pied de page des douze pages porte cinq icônes — LinkedIn, Facebook,
+Instagram, YouTube, Pinterest — qui ouvrent les comptes d'AgenIA dans un
+nouvel onglet. **LinkedIn est en tête** : c'est là que sont les dirigeants de
+PME, donc le clic qu'on veut obtenir en premier sur un site qui leur vend.
 
 Chaque compte ajouté ici doit l'être **aussi dans le `sameAs`** des données
 structurées de l'accueil, sinon c'est un signal de plus perdu pour distinguer
