@@ -9,6 +9,14 @@
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://www.agenia.pro/mentions-legales.html" />
 
+  <!-- Versions linguistiques. Le couple hreflang doit être réciproque : la page
+       anglaise déclare celle-ci, et celle-ci déclare l'anglaise. Une déclaration
+       à sens unique est ignorée par Google. x-default pointe le français, qui
+       reste la version par défaut du site. -->
+  <link rel="alternate" hreflang="fr" href="https://www.agenia.pro/mentions-legales.html" />
+  <link rel="alternate" hreflang="en" href="https://www.agenia.pro/en/legal-notice.html" />
+  <link rel="alternate" hreflang="x-default" href="https://www.agenia.pro/mentions-legales.html" />
+
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="AgenIA" />
@@ -68,6 +76,10 @@
         <a href="documentation/">Documentation</a>
         <a href="index.html#faq">FAQ</a>
       </nav>
+
+      <div class="lang-switch">
+        <a href="en/legal-notice.html" hreflang="en" lang="en" title="Read this page in English">EN</a>
+      </div>
 
       <div class="header__cta">
         <a class="btn btn--ghost" href="index.html#contact">Parler à un expert</a>

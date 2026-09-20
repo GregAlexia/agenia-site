@@ -3,7 +3,10 @@
 Site vitrine d'**AgenIA**, agence d'IA et d'automatisation pour PME et ETI.
 HTML / CSS / JS statique, **sans build ni dépendance**, servi par GitHub Pages
 sur `www.agenia.pro`. **Écrire en français** — code, commentaires, commits,
-interface : le site s'adresse à des dirigeants français.
+noms de variables et de fichiers de travail. La seule exception est le
+**contenu visible des pages de `en/`**, qui est en anglais parce que c'est sa
+raison d'être ; ses commentaires HTML, eux, restent en français comme partout
+ailleurs. Le site s'adresse d'abord à des dirigeants français.
 
 Le `README.md` décrit *ce qu'est* le site. Ce fichier-ci dit *comment y
 travailler* : les règles, et les pièges qui ont chacun coûté un incident.
@@ -33,10 +36,11 @@ est derrière AgenIA.
 
 ---
 
-## Le piège de fond : douze fichiers, un seul en-tête
+## Le piège de fond : vingt-quatre fichiers, un seul en-tête
 
 Il n'y a pas de gabarit. L'en-tête, la navigation, le menu mobile et le pied de
-page sont **répétés dans les douze pages publiques** :
+page sont **répétés dans les vingt-quatre pages publiques** — douze en
+français, douze en anglais depuis le 20 septembre 2026 :
 
 ```
 index.html · demo-margeo.html · demo-prospeo.html · demo-keo.html
@@ -44,7 +48,16 @@ demo-planeo.html · essai-outils.html · agence-ia-haute-savoie.html
 mentions-legales.html · ressources/index.html
 ressources/20-taches-a-automatiser.html · ressources/auditer-process-pme.html
 ressources/calculer-roi-automatisation.html
+
+en/index.html · en/margeo.html · en/prospeo.html · en/keo.html
+en/planeo.html · en/free-tools.html · en/ai-agency-geneva-haute-savoie.html
+en/legal-notice.html · en/resources.html · en/20-tasks-to-automate.html
+en/audit-before-you-automate.html · en/automation-roi.html
 ```
+
+**Une page ajoutée d'un côté doit l'être de l'autre**, sans quoi son `hreflang`
+pointe dans le vide. Écrire l'anglais en français, ou l'inverse, est l'erreur
+qui se voit le moins : relire la page dans sa langue avant de pousser.
 
 La **grille des ressources** est dupliquée de la même façon, entre l'accueil
 (`#guides`) et `ressources/index.html`.
@@ -57,7 +70,9 @@ douze fichiers**, sans variante en `../`. Un compte ajouté se recopie tel quel
 Toucher à la navigation sans les traiter toutes laisse un site incohérent, sans
 erreur ni test rouge pour le signaler. **Après toute modification de
 navigation, compter les occurrences** — et attention aux chemins : les pages de
-`ressources/` pointent en `../`, les autres à la racine.
+`ressources/` pointent en `../`, celles de `en/` aussi (elles partagent
+`styles.css`, `script.js` et `ressources/gate.js` avec le français, plutôt que
+d'en avoir une copie), les autres pointent à la racine.
 
 C'est le prix assumé de l'absence de build : ce qui est dans le dépôt est
 exactement ce qui est servi.
@@ -67,6 +82,42 @@ donc `CLAUDE.md`, `README.md` et les gabarits d'`outils/` sont téléchargeables
 depuis le site. C'est à quoi sert `_redirects`, qui les renvoie à l'accueil —
 **un document interne ajouté à la racine doit y être ajouté**. Attention, ce
 fichier n'est lu que par Cloudflare Pages.
+
+---
+
+## Les deux langues
+
+**`hreflang` se déclare dans les deux sens.** Une page qui désigne sa jumelle
+sans être désignée en retour voit sa déclaration purement ignorée — l'erreur ne
+produit aucun symptôme visible, juste deux pages qui se font concurrence dans
+l'index. Le français est le `x-default`.
+
+**La bascule mène à la même page, jamais à l'accueil.** Un visiteur renvoyé à
+l'accueil parce qu'il a changé de langue a perdu ce qu'il lisait, et c'est la
+façon la plus sûre de le faire partir. La bascule reste visible sous 1150 px,
+seul élément d'en-tête à ne pas basculer dans le menu déroulant : qui tombe
+dans la mauvaise langue doit pouvoir en sortir sans ouvrir un menu qu'il ne
+sait pas lire.
+
+**Les textes d'interface de `script.js` et de `gate.js` se choisissent sur
+`<html lang>`**, dans l'objet `T` en tête de `script.js`. Un message ajouté
+d'un côté doit l'être de l'autre. Ne pas dupliquer ces scripts : un bogue
+corrigé deux fois est un bogue corrigé une fois sur deux.
+
+**Les attributs `name` des formulaires et les valeurs des menus restent en
+français dans les deux langues.** Ce sont des clés, pas du texte affiché :
+Web3Forms, la base et le tri de la boîte de réception les lisent. Seul
+`[EN]` est ajouté devant l'objet de l'email, pour savoir en quelle langue
+répondre avant d'ouvrir le message. Même chose pour la `source` des prospects :
+`en/margeo.html` compte en `demo_margeo`, comme `demo-margeo.html` — la policy
+d'insertion de `site_agenia_prospects` n'accepte que cette liste, et les
+statistiques comptent un produit, pas une langue.
+
+**La page locale anglaise n'est pas une traduction.** `agence-ia-haute-savoie`
+vise « agence IA Annecy », tapé par des dirigeants français. Traduite mot pour
+mot, elle ne viserait personne. Sa jumelle vise le lecteur anglophone qui
+existe vraiment dans la zone : les entreprises internationales du bassin
+genevois.
 
 ---
 

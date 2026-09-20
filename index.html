@@ -9,6 +9,14 @@
   <meta name="theme-color" content="#f0efe8" />
   <link rel="canonical" href="https://www.agenia.pro/" />
 
+  <!-- Versions linguistiques. Le couple hreflang doit être réciproque : la page
+       anglaise déclare celle-ci, et celle-ci déclare l'anglaise. Une déclaration
+       à sens unique est ignorée par Google. x-default pointe le français, qui
+       reste la version par défaut du site. -->
+  <link rel="alternate" hreflang="fr" href="https://www.agenia.pro/" />
+  <link rel="alternate" hreflang="en" href="https://www.agenia.pro/en/" />
+  <link rel="alternate" hreflang="x-default" href="https://www.agenia.pro/" />
+
   <!-- Vérifications de propriété des plateformes. Ce ne sont pas des secrets :
        ces jetons sont faits pour être lus publiquement dans le HTML, et ne
        donnent aucun droit sur le site — ils prouvent seulement, dans l'autre
@@ -175,6 +183,10 @@
         <a href="documentation/">Documentation</a>
         <a href="#faq">FAQ</a>
       </nav>
+
+      <div class="lang-switch">
+        <a href="en/" hreflang="en" lang="en" title="Read this page in English">EN</a>
+      </div>
 
       <div class="header__cta">
         <a class="btn btn--ghost" href="#contact">Parler à un expert</a>
