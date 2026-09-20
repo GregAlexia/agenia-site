@@ -187,6 +187,63 @@
         <li><a href="automation-roi.html">Working out the ROI of an automation</a> — putting numbers on what the audit brought to light.</li>
         <li><a href="index.html#contact">Take a look at your processes</a> — thirty minutes, no obligation.</li>
       </ul>
+
+      <!-- Le formulaire ne cache pas l'article — il est posé ici et n'offre que
+           la version PDF. Un article masqué ne pourrait être ni indexé ni lu :
+           personne ne remplit un formulaire pour un texte dont il ne sait rien.
+           Les identifiants #portail et #contenu sont ceux qu'attend gate.js. -->
+      <div class="res-gate" id="portail">
+        <div class="res-gate__card">
+          <h2>The PDF version, to print or pass around</h2>
+          <p>The whole article on one page, including the four audit steps and the signals that it is time to run one.</p>
+
+          <form id="formRessource" novalidate>
+            <input type="hidden" name="access_key" value="659aaa00-f8c4-45f0-a1b7-7f5e5937b082" />
+            <input type="hidden" name="subject" value="Nouveau prospect ressource — Auditer ses process (EN)" />
+            <input type="hidden" name="from_name" value="Ressources — Site Agenia (EN)" />
+            <input type="hidden" name="ressource" value="Audit your processes before you automate" />
+            <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" />
+
+            <div class="field">
+              <label for="rPrenom">First name</label>
+              <input id="rPrenom" name="prenom" type="text" autocomplete="given-name" required placeholder="Your first name" />
+            </div>
+            <div class="field">
+              <label for="rEmail">Work email</label>
+              <input id="rEmail" name="email" type="email" autocomplete="email" required placeholder="you@company.com" />
+            </div>
+            <div class="field">
+              <label for="rTel">Phone</label>
+              <input id="rTel" name="telephone" type="tel" autocomplete="tel" required placeholder="+44 7700 900000" />
+            </div>
+
+            <label class="res-gate__consent">
+              <input type="checkbox" id="rConsent" required />
+              <span>
+                I agree to be contacted by AgenIA about its services.
+                See the <a href="legal-notice.html#privacy" target="_blank" rel="noopener">privacy policy</a>.
+              </span>
+            </label>
+
+            <button class="btn btn--primary btn--lg" type="submit">Send me the PDF</button>
+            <p class="form__note" id="rNote" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+
+      <!-- ============ LIEN DE TÉLÉCHARGEMENT (révélé après envoi) ============ -->
+      <div class="res-locked" id="contenu" hidden>
+        <div class="res-article__cta">
+          <h2>Your PDF is ready</h2>
+          <p>The article in one printable document, with the four steps and the warning signals.</p>
+          <p class="card__cta">
+            <a class="btn btn--primary btn--lg" href="pdf/audit-before-you-automate.pdf" download>
+              Download the PDF
+            </a>
+          </p>
+        </div>
+      </div>
+
     </div>
   </main>
 
@@ -220,5 +277,6 @@
   </footer>
 
   <script src="../script.js"></script>
+  <script src="../ressources/gate.js"></script>
 </body>
 </html>

@@ -45,11 +45,11 @@ appellent en `../`), les textes d'interface des deux scripts se choisissant sur
 `<html lang>`. `documentation/` n'a pas de version anglaise : c'est un espace
 interne.
 
-Deux différences assumées avec le français : la page locale est **réorientée**
+Une différence assumée avec le français : la page locale est **réorientée**
 vers les entreprises anglophones du bassin genevois plutôt que traduite mot pour
-mot — personne ne cherche « AI agency Haute-Savoie » en anglais — et les trois
-guides anglais **n'ont pas encore de PDF**, donc pas de formulaire de
-téléchargement (voir « Régénérer les PDF » plus bas).
+mot — personne ne cherche « AI agency Haute-Savoie » en anglais. Pour le reste,
+les deux versions offrent la même chose, PDF des guides compris
+(`en/pdf/`, refusé au crawl comme son équivalent français).
 
 **Espace interne** — `documentation/`, fermé au seul compte administrateur :
 
@@ -394,14 +394,16 @@ node outils/faire-pdf.cjs
 
 Le mode d'emploi complet est dans l'en-tête du script.
 
-**Les trois guides anglais n'ont pas encore de PDF.** Le script ne génère que
-les trois guides français, et il demande Playwright et un Chromium, absents de
-la machine où la version anglaise a été écrite. Conséquence assumée : les pages
-`en/20-tasks-to-automate.html`, `en/audit-before-you-automate.html` et
-`en/automation-roi.html` publient l'article entier — c'est lui qui est indexé —
-mais n'ont **pas** de formulaire de téléchargement, là où leurs jumelles
-françaises en ont un. Le jour où les PDF existent, il faut ajouter les trois
-pages à la liste `GUIDES` du script, un dossier `en/pdf/`, la ligne
-`Disallow: /en/pdf/` dans `robots.txt` (même raison que pour `/ressources/pdf/`
-— le PDF reprend l'article mot pour mot et lui fait concurrence dans l'index),
-et remettre le bloc `#portail` / `#contenu` dans les trois pages.
+**Le script traite les six guides**, les trois français et les trois anglais :
+chaque entrée de `GUIDES` dit quelle page imprimer et où écrire le PDF, parce
+que les deux langues ne rangent pas leurs fichiers pareil (`ressources/pdf/`
+d'un côté, `en/pdf/` de l'autre).
+
+⚠️ **Ne pas installer Playwright dans le dépôt.** Il est publié en entier : un
+`node_modules/` posé ici serait téléchargeable depuis le site, et la règle
+« ni build ni dépendance » deviendrait fausse. L'installer ailleurs, et pointer
+Node dessus — le mode d'emploi est en tête du script.
+
+Un PDF régénéré **diffère toujours de l'ancien au niveau des octets**, même
+sans changement de texte. Ne committer que ceux dont l'article a réellement
+bougé, sinon le diff raconte des modifications qui n'ont pas eu lieu.
