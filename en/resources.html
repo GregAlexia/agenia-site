@@ -1,18 +1,17 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Guides gratuits sur l'automatisation et l'IA en PME</title>
-  <meta name="description" content="Trois guides gratuits pour les PME : quelles tâches automatiser en premier, comment auditer ses process, et comment calculer le ROI d'une automatisation." />
+  <title>Resources — guides and checklists on automation | AgenIA</title>
+  <meta name="description" content="Free guides and checklists on automation and AI in smaller companies: which tasks to automate first, how to work out the ROI, why to audit before automating." />
   <meta name="theme-color" content="#f0efe8" />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://www.agenia.pro/ressources/" />
+  <link rel="canonical" href="https://www.agenia.pro/en/resources.html" />
 
-  <!-- Versions linguistiques. Le couple hreflang doit être réciproque : la page
-       anglaise déclare celle-ci, et celle-ci déclare l'anglaise. Une déclaration
-       à sens unique est ignorée par Google. x-default pointe le français, qui
-       reste la version par défaut du site. -->
+  <!-- Versions linguistiques. Le couple hreflang doit être réciproque : la
+       page française déclare celle-ci, et celle-ci déclare la française. Une
+       déclaration à sens unique est ignorée. -->
   <link rel="alternate" hreflang="fr" href="https://www.agenia.pro/ressources/" />
   <link rel="alternate" hreflang="en" href="https://www.agenia.pro/en/resources.html" />
   <link rel="alternate" hreflang="x-default" href="https://www.agenia.pro/ressources/" />
@@ -20,56 +19,32 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="AgenIA" />
-  <meta property="og:title" content="Ressources — Guides et checklists sur l'IA et l'automatisation" />
-  <meta property="og:description" content="Trois guides gratuits pour les PME : quelles tâches automatiser en premier, comment auditer ses process, et comment calculer le ROI d'une automatisation." />
-  <meta property="og:url" content="https://www.agenia.pro/ressources/" />
-  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:title" content="Resources — guides and checklists on automation | AgenIA" />
+  <meta property="og:description" content="Free guides and checklists on automation and AI in smaller companies: which tasks to automate first, how to work out the ROI, why to audit before automating." />
+  <meta property="og:url" content="https://www.agenia.pro/en/resources.html" />
+  <meta property="og:locale" content="en_GB" />
+  <meta property="og:locale:alternate" content="fr_FR" />
   <meta property="og:image" content="https://www.agenia.pro/assets/og-image.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Ressources — Guides et checklists sur l'IA et l'automatisation" />
-  <meta name="twitter:description" content="Trois guides gratuits pour les PME : quelles tâches automatiser en premier, comment auditer ses process, et comment calculer le ROI d'une automatisation." />
+  <meta name="twitter:title" content="Resources — guides and checklists on automation | AgenIA" />
+  <meta name="twitter:description" content="Free guides and checklists on automation and AI in smaller companies: which tasks to automate first, how to work out the ROI, why to audit before automating." />
   <meta name="twitter:image" content="https://www.agenia.pro/assets/og-image.jpg" />
 
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src https://api.web3forms.com https://quygyeesmtxgykerjtjr.supabase.co; form-action 'self' https://api.web3forms.com; base-uri 'self'; object-src 'none'" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; frame-src https://www.youtube-nocookie.com; connect-src https://api.web3forms.com https://quygyeesmtxgykerjtjr.supabase.co; form-action 'self' https://api.web3forms.com; base-uri 'self'; object-src 'none'" />
 
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%236d8bff'/%3E%3Cstop offset='1' stop-color='%23b06bff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='8' fill='%23070b18'/%3E%3Cpath d='M16 6l8 20h-4l-1.4-3.8h-5.2L12 26H8L16 6zm0 7.2l-1.6 4.4h3.2L16 13.2z' fill='url(%23g)'/%3E%3C/svg%3E" />
   <link rel="stylesheet" href="../styles.css" />
-
-  <!-- Données structurées : fil d'Ariane + liste des guides -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.agenia.pro/" },
-      { "@type": "ListItem", "position": 2, "name": "Ressources", "item": "https://www.agenia.pro/ressources/" }
-    ]
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    "itemListElement": [
-      {
-        "@type": "ListItem", "position": 1,
-        "url": "https://www.agenia.pro/ressources/20-taches-a-automatiser.html",
-        "name": "20 tâches à automatiser en premier"
-      },
-      {
-        "@type": "ListItem", "position": 2,
-        "url": "https://www.agenia.pro/ressources/calculer-roi-automatisation.html",
-        "name": "Calculer le ROI d'une automatisation"
-      },
-      {
-        "@type": "ListItem", "position": 3,
-        "url": "https://www.agenia.pro/ressources/auditer-process-pme.html",
-        "name": "Pourquoi auditer vos process avant d'automatiser"
-      }
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.agenia.pro/en/" },
+      { "@type": "ListItem", "position": 2, "name": "Resources", "item": "https://www.agenia.pro/en/resources.html" }
     ]
   }
   </script>
@@ -77,55 +52,52 @@
 <body>
   <header class="site-header" id="top">
     <div class="container header__inner">
-      <a class="brand" href="../index.html" aria-label="Agenia, accueil">
+      <a class="brand" href="index.html" aria-label="Agenia, home">
         <img class="brand__logo" src="../assets/logo_agenia-hd.png" width="330" height="220"
              alt="Agenia" />
       </a>
 
-      <nav class="nav" aria-label="Navigation principale">
-        <a href="../index.html#services">Services</a>
-        <a href="../index.html#methode">Méthode</a>
-        <a href="../index.html#resultats">Résultats</a>
-        <a href="../index.html#secteurs">Secteurs</a>
-        <a href="../index.html#produit">Produits</a>
-        <a href="index.html">Ressources</a>
-        <a href="../documentation/">Documentation</a>
-        <a href="../index.html#faq">FAQ</a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="index.html#services">Services</a>
+        <a href="index.html#approach">Approach</a>
+        <a href="index.html#results">Results</a>
+        <a href="index.html#sectors">Sectors</a>
+        <a href="index.html#products">Software</a>
+        <a href="resources.html">Resources</a>
+        <a href="index.html#faq">FAQ</a>
       </nav>
 
       <div class="lang-switch">
-        <a href="../en/resources.html" hreflang="en" lang="en" title="Read this page in English">EN</a>
+        <a href="../ressources/" hreflang="fr" lang="fr" title="Voir cette page en français">FR</a>
       </div>
 
       <div class="header__cta">
-        <a class="btn btn--ghost" href="../index.html#contact">Parler à un expert</a>
+        <a class="btn btn--ghost" href="index.html#contact">Talk to an expert</a>
       </div>
 
-      <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobileMenu">
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
         <span></span><span></span><span></span>
       </button>
     </div>
 
     <div class="mobile-menu" id="mobileMenu" hidden>
-      <a href="../index.html#services">Services</a>
-      <a href="../index.html#methode">Méthode</a>
-      <a href="../index.html#resultats">Résultats</a>
-      <a href="../index.html#secteurs">Secteurs</a>
-      <a href="../index.html#produit">Produits</a>
-      <a href="index.html">Ressources</a>
-      <a href="../documentation/">Documentation</a>
-      <a href="../index.html#faq">FAQ</a>
-      <a class="btn btn--primary" href="../index.html#contact">Parler à un expert</a>
+      <a href="index.html#services">Services</a>
+      <a href="index.html#approach">Approach</a>
+      <a href="index.html#results">Results</a>
+      <a href="index.html#sectors">Sectors</a>
+      <a href="index.html#products">Software</a>
+      <a href="resources.html">Resources</a>
+      <a href="index.html#faq">FAQ</a>
+      <a class="btn btn--primary" href="index.html#contact">Talk to an expert</a>
     </div>
   </header>
 
   <main class="res">
     <div class="container res__intro">
-      <span class="eyebrow">Ressources</span>
-      <h1 class="res__title">Guides et checklists <em>pour passer à l'action.</em></h1>
+      <span class="eyebrow">Resources</span>
+      <h1 class="res__title">Guides and checklists <em>to get you moving.</em></h1>
       <p class="section__sub">
-        Des ressources concrètes sur l'automatisation et l'IA en entreprise,
-        à consulter gratuitement.
+        Practical material on automation and AI in business, free to read.
       </p>
     </div>
 
@@ -133,86 +105,86 @@
       <article class="res-card">
         <span class="pill">Checklist</span>
         <h2 class="res-card__title">
-          <a href="20-taches-a-automatiser.html">20 tâches à automatiser en premier</a>
+          <a href="20-tasks-to-automate.html">20 tasks to automate first</a>
         </h2>
         <p class="res-card__excerpt">
-          Les tâches les plus rentables à automatiser dans une PME — facturation,
-          relances, plannings, saisie — classées par domaine, avec pour chacune
-          ce qu'elle coûte à laisser manuelle et comment s'y prendre.
+          The tasks that pay back fastest in a smaller company — invoicing,
+          chasing, rotas, data entry — sorted by area, each with what it costs
+          while it stays manual and how to go about it.
         </p>
-        <a class="res-card__link" href="20-taches-a-automatiser.html">Lire la ressource →</a>
-        <p class="res-card__meta">Août 2026</p>
+        <a class="res-card__link" href="20-tasks-to-automate.html">Read the guide →</a>
+        <p class="res-card__meta">August 2026</p>
       </article>
 
       <article class="res-card">
         <span class="pill">Guide</span>
         <h2 class="res-card__title">
-          <a href="calculer-roi-automatisation.html">Calculer le ROI d'une automatisation</a>
+          <a href="automation-roi.html">Working out the ROI of an automation</a>
         </h2>
         <p class="res-card__excerpt">
-          La méthode simple pour savoir, avant de se lancer, si une
-          automatisation est rentable — formule en une ligne, exemple
-          chiffré et erreurs les plus fréquentes.
+          The simple method for telling, before you commit, whether an
+          automation pays for itself — a one-line formula, a worked example and
+          the mistakes people make most often.
         </p>
-        <a class="res-card__link" href="calculer-roi-automatisation.html">Lire la ressource →</a>
-        <p class="res-card__meta">Août 2026</p>
+        <a class="res-card__link" href="automation-roi.html">Read the guide →</a>
+        <p class="res-card__meta">August 2026</p>
       </article>
 
       <article class="res-card">
-        <span class="pill">Outils</span>
+        <span class="pill">Tools</span>
         <h2 class="res-card__title">
-          <a href="../essai-outils.html">Huit calculateurs gratuits</a>
+          <a href="free-tools.html">Eight free calculators</a>
         </h2>
         <p class="res-card__excerpt">
-          Coût de revient, prix de vente conseillé, seuil de rentabilité, écart
-          entre un bon de livraison et sa facture, allergènes INCO. Ils tournent
-          dans le navigateur, sans compte.
+          Cost price, recommended selling price, break-even point, the gap
+          between a delivery note and its invoice, allergen labelling. They run
+          in the browser, with no account.
         </p>
-        <a class="res-card__link" href="../essai-outils.html">Ouvrir les outils →</a>
+        <a class="res-card__link" href="free-tools.html">Open the tools →</a>
       </article>
 
       <article class="res-card">
         <span class="pill">Article</span>
         <h2 class="res-card__title">
-          <a href="auditer-process-pme.html">Pourquoi auditer vos process avant d'automatiser</a>
+          <a href="audit-before-you-automate.html">Why you should audit your processes before automating</a>
         </h2>
         <p class="res-card__excerpt">
-          Automatiser un process qui n'a jamais été remis en question fait
-          souvent plus de mal que de bien. Ce qu'un audit révèle vraiment,
-          et pourquoi il doit toujours précéder l'automatisation.
+          Automating a process nobody has ever questioned usually does more
+          harm than good. What an audit really uncovers, and why it has to come
+          first.
         </p>
-        <a class="res-card__link" href="auditer-process-pme.html">Lire la ressource →</a>
-        <p class="res-card__meta">Août 2026</p>
+        <a class="res-card__link" href="audit-before-you-automate.html">Read the guide →</a>
+        <p class="res-card__meta">August 2026</p>
       </article>
     </div>
   </main>
 
   <footer class="site-footer">
     <div class="container footer__bottom">
-      <p>© <span id="year">2026</span> AgenIA — SASU au capital de 1 000 € — RCS Thonon-les-Bains 108 486 598.</p>
-      <nav class="social" aria-label="AgenIA sur les réseaux sociaux">
+      <p>© <span id="year">2026</span> AgenIA — SASU with share capital of €1,000 — Thonon-les-Bains trade register 108 486 598.</p>
+      <nav class="social" aria-label="AgenIA on social media">
         <a href="https://www.facebook.com/profile.php?id=61594047287299" target="_blank" rel="noopener"
-           aria-label="AgenIA sur Facebook" title="Facebook">
+           aria-label="AgenIA on Facebook" title="Facebook">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></svg>
         </a>
         <a href="https://www.instagram.com/agenia.pro/" target="_blank" rel="noopener"
-           aria-label="AgenIA sur Instagram" title="Instagram">
+           aria-label="AgenIA on Instagram" title="Instagram">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 1 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm7.846-10.405a1.441 1.441 0 0 1-2.88 0 1.44 1.44 0 0 1 2.88 0z"/></svg>
         </a>
         <a href="https://www.youtube.com/@AgenAI_agency" target="_blank" rel="noopener"
-           aria-label="AgenIA sur YouTube" title="YouTube">
+           aria-label="AgenIA on YouTube" title="YouTube">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
         </a>
         <a href="https://www.pinterest.com/AGENIA_PRO/" target="_blank" rel="noopener"
-           aria-label="AgenIA sur Pinterest" title="Pinterest">
+           aria-label="AgenIA on Pinterest" title="Pinterest">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z"/></svg>
         </a>
         <a href="https://www.linkedin.com/company/agenia-fr/" target="_blank" rel="noopener"
-           aria-label="AgenIA sur LinkedIn" title="LinkedIn">
+           aria-label="AgenIA on LinkedIn" title="LinkedIn">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg>
         </a>
       </nav>
-      <p class="footer__legal"><a href="../mentions-legales.html">Mentions légales</a> · <a href="../mentions-legales.html#confidentialite">Confidentialité</a> · <a href="../documentation/">Documentation</a></p>
+      <p class="footer__legal"><a href="legal-notice.html">Legal notice</a> · <a href="legal-notice.html#privacy">Privacy</a> · <a href="../" lang="fr">Version française</a></p>
     </div>
   </footer>
 

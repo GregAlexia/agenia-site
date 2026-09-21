@@ -108,6 +108,23 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.12; margin: 0; le
 .nav a:hover { background: var(--surface); }
 .header__cta { margin-left: 4px; }
 
+/* Bascule de langue. Un seul lien, vers l'autre version de la MEME page : un
+   sélecteur qui renverrait toujours à l'accueil ferait perdre sa page au
+   visiteur, ce qui est la façon la plus sûre de le faire repartir.
+   Il reste visible sous 900 px, seul élément d'en-tête à ne pas basculer dans
+   le menu déroulant : qui tombe dans la mauvaise langue doit pouvoir en sortir
+   sans avoir à ouvrir un menu qu'il ne sait pas lire. */
+.lang-switch { margin-left: 4px; }
+.lang-switch a {
+  display: inline-flex; align-items: center;
+  padding: 7px 13px; border-radius: 999px;
+  border: 1px solid var(--border-strong);
+  color: var(--text); font-family: var(--font-ui);
+  font-size: .82rem; font-weight: 600; letter-spacing: .06em;
+  transition: background .2s ease;
+}
+.lang-switch a:hover { background: var(--surface); }
+
 .nav-toggle { display: none; margin-left: auto; background: transparent; border: 1px solid var(--border-strong); border-radius: 9px; width: 44px; height: 40px; flex-direction: column; gap: 5px; align-items: center; justify-content: center; cursor: pointer; }
 .nav-toggle span { width: 20px; height: 2px; background: var(--text); border-radius: 2px; transition: transform .25s ease, opacity .2s ease; }
 .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
@@ -411,9 +428,18 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.12; margin: 0; le
 .js .reveal.is-visible { opacity: 1; transform: none; }
 
 /* ---------- Responsive ---------- */
-@media (max-width: 900px) {
+/* 1150 px et non 900 : à 900 px la barre tenait tout juste, et elle ne tenait
+   déjà plus à 1024 px — l'en-tête débordait de la fenêtre, avec barre de
+   défilement horizontale sur tout le site, entre 900 et ~1130 px. Huit entrées
+   de menu, un bouton d'appel et maintenant la bascule de langue : le menu
+   déroulant doit prendre le relais avant, pas après. */
+@media (max-width: 1150px) {
   .nav, .header__cta { display: none; }
-  .nav-toggle { display: flex; }
+  /* .nav portait le margin-left:auto qui poussait l'en-tête à droite ; une fois
+     masqué, c'est la bascule de langue qui le reprend, et le bouton de menu se
+     contente de la suivre. */
+  .lang-switch { margin-left: auto; }
+  .nav-toggle { display: flex; margin-left: 8px; }
   .cards { grid-template-columns: 1fr; }
   .steps { grid-template-columns: repeat(2, 1fr); }
   .results { grid-template-columns: 1fr; gap: 32px; }

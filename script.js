@@ -8,6 +8,32 @@
   document.documentElement.classList.add("js");
 
   /* ============================================================
+     Textes d'interface — français par défaut, anglais sous /en/
+     Le script est partagé par les deux versions du site : dupliquer un
+     script-en.js reviendrait à devoir corriger chaque bogue deux fois. La
+     langue se lit sur <html lang>, seul endroit où elle est déjà déclarée.
+     ============================================================ */
+  var EN = (document.documentElement.lang || "fr").slice(0, 2) === "en";
+  var T = EN
+    ? {
+        envoi: "Sending…",
+        cleManquante: "Form not live yet: add your Web3Forms key (see README).",
+        merci: "Thank you. Your enquiry has been sent — we come back to you within one working day.",
+        echec: "Sorry, sending failed. Try again or write to contact@agenia.pro.",
+        reseau: "Connection problem. Try again or write to contact@agenia.pro.",
+        demo: "Product demo",
+      }
+    : {
+        envoi: "Envoi en cours…",
+        cleManquante: "Formulaire pas encore activé : ajoutez votre clé Web3Forms (voir README).",
+        merci: "Merci ! Votre demande a bien été envoyée. Nous revenons vers vous sous 24 h.",
+        echec: "Oups, l'envoi a échoué. Réessayez ou écrivez-nous à contact@agenia.pro.",
+        reseau: "Problème de connexion. Réessayez ou écrivez-nous à contact@agenia.pro.",
+        demo: "Démo vidéo",
+      };
+  window.AgeniaLangue = { en: EN, t: T };
+
+  /* ============================================================
      Mesure d'audience et prospects — écriture directe dans Supabase
      Le site est statique (GitHub Pages) : la base lui sert de dos.
      Écriture SEULE : les policies n'autorisent que l'insertion, jamais la
@@ -103,9 +129,11 @@
     menu.querySelectorAll("a").forEach(function (link) {
       link.addEventListener("click", closeMenu);
     });
-    // Referme le menu si on repasse en desktop
+    // Referme le menu si on repasse en desktop. Le seuil suit celui de
+    // styles.css : en dessous, le menu déroulant EST la navigation, et le
+    // refermer laisserait la page sans aucun menu.
     window.addEventListener("resize", function () {
-      if (window.innerWidth > 900) closeMenu();
+      if (window.innerWidth > 1150) closeMenu();
     });
   }
 
@@ -164,25 +192,26 @@
       // Garde-fou : clé Web3Forms non configurée
       var key = form.querySelector('input[name="access_key"]');
       if (key && /REMPLACER/.test(key.value)) {
-        setNote(
-          "Formulaire pas encore activé : ajoutez votre clé Web3Forms (voir README).",
-          false
-        );
+        setNote(T.cleManquante, false);
         return;
       }
 
       var original = submitBtn ? submitBtn.textContent : "";
       if (submitBtn) {
         submitBtn.disabled = true;
-        submitBtn.textContent = "Envoi en cours…";
+        submitBtn.textContent = T.envoi;
       }
       setNote("");
 
       // Le sujet de l'email reprend l'objet choisi : les leads se trient
       // d'un coup d'œil dans la boîte de réception (Audit / Margeo / Keo…).
+      // Les valeurs du menu sont les mêmes dans les deux langues, exprès : le
+      // tri de la boîte de réception ne doit pas dépendre de la langue du
+      // visiteur. Seul « [EN] » est ajouté, pour savoir en quelle langue
+      // répondre avant même d'ouvrir le message.
       var sujet = form.querySelector('input[name="subject"]');
       if (sujet && objetSelect && objetSelect.value) {
-        sujet.value = "Demande " + objetSelect.value + " — agenia.pro";
+        sujet.value = (EN ? "[EN] " : "") + "Demande " + objetSelect.value + " — agenia.pro";
       }
 
       var data = new FormData(form);
@@ -201,22 +230,13 @@
           if (r.ok && r.json.success) {
             window.AgeniaTrack.prospect("contact", form);
             form.reset();
-            setNote(
-              "Merci ! Votre demande a bien été envoyée. Nous revenons vers vous sous 24 h.",
-              true
-            );
+            setNote(T.merci, true);
           } else {
-            setNote(
-              "Oups, l'envoi a échoué. Réessayez ou écrivez-nous à contact@agenia.pro.",
-              false
-            );
+            setNote(T.echec, false);
           }
         })
         .catch(function () {
-          setNote(
-            "Problème de connexion. Réessayez ou écrivez-nous à contact@agenia.pro.",
-            false
-          );
+          setNote(T.reseau, false);
         })
         .finally(function () {
           if (submitBtn) {
@@ -248,7 +268,7 @@
       var cadre = document.createElement("iframe");
       cadre.src = "https://www.youtube-nocookie.com/embed/" + id +
                   "?autoplay=1&mute=1&rel=0&modestbranding=1";
-      cadre.title = bouton.getAttribute("aria-label") || "Démo vidéo";
+      cadre.title = bouton.getAttribute("aria-label") || T.demo;
       cadre.allow = "autoplay; encrypted-media; fullscreen; picture-in-picture";
       cadre.setAttribute("allowfullscreen", "");
       cadre.setAttribute("loading", "lazy");

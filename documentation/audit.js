@@ -86,8 +86,13 @@
     var S = "Pages publiques";
     var h = doc.documentElement;
 
-    if (!h || h.getAttribute("lang") !== "fr") {
-      noter(S, chemin, AVERT, "Attribut lang absent ou différent de « fr » : les lecteurs d'écran et les moteurs devinent la langue.");
+    // Depuis l'ouverture de /en/, deux langues sont légitimes : le test porte
+    // sur la cohérence entre l'emplacement de la page et la langue déclarée,
+    // et non plus sur « fr » seul.
+    var langue = h && h.getAttribute("lang");
+    var attendue = chemin.indexOf("/en/") === 0 ? "en" : "fr";
+    if (langue !== attendue) {
+      noter(S, chemin, AVERT, "Attribut lang absent ou différent de « " + attendue + " » : les lecteurs d'écran et les moteurs devinent la langue.");
     }
 
     var titre = doc.querySelector("title");
@@ -150,7 +155,7 @@
 
     if (!doc.querySelector(".site-footer")) {
       noter(S2, chemin, AVERT, "Pas de pied de page : les mentions légales n'y sont donc pas atteignables.");
-    } else if (!doc.querySelector('.site-footer a[href*="mentions-legales"]')) {
+    } else if (!doc.querySelector('.site-footer a[href*="mentions-legales"], .site-footer a[href*="legal-notice"]')) {
       noter(S2, chemin, GRAVE, "Pied de page sans lien vers les mentions légales — obligation d'affichage.");
     }
 

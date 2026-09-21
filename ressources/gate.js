@@ -16,17 +16,35 @@
   var slug = location.pathname.split("/").pop();
   var cleStockage = "agenia_ressource_" + slug;
 
+  // Textes d'interface : fournis par script.js, chargé avant celui-ci sur
+  // toutes les pages qui portent un portail. Le repli couvre le cas où il
+  // manquerait — le déverrouillage doit marcher même sans lui.
+  var T = (window.AgeniaLangue && window.AgeniaLangue.t) || {
+    envoi: "Envoi en cours…",
+    echec: "Oups, l'envoi a échoué. Réessayez ou écrivez-nous à contact@agenia.pro.",
+    reseau: "Problème de connexion. Réessayez ou écrivez-nous à contact@agenia.pro.",
+  };
+
   // Ce même script gate les pages produit, essai-outils.html et
   // les articles de ressources/ : la source se déduit du chemin plutôt que d'un
   // champ répété dans chaque page.
   // Toute source ajoutée ici doit l'être aussi dans la contrainte de la policy
   // d'insertion de site_agenia_prospects, sinon la ligne est rejetée en silence.
+  // Les pages anglaises portent un nom court (margeo.html) là où les pages
+  // françaises portent demo-margeo.html : on teste la FIN du chemin, qui est
+  // commune aux deux. Les valeurs, elles, restent identiques dans les deux
+  // langues — la policy d'insertion de site_agenia_prospects n'accepte que
+  // cette liste, et les statistiques comptent un produit, pas une langue.
+  var finit = function (suffixe) {
+    var chemin = location.pathname;
+    return chemin.indexOf(suffixe) === chemin.length - suffixe.length;
+  };
   var source =
-    location.pathname.indexOf("demo-margeo.html") !== -1 ? "demo_margeo" :
-    location.pathname.indexOf("demo-prospeo.html") !== -1 ? "demo_prospeo" :
-    location.pathname.indexOf("demo-keo.html") !== -1 ? "demo_keo" :
-    location.pathname.indexOf("demo-planeo.html") !== -1 ? "demo_planeo" :
-    location.pathname.indexOf("essai-outils.html") !== -1 ? "demo_outils" :
+    finit("margeo.html") ? "demo_margeo" :
+    finit("prospeo.html") ? "demo_prospeo" :
+    finit("keo.html") ? "demo_keo" :
+    finit("planeo.html") ? "demo_planeo" :
+    (finit("essai-outils.html") || finit("free-tools.html")) ? "demo_outils" :
     "ressources";
 
   var debloquer = function () {
@@ -61,7 +79,7 @@
     var original = submitBtn ? submitBtn.textContent : "";
     if (submitBtn) {
       submitBtn.disabled = true;
-      submitBtn.textContent = "Envoi en cours…";
+      submitBtn.textContent = T.envoi;
     }
     setNote("");
 
@@ -88,10 +106,7 @@
           debloquer();
           contenu.scrollIntoView({ behavior: "smooth", block: "start" });
         } else {
-          setNote(
-            "Oups, l'envoi a échoué. Réessayez ou écrivez-nous à contact@agenia.pro.",
-            false
-          );
+          setNote(T.echec, false);
           if (submitBtn) {
             submitBtn.disabled = false;
             submitBtn.textContent = original;
@@ -99,10 +114,7 @@
         }
       })
       .catch(function () {
-        setNote(
-          "Problème de connexion. Réessayez ou écrivez-nous à contact@agenia.pro.",
-          false
-        );
+        setNote(T.reseau, false);
         if (submitBtn) {
           submitBtn.disabled = false;
           submitBtn.textContent = original;

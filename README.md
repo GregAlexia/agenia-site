@@ -9,7 +9,7 @@ automatiquement sur **GitHub Pages** à chaque push sur `main`.
 
 ## Structure
 
-**Pages publiques** — douze, toutes autonomes, toutes avec le même en-tête et le
+**Pages publiques françaises** — douze, toutes autonomes, toutes avec le même en-tête et le
 même pied de page, et **toutes indexables** depuis le 19 septembre 2026 :
 
 | Fichier | Rôle |
@@ -21,6 +21,35 @@ même pied de page, et **toutes indexables** depuis le 19 septembre 2026 :
 | `ressources/index.html` + 3 articles | Guides, lisibles en entier ; c'est la version PDF qui est déverrouillée |
 | `ressources/pdf/` | Les trois guides en PDF, régénérés depuis les pages elles-mêmes |
 | `mentions-legales.html` | Mentions et confidentialité (ancre `#confidentialite`) |
+
+**Version anglaise** — `en/`, ouverte le 20 septembre 2026 : les douze mêmes
+pages, à plat dans un seul dossier, avec des adresses en anglais.
+
+| Fichier `en/` | Page française correspondante |
+|---------------|-------------------------------|
+| `index.html` | `index.html` |
+| `margeo.html` · `prospeo.html` · `keo.html` · `planeo.html` | les quatre `demo-*.html` |
+| `free-tools.html` | `essai-outils.html` |
+| `ai-agency-geneva-haute-savoie.html` | `agence-ia-haute-savoie.html` |
+| `resources.html` | `ressources/index.html` |
+| `20-tasks-to-automate.html` · `audit-before-you-automate.html` · `automation-roi.html` | les trois guides de `ressources/` |
+| `legal-notice.html` | `mentions-legales.html` |
+
+Chaque page déclare sa jumelle en `hreflang`, **dans les deux sens**, et porte
+dans son en-tête un lien vers elle — vers la **même page** dans l'autre langue,
+jamais vers l'accueil. Le français reste le `x-default`.
+
+Trois choses **ne sont pas** dupliquées, et c'est voulu : `styles.css`,
+`script.js` et `ressources/gate.js` sont partagés (les pages de `en/` les
+appellent en `../`), les textes d'interface des deux scripts se choisissant sur
+`<html lang>`. `documentation/` n'a pas de version anglaise : c'est un espace
+interne.
+
+Une différence assumée avec le français : la page locale est **réorientée**
+vers les entreprises anglophones du bassin genevois plutôt que traduite mot pour
+mot — personne ne cherche « AI agency Haute-Savoie » en anglais. Pour le reste,
+les deux versions offrent la même chose, PDF des guides compris
+(`en/pdf/`, refusé au crawl comme son équivalent français).
 
 **Espace interne** — `documentation/`, fermé au seul compte administrateur :
 
@@ -50,7 +79,7 @@ même pied de page, et **toutes indexables** depuis le 19 septembre 2026 :
 Le site n'a **ni build ni dépendance** : ce qui est dans le dépôt est
 exactement ce qui est servi. Un fichier modifié est en ligne en une à deux
 minutes, sans étape intermédiaire — c'est la contrepartie de devoir répéter
-l'en-tête et le pied de page dans douze fichiers.
+l'en-tête et le pied de page dans vingt-quatre fichiers.
 
 ## Modifier le site depuis n'importe quel PC
 
@@ -378,3 +407,17 @@ node outils/faire-pdf.cjs
 ```
 
 Le mode d'emploi complet est dans l'en-tête du script.
+
+**Le script traite les six guides**, les trois français et les trois anglais :
+chaque entrée de `GUIDES` dit quelle page imprimer et où écrire le PDF, parce
+que les deux langues ne rangent pas leurs fichiers pareil (`ressources/pdf/`
+d'un côté, `en/pdf/` de l'autre).
+
+⚠️ **Ne pas installer Playwright dans le dépôt.** Il est publié en entier : un
+`node_modules/` posé ici serait téléchargeable depuis le site, et la règle
+« ni build ni dépendance » deviendrait fausse. L'installer ailleurs, et pointer
+Node dessus — le mode d'emploi est en tête du script.
+
+Un PDF régénéré **diffère toujours de l'ancien au niveau des octets**, même
+sans changement de texte. Ne committer que ceux dont l'article a réellement
+bougé, sinon le diff raconte des modifications qui n'ont pas eu lieu.

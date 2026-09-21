@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agenia — AI software: margins, prospecting, property, 3D plans</title>
+  <meta name="description" content="Agenia builds four AI products: Margeo (food-cost margins), Prospeo (sales prospecting), Keo (estate agencies), Planeo (3D plans) — and bespoke automation for SMEs." />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#f0efe8" />
+  <link rel="canonical" href="https://www.agenia.pro/en/" />
+
+  <!-- Versions linguistiques. Le couple hreflang doit être réciproque : la page
+       française déclare celle-ci, et celle-ci déclare la française. Une
+       déclaration à sens unique est ignorée par Google. x-default pointe le
+       français, qui reste la version par défaut du site. -->
+  <link rel="alternate" hreflang="fr" href="https://www.agenia.pro/" />
+  <link rel="alternate" hreflang="en" href="https://www.agenia.pro/en/" />
+  <link rel="alternate" hreflang="x-default" href="https://www.agenia.pro/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="AgenIA" />
+  <meta property="og:title" content="Agenia — Build your ideas, we automate the processes" />
+  <meta property="og:description" content="Margeo for your margins, Prospeo for your prospecting, Keo for your estate agency, Planeo for your 3D plans — software built and operated by Agenia." />
+  <meta property="og:url" content="https://www.agenia.pro/en/" />
+  <meta property="og:locale" content="en_GB" />
+  <meta property="og:locale:alternate" content="fr_FR" />
+  <meta property="og:image" content="https://www.agenia.pro/assets/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="AgenIA — Build your ideas, we automate the processes" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Agenia — Build your ideas, we automate the processes" />
+  <meta name="twitter:description" content="Margeo for your margins, Prospeo for your prospecting, Keo for your estate agency, Planeo for your 3D plans — software built and operated by Agenia." />
+  <meta name="twitter:image" content="https://www.agenia.pro/assets/og-image.jpg" />
+
+  <!-- Sécurité : Content-Security-Policy (polices auto-hébergées, envoi formulaire vers Web3Forms uniquement) -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; frame-src https://www.youtube-nocookie.com; connect-src https://api.web3forms.com https://quygyeesmtxgykerjtjr.supabase.co; form-action 'self' https://api.web3forms.com; base-uri 'self'; object-src 'none'" />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%236d8bff'/%3E%3Cstop offset='1' stop-color='%23b06bff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='8' fill='%23070b18'/%3E%3Cpath d='M16 6l8 20h-4l-1.4-3.8h-5.2L12 26H8L16 6zm0 7.2l-1.6 4.4h3.2L16 13.2z' fill='url(%23g)'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="../styles.css" />
+
+  <!-- Données structurées : identité de l'entreprise (aucun nom de personne
+       physique, cf. mentions légales). Le @id est celui de la version
+       française : c'est la MÊME entreprise, décrite dans une autre langue, et
+       non une seconde organisation. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://www.agenia.pro/#organization",
+    "name": "AgenIA",
+    "url": "https://www.agenia.pro/",
+    "logo": "https://www.agenia.pro/assets/logo_agenia-hd.png",
+    "image": "https://www.agenia.pro/assets/og-image.jpg",
+    "description": "Publisher of AI software for small and mid-sized companies: Margeo (margins for restaurants), Prospeo (sales prospecting), Keo (estate agency management), Planeo (3D visualisation of building plans). Also audit, prototyping and bespoke development.",
+    "email": "contact@agenia.pro",
+    "telephone": "+33651748133",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "2303 Route de Croasse",
+      "postalCode": "74270",
+      "addressLocality": "Desingy",
+      "addressRegion": "Haute-Savoie",
+      "addressCountry": "FR"
+    },
+    "areaServed": "FR",
+    "knowsLanguage": ["fr", "en"],
+    "legalName": "AgenIA",
+    "identifier": {
+      "@type": "PropertyValue",
+      "propertyID": "RCS",
+      "value": "Thonon-les-Bains 108 486 598"
+    },
+    "brand": [
+      { "@type": "Brand", "name": "Margeo" },
+      { "@type": "Brand", "name": "Prospeo" },
+      { "@type": "Brand", "name": "Keo" },
+      { "@type": "Brand", "name": "Planeo" }
+    ],
+    "sameAs": [
+      "https://www.facebook.com/profile.php?id=61594047287299",
+      "https://www.instagram.com/agenia.pro/",
+      "https://www.youtube.com/@AgenAI_agency",
+      "https://www.pinterest.com/AGENIA_PRO/",
+      "https://www.linkedin.com/company/agenia-fr/"
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "AgenIA",
+    "url": "https://www.agenia.pro/en/",
+    "inLanguage": "en-GB"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "inLanguage": "en-GB",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Do we need an “AI strategy” before we start?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. We start with an audit that identifies your priority use cases. You leave with a clear roadmap, even with no AI skills in-house."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is our data safe?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Security sits at the centre of how we work. Solutions are deployed inside your own environment, with strict access control and full GDPR compliance."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long before we see results?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A first working prototype is usually delivered in two to six weeks, which lets you confirm the value early, before any large-scale rollout."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you work with small companies?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Our iterative approach is built for small and mid-sized companies: start small, on one high-ROI case, then widen."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What happens once we go live?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We handle monitoring, maintenance and continuous improvement, and we train your teams so adoption lasts."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you work in English?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Meetings, documentation and support are available in English. The software interfaces are currently in French, and we localise them on request as part of a project."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- Ambient background -->
+  <div class="bg-orbs" aria-hidden="true">
+    <span class="orb orb--1"></span>
+    <span class="orb orb--2"></span>
+    <span class="orb orb--3"></span>
+    <div class="grid-overlay"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header" id="top">
+    <div class="container header__inner">
+      <a class="brand" href="#top" aria-label="Agenia, home">
+        <img class="brand__logo" src="../assets/logo_agenia-hd.png" width="330" height="220"
+             alt="Agenia" />
+      </a>
+
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#services">Services</a>
+        <a href="#approach">Approach</a>
+        <a href="#results">Results</a>
+        <a href="#sectors">Sectors</a>
+        <a href="#products">Software</a>
+        <a href="resources.html">Resources</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
+      <div class="lang-switch">
+        <a href="../" hreflang="fr" lang="fr" title="Voir cette page en français">FR</a>
+      </div>
+
+      <div class="header__cta">
+        <a class="btn btn--ghost" href="#contact">Talk to an expert</a>
+      </div>
+
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu" hidden>
+      <a href="#services">Services</a>
+      <a href="#approach">Approach</a>
+      <a href="#results">Results</a>
+      <a href="#sectors">Sectors</a>
+      <a href="#products">Software</a>
+      <a href="resources.html">Resources</a>
+      <a href="#faq">FAQ</a>
+      <a class="btn btn--primary" href="#contact">Talk to an expert</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero__inner">
+        <span class="pill reveal">
+          <span class="pill__dot"></span>
+          AI software publisher · small &amp; mid-sized companies
+        </span>
+        <h1 class="hero__title reveal">
+          Build <span class="grad-text">your ideas</span>. We&nbsp;automate the processes.
+        </h1>
+        <p class="hero__lead reveal">
+          Margeo is your financial controller, Prospeo your sales team. Keo runs
+          your estate agency, Planeo shows your building project before it is
+          built. Products we publish and operate ourselves — and when none of
+          them fits, the same team designs the bespoke solution.
+        </p>
+        <div class="hero__actions reveal">
+          <a class="btn btn--primary" href="#audit" data-objet="Audit gratuit">Book a free audit</a>
+          <a class="btn btn--ghost" href="#products">See the software</a>
+        </div>
+
+        <ul class="hero__stats reveal">
+          <li><strong>-70%</strong><span>less time spent on manual tasks</span></li>
+          <li><strong>2 to 6 weeks</strong><span>from prototype to production</span></li>
+          <li><strong>4</strong><span>business applications we publish ourselves</span></li>
+        </ul>
+        <p class="hero__note reveal">
+          These figures are <b>orders of magnitude we have observed</b>, and they
+          vary from one case to the next.
+        </p>
+      </div>
+    </section>
+
+    <!-- Trust strip -->
+    <section class="trust" aria-label="What we work on">
+      <div class="container">
+        <p class="trust__label">From audit to secure deployment, we cover the whole chain:</p>
+        <div class="trust__logos">
+          <span>LLM assistants</span>
+          <span>Extraction engines</span>
+          <span>RPA workflows</span>
+          <span>API connectors</span>
+          <span>Data &amp; reporting</span>
+          <span>Team training</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Produits — remontés juste après l'accroche, comme en français : AgenIA
+         édite une gamme de SaaS, et c'est elle qu'on vient voir. Le conseil sur
+         mesure reste plus bas, comme ce qui les a rendus possibles. -->
+    <section class="section" id="products">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="eyebrow">Our software</span>
+          <h2 class="section__title">Business software that makes running your company easier, powered by AI</h2>
+          <p class="section__sub">
+            Every company has work where the hours spent bring nothing back:
+            retyping invoices, hunting for leads, re-entering enquiries,
+            redrawing plans. Designed, built and operated by AgenIA — the best
+            way to judge our work is to look at what we build for ourselves.
+          </p>
+        </div>
+
+        <div class="cards">
+          <article class="card reveal">
+            <div class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M5 20V9m4.5 11V4.5M14 20v-7.5M18.5 20V7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Margeo <span class="card__tag">Restaurants</span></h3>
+            <p>
+              Supplier invoices are photographed and read by AI, till sales are
+              imported, and the true cost of every dish is calculated — through
+              to the P&amp;L and a thirteen-week cash forecast.
+            </p>
+            <ul class="card__list">
+              <li>Invoices extracted by AI, with no re-keying</li>
+              <li>Accurate food cost, trimming losses included</li>
+              <li>Profit and loss account and cash-flow forecast</li>
+            </ul>
+            <!-- Façade de démo : rien n'est demandé à YouTube avant le clic.
+                 Le site ne pose aucun cookie et s'en prévaut ; quatre lecteurs
+                 chargés d'office en poseraient avant tout consentement. -->
+            <div class="demo">
+              <button class="demo__ouvrir" type="button"
+                      data-video="zhr0xS7wp38"
+                      aria-label="Watch the Margeo video demo">
+                <span class="demo__play" aria-hidden="true"></span>
+                <span class="demo__titre">Watch the video demo</span>
+                <span class="demo__note">Playing it loads YouTube · sound off</span>
+              </button>
+            </div>
+            <p class="card__cta">
+              <a class="btn btn--primary" href="margeo.html">
+                Discover Margeo
+              </a>
+              <a class="btn btn--ghost" href="#contact" data-objet="Margeo">
+                Ask us to call back
+              </a>
+            </p>
+          </article>
+
+          <article class="card reveal">
+            <div class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.7"/><path d="M15.8 15.8L20 20" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M8.5 11h5M11 8.5v5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Prospeo <span class="card__tag">Prospecting</span></h3>
+            <p>
+              Finding customers stops being a chore: describe your ideal client,
+              and the AI identifies the companies that match it, builds their
+              profile and follows every account through to the meeting.
+            </p>
+            <ul class="card__list">
+              <li>Targeting based on your ideal client, not a directory</li>
+              <li>Company profiles assembled automatically</li>
+              <li>Stage-by-stage tracking: to contact, contacted, meeting, client</li>
+            </ul>
+            <!-- Façade de démo : rien n'est demandé à YouTube avant le clic. -->
+            <div class="demo">
+              <button class="demo__ouvrir" type="button"
+                      data-video="JzoPV_M07pU"
+                      aria-label="Watch the Prospeo video demo">
+                <span class="demo__play" aria-hidden="true"></span>
+                <span class="demo__titre">Watch the video demo</span>
+                <span class="demo__note">Playing it loads YouTube · sound off</span>
+              </button>
+            </div>
+            <p class="card__cta">
+              <a class="btn btn--primary" href="prospeo.html">
+                Discover Prospeo
+              </a>
+              <a class="btn btn--ghost" href="#contact" data-objet="Prospeo">
+                Ask us to call back
+              </a>
+            </p>
+          </article>
+
+          <article class="card reveal">
+            <div class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 10.5L12 4l8 6.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 9.5V19a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V9.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M8.5 13l3.5 2.5 3.5-2.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><rect x="8.5" y="12" width="7" height="5" rx="1" stroke="currentColor" stroke-width="1.7"/></svg>
+            </div>
+            <h3>Keo <span class="card__tag">Property</span></h3>
+            <p>
+              Incoming enquiries are qualified by AI: a CRM record is created
+              without re-keying, the lead is routed to the right agent with an
+              immediate reply, and viewings are confirmed automatically.
+              Property management runs itself too — rent chasing, monthly rent
+              receipts, and the rest.
+            </p>
+            <ul class="card__list">
+              <li>Leads sorted, qualified and routed without re-keying</li>
+              <li>Automatic replies and viewing confirmations</li>
+              <li>Rent receipts generated as PDFs and sent out</li>
+            </ul>
+            <!-- Façade de démo : rien n'est demandé à YouTube avant le clic. -->
+            <div class="demo">
+              <button class="demo__ouvrir" type="button"
+                      data-video="R8yhOfOeuoU"
+                      aria-label="Watch the Keo video demo">
+                <span class="demo__play" aria-hidden="true"></span>
+                <span class="demo__titre">Watch the video demo</span>
+                <span class="demo__note">Playing it loads YouTube · sound off</span>
+              </button>
+            </div>
+            <p class="card__cta">
+              <a class="btn btn--primary" href="keo.html">
+                Open the interactive Keo demo
+              </a>
+              <a class="btn btn--ghost" href="#contact" data-objet="Keo">
+                Ask us to call back
+              </a>
+            </p>
+          </article>
+
+          <article class="card reveal">
+            <div class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M4 7.5l8 4.5 8-4.5M12 12v9" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>Planeo <span class="card__tag">Construction</span></h3>
+            <p>
+              Your building project in 3D on your own plot, with the information
+              you need to decide with confidence. The project stands in front of
+              you before the ground is broken, and expensive corrections are
+              settled on screen rather than on site.
+            </p>
+            <ul class="card__list">
+              <li>Modelled from the planning drawings — nothing to redraw</li>
+              <li>Real sun and wind for the plot, on the date you choose</li>
+              <li>Walk through it in the browser, with nothing to install</li>
+            </ul>
+            <!-- Façade de démo : rien n'est demandé à YouTube avant le clic. -->
+            <div class="demo">
+              <button class="demo__ouvrir" type="button"
+                      data-video="qWreOfE93Lo"
+                      aria-label="Watch the Planeo video demo">
+                <span class="demo__play" aria-hidden="true"></span>
+                <span class="demo__titre">Watch the video demo</span>
+                <span class="demo__note">Playing it loads YouTube · sound off</span>
+              </button>
+            </div>
+            <p class="card__cta">
+              <a class="btn btn--primary" href="planeo.html">
+                Open the interactive Planeo demo
+              </a>
+              <a class="btn btn--ghost" href="#contact" data-objet="Planeo">
+                Ask us to call back
+              </a>
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section class="section section--alt" id="services">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="eyebrow">When no product fits</span>
+          <h2 class="section__title">Bespoke work, by the team that publishes this software</h2>
+          <p class="section__sub">
+            Our products grew out of projects like yours. When your need fits
+            none of them, the same team handles it end to end — with the
+            advantage of having already run in production what it proposes to
+            build for you.
+          </p>
+        </div>
+
+        <div class="cards">
+          <article class="card reveal">
+            <div class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h10M4 17h7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="18" cy="14.5" r="3.2" stroke="currentColor" stroke-width="1.7"/><path d="M20.4 16.9L22 18.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+            </div>
+            <h3>AI automation</h3>
+            <p>
+              We map your processes, find the repetitive work and deploy RPA
+              workflows and connectors to your tools (ERP, CRM, collaboration
+              suites) so manual data entry disappears.
+            </p>
+            <ul class="card__list">
+              <li>Process audit &amp; mapping</li>
+              <li>RPA / n8n automations</li>
+              <li>Bespoke API connectors</li>
+            </ul>
+          </article>
+
+          <article class="card reveal">
+            <div class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="12" rx="3" stroke="currentColor" stroke-width="1.7"/><path d="M8 20l4-3.5 4 3.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="10.5" r="1.1" fill="currentColor"/><circle cx="15" cy="10.5" r="1.1" fill="currentColor"/></svg>
+            </div>
+            <h3>AI assistants &amp; chatbots</h3>
+            <p>
+              LLM assistants connected to your internal data: customer support,
+              document search, decision support. Secure, grounded in context and
+              faithful to how your business actually works.
+            </p>
+            <ul class="card__list">
+              <li>Business assistants &amp; RAG</li>
+              <li>Support &amp; sales chatbots</li>
+              <li>Agents connected to your data</li>
+            </ul>
+          </article>
+
+          <article class="card reveal">
+            <div class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M9 8l-4 4 4 4M15 8l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 5l-2 14" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Bespoke development</h3>
+            <p>
+              Web applications, document extraction engines, integrations and
+              dashboards. We build solid products, from prototype through to
+              production.
+            </p>
+            <ul class="card__list">
+              <li>Applications &amp; APIs</li>
+              <li>Document extraction (OCR + LLM)</li>
+              <li>Dashboards &amp; data pipelines</li>
+            </ul>
+          </article>
+
+          <article class="card reveal">
+            <div class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 4l8 4-8 4-8-4 8-4z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M6 10.5V15c0 1.5 2.7 3 6 3s6-1.5 6-3v-4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+            </div>
+            <h3>AI consulting &amp; training</h3>
+            <p>
+              AI strategy, scoping the use cases with the strongest return,
+              rapid prototyping, and bringing your teams up to speed so adoption
+              lasts.
+            </p>
+            <ul class="card__list">
+              <li>AI strategy &amp; roadmap</li>
+              <li>Scoping &amp; prototyping workshops</li>
+              <li>Team training</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Méthode -->
+    <section class="section" id="approach">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="eyebrow">How we work</span>
+          <h2 class="section__title">A clear path, from diagnosis to day-to-day running</h2>
+          <p class="section__sub">
+            A proven approach that limits risk and delivers value quickly, one
+            iteration at a time.
+          </p>
+        </div>
+
+        <ol class="steps">
+          <li class="step reveal">
+            <span class="step__num">01</span>
+            <h3>Audit &amp; scoping</h3>
+            <p>We analyse your processes and rank the use cases by impact and feasibility.</p>
+          </li>
+          <li class="step reveal">
+            <span class="step__num">02</span>
+            <h3>Prototype</h3>
+            <p>A working prototype within weeks, to confirm the value before any heavy investment.</p>
+          </li>
+          <li class="step reveal">
+            <span class="step__num">03</span>
+            <h3>Integration</h3>
+            <p>Development and connection to your tools and your data, with security and reliability as hard requirements.</p>
+          </li>
+          <li class="step reveal">
+            <span class="step__num">04</span>
+            <h3>Rollout &amp; follow-up</h3>
+            <p>A secure go-live, team training, and continuous improvement over time.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Résultats -->
+    <section class="section section--alt" id="results">
+      <div class="container">
+        <div class="results">
+          <div class="results__text reveal">
+            <span class="eyebrow">Results</span>
+            <h2 class="section__title">Concrete gains, measurable within the first few weeks</h2>
+            <p class="section__sub">
+              We do not deliver abstract "AI projects", but solutions that cut
+              the time spent, make your data trustworthy and free your teams for
+              the work that matters.
+            </p>
+            <a class="btn btn--primary" href="#contact">Estimate your potential</a>
+          </div>
+          <div class="results__grid reveal">
+            <div class="stat">
+              <strong class="grad-text">70%</strong>
+              <span>of the time saved on the repetitive tasks we automate</span>
+            </div>
+            <div class="stat">
+              <strong class="grad-text">x3</strong>
+              <span>faster document processing</span>
+            </div>
+            <div class="stat">
+              <strong class="grad-text">24/7</strong>
+              <span>assistance and processing, without interruption</span>
+            </div>
+            <div class="stat">
+              <strong class="grad-text">&lt; 6 weeks</strong>
+              <span>to a first use case running in production</span>
+            </div>
+            <p class="stat__avertissement">
+              Orders of magnitude observed in our own work, varying case by case.
+              They are not commitments: yours gets costed during the audit, on
+              your own volumes.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Secteurs -->
+    <section class="section" id="sectors">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="eyebrow">Sectors</span>
+          <h2 class="section__title">AI shaped around your trade</h2>
+          <p class="section__sub">We work wherever automation creates a concrete advantage.</p>
+        </div>
+        <div class="sectors">
+          <span class="reveal">Restaurants &amp; food</span>
+          <span class="reveal">Retail &amp; commerce</span>
+          <span class="reveal">B2B services</span>
+          <span class="reveal">Industry &amp; logistics</span>
+          <span class="reveal">Health &amp; wellbeing</span>
+          <span class="reveal">Property</span>
+          <span class="reveal">Professional practices &amp; consulting</span>
+          <span class="reveal">Finance &amp; insurance</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Audit gratuit — le point de conversion principal du site.
+         Le CTA pointe sur le formulaire de contact avec l'objet présélectionné
+         (data-objet). Les valeurs data-objet restent en français : ce sont les
+         valeurs stockées en base et reprises dans l'objet des emails, communes
+         aux deux langues, et non du texte affiché. -->
+    <section class="cta-band" id="audit">
+      <div class="container cta-band__inner reveal">
+        <div>
+          <span class="eyebrow">Free audit — 30 minutes</span>
+          <h2>Find out what AI could save your company</h2>
+          <p>A no-strings conversation, by video call or phone:</p>
+          <ul class="cta-band__points">
+            <li>Your processes reviewed with an outside eye</li>
+            <li>The tasks that can be automated, identified and ranked</li>
+            <li>A concrete estimate of the time you could get back</li>
+          </ul>
+        </div>
+        <a class="btn btn--primary btn--lg" href="#contact" data-objet="Audit gratuit">Book my free audit</a>
+      </div>
+    </section>
+
+    <!-- Ressources -->
+    <section class="section" id="guides">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="eyebrow">Resources</span>
+          <h2 class="section__title">Free guides to get you moving</h2>
+          <p class="section__sub">
+            Practical checklists and methods on automation in smaller companies,
+            free to read.
+          </p>
+        </div>
+
+        <div class="res__grid">
+          <article class="res-card reveal">
+            <span class="pill">Checklist</span>
+            <h3 class="res-card__title">
+              <a href="20-tasks-to-automate.html">20 tasks to automate first</a>
+            </h3>
+            <p class="res-card__excerpt">
+              The tasks that pay back fastest when automated, sorted by area,
+              with what each one costs while it stays manual.
+            </p>
+            <a class="res-card__link" href="20-tasks-to-automate.html">Read the guide →</a>
+          </article>
+
+          <article class="res-card reveal">
+            <span class="pill">Guide</span>
+            <h3 class="res-card__title">
+              <a href="automation-roi.html">Working out the ROI of an automation</a>
+            </h3>
+            <p class="res-card__excerpt">
+              The simple formula that tells you, before you commit, whether an
+              automation pays for itself — with a worked example.
+            </p>
+            <a class="res-card__link" href="automation-roi.html">Read the guide →</a>
+          </article>
+
+          <article class="res-card reveal">
+            <span class="pill">Tools</span>
+            <h3 class="res-card__title">
+              <a href="free-tools.html">Eight free calculators</a>
+            </h3>
+            <p class="res-card__excerpt">
+              Cost price, recommended selling price, break-even point, the gap
+              between a delivery note and its invoice, allergen labelling. They
+              run in the browser, with no account.
+            </p>
+            <a class="res-card__link" href="free-tools.html">Open the tools →</a>
+          </article>
+
+          <article class="res-card reveal">
+            <span class="pill">Article</span>
+            <h3 class="res-card__title">
+              <a href="audit-before-you-automate.html">Why you should audit your processes before automating</a>
+            </h3>
+            <p class="res-card__excerpt">
+              What an audit really uncovers, and why it has to come before the
+              automation.
+            </p>
+            <a class="res-card__link" href="audit-before-you-automate.html">Read the guide →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+      <div class="container faq">
+        <div class="section__head reveal">
+          <span class="eyebrow">FAQ</span>
+          <h2 class="section__title">Frequently asked questions</h2>
+        </div>
+        <div class="faq__list">
+          <details class="faq__item reveal">
+            <summary>Do we need an “AI strategy” before we start?</summary>
+            <p>No. We start with an audit that identifies your priority use cases. You leave with a clear roadmap, even with no AI skills in-house.</p>
+          </details>
+          <details class="faq__item reveal">
+            <summary>Is our data safe?</summary>
+            <p>Security sits at the centre of how we work. Solutions are deployed inside your own environment, with strict access control and full GDPR compliance.</p>
+          </details>
+          <details class="faq__item reveal">
+            <summary>How long before we see results?</summary>
+            <p>A first working prototype is usually delivered in two to six weeks, which lets you confirm the value early, before any large-scale rollout.</p>
+          </details>
+          <details class="faq__item reveal">
+            <summary>Do you work with small companies?</summary>
+            <p>Yes. Our iterative approach is built for small and mid-sized companies: start small, on one high-ROI case, then widen.</p>
+          </details>
+          <details class="faq__item reveal">
+            <summary>What happens once we go live?</summary>
+            <p>We handle monitoring, maintenance and continuous improvement, and we train your teams so adoption lasts.</p>
+          </details>
+          <details class="faq__item reveal">
+            <summary>Do you work in English?</summary>
+            <p>Yes. Meetings, documentation and support are available in English. The software interfaces are currently in French, and we localise them on request as part of a project.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section section--alt" id="contact">
+      <div class="container contact">
+        <div class="contact__info reveal">
+          <span class="eyebrow">Contact</span>
+          <h2 class="section__title">Let's talk about your project</h2>
+          <p class="section__sub">
+            Tell us what you need in a few lines. We come back to you within one
+            working day for a first conversation, with no obligation.
+          </p>
+          <ul class="contact__meta">
+            <li>
+              <span class="contact__ico" aria-hidden="true">✉</span>
+              <a href="mailto:contact@agenia.pro">contact@agenia.pro</a>
+            </li>
+            <li>
+              <span class="contact__ico" aria-hidden="true">☎</span>
+              <a href="tel:+33651748133">+33 6 51 74 81 33</a>
+            </li>
+            <li>
+              <span class="contact__ico contact__ico--wa" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.1 8.1 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.3-.7.8-.8 1-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-2-1.2 7.4 7.4 0 0 1-1.4-1.7c-.1-.3 0-.4.1-.5l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 2.9 2.9 0 0 0-.9 2.1c0 1.3.9 2.5 1 2.7.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.6-.3z"/></svg>
+              </span>
+              <a href="https://wa.me/33651748133?text=Hello%2C%20I%27m%20contacting%20you%20from%20agenia.pro" target="_blank" rel="noopener">WhatsApp: +33 6 51 74 81 33</a>
+            </li>
+            <li>
+              <span class="contact__ico" aria-hidden="true">🌐</span>
+              <a href="https://www.agenia.pro">www.agenia.pro</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Les attributs name des champs sont identiques au formulaire
+             français : ce sont les clés lues par script.js, par Web3Forms et par
+             la base. Seuls les libellés et les textes d'aide sont traduits. -->
+        <form class="contact__form reveal" id="contactForm" action="https://api.web3forms.com/submit" method="POST" novalidate>
+          <input type="hidden" name="access_key" value="659aaa00-f8c4-45f0-a1b7-7f5e5937b082" />
+          <input type="hidden" name="subject" value="Nouvelle demande depuis agenia.pro (EN)" />
+          <input type="hidden" name="from_name" value="Site Agenia — version anglaise" />
+          <!-- Anti-spam (honeypot) : masqué aux humains, piège les robots -->
+          <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off" />
+
+          <div class="field">
+            <label for="objet">What can we help with?</label>
+            <select id="objet" name="objet" required>
+              <option value="Audit gratuit">Book a free audit (30 min)</option>
+              <option value="Margeo">Information about Margeo (restaurants)</option>
+              <option value="Prospeo">Information about Prospeo (prospecting)</option>
+              <option value="Keo">Information about Keo (property)</option>
+              <option value="Planeo">Information about Planeo (3D plans)</option>
+              <option value="Autre">Something else</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" autocomplete="name" required placeholder="Your name" />
+          </div>
+          <div class="field">
+            <label for="email">Work email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required placeholder="you@company.com" />
+          </div>
+          <div class="field">
+            <label for="tel">Phone</label>
+            <input id="tel" name="telephone" type="tel" autocomplete="tel" required placeholder="+44 7700 900000" />
+          </div>
+          <div class="field">
+            <label for="company">Company</label>
+            <input id="company" name="company" type="text" autocomplete="organization" placeholder="Your company name" />
+          </div>
+          <div class="field">
+            <label for="message">What you need</label>
+            <textarea id="message" name="message" rows="4" required placeholder="Describe the task or the process you would like to improve…"></textarea>
+          </div>
+          <button class="btn btn--primary btn--lg" type="submit">Send my enquiry</button>
+          <p class="form__note" id="formNote" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a class="brand brand--footer" href="#top">
+          <img class="brand__logo" src="../assets/logo_agenia-hd.png" width="330" height="220"
+               alt="Agenia" />
+        </a>
+        <p>Bespoke artificial intelligence, built for the performance of small and mid-sized companies.</p>
+      </div>
+      <nav class="footer__nav" aria-label="Footer">
+        <!-- Ces liens ne sont pas décoratifs : ce sont les seuls liens internes
+             vers les pages produit anglaises depuis /en/, qui est la page la
+             mieux placée de la version anglaise. Voir REFERENCEMENT.md. -->
+        <div>
+          <h4>Software</h4>
+          <a href="margeo.html">Margeo — restaurant margins</a>
+          <a href="prospeo.html">Prospeo — sales prospecting</a>
+          <a href="keo.html">Keo — estate agencies</a>
+          <a href="planeo.html">Planeo — 3D plans</a>
+          <a href="free-tools.html">Free calculators</a>
+        </div>
+        <div>
+          <h4>Agenia</h4>
+          <a href="#services">Bespoke services</a>
+          <a href="#approach">Approach</a>
+          <a href="#results">Results</a>
+          <a href="ai-agency-geneva-haute-savoie.html">AI agency near Geneva</a>
+          <a href="resources.html">Resources</a>
+          <a href="#faq">FAQ</a>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <a href="mailto:contact@agenia.pro">contact@agenia.pro</a>
+          <a href="tel:+33651748133">+33 6 51 74 81 33</a>
+          <a href="https://wa.me/33651748133?text=Hello%2C%20I%27m%20contacting%20you%20from%20agenia.pro" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </nav>
+    </div>
+    <div class="container footer__bottom">
+      <p>© <span id="year">2026</span> AgenIA — SASU with share capital of €1,000 — Thonon-les-Bains trade register 108 486 598.</p>
+      <nav class="social" aria-label="AgenIA on social media">
+        <a href="https://www.facebook.com/profile.php?id=61594047287299" target="_blank" rel="noopener"
+           aria-label="AgenIA on Facebook" title="Facebook">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/agenia.pro/" target="_blank" rel="noopener"
+           aria-label="AgenIA on Instagram" title="Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 1 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm7.846-10.405a1.441 1.441 0 0 1-2.88 0 1.44 1.44 0 0 1 2.88 0z"/></svg>
+        </a>
+        <a href="https://www.youtube.com/@AgenAI_agency" target="_blank" rel="noopener"
+           aria-label="AgenIA on YouTube" title="YouTube">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        </a>
+        <a href="https://www.pinterest.com/AGENIA_PRO/" target="_blank" rel="noopener"
+           aria-label="AgenIA on Pinterest" title="Pinterest">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/company/agenia-fr/" target="_blank" rel="noopener"
+           aria-label="AgenIA on LinkedIn" title="LinkedIn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg>
+        </a>
+      </nav>
+      <p class="footer__legal"><a href="legal-notice.html">Legal notice</a> · <a href="legal-notice.html#privacy">Privacy</a> · <a href="../" lang="fr">Version française</a></p>
+    </div>
+  </footer>
+
+  <!-- Bouton WhatsApp flottant -->
+  <a class="wa-flottant" href="https://wa.me/33651748133?text=Hello%2C%20I%27m%20contacting%20you%20from%20agenia.pro"
+     target="_blank" rel="noopener" aria-label="Contact us on WhatsApp">
+    <svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.1 8.1 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.3-.7.8-.8 1-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-2-1.2 7.4 7.4 0 0 1-1.4-1.7c-.1-.3 0-.4.1-.5l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 2.9 2.9 0 0 0-.9 2.1c0 1.3.9 2.5 1 2.7.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.6-.3z"/></svg>
+  </a>
+
+  <script src="../script.js"></script>
+</body>
+</html>
