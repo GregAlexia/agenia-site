@@ -173,6 +173,20 @@ adresses sont absolues : contrairement à la navigation, il n'a pas de variante
 en `../` pour les pages de `ressources/`. Un compte ajouté se copie donc tel
 quel partout.
 
+## Prendre rendez-vous (Calendly)
+
+La section `#contact` de l'accueil offre deux portes : le formulaire, qui promet
+une réponse sous 24&nbsp;h, et un lien Calendly pour fixer un créneau de
+30&nbsp;minutes tout de suite.
+
+**C'est un lien, pas le widget Calendly**, et ce n'est pas un détail : insérer
+le widget chargerait un script tiers et ses cookies avant tout consentement. Le
+site affirme n'en poser aucun et se passe de bandeau — même raisonnement que
+les façades vidéo. **Ne pas remplacer ce lien par une intégration.**
+
+L'adresse ne figure qu'à un seul endroit, dans `index.html`. Les autres pages
+renvoient vers `index.html#contact`, donc il n'y a rien à y répercuter.
+
 ## Formulaires (Web3Forms)
 
 Les formulaires envoient par email via [Web3Forms](https://web3forms.com)
