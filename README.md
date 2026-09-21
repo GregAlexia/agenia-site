@@ -213,9 +213,16 @@ le widget chargerait un script tiers et ses cookies avant tout consentement. Le
 site affirme n'en poser aucun et se passe de bandeau — même raisonnement que
 les façades vidéo. **Ne pas remplacer ce lien par une intégration.**
 
-L'adresse figure à **deux** endroits, un par langue : `index.html` et
-`en/index.html`. Les autres pages renvoient vers l'ancre `#contact` de leur
-accueil, il n'y a donc rien à y répercuter.
+L'adresse figure à **trois endroits par page** : l'encadré de la section
+contact (accueil seulement), le bouton « Parler à un expert » de l'en-tête, et
+le même bouton dans le menu déroulant — ces deux derniers sur les vingt-quatre
+pages. Un changement d'adresse Calendly se répercute donc partout&nbsp;;
+`grep -c calendly.com` doit renvoyer 2 sur chaque page, 3 sur les deux accueils.
+
+Le formulaire de contact reste en place, plus bas dans la même section : le
+bouton de l'en-tête mène désormais au rendez-vous, et c'est en descendant la
+page qu'on trouve le formulaire, ainsi que depuis les appels à l'action des
+pages produit.
 
 ## Formulaires (Web3Forms)
 

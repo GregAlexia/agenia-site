@@ -85,6 +85,39 @@ fichier n'est lu que par Cloudflare Pages.
 
 ---
 
+## L'en-tête tient à une place près
+
+Le conteneur est plafonné à 1160 px, donc **la barre dispose de la même largeur
+à 1200 px de fenêtre qu'à 2560** : ce qui ne tient pas à 1160 ne tiendra jamais.
+
+⚠️ **Le logo était le seul élément compressible, et il absorbait le dépassement
+en silence.** Le 21/09/2026 il s'affichait à 20 px de large au lieu de 112 sur
+toutes les pages françaises — sans erreur, sans test rouge, juste une marque
+écrasée que personne ne remarque en relisant du code. La cause était une entrée
+de menu de plus qu'en anglais. `flex: 0 0 auto` sur `.brand` et `.brand__logo`
+retire cette soupape : un élément ajouté à l'en-tête fait désormais **déborder**
+la barre, ce qui se voit.
+
+Corollaire : **avant d'ajouter quoi que ce soit à l'en-tête, mesurer.** Sept
+entrées de menu, la bascule de langue et le bouton d'appel remplissent déjà les
+1160 px.
+
+**`documentation/` n'est plus dans le menu public** (21/09/2026) — c'est un
+espace d'administration protégé par mot de passe, il n'a rien à faire dans la
+navigation d'un site commercial, et la version anglaise ne l'a jamais porté. Il
+reste atteignable par le pied de page, côté français uniquement.
+
+**Le bouton « Parler à un expert » ouvre Calendly**, pas l'ancre `#contact`.
+C'est un lien externe en nouvel onglet, jamais un widget — voir la section sur
+la prise de rendez-vous dans `README.md`.
+
+**Les attributs `width`/`height` du logo doivent décrire l'image réelle**
+(352×220). Ils servent à réserver la place avant le chargement ; un rapport faux
+provoque un saut de mise en page que Google mesure. Ils annonçaient 330×220
+jusqu'au 21/09/2026.
+
+---
+
 ## Les deux langues
 
 **`hreflang` se déclare dans les deux sens.** Une page qui désigne sa jumelle
