@@ -213,8 +213,9 @@ le widget chargerait un script tiers et ses cookies avant tout consentement. Le
 site affirme n'en poser aucun et se passe de bandeau — même raisonnement que
 les façades vidéo. **Ne pas remplacer ce lien par une intégration.**
 
-L'adresse ne figure qu'à un seul endroit, dans `index.html`. Les autres pages
-renvoient vers `index.html#contact`, donc il n'y a rien à y répercuter.
+L'adresse figure à **deux** endroits, un par langue : `index.html` et
+`en/index.html`. Les autres pages renvoient vers l'ancre `#contact` de leur
+accueil, il n'y a donc rien à y répercuter.
 
 ## Formulaires (Web3Forms)
 
