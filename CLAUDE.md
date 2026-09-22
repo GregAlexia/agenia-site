@@ -101,6 +101,11 @@ produit que faute de place, donc rien ne change sur grand écran.
 conteneur n'en offre que 272. Écrire **`minmax(min(320px, 100%), 1fr)`** — la
 forme sans `min()` est un débordement qui attend son écran.
 
+⚠️ **L'en-tête est collant, donc il mange le haut de toute ancre.** Sans
+`[id] { scroll-margin-top }`, un lien de menu dépose le titre de la section
+*derrière* la barre — mesuré à 65 px quand elle en occupe 77. Corrigé le
+22/09/2026 ; la règle doit suivre si la hauteur de l'en-tête change.
+
 **Le contrôle** : mesurer `scrollWidth − clientWidth` sur les vingt-quatre
 pages, de 320 à 412 px. C'est trois lignes de Playwright, et c'est le seul moyen
 de voir ce qu'aucune relecture ne montre. Les seuils utiles : **320** (vieil

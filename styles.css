@@ -108,6 +108,12 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.12; margin: 0; le
   border-bottom: 1px solid transparent;
   transition: border-color .3s ease;
 }
+
+/* L'en-tête collant recouvre le haut de la fenêtre : sans cette marge, un lien
+   d'ancre dépose le titre de la section DERRIÈRE lui — mesuré à 65 px quand
+   l'en-tête en occupe 77. `scroll-margin-top` ne fait rien d'autre que décaler
+   l'arrivée, elle n'affecte ni la mise en page ni le défilement ordinaire. */
+[id] { scroll-margin-top: 92px; }
 .site-header.is-scrolled { border-bottom-color: var(--border); }
 .header__inner { display: flex; align-items: center; gap: 24px; height: 76px; }
 /* `flex-shrink: 0` n'est pas décoratif : sans lui, le logo est le seul élément
