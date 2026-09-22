@@ -252,8 +252,13 @@ hésitation : ce sont trois personnes différentes.
 | Bouton | Où il mène |
 |---|---|
 | Découvrir *Produit* | La page produit, qui déverrouille la vidéo et l'accès |
-| Être recontacté sur WhatsApp | `wa.me`, avec un message pré-saisi nommant le produit |
-| Être recontacté par email | Le formulaire, dont le menu « Votre demande » est prérempli |
+| Icône WhatsApp | `wa.me`, avec un message pré-saisi nommant le produit |
+| Icône enveloppe | Le formulaire, dont le menu « Votre demande » est prérempli |
+
+**Les deux icônes portent un `aria-label` qui nomme le produit**, et un `title`
+pour l'info-bulle. Une icône seule ne dit rien à un lecteur d'écran, et
+« WhatsApp » sans plus de précision ne dirait pas de quel produit on parle. Un
+bouton-icône ajouté doit recevoir les deux.
 
 **`wa.me` décide seul** d'ouvrir l'application ou WhatsApp Web : aucun
 JavaScript ne permet de savoir si elle est installée. C'est pour cette raison

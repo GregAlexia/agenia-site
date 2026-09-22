@@ -92,6 +92,15 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.12; margin: 0; le
 .btn--ghost:hover { background: var(--ink); color: var(--ink-text); border-color: var(--ink); }
 .btn--lg { padding: 15px 30px; font-size: 1.02rem; }
 
+/* Bouton réduit à son icône. 50 px de côté : c'est la hauteur des boutons
+   voisins, donc la rangée reste alignée, et c'est au-dessus des 44 px
+   recommandés pour une cible tactile. La flèche du ::after n'a plus de sens
+   sans texte, et le libellé est repris en aria-label et en title — sans quoi
+   le bouton ne dit plus rien à un lecteur d'écran ni au survol. */
+.btn--icone { padding: 0; width: 50px; height: 50px; flex: 0 0 auto; }
+.btn--icone::after { content: none; }
+.btn--icone svg { width: 21px; height: 21px; fill: currentColor; display: block; }
+
 /* ---------- Header ---------- */
 .site-header {
   position: sticky; top: 0; z-index: 50;
@@ -474,6 +483,12 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.12; margin: 0; le
   .footer__inner { grid-template-columns: 1fr; gap: 32px; }
 }
 @media (max-width: 560px) {
+  /* Les trois boutons d'une carte ne tiennent pas sur une ligne étroite, et
+     l'icône reléguée seule au rang suivant se lit comme un oubli. Le bouton
+     principal prend toute la largeur : les deux icônes se rangent alors
+     ensemble en dessous, et le pliage a l'air voulu. */
+  #produit .card__cta .btn:not(.btn--icone),
+  #products .card__cta .btn:not(.btn--icone) { width: 100%; }
   .hero__stats { grid-template-columns: 1fr; gap: 16px; }
   .steps { grid-template-columns: 1fr; }
   .results__grid { grid-template-columns: 1fr; }
