@@ -142,9 +142,17 @@ casse un travail de positionnement qui met des mois à s'installer.
 | `demo-prospeo.html` | logiciel prospection commerciale IA · outil de prospection B2B |
 | `demo-keo.html` | logiciel gestion agence immobilière · automatisation quittance de loyer |
 | `demo-planeo.html` | plan de permis de construire en 3D · visualiser sa maison avant construction |
-| `essai-outils.html` | calculateur coût de revient restaurant gratuit · calcul prime cost |
+| `essai-outils.html` | calculateur coût de revient restaurant · calcul prime cost · calculateur food cost |
 | `agence-ia-haute-savoie.html` | agence IA Annecy · automatisation PME Haute-Savoie |
 | `ressources/*` | quelles tâches automatiser · auditer ses process · calculer le ROI |
+
+> ⚠️ **« gratuit » est sorti de l'intention visée le 22/09/2026.** Les huit
+> calculateurs sont passés derrière authentification côté Margeo : ils sont
+> compris dans l'abonnement et s'ouvrent dès la démonstration. Viser une requête
+> qu'on ne satisfait plus fait rebondir la visite et coûte la position — et
+> promettre « gratuit » dans un titre qui mène à une connexion est une promesse
+> fausse avant d'être un problème de référencement. La page garde son adresse,
+> donc son antériorité ; c'est la promesse qui a changé, pas l'URL.
 
 **Un titre passe sous 60 caractères**, sinon Google le tronque et la promesse
 se perd en plein milieu. Une méta-description reste sous 155.
