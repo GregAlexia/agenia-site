@@ -310,10 +310,14 @@
                 <span class="demo__note">La lecture charge YouTube · son coupé</span>
               </button>
             </div>
-            <!-- Comme les autres portails : on identifie le visiteur avant
-                 d'ouvrir l'application. -->
+            <!-- URL Margeo (3/3). Seul bouton produit de l'accueil qui mène
+                 directement à l'application plutôt qu'à sa page produit : le
+                 raccourci est demandé, il coûte le passage par demo-margeo.html
+                 — laquelle reste liée depuis le pied de page et depuis
+                 essai-outils.html, donc elle garde de quoi être indexée. -->
             <p class="card__cta">
-              <a class="btn btn--primary" href="demo-margeo.html">
+              <a class="btn btn--primary" href="https://margeo.vercel.app/"
+                 target="_blank" rel="noopener">
                 Découvrir Margeo
               </a>
             <!-- wa.me ouvre l'application si elle est installée, et WhatsApp Web
