@@ -297,7 +297,17 @@ ailleurs.
 avec l'origine : contact, Margeo, Prospeo, Keo, Planeo, outils, ressources). Les résultats
 se lisent sur `documentation/statistiques.html`.
 
-Quatre propriétés qui ne sont pas des détails :
+Cinq propriétés qui ne sont pas des détails :
+
+- **Le lieu se mesure deux fois, et les deux mesures restent séparées.** Le
+  `pays` vient de l'en-tête `CF-IPCountry` que Cloudflare pose devant Supabase,
+  lu par un déclencheur **à l'insertion** : l'adresse IP en sort un pays puis
+  est oubliée, elle n'atteint aucune colonne. Le `fuseau` (`Europe/Paris`) vient
+  du navigateur : plus fin, mais déclaratif — un VPN ou un voyage le fausse. Les
+  fondre en un seul « lieu » présenterait comme sûr ce qui ne l'est pas, et
+  personne ne saurait plus laquelle des deux a parlé ; l'écran les affiche donc
+  côte à côte, chacune avec son taux de couverture. Et le déclencheur **écrase**
+  toujours `pays` : `script.js` est public, ce qu'il envoie est falsifiable.
 
 - **Écriture seule.** Les policies n'autorisent que l'insertion. Ces tables sont
   illisibles depuis le navigateur, y compris avec la clé publique du dépôt ; la

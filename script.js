@@ -67,11 +67,29 @@
     }
   }
 
+  /* Le fuseau horaire du navigateur est la seule indication de lieu que cette
+     page peut donner sans rien demander à personne : pas de cookie, pas de
+     service tiers, aucune adresse IP manipulée ici. `Europe/Paris` situe mieux
+     qu'un pays, mais c'est une déclaration — un VPN, un voyage ou une horloge
+     mal réglée la faussent, et l'écran des statistiques le dit.
+     Le pays, lui, n'est PAS envoyé d'ici : un déclencheur en base le déduit de
+     l'adresse IP et écrase ce que le navigateur pourrait prétendre. Ce fichier
+     est public ; ce qu'il envoie est donc, par nature, ce qu'un curieux peut
+     falsifier. */
+  function fuseau() {
+    try {
+      return Intl.DateTimeFormat().resolvedOptions().timeZone || null;
+    } catch (e) {
+      return null;   // Intl absent ou muselé : une vue sans lieu vaut mieux qu'un échec
+    }
+  }
+
   // Une vue par chargement de page — aucun cookie, aucun identifiant de
   // visiteur (voir RGPD-REGISTRE.md).
   poster("site_agenia_vues", {
     chemin: location.pathname,
     referrer: document.referrer || null,
+    fuseau: fuseau(),
   });
 
   // Exposé pour ressources/gate.js, qui capture les mêmes prospects que

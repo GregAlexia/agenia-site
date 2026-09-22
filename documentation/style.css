@@ -77,6 +77,9 @@ gap:12px;margin-bottom:32px}
 .tuile span{display:block;font-size:13px;color:var(--mu);margin-top:2px}
 h2.section{font-size:16px;margin:34px 0 4px}
 .note{color:var(--mu);font-size:13px;margin:0 0 12px;max-width:760px}
+/* La région d'un fuseau (« Europe » dans « Paris · Europe ») situe sans être
+   l'information cherchée : elle s'efface pour que la ville se lise seule. */
+.faible{color:var(--mu);font-size:12px}
 .tables{display:grid;grid-template-columns:1fr;gap:24px}
 @media (min-width:820px){.tables{grid-template-columns:1fr 1fr}}
 table.donnees{width:100%;border-collapse:collapse;background:#fff;

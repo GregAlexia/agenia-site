@@ -22,6 +22,26 @@
   };
   var ORDRE_SOURCES = ["contact", "demo_margeo", "demo_prospeo", "demo_keo", "demo_planeo", "demo_outils", "ressources"];
 
+  /* Traduction des codes pays. Elle vit ici et non en base pour qu'un pays
+     manquant s'ajoute sans migration — et, en attendant, s'affiche par son code
+     plutôt que de disparaître du classement. La liste couvre l'Europe, l'espace
+     francophone et les grands pays anglophones ; au-delà, deux lettres se
+     cherchent en trois secondes. */
+  var PAYS = {
+    FR: "France", BE: "Belgique", CH: "Suisse", LU: "Luxembourg", MC: "Monaco",
+    DE: "Allemagne", IT: "Italie", ES: "Espagne", PT: "Portugal", NL: "Pays-Bas",
+    GB: "Royaume-Uni", IE: "Irlande", AT: "Autriche", PL: "Pologne", SE: "Suède",
+    NO: "Norvège", DK: "Danemark", FI: "Finlande", CZ: "Tchéquie", GR: "Grèce",
+    RO: "Roumanie", HU: "Hongrie", BG: "Bulgarie", HR: "Croatie", UA: "Ukraine",
+    US: "États-Unis", CA: "Canada", MX: "Mexique", BR: "Brésil", AR: "Argentine",
+    MA: "Maroc", DZ: "Algérie", TN: "Tunisie", SN: "Sénégal", CI: "Côte d'Ivoire",
+    CM: "Cameroun", ML: "Mali", BF: "Burkina Faso", GA: "Gabon", CD: "Congo (RDC)",
+    MU: "Maurice", MG: "Madagascar", ZA: "Afrique du Sud", EG: "Égypte",
+    IN: "Inde", CN: "Chine", JP: "Japon", KR: "Corée du Sud", SG: "Singapour",
+    AU: "Australie", NZ: "Nouvelle-Zélande", IL: "Israël", TR: "Turquie",
+    AE: "Émirats arabes unis", RU: "Russie",
+  };
+
   function echapper(s) {
     var d = document.createElement("div");
     d.textContent = s == null ? "" : String(s);
@@ -36,6 +56,25 @@
     return new Date(iso).toLocaleDateString("fr-FR", {
       day: "2-digit", month: "short", hour: "2-digit", minute: "2-digit",
     });
+  }
+
+  function nomPays(code) {
+    return PAYS[code] ? echapper(PAYS[code]) : echapper(code);
+  }
+
+  /** `Europe/Paris` → `Paris · Europe`. Le fuseau brut se lit mal en colonne. */
+  function nomFuseau(zone) {
+    var bouts = String(zone).split("/");
+    var ville = bouts.pop().replace(/_/g, " ");
+    return echapper(ville) + (bouts.length ? ' <span class="faible">' +
+      echapper(bouts.join(" / ")) + "</span>" : "");
+  }
+
+  /** « 412 sur 530 (78 %) » — un classement sans son taux se lit comme exhaustif. */
+  function couverture(situees, total) {
+    if (!total) return "";
+    return situees + " vue" + (situees > 1 ? "s" : "") + " sur " + total +
+      " (" + Math.round((situees / total) * 100) + " %)";
   }
 
   function tuile(valeur, libelle) {
@@ -159,6 +198,26 @@
       '<div class="tables">' +
         tableauJauge(d.joursVues || [], "Jour", "jour", jourCourt) +
         tableauJauge(d.topPages || [], "Page", "chemin", echapper) +
+      "</div>" +
+
+      '<h2 class="section">D’où viennent les visiteurs — 30 derniers jours</h2>' +
+      '<p class="note">Deux mesures, et elles ne disent pas la même chose. Le ' +
+      "<b>pays</b> est déduit de l’adresse IP à l’arrivée de la vue, puis l’adresse " +
+      "est oubliée : il est fiable, mais il s’arrête à la frontière. Le " +
+      "<b>fuseau horaire</b> est déclaré par le navigateur : il situe plus " +
+      "finement, et un VPN, un voyage ou une horloge mal réglée le faussent. " +
+      "Aucune des deux n’identifie qui que ce soit.</p>" +
+      '<div class="tables">' +
+        '<div>' +
+          '<p class="note">Pays — ' +
+            (couverture(d.vuesSituees || 0, d.totalVues30j || 0) || "aucune vue") + "</p>" +
+          tableauJauge(d.parPays || [], "Pays", "pays", nomPays) +
+        "</div>" +
+        '<div>' +
+          '<p class="note">Fuseau horaire — ' +
+            (couverture(d.vuesFuseau || 0, d.totalVues30j || 0) || "aucune vue") + "</p>" +
+          tableauJauge(d.parFuseau || [], "Fuseau", "fuseau", nomFuseau) +
+        "</div>" +
       "</div>" +
 
       '<h2 class="section">Visiteurs identifiés</h2>' +

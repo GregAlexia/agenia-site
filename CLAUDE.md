@@ -257,6 +257,16 @@ Un lecteur YouTube chargé d'office déposerait des traceurs tiers avant tout
 consentement, rendrait cette phrase fausse et exigerait le bandeau. **Ne jamais
 remplacer la façade par une iframe posée directement dans le HTML.**
 
+**Une donnée de plus sur le visiteur, c'est quatre fichiers, pas un.** La page
+de confidentialité a affirmé pendant des mois que « le site ne collecte des
+données que lorsque vous remplissez un formulaire », alors que chaque page vue
+était comptée depuis le 24 août. Rien ne l'avait signalé : un texte juridique
+devenu faux ne casse aucun test et ne rougit dans aucun audit. Donc, à chaque
+champ ajouté à `site_agenia_vues` ou `site_agenia_prospects` :
+`mentions-legales.html#confidentialite`, `en/legal-notice.html#privacy`,
+`RGPD-REGISTRE.md` (dépôt `margeresto-ia`) — et une **durée de conservation**
+qui soit tenue par une purge, sinon ne pas l'annoncer.
+
 La façade n'appelle pas non plus la vignette YouTube : `i.ytimg.com` est un
 tiers comme un autre.
 
