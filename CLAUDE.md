@@ -16,8 +16,21 @@ travailler* : les règles, et les pièges qui ont chacun coûté un incident.
 ## Git
 
 Branche unique : **`main`**. Pousser sur `main`, c'est déployer — le workflow
-`deploy-pages.yml` met en ligne en une à deux minutes. Il n'y a pas de
-pré-production : relire avant de pousser est la seule barrière.
+`deploy-pages.yml` met en ligne en une à deux minutes d'ordinaire, **mais pas
+toujours** : le 22/09/2026 il est resté quinze minutes sur « Déployer sur
+GitHub Pages ». Il n'y a pas de pré-production : relire avant de pousser est la
+seule barrière.
+
+**« Ça ne marche pas » après un envoi ne veut pas dire que le code est faux.**
+Avant de rouvrir le fichier, éliminer les deux couches qui séparent le dépôt de
+l'écran : l'action est-elle terminée
+(`api.github.com/repos/GregAlexia/agenia-site/actions/runs?per_page=1`, champ
+`status`), et la page n'est-elle pas en cache — GitHub Pages la fait garder une
+dizaine de minutes, **Ctrl+Maj+R** tranche. La passerelle réseau de l'agent
+bloque `www.agenia.pro` : l'audit et les contrôles Playwright tournent sur la
+copie locale servie par `python3 -m http.server`, jamais sur le site en ligne.
+Ce que l'agent peut atteindre, c'est `api.github.com`, qui dit quel commit Pages
+a publié (`/deployments?environment=github-pages`).
 
 **Ne jamais réécrire l'historique.** Pas de force-push, pas de `rebase -i`
 destructif. **Ne pas créer de pull request** sauf demande explicite. Messages de
@@ -397,6 +410,15 @@ liens morts, CSP, sitemap, intégrité des portails, vivacité de la collecte.
 L'ouvrir après une modification structurelle coûte dix secondes et remplace une
 relecture. Et un audit vert doit rester capable de virer au rouge : le vérifier
 en injectant une faute, puis en la retirant.
+
+L'écran étant derrière la connexion, un agent ne peut pas l'ouvrir tel quel. La
+parade tient en une page jetable posée à la racine du site local : un `<div
+id="audit">`, un `window.AgeniaAcces.demarrer` qui rappelle tout de suite avec
+un `outils.requete` rendant des statistiques plausibles, puis
+`<script src="/documentation/audit.js">`. L'exploration des pages — la seule
+partie qui dépend des fichiers qu'on vient de modifier — tourne alors hors
+ligne. **Effacer cette page avant de committer** : à la racine, elle serait
+publiée.
 
 **L'audit connaît les deux langues, et c'est à maintenir.** Chaque menu est
 comparé à l'accueil *de sa langue*, et le lien de confidentialité est reconnu

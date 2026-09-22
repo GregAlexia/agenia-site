@@ -159,15 +159,29 @@ se perd en plein milieu. Une méta-description reste sous 155.
 
 ### Maillage interne
 
-Le pied de page de l'accueil porte la colonne **Logiciels** : ce sont les seuls
-liens internes vers les pages produit depuis la page la mieux référencée du
-site. Une page sans lien entrant est explorée tard et mal. Chaque page se
-termine par un bloc « À lire aussi » pour la même raison.
+L'accueil mène aux pages produit par deux chemins : la colonne **Logiciels** du
+pied de page, et le bouton « Découvrir » de chaque carte. C'est la page la mieux
+référencée du site, donc celle dont les liens comptent le plus — une page sans
+lien entrant est explorée tard et mal. Chaque page se termine par un bloc
+« À lire aussi » pour la même raison.
 
-Le lien externe vers `margeo.vercel.app` qu'y portait le pied de page a été
-retiré le 19/09/2026 : il envoyait l'autorité de l'accueil vers un autre domaine
-à l'endroit exact où les pages produit en avaient besoin. Les deux liens qui
-restent vers ce domaine sont dans le contenu déverrouillé, là où ils servent.
+**Margeo n'a plus que le premier chemin depuis le 22/09/2026** : son bouton de
+carte ouvre l'application au lieu de `demo-margeo.html`. Restent le pied de
+page, `essai-outils.html` et la page Haute-Savoie ; l'audit atteint toujours la
+page en suivant les liens, ce qui est le seuil à ne pas franchir. Le jour où un
+deuxième produit prendrait le même raccourci, vérifier que sa page produit garde
+elle aussi un lien entrant ailleurs qu'ici.
+
+Le lien externe vers l'application que portait le pied de page a été retiré le
+19/09/2026 : il envoyait l'autorité de l'accueil vers un autre domaine à
+l'endroit exact où les pages produit en avaient besoin. **Le bouton de la carte
+Margeo en réintroduit un sur l'accueil** — c'est le prix assumé du raccourci,
+et la raison de ne pas l'étendre aux trois autres sans y repenser.
+
+Six liens mènent aujourd'hui à l'application, sur `margeo.agenia.pro` :
+l'adresse Vercel a été abandonnée le 22/09/2026. Les commentaires HTML qui les
+signalent sont numérotés `URL Margeo (n/3)` par langue, pour qu'un changement
+d'adresse n'en oublie aucun.
 
 ---
 
@@ -185,7 +199,9 @@ Rien de ce qui précède ne se mesure sans elle, et l'indexation initiale peut
    et le site ne répond que sur `www`.
 3. Vérification par **balise HTML** : Google fournit une ligne
    `<meta name="google-site-verification" content="…" />`, à coller dans le
-   `<head>` de `index.html`, puis commit + push → en ligne en une à deux minutes.
+   `<head>` de `index.html`, puis commit + push. En ligne en une à deux minutes
+   d'ordinaire — attendre que l'action GitHub soit terminée avant de cliquer
+   « Vérifier », sinon Google lit la page d'avant et refuse.
 4. Menu **Sitemaps** → saisir `sitemap.xml` → Envoyer. Le fichier est déjà en
    ligne, l'étape doit passer en « Réussite » immédiatement.
 5. **Inspection de l'URL** → « Demander une indexation » sur l'accueil et sur

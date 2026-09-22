@@ -255,6 +255,14 @@ hésitation : ce sont trois personnes différentes.
 | Icône WhatsApp | `wa.me`, avec un message pré-saisi nommant le produit |
 | Icône enveloppe | Le formulaire, dont le menu « Votre demande » est prérempli |
 
+**Margeo fait exception depuis le 22/09/2026** : son bouton ouvre directement
+`margeo.agenia.pro` dans un nouvel onglet, sans passer par `demo-margeo.html`.
+Le raccourci a été demandé. Il coûte un lien interne vers la page produit depuis
+l'accueil — le pied de page, `essai-outils.html` et la page Haute-Savoie le
+compensent, et l'audit continue d'atteindre les vingt-quatre pages. Si un autre
+produit suit, reprendre en même temps la section « Maillage interne » de
+`REFERENCEMENT.md` : c'est là qu'est écrit ce que ce raccourci coûte.
+
 **Les deux icônes portent un `aria-label` qui nomme le produit**, et un `title`
 pour l'info-bulle. Une icône seule ne dit rien à un lecteur d'écran, et
 « WhatsApp » sans plus de précision ne dirait pas de quel produit on parle. Un
