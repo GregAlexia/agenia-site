@@ -244,6 +244,29 @@ bouton de l'en-tête mène désormais au rendez-vous, et c'est en descendant la
 page qu'on trouve le formulaire, ainsi que depuis les appels à l'action des
 pages produit.
 
+## Les cartes produits mènent à trois endroits
+
+Chaque carte de la section produits porte trois boutons, et ce n'est pas une
+hésitation : ce sont trois personnes différentes.
+
+| Bouton | Où il mène |
+|---|---|
+| Découvrir *Produit* | La page produit, qui déverrouille la vidéo et l'accès |
+| Être recontacté sur WhatsApp | `wa.me`, avec un message pré-saisi nommant le produit |
+| Être recontacté par email | Le formulaire, dont le menu « Votre demande » est prérempli |
+
+**`wa.me` décide seul** d'ouvrir l'application ou WhatsApp Web : aucun
+JavaScript ne permet de savoir si elle est installée. C'est pour cette raison
+que le chemin par formulaire a été **gardé à côté** et non remplacé — sinon un
+visiteur sans WhatsApp sur son ordinateur perdrait la carte des yeux.
+
+Les libellés nomment le canal des deux côtés : deux boutons voisins ne peuvent
+pas s'appeler presque pareil sans faire hésiter.
+
+⚠️ Le message pré-saisi est encodé dans l'URL, **une fois par produit et par
+langue**, soit huit occurrences. Le changer demande de les reprendre toutes ;
+`grep -c wa.me` en compte 3 par page plus 2 par carte.
+
 ## Formulaires (Web3Forms)
 
 Les formulaires envoient par email via [Web3Forms](https://web3forms.com)

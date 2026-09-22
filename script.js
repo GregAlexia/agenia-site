@@ -157,9 +157,12 @@
   }
 
   /* ---- Présélection de l'objet du formulaire ----
-     Les boutons « Réserver mon audit », « Être recontacté » (produits)
+     Les quatre boutons « Être recontacté par email » des cartes produits
      portent data-objet : au clic, le menu « Votre demande » est prérempli,
-     pour que chaque lead arrive déjà qualifié. */
+     pour que le lead arrive déjà qualifié. Ce sont les seuls depuis que les
+     boutons d'audit ouvrent Calendly — un agenda ne préremplit rien, et c'est
+     la raison pour laquelle le chemin par formulaire a été gardé à côté du
+     bouton WhatsApp plutôt que remplacé par lui. */
   var objetSelect = document.getElementById("objet");
   if (objetSelect) {
     document.querySelectorAll("a[data-objet]").forEach(function (lien) {

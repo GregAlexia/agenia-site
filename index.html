@@ -316,8 +316,17 @@
               <a class="btn btn--primary" href="demo-margeo.html">
                 Découvrir Margeo
               </a>
+            <!-- wa.me ouvre l'application si elle est installée, et WhatsApp Web
+                 sinon : aucun JavaScript ne permet de le savoir à l'avance, c'est
+                 wa.me qui tranche. Le message nomme le produit pour que la
+                 conversation parte déjà qualifiée — c'est ce que fait data-objet
+                 pour le formulaire, sur le bouton voisin. -->
+              <a class="btn btn--ghost" href="https://wa.me/33651748133?text=Bonjour%2C%20merci%20de%20me%20recontacter%20au%20sujet%20de%20Margeo."
+                 target="_blank" rel="noopener">
+                Être recontacté sur WhatsApp
+              </a>
               <a class="btn btn--ghost" href="#contact" data-objet="Margeo">
-                Être recontacté
+                Être recontacté par email
               </a>
             </p>
           </article>
@@ -354,8 +363,17 @@
               <a class="btn btn--primary" href="demo-prospeo.html">
                 Découvrir Prospeo
               </a>
+            <!-- wa.me ouvre l'application si elle est installée, et WhatsApp Web
+                 sinon : aucun JavaScript ne permet de le savoir à l'avance, c'est
+                 wa.me qui tranche. Le message nomme le produit pour que la
+                 conversation parte déjà qualifiée — c'est ce que fait data-objet
+                 pour le formulaire, sur le bouton voisin. -->
+              <a class="btn btn--ghost" href="https://wa.me/33651748133?text=Bonjour%2C%20merci%20de%20me%20recontacter%20au%20sujet%20de%20Prospeo."
+                 target="_blank" rel="noopener">
+                Être recontacté sur WhatsApp
+              </a>
               <a class="btn btn--ghost" href="#contact" data-objet="Prospeo">
-                Être recontacté
+                Être recontacté par email
               </a>
             </p>
           </article>
@@ -394,8 +412,17 @@
               <a class="btn btn--primary" href="demo-keo.html">
                 Découvrir Keo
               </a>
+            <!-- wa.me ouvre l'application si elle est installée, et WhatsApp Web
+                 sinon : aucun JavaScript ne permet de le savoir à l'avance, c'est
+                 wa.me qui tranche. Le message nomme le produit pour que la
+                 conversation parte déjà qualifiée — c'est ce que fait data-objet
+                 pour le formulaire, sur le bouton voisin. -->
+              <a class="btn btn--ghost" href="https://wa.me/33651748133?text=Bonjour%2C%20merci%20de%20me%20recontacter%20au%20sujet%20de%20Keo."
+                 target="_blank" rel="noopener">
+                Être recontacté sur WhatsApp
+              </a>
               <a class="btn btn--ghost" href="#contact" data-objet="Keo">
-                Être recontacté
+                Être recontacté par email
               </a>
             </p>
           </article>
@@ -435,8 +462,17 @@
               <a class="btn btn--primary" href="demo-planeo.html">
                 Découvrir Planeo
               </a>
+            <!-- wa.me ouvre l'application si elle est installée, et WhatsApp Web
+                 sinon : aucun JavaScript ne permet de le savoir à l'avance, c'est
+                 wa.me qui tranche. Le message nomme le produit pour que la
+                 conversation parte déjà qualifiée — c'est ce que fait data-objet
+                 pour le formulaire, sur le bouton voisin. -->
+              <a class="btn btn--ghost" href="https://wa.me/33651748133?text=Bonjour%2C%20merci%20de%20me%20recontacter%20au%20sujet%20de%20Planeo."
+                 target="_blank" rel="noopener">
+                Être recontacté sur WhatsApp
+              </a>
               <a class="btn btn--ghost" href="#contact" data-objet="Planeo">
-                Être recontacté
+                Être recontacté par email
               </a>
             </p>
           </article>
@@ -638,9 +674,10 @@
     -->
 
     <!-- Audit gratuit — le point de conversion principal du site.
-         Le CTA pointe sur le formulaire de contact avec l'objet présélectionné
-         (data-objet) ; le jour où un agenda en ligne existe (Cal.com), c'est ce
-         lien-ci qu'il faut remplacer, et lui seul. -->
+         Son CTA ouvrait le formulaire ; depuis le 22/09/2026 il ouvre
+         directement l'agenda Calendly, le rendez-vous se prenant sans attendre
+         de réponse. L'ancre #audit n'a donc plus aucun lien entrant : la bande
+         se lit en descendant la page, elle n'est plus une destination. -->
     <section class="cta-band" id="audit">
       <div class="container cta-band__inner reveal">
         <div>
