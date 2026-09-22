@@ -85,6 +85,30 @@ fichier n'est lu que par Cloudflare Pages.
 
 ---
 
+## Sur téléphone, c'est toujours un mot trop long
+
+Deux règles ont fait déborder le site horizontalement, et aucune ne se voyait
+sur un écran d'ordinateur.
+
+⚠️ **`white-space: nowrap` sur `.btn`.** Un libellé long ne pouvait jamais
+revenir à la ligne : il sortait de l'écran — et comme les cartes sont des
+éléments de grille à `min-width: auto`, il les élargissait avec lui. Six pages
+débordaient sur un iPhone SE, **une dès 375 px**, avec barre de défilement
+horizontale sur tout le site. Retiré le 22/09/2026 : le retour à la ligne ne se
+produit que faute de place, donc rien ne change sur grand écran.
+
+⚠️ **`minmax(320px, 1fr)` dans une grille.** La piste fait 320 px même quand le
+conteneur n'en offre que 272. Écrire **`minmax(min(320px, 100%), 1fr)`** — la
+forme sans `min()` est un débordement qui attend son écran.
+
+**Le contrôle** : mesurer `scrollWidth − clientWidth` sur les vingt-quatre
+pages, de 320 à 412 px. C'est trois lignes de Playwright, et c'est le seul moyen
+de voir ce qu'aucune relecture ne montre. Les seuils utiles : **320** (vieil
+iPhone SE), **375** (iPhone 8 et SE 2022, encore très répandus), **390** (iPhone
+récents), **412** (Android courants).
+
+---
+
 ## L'en-tête tient à une place près
 
 Le conteneur est plafonné à 1160 px, donc **la barre dispose de la même largeur
