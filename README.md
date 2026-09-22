@@ -71,7 +71,8 @@ les deux versions offrent la même chose, PDF des guides compris
 | `script.js` | Menu mobile, apparition au scroll, formulaire — **et la mesure d'audience** |
 | `ressources/gate.js` | Le déverrouillage contre coordonnées, commun aux neuf pages qui en ont un |
 | `.github/workflows/deploy-pages.yml` | Déploiement automatique sur GitHub Pages |
-| `outils/og-image.html` | Gabarit de l'image de partage. **Non liée depuis le site** : c'est un outil, pas une page |
+| `outils/og-image.html` | Gabarit des images de partage, français et anglais. **Non liée depuis le site** : c'est un outil, pas une page |
+| `outils/faire-og.cjs` | Régénère les deux images de partage depuis ce gabarit |
 | `outils/faire-pdf.cjs` | Régénère les PDF des guides depuis les pages elles-mêmes |
 | `_redirects` | Ce que l'hébergeur ne doit **pas** servir : notes de travail et outils. Lu par Cloudflare Pages |
 | `REFERENCEMENT.md` | La stratégie de référencement, les requêtes visées page par page, et ce qui reste à faire à la main |
@@ -175,8 +176,19 @@ repartir — et l'image, elle, avait gardé le positionnement d'agence pendant d
 refontes d'accroche, sans que rien ne le signale : aucun contrôle ne lit une
 image.
 
-Pour la régénérer, `outils/og-image.html` est son gabarit — mêmes fontes et
-mêmes teintes que le site, le mode d'emploi est dans son en-tête.
+**Il y en a deux, une par langue** : `assets/og-image.jpg` et
+`assets/og-image-en.jpg`. Un lecteur qui partage `/en/` doit voir une vignette
+en anglais, sinon la promesse change de langue entre l'aperçu et la page.
+
+Elles sortent du **même gabarit**, `outils/og-image.html`, qui porte les deux
+textes et bascule sur `?lang=en` — le dessin ne doit exister qu'une fois, sinon
+les deux versions divergent au premier changement de charte et **aucun contrôle
+ne lit une image**.
+
+```bash
+python3 -m http.server 8420 &
+node outils/faire-og.cjs          # régénère les deux
+```
 
 ⚠️ **Les réseaux sociaux mettent l'image en cache**, parfois des semaines. Après
 un changement, forcer la relecture par leur outil de débogage plutôt que

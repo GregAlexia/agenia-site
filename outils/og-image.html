@@ -1,10 +1,19 @@
 <!DOCTYPE html>
-<!-- Gabarit de l'image de partage (assets/og-image.jpg), 1200 × 630.
-     Pour la régénérer après un changement d'accroche :
+<!-- Gabarit des images de partage, 1200 × 630.
+       assets/og-image.jpg      ← ce fichier sans paramètre
+       assets/og-image-en.jpg   ← ce fichier avec ?lang=en
+
+     Un seul gabarit pour les deux langues, et non deux fichiers : le dessin ne
+     doit exister qu'une fois, sinon les deux versions divergent au premier
+     changement de charte et personne ne le voit — aucun contrôle ne lit une
+     image.
+
+     Pour les régénérer après un changement d'accroche :
        python3 -m http.server 8420        (à la racine du site)
-       puis capturer http://localhost:8420/outils/og-image.html en 1200×630,
-       deviceScaleFactor 2, et réduire à 1200×630 en JPEG qualité 88.
-     Ce fichier n'est lié depuis nulle part : c'est un outil, pas une page. -->
+       node outils/faire-og.cjs
+
+     Ce fichier n'est lié depuis nulle part, et `_redirects` empêche
+     l'hébergeur de le servir : c'est un outil, pas une page. -->
 <html lang="fr">
 <head>
 <meta charset="utf-8">
@@ -56,19 +65,38 @@
       <span>AGENIA</span>
     </div>
 
-    <div class="pastille">Éditeur de logiciels IA · PME &amp; ETI</div>
+    <div class="pastille" id="pastille">Éditeur de logiciels IA · PME &amp; ETI</div>
 
-    <h1>Développez <em>vos idées</em>.<br>On automatise les processus.</h1>
+    <h1 id="titre">Développez <em>vos idées</em>.<br>On automatise les processus.</h1>
 
-    <p class="accroche">
+    <p class="accroche" id="accroche">
       Margeo, Prospeo, Keo, Planeo — des logiciels métier édités et opérés
       par AgenIA, et le sur-mesure quand aucun ne convient.
     </p>
 
     <div class="pied">
       <span class="url">www.agenia.pro</span>
-      <span class="gamme">Marges · Prospection · Immobilier · Construction</span>
+      <span class="gamme" id="gamme">Marges · Prospection · Immobilier · Construction</span>
     </div>
   </div>
+
+<script>
+  /* Le français est écrit en dur dans la page : sans JavaScript, le gabarit
+     montre encore quelque chose de juste. L'anglais ne s'applique que sur
+     demande explicite. Les textes reprennent mot pour mot ceux de /en/ —
+     une image de partage qui promet autre chose que la page fait repartir. */
+  if (location.search.indexOf("lang=en") !== -1) {
+    document.documentElement.lang = "en";
+    document.getElementById("pastille").textContent =
+      "AI software publisher · small & mid-sized companies";
+    document.getElementById("titre").innerHTML =
+      "Build <em>your ideas</em>.<br>We automate your processes.";
+    document.getElementById("accroche").textContent =
+      "Margeo, Prospeo, Keo, Planeo — business software built and operated by " +
+      "AgenIA, and bespoke work when none of them fits.";
+    document.getElementById("gamme").textContent =
+      "Margins · Prospecting · Property · Construction";
+  }
+</script>
 </body>
 </html>
