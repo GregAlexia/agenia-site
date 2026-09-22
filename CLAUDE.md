@@ -369,6 +369,14 @@ L'ouvrir après une modification structurelle coûte dix secondes et remplace un
 relecture. Et un audit vert doit rester capable de virer au rouge : le vérifier
 en injectant une faute, puis en la retirant.
 
+**L'audit connaît les deux langues, et c'est à maintenir.** Chaque menu est
+comparé à l'accueil *de sa langue*, et le lien de confidentialité est reconnu
+sous ses deux orthographes (`confidentialite` et `privacy`). Sans cela, les
+douze pages de `en/` remontaient trente-trois constats, tous faux — un audit
+qui crie au loup cesse d'être lu, ce qui est pire que pas d'audit. **Une
+troisième langue demanderait le même traitement** : ajouter son accueil à
+`DEPART` et l'enseigner à `langue()`.
+
 ---
 
 ## Style

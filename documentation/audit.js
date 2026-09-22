@@ -19,7 +19,10 @@
 
   var cible = document.getElementById("audit");
 
-  var DEPART = ["/index.html", "/ressources/"];
+  // `/en/` figure au départ et non seulement au fil des liens : la référence de
+  // menu anglaise doit exister avant que la première page de en/ soit auditée,
+  // sinon toutes seraient comparées au menu français et signalées à tort.
+  var DEPART = ["/index.html", "/ressources/", "/en/"];
   var PLAFOND_PAGES = 30;   // garde-fou : une boucle de liens ne doit pas tourner sans fin
   var GRAVE = "grave", AVERT = "avert", OK = "ok";
 
@@ -53,6 +56,17 @@
    */
   function estPage(chemin) {
     return !/\.(pdf|zip|jpe?g|png|svg|webp|gif|ico|csv|xlsx?|docx?)$/i.test(chemin);
+  }
+
+  /**
+   * La langue d'une page se lit dans son chemin : le site anglais vit tout
+   * entier sous /en/. Elle sert à comparer chaque menu au bon accueil — sans
+   * quoi les douze pages anglaises sont signalées parce qu'elles disent
+   * « Approach » là où le français dit « Méthode ». C'était le cas des
+   * 20 et 21 septembre 2026 : vingt-quatre constats, tous faux.
+   */
+  function langue(chemin) {
+    return chemin.indexOf("/en/") === 0 ? "en" : "fr";
   }
 
   function texteNav(doc, selecteur) {
@@ -192,7 +206,11 @@
       if (!doc.querySelector('.res-gate__consent input[type="checkbox"]')) {
         noter("RGPD", chemin, GRAVE, "Portail sans case de consentement : la collecte se fait sans base légale affichée.");
       }
-      if (!doc.querySelector('a[href*="confidentialite"]')) {
+      // Deux orthographes, une par langue : le français renvoie vers
+      // mentions-legales.html#confidentialite, l'anglais vers
+      // legal-notice.html#privacy. Ne chercher que la première signalait à tort
+      // les huit portails anglais comme collectant sans information.
+      if (!doc.querySelector('a[href*="confidentialite"], a[href*="privacy"]')) {
         noter("RGPD", chemin, AVERT, "Portail sans lien vers la politique de confidentialité.");
       }
       var visible = doc.getElementById("contenu");
@@ -228,7 +246,8 @@
 
   function explorer() {
     var vues = {}, aVoir = DEPART.map(normaliser), pages = [], liensAttendus = {}, echecs = [];
-    var reference = null;
+    // Une référence de menu par langue, prise sur l'accueil correspondant.
+    var references = {};
 
     function suivant() {
       if (!aVoir.length || pages.length >= PLAFOND_PAGES) return Promise.resolve();
@@ -243,9 +262,11 @@
           return suivant();
         }
         var doc = new DOMParser().parseFromString(r.texte, "text/html");
-        if (chemin === "/index.html") reference = texteNav(doc, "nav.nav a");
+        if (chemin === "/index.html" || chemin === "/en/index.html") {
+          references[langue(chemin)] = texteNav(doc, "nav.nav a");
+        }
 
-        var liens = auditerPage(chemin, doc, r.texte, reference);
+        var liens = auditerPage(chemin, doc, r.texte, references[langue(chemin)]);
         pages.push({ chemin: chemin, doc: doc, brut: r.texte });
 
         liens.forEach(function (l) {
@@ -260,7 +281,7 @@
     }
 
     return suivant().then(function () {
-      return { pages: pages, liens: liensAttendus, reference: reference, echecs: echecs };
+      return { pages: pages, liens: liensAttendus, references: references, echecs: echecs };
     });
   }
 
