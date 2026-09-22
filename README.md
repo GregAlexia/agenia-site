@@ -213,11 +213,19 @@ le widget chargerait un script tiers et ses cookies avant tout consentement. Le
 site affirme n'en poser aucun et se passe de bandeau — même raisonnement que
 les façades vidéo. **Ne pas remplacer ce lien par une intégration.**
 
-L'adresse figure à **trois endroits par page** : l'encadré de la section
-contact (accueil seulement), le bouton « Parler à un expert » de l'en-tête, et
-le même bouton dans le menu déroulant — ces deux derniers sur les vingt-quatre
-pages. Un changement d'adresse Calendly se répercute donc partout&nbsp;;
-`grep -c calendly.com` doit renvoyer 2 sur chaque page, 3 sur les deux accueils.
+**Tout bouton qui promet un rendez-vous ou un audit gratuit y mène** :
+« Parler à un expert » de l'en-tête et du menu déroulant, sur les vingt-quatre
+pages&nbsp;; « Réserver un audit gratuit », « Réserver mon audit gratuit » et
+« Estimer votre potentiel » là où ils apparaissent, avec leurs équivalents
+anglais. L'adresse est donc répétée deux à six fois par page — ne pas s'en
+remettre à un chiffre, qui vieillira&nbsp;: `grep -rc calendly.com --include=*.html .`
+les compte, et **un bouton qui promet un rendez-vous sans y mener est le défaut
+à chercher**.
+
+Restent volontairement tournés vers le formulaire les boutons qui portent
+`data-objet` — ils préremplissent le champ « Votre demande » avec le nom du
+produit, ce qu'un agenda ne sait pas faire — ainsi que « Nous écrire » et
+« Demander un point de trente minutes ».
 
 Le formulaire de contact reste en place, plus bas dans la même section : le
 bouton de l'en-tête mène désormais au rendez-vous, et c'est en descendant la

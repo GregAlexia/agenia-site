@@ -155,6 +155,17 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.12; margin: 0; le
 .pill__dot { width: 8px; height: 8px; border-radius: 50%; background: var(--ink); }
 .hero__title { font-size: clamp(2.3rem, 6vw, 4rem); font-weight: 700; margin: 22px 0 0; }
 .hero__lead { font-size: clamp(1.08rem, 2.2vw, 1.3rem); color: var(--text-muted); margin: 22px 0 0; max-width: 660px; }
+/* La gamme en quatre lignes plutôt qu'en un paragraphe : c'est une énumération,
+   et elle se lit d'un coup d'œil. Sans puces — quatre produits alignés sous une
+   accroche n'ont pas besoin qu'on les compte. */
+.hero__produits { list-style: none; margin: 10px 0 0; padding: 0; max-width: 660px;
+  font-size: clamp(1.08rem, 2.2vw, 1.3rem); color: var(--text-muted); }
+.hero__produits li { margin-top: 4px; }
+.hero__produits b { color: var(--text); font-weight: 700; }
+/* Le paragraphe de clôture suit la liste de près : ensemble ils ne forment
+   qu'une idée, et l'écart par défaut de .hero__lead les séparerait. */
+.hero__produits + .hero__lead { margin-top: 16px; }
+
 .hero__actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 32px; }
 .hero__stats { list-style: none; margin: 54px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 720px; }
 .hero__stats li { display: flex; flex-direction: column; gap: 4px; padding-left: 18px; border-left: 2px solid var(--border-strong); }
