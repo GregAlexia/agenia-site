@@ -255,27 +255,32 @@ hésitation : ce sont trois personnes différentes.
 | Icône WhatsApp | `wa.me`, avec un message pré-saisi nommant le produit |
 | Icône enveloppe | Le formulaire, dont le menu « Votre demande » est prérempli |
 
-**Trois produits sur quatre court-circuitent leur page produit.** Le bouton
-« Découvrir » ouvre directement l'application, dans un nouvel onglet&nbsp;:
+**Les quatre boutons « Découvrir » quittent le site**, dans un nouvel onglet&nbsp;:
 
 | Produit | Où mène son bouton | Depuis |
 |---|---|---|
 | Margeo | `margeo.agenia.pro` | 22/09/2026 |
 | Prospeo | `prospeo.agenia.pro` | 24/09/2026 |
 | Planeo | `planeo.agenia.pro` | 24/09/2026 |
-| **Keo** | `demo-keo.html`, **la page produit** | — |
+| Keo | `keo.agenia.pro/presentation` · **`/en/presentation`** en anglais | 24/09/2026 |
 
-Keo n'a pas suivi parce que cela n'a pas été demandé, et son cas est le moins
-évident : son application se sert encore sous le nom `immomail-studio.vercel.app`
-alors que `keo.agenia.pro` existe et fonctionne. Repointer le bouton sans
-corriger d'abord les deux liens des pages produit donnerait trois adresses pour
-un même logiciel.
+**Keo est le seul dont l'adresse change avec la langue**, parce qu'il est le
+seul à avoir une page de présentation traduite. Les trois autres ouvrent une
+application dont l'interface ne dépend pas du lien. Un anglophone renvoyé sur
+`/presentation` retomberait sur le français qu'il venait de quitter — c'est la
+raison d'être de ce cas particulier, pas une inélégance à uniformiser.
+
+Ses pages produit gardent un second lien, vers la **racine** `keo.agenia.pro`,
+qui sert le tableau de bord de démonstration : la carte de l'accueil vend, le
+portail montre. Elles servaient `immomail-studio.vercel.app` jusqu'au 24/09 —
+la même application sous un nom qui n'est pas celui du produit, et sans
+redirection, donc lu tel quel dans la barre d'adresse du prospect.
 
 Ce raccourci coûte à chaque fois **un lien interne vers la page produit depuis
 l'accueil** — le pied de page, `essai-outils.html` et la page Haute-Savoie le
-compensent, et l'audit continue d'atteindre les vingt-quatre pages. Si Keo suit,
-reprendre en même temps la section « Maillage interne » de `REFERENCEMENT.md` :
-c'est là qu'est écrit ce que ce raccourci coûte.
+compensent, et l'audit continue d'atteindre les vingt-quatre pages. La section
+« Maillage interne » de `REFERENCEMENT.md` porte le compte de ce que l'accueil
+envoie désormais dehors.
 
 **Les deux icônes portent un `aria-label` qui nomme le produit**, et un `title`
 pour l'info-bulle. Une icône seule ne dit rien à un lecteur d'écran, et

@@ -209,11 +209,16 @@ qui n'existe pas coûte un prospect déçu, et une seule fois suffit à le perdr
 **Les quatre ouvrent aujourd'hui**, chacun sur son sous-domaine :
 `margeo` · `prospeo` · `planeo` · `keo`, tous en `.agenia.pro`.
 
-Le bouton « Découvrir » de la carte mène **directement à l'application** pour
-Margeo, Prospeo et Planeo. Keo passe encore par sa page produit, et son
-application se sert sous `immomail-studio.vercel.app` alors que
-`keo.agenia.pro` existe : quatre liens à reprendre ensemble le jour où on
-l'aligne, sinon le site affichera trois adresses pour un même logiciel.
+Le bouton « Découvrir » de la carte **quitte le site** pour les quatre. Plus
+aucune adresse `.vercel.app` n'est servie depuis le site.
+
+**Keo est le seul dont le lien change avec la langue** : `/presentation` et
+`/en/presentation`. Il est le seul dont la destination soit traduite ; les trois
+autres ouvrent une application dont l'interface ne dépend pas du lien. **Un lien
+sortant vers une page qui existe dans les deux langues doit viser celle du
+visiteur** — l'envoyer sur l'autre annule ce que la page anglaise vient de
+gagner. À vérifier à chaque nouveau lien sortant, produit par produit : c'est
+une propriété de la destination, pas une règle générale du site.
 
 > **Prospeo a été l'exception inverse, et c'est instructif.** Ce fichier a porté
 > jusqu'au 24/09/2026 : « Prospeo ne renvoie vers aucune application, la lier

@@ -419,10 +419,18 @@
                 <span class="demo__note">La lecture charge YouTube · son coupé</span>
               </button>
             </div>
-            <!-- La démo interactive tourne sur données fictives : elle passe par
-                 demo-keo.html, qui identifie le visiteur avant de l'ouvrir. -->
+            <!-- URL Keo (1/2). Seul des quatre à mener à une page de
+                 PRÉSENTATION et non à l'application : Keo en a une, dans les
+                 deux langues, et elle vend mieux qu'un tableau de bord de
+                 démonstration ouvert à froid. La version anglaise est
+                 `/en/presentation` — la langue du visiteur doit être celle de
+                 la page qui s'ouvre, sinon le lien renvoie l'anglophone au
+                 français qu'il venait de quitter.
+                 La démo interactive elle-même, sur données fictives, reste
+                 derrière demo-keo.html. -->
             <p class="card__cta">
-              <a class="btn btn--primary" href="demo-keo.html">
+              <a class="btn btn--primary" href="https://keo.agenia.pro/presentation"
+                 target="_blank" rel="noopener">
                 Découvrir Keo
               </a>
             <!-- wa.me ouvre l'application si elle est installée, et WhatsApp Web
