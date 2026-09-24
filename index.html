@@ -365,8 +365,13 @@
                 <span class="demo__note">La lecture charge YouTube · son coupé</span>
               </button>
             </div>
+            <!-- URL Prospeo (1/1). Comme Margeo : le bouton ouvre l'application
+                 plutôt que la page produit. `demo-prospeo.html` reste liée par
+                 le pied de page et par la page Haute-Savoie, donc elle garde de
+                 quoi être indexée. -->
             <p class="card__cta">
-              <a class="btn btn--primary" href="demo-prospeo.html">
+              <a class="btn btn--primary" href="https://prospeo.agenia.pro"
+                 target="_blank" rel="noopener">
                 Découvrir Prospeo
               </a>
             <!-- wa.me ouvre l'application si elle est installée, et WhatsApp Web
@@ -465,11 +470,15 @@
                 <span class="demo__note">La lecture charge YouTube · son coupé</span>
               </button>
             </div>
-            <!-- La démo tourne sur un projet de démonstration, qui ne désigne
-                 aucun client : elle passe par demo-planeo.html, qui identifie le
-                 visiteur avant de l'ouvrir. -->
+            <!-- URL Planeo (1/2). Le bouton ouvre l'application, qui tourne sur
+                 un projet de démonstration ne désignant aucun client — d'où
+                 l'accès direct, sans le portail de demo-planeo.html. Cette
+                 page-là reste liée par le pied de page et par la page
+                 Haute-Savoie. À changer ici et dans demo-planeo.html le jour où
+                 l'adresse bouge. -->
             <p class="card__cta">
-              <a class="btn btn--primary" href="demo-planeo.html">
+              <a class="btn btn--primary" href="https://planeo.agenia.pro"
+                 target="_blank" rel="noopener">
                 Découvrir Planeo
               </a>
             <!-- wa.me ouvre l'application si elle est installée, et WhatsApp Web

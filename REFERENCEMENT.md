@@ -165,23 +165,27 @@ référencée du site, donc celle dont les liens comptent le plus — une page s
 lien entrant est explorée tard et mal. Chaque page se termine par un bloc
 « À lire aussi » pour la même raison.
 
-**Margeo n'a plus que le premier chemin depuis le 22/09/2026** : son bouton de
-carte ouvre l'application au lieu de `demo-margeo.html`. Restent le pied de
-page, `essai-outils.html` et la page Haute-Savoie ; l'audit atteint toujours la
-page en suivant les liens, ce qui est le seuil à ne pas franchir. Le jour où un
-deuxième produit prendrait le même raccourci, vérifier que sa page produit garde
-elle aussi un lien entrant ailleurs qu'ici.
+**Trois produits n'ont plus que le premier chemin** : Margeo depuis le
+22/09/2026, Prospeo et Planeo depuis le 24/09. Leur bouton de carte ouvre
+l'application au lieu de la page produit. Restent le pied de page, la page
+Haute-Savoie et — pour Margeo — `essai-outils.html` ; l'audit atteint toujours
+ces pages en suivant les liens, **et c'est le seuil à ne pas franchir**. Si Keo
+suit, vérifier d'abord que `demo-keo.html` garde un lien entrant ailleurs qu'ici.
 
 Le lien externe vers l'application que portait le pied de page a été retiré le
 19/09/2026 : il envoyait l'autorité de l'accueil vers un autre domaine à
-l'endroit exact où les pages produit en avaient besoin. **Le bouton de la carte
-Margeo en réintroduit un sur l'accueil** — c'est le prix assumé du raccourci,
-et la raison de ne pas l'étendre aux trois autres sans y repenser.
+l'endroit exact où les pages produit en avaient besoin. **Les boutons de carte
+en réintroduisent trois sur l'accueil** — c'est le prix assumé du raccourci, et
+la raison de compter ce que l'on envoie dehors plutôt que de l'étendre par
+réflexe.
 
-Six liens mènent aujourd'hui à l'application, sur `margeo.agenia.pro` :
-l'adresse Vercel a été abandonnée le 22/09/2026. Les commentaires HTML qui les
-signalent sont numérotés `URL Margeo (n/3)` par langue, pour qu'un changement
-d'adresse n'en oublie aucun.
+Chaque produit a son propre sous-domaine, tous vérifiés côté hébergeur :
+`margeo`, `prospeo`, `planeo` et `keo` en `.agenia.pro`. Les adresses Vercel ont
+été abandonnées, sauf pour **Keo**, dont les deux pages produit servent encore
+`immomail-studio.vercel.app` — une adresse qui ne porte pas le nom du produit,
+sur la page censée le vendre. Les commentaires HTML qui signalent ces liens sont
+numérotés par produit et par langue — `URL Margeo (n/3)`, `URL Planeo (n/2)`,
+`URL Prospeo (1/1)` — pour qu'un changement d'adresse n'en oublie aucun.
 
 ---
 

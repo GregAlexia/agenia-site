@@ -255,13 +255,27 @@ hésitation : ce sont trois personnes différentes.
 | Icône WhatsApp | `wa.me`, avec un message pré-saisi nommant le produit |
 | Icône enveloppe | Le formulaire, dont le menu « Votre demande » est prérempli |
 
-**Margeo fait exception depuis le 22/09/2026** : son bouton ouvre directement
-`margeo.agenia.pro` dans un nouvel onglet, sans passer par `demo-margeo.html`.
-Le raccourci a été demandé. Il coûte un lien interne vers la page produit depuis
-l'accueil — le pied de page, `essai-outils.html` et la page Haute-Savoie le
-compensent, et l'audit continue d'atteindre les vingt-quatre pages. Si un autre
-produit suit, reprendre en même temps la section « Maillage interne » de
-`REFERENCEMENT.md` : c'est là qu'est écrit ce que ce raccourci coûte.
+**Trois produits sur quatre court-circuitent leur page produit.** Le bouton
+« Découvrir » ouvre directement l'application, dans un nouvel onglet&nbsp;:
+
+| Produit | Où mène son bouton | Depuis |
+|---|---|---|
+| Margeo | `margeo.agenia.pro` | 22/09/2026 |
+| Prospeo | `prospeo.agenia.pro` | 24/09/2026 |
+| Planeo | `planeo.agenia.pro` | 24/09/2026 |
+| **Keo** | `demo-keo.html`, **la page produit** | — |
+
+Keo n'a pas suivi parce que cela n'a pas été demandé, et son cas est le moins
+évident : son application se sert encore sous le nom `immomail-studio.vercel.app`
+alors que `keo.agenia.pro` existe et fonctionne. Repointer le bouton sans
+corriger d'abord les deux liens des pages produit donnerait trois adresses pour
+un même logiciel.
+
+Ce raccourci coûte à chaque fois **un lien interne vers la page produit depuis
+l'accueil** — le pied de page, `essai-outils.html` et la page Haute-Savoie le
+compensent, et l'audit continue d'atteindre les vingt-quatre pages. Si Keo suit,
+reprendre en même temps la section « Maillage interne » de `REFERENCEMENT.md` :
+c'est là qu'est écrit ce que ce raccourci coûte.
 
 **Les deux icônes portent un `aria-label` qui nomme le produit**, et un `title`
 pour l'info-bulle. Une icône seule ne dit rien à un lecteur d'écran, et
