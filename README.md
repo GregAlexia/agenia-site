@@ -311,7 +311,7 @@ ailleurs.
 avec l'origine : contact, Margeo, Prospeo, Keo, Planeo, outils, ressources). Les résultats
 se lisent sur `documentation/statistiques.html`.
 
-Cinq propriétés qui ne sont pas des détails :
+Six propriétés qui ne sont pas des détails :
 
 - **Le lieu se mesure deux fois, et les deux mesures restent séparées.** Le
   `pays` vient de l'en-tête `CF-IPCountry` que Cloudflare pose devant Supabase,
@@ -322,6 +322,17 @@ Cinq propriétés qui ne sont pas des détails :
   personne ne saurait plus laquelle des deux a parlé ; l'écran les affiche donc
   côte à côte, chacune avec son taux de couverture. Et le déclencheur **écrase**
   toujours `pays` : `script.js` est public, ce qu'il envoie est falsifiable.
+  *Les deux colonnes sont confirmées en production depuis le 24/09/2026* — le
+  doute portait sur la passerelle de Supabase, qui aurait pu ne pas transmettre
+  l'en-tête jusqu'à la base ; elle le transmet.
+
+- **Le comptage ne distingue pas un robot d'un lecteur, et le classement par
+  pays le montre crûment.** Sur les 38 premières vues situées, 22 venaient d'un
+  même fuseau américain : un explorateur automatique, pas des prospects. C'est
+  le revers assumé d'un comptage sans identifiant de visiteur, et c'était déjà
+  vrai des pages vues avant que le lieu existe — il le rend seulement visible.
+  Écarter les robots demanderait la chaîne du navigateur, donc **une donnée de
+  plus à déclarer** : à mettre en balance, pas à ajouter par réflexe.
 
 - **Écriture seule.** Les policies n'autorisent que l'insertion. Ces tables sont
   illisibles depuis le navigateur, y compris avec la clé publique du dépôt ; la

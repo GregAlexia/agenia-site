@@ -206,17 +206,29 @@ propre dépôt ; c'est le site qui fait foi sur le nom.
 
 **Un produit n'a de page à portail que s'il ouvre vraiment.** Annoncer une démo
 qui n'existe pas coûte un prospect déçu, et une seule fois suffit à le perdre.
-Trois des quatre ouvrent aujourd'hui — Margeo, Keo et Planeo.
+**Les quatre ouvrent aujourd'hui**, chacun sur son sous-domaine :
+`margeo` · `prospeo` · `planeo` · `keo`, tous en `.agenia.pro`.
 
-**Prospeo ne renvoie vers aucune application.** La seule qui existe s'annonce
-*outil interne*, sans marque ni contrôle d'accès : la lier depuis un site
-commercial l'exposerait. Sa page recueille donc une demande d'accès, ouverte à la
-main. Le jour où une version publique existe, c'est un `href` à changer.
+Le bouton « Découvrir » de la carte mène **directement à l'application** pour
+Margeo, Prospeo et Planeo. Keo passe encore par sa page produit, et son
+application se sert sous `immomail-studio.vercel.app` alors que
+`keo.agenia.pro` existe : quatre liens à reprendre ensemble le jour où on
+l'aligne, sinon le site affichera trois adresses pour un même logiciel.
 
-**Vérifier avant de conclure qu'un produit est fermé.** Planeo a été annoncé
-« bientôt » pendant une matinée, alors que sa démo tournait déjà sur
-`planeo-3d.vercel.app`. La liste des projets Vercel du compte est la source qui
-tranche — pas le souvenir qu'on en a.
+> **Prospeo a été l'exception inverse, et c'est instructif.** Ce fichier a porté
+> jusqu'au 24/09/2026 : « Prospeo ne renvoie vers aucune application, la lier
+> l'exposerait ». C'était vrai, puis le propriétaire a publié l'application sur
+> son sous-domaine le matin même où il a demandé le lien. Une règle qui décrit un
+> **état** vieillit sans prévenir, contrairement à une règle qui décrit une
+> contrainte. Avant de refuser un lien au nom d'une phrase d'ici, **vérifier
+> l'état réel** — la liste des projets Vercel tranche, pas le souvenir qu'on en
+> a. C'est la même leçon que Planeo, annoncé « bientôt » pendant une matinée
+> alors que sa démo tournait déjà.
+
+**Ce qui reste vrai, en revanche** : ne pas lier depuis le site une application
+sans contrôle d'accès *sans le dire*. Les sous-domaines de production sont
+publics — la protection Vercel ne couvre que les adresses `.vercel.app`, pas les
+domaines personnalisés.
 
 ---
 
