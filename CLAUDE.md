@@ -212,6 +212,26 @@ qui n'existe pas coûte un prospect déçu, et une seule fois suffit à le perdr
 Le bouton « Découvrir » de la carte **quitte le site** pour les quatre. Plus
 aucune adresse `.vercel.app` n'est servie depuis le site.
 
+**Le site ne redirige jamais selon la langue ou le lieu, il propose.** Un
+bandeau apparaît en tête de page quand le visiteur ne semble pas lire la langue
+qu'il a sous les yeux. **Ne pas le transformer en redirection** : Google explore
+ce site en majorité depuis les États-Unis, et une redirection
+« non francophone → `/en/` » y enverrait son robot depuis l'accueil français,
+au détriment de l'indexation qui porte tout le référencement local. Trois points
+qui tiennent le mécanisme :
+
+- La page jumelle est lue dans le `<link rel="alternate" hreflang>` de la page,
+  **jamais dans une table de correspondance** : `demo-margeo.html` devient
+  `margeo.html`, `essai-outils.html` devient `free-tools.html` — rien n'est
+  mécanique, et l'audit vérifie déjà la réciprocité de ces balises.
+- **La langue déclarée par le navigateur prime sur le fuseau**, le fuseau ne
+  servant qu'ensuite. Français par défaut dès qu'un doute subsiste : un
+  anglophone à Paris reste en français, la zone étant francophone.
+- Un choix exprimé — bandeau suivi, bandeau fermé, bascule FR/EN cliquée — est
+  retenu dans `localStorage` et **éteint le bandeau pour de bon**. Ce n'est pas
+  un cookie, rien ne sort du navigateur, mais les deux pages de confidentialité
+  le mentionnent : ce qui est stocké se déclare, même exempté de consentement.
+
 **Keo est le seul dont le lien change avec la langue** : `/presentation` et
 `/en/presentation`. Il est le seul dont la destination soit traduite ; les trois
 autres ouvrent une application dont l'interface ne dépend pas du lien. **Un lien

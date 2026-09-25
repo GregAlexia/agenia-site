@@ -112,6 +112,128 @@
     },
   };
 
+  /* =============================================================
+     BANDEAU DE LANGUE — proposer l'autre version, jamais y renvoyer
+     d'autorité.
+
+     POURQUOI PAS UNE REDIRECTION. Google explore ce site en majorité
+     depuis les États-Unis. Une redirection « visiteur non francophone →
+     /en/ » enverrait donc son robot de l'accueil français vers l'anglais,
+     et c'est l'indexation française — celle qui porte tout le
+     référencement local — qui en paierait le prix. Un bandeau n'a aucun
+     effet sur l'exploration, et laisse le visiteur maître de sa langue :
+     une redirection qu'on subit n'a pas de bouton « non ».
+
+     LA PAGE JUMELLE N'EST PAS DEVINÉE. Elle est lue dans le
+     `<link rel="alternate" hreflang>` que chaque page porte déjà, et dont
+     l'audit vérifie la réciprocité. Une table de correspondance écrite ici
+     aurait divergé au premier renommage : `demo-margeo.html` devient
+     `margeo.html`, `essai-outils.html` devient `free-tools.html` — rien
+     n'est mécanique. Une page sans jumelle ne propose donc rien, ce qui
+     est le bon comportement plutôt qu'un lien mort.
+     ============================================================= */
+  var CLE_LANGUE = "agenia_langue";
+
+  /* Fuseaux des zones francophones. La base IANA regroupe des pays qui ne
+     partagent pas la langue — `Africa/Abidjan` couvre aussi le Ghana
+     anglophone, et le Québec est devenu un alias de `America/Toronto`,
+     donc indiscernable de l'Ontario. Le principe tranche ces cas :
+     français par défaut dès qu'il y a doute, sauf Toronto, écarté parce
+     que l'anglophone y est très majoritaire — et qu'un Québécois annonce
+     de toute façon `fr-CA`, testé avant le fuseau. */
+  var FUSEAUX_FR = ("Europe/Paris Europe/Brussels Europe/Zurich Europe/Luxembourg " +
+    "Europe/Monaco Africa/Casablanca Africa/Algiers Africa/Tunis Africa/Abidjan " +
+    "Africa/Dakar Africa/Bamako Africa/Ouagadougou Africa/Niamey Africa/Ndjamena " +
+    "Africa/Bangui Africa/Brazzaville Africa/Kinshasa Africa/Lubumbashi " +
+    "Africa/Libreville Africa/Douala Africa/Porto-Novo Africa/Lome Africa/Conakry " +
+    "Africa/Nouakchott Africa/Djibouti Africa/Bujumbura Africa/Kigali " +
+    "Indian/Antananarivo Indian/Comoro Indian/Reunion Indian/Mayotte " +
+    "America/Montreal America/Martinique America/Guadeloupe America/Cayenne " +
+    "America/Miquelon Pacific/Noumea Pacific/Tahiti Pacific/Wallis").split(" ");
+
+  /* Le bandeau s'adresse à qui ne lit PAS la langue de la page : il est donc
+     écrit dans la langue de destination, jamais dans celle qu'on quitte.
+     La phrase entière est le lien, et non un libellé d'action à côté d'elle :
+     sur un écran de 390 px, message et bouton ne tiennent pas sur la même
+     ligne, et le bandeau montait à trois lignes pour dire une chose simple. */
+  var TEXTES_LANGUE = {
+    en: { lien: "This page is also available in English", fermer: "Dismiss" },
+    fr: { lien: "Cette page existe aussi en français", fermer: "Fermer" },
+  };
+
+  function choixLangue() {
+    // localStorage lève en navigation privée sur certains navigateurs :
+    // ne pas savoir vaut mieux que ne pas s'afficher.
+    try { return localStorage.getItem(CLE_LANGUE); } catch (e) { return null; }
+  }
+
+  function retenirLangue(code) {
+    try { localStorage.setItem(CLE_LANGUE, code); } catch (e) {}
+  }
+
+  /* La langue déclarée par le navigateur d'abord — c'est ce que le visiteur
+     LIT. Le fuseau ensuite, qui est le lieu. Un Français à Londres reste
+     donc en français ; un anglophone à Paris reste en français aussi, parce
+     que la zone est francophone : c'est la règle demandée, et elle penche
+     toujours du même côté en cas de doute. */
+  function litLeFrancais() {
+    var langues = navigator.languages || [navigator.language || ""];
+    for (var i = 0; i < langues.length; i++) {
+      if (/^fr(-|$)/i.test(langues[i])) return true;
+    }
+    var zone = fuseau();
+    return !!zone && FUSEAUX_FR.indexOf(zone) !== -1;
+  }
+
+  function bandeauLangue() {
+    // Un choix déjà exprimé vaut pour toujours : reproposer, c'est harceler
+    // quelqu'un qui a répondu.
+    if (choixLangue()) return;
+
+    var ici = document.documentElement.lang === "en" ? "en" : "fr";
+    var autre = ici === "fr" ? "en" : "fr";
+    if (ici === "fr" ? litLeFrancais() : !litLeFrancais()) return;
+
+    var jumelle = document.querySelector('link[rel="alternate"][hreflang="' + autre + '"]');
+    if (!jumelle || !jumelle.href) return;
+
+    var t = TEXTES_LANGUE[autre];
+    var bandeau = document.createElement("aside");
+    bandeau.className = "bandeau-langue";
+    bandeau.lang = autre;
+    bandeau.innerHTML =
+      '<div class="container bandeau-langue__inner">' +
+        '<a class="bandeau-langue__lien" hreflang="' + autre + '" lang="' + autre + '" href="' +
+          jumelle.href + '">' + t.lien + " →</a>" +
+        '<button class="bandeau-langue__fermer" type="button" aria-label="' + t.fermer + '">×</button>' +
+      "</div>";
+    // Avant l'en-tête, qui est collant : le bandeau défile donc avec la page
+    // et cesse de manger de la hauteur dès qu'il a été lu.
+    document.body.insertBefore(bandeau, document.body.firstChild);
+
+    bandeau.querySelector(".bandeau-langue__lien").addEventListener("click", function () {
+      retenirLangue(autre);
+    });
+    bandeau.querySelector(".bandeau-langue__fermer").addEventListener("click", function () {
+      retenirLangue(ici);   // fermer, c'est choisir de rester
+      bandeau.parentNode.removeChild(bandeau);
+    });
+  }
+
+  bandeauLangue();
+
+  // La bascule FR/EN de l'en-tête est un choix explicite au même titre que le
+  // bandeau : elle doit donc l'éteindre pour de bon, sinon on proposerait à
+  // l'arrivée exactement ce que le visiteur vient de quitter.
+  Array.prototype.forEach.call(
+    document.querySelectorAll(".lang-switch a[hreflang]"),
+    function (a) {
+      a.addEventListener("click", function () {
+        retenirLangue(a.getAttribute("hreflang"));
+      });
+    }
+  );
+
   /* ---- Année dynamique dans le footer ---- */
   var yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();

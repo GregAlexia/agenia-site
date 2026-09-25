@@ -101,6 +101,33 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.12; margin: 0; le
 .btn--icone::after { content: none; }
 .btn--icone svg { width: 21px; height: 21px; fill: currentColor; display: block; }
 
+/* ---------- Bandeau de langue ----------
+   Inséré par script.js en tête de <body>, donc AVANT l'en-tête collant : il
+   défile avec la page et cesse de prendre de la hauteur dès qu'il a été lu.
+   Posé après l'en-tête, il aurait fallu décaler le `top` du collant et la
+   `scroll-margin-top` des ancres, deux réglages qui se seraient désaccordés
+   au premier changement de hauteur. */
+.bandeau-langue {
+  background: var(--ink); color: var(--ink-text);
+  font-family: var(--font-ui); font-size: .93rem;
+}
+.bandeau-langue__inner {
+  display: flex; align-items: center; gap: 12px; padding: 6px 0;
+}
+.bandeau-langue__lien {
+  flex: 1 1 auto; color: inherit; font-weight: 600;
+  text-decoration: underline; text-underline-offset: 3px;
+  /* 44 px de haut au doigt sur une ligne, sans gonfler le bandeau : le
+     remplissage est absorbé par la marge négative. */
+  padding: 11px 0; margin: -5px 0;
+}
+.bandeau-langue__fermer {
+  background: none; border: 0; color: inherit; cursor: pointer;
+  font-size: 1.3rem; line-height: 1; padding: 0;
+  min-width: 44px; min-height: 44px; flex: 0 0 auto;
+}
+.bandeau-langue__fermer:hover { opacity: .7; }
+
 /* ---------- Header ---------- */
 .site-header {
   position: sticky; top: 0; z-index: 50;

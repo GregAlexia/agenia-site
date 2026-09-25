@@ -299,6 +299,40 @@ pas s'appeler presque pareil sans faire hésiter.
 langue**, soit huit occurrences. Le changer demande de les reprendre toutes ;
 `grep -c wa.me` en compte 3 par page plus 2 par carte.
 
+## Le bandeau de langue
+
+Un visiteur qui ne semble pas lire la langue de la page voit apparaître, en
+tête, une barre noire d'une ligne&nbsp;: *« This page is also available in
+English → »*, ou l'inverse sur la version anglaise. Il clique, ou il ferme.
+
+**Ce n'est pas une redirection, et c'est délibéré.** Une redirection
+automatique aurait envoyé Googlebot — qui explore ce site en majorité depuis
+les États-Unis — de l'accueil français vers l'anglais, au détriment des pages
+françaises qui portent le référencement local. Un bandeau n'a aucun effet sur
+l'exploration, et laisse au visiteur un bouton « non » qu'une redirection ne
+laisse jamais.
+
+| Ce qui décide | Dans quel ordre |
+|---|---|
+| Langue déclarée par le navigateur | en premier : c'est ce que le visiteur **lit** |
+| Fuseau horaire | ensuite seulement : c'est le **lieu** |
+| Rien de concluant | français, par défaut |
+
+Un Français en déplacement à New York reste donc en français ; un anglophone
+vivant à Paris aussi, la zone étant francophone. C'est le sens choisi&nbsp;: en
+cas de doute, ne rien changer.
+
+**La page jumelle n'est jamais devinée** : elle est lue dans le
+`<link rel="alternate" hreflang>` que chaque page porte déjà et dont l'audit
+vérifie la réciprocité. Une page sans jumelle ne propose donc rien.
+
+**Le choix est retenu** dans le navigateur (`localStorage`, clé
+`agenia_langue`) — qu'il vienne du bandeau, de sa croix ou de la bascule FR/EN
+de l'en-tête. Le bandeau ne revient alors plus jamais. Ce n'est pas un cookie et
+rien ne sort de l'appareil, mais **les deux pages de confidentialité le
+mentionnent** : ce qui est stocké se déclare, même quand le consentement n'est
+pas requis.
+
 ## Formulaires (Web3Forms)
 
 Les formulaires envoient par email via [Web3Forms](https://web3forms.com)
