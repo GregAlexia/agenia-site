@@ -360,9 +360,9 @@ Profile, le dépôt GitHub à passer en privé — est dans
 
 ## Espace interne (`documentation/`)
 
-Cinq pages, un seul module d'accès (`acces.js`) : le guide, le playbook de
-prospection, les statistiques, l'audit et le plan de référencement. **Un onglet
-ajouté doit l'être dans les cinq** — c'est le même piège que l'en-tête des pages
+Six pages, un seul module d'accès (`acces.js`) : le guide, le playbook de
+prospection, les statistiques, l'audit, le plan de référencement et la veille
+WhatsApp × IA. **Un onglet ajouté doit l'être dans les six** — c'est le même piège que l'en-tête des pages
 publiques, en plus petit.
 
 ⚠️ **Le contenu d'un onglet va en base, jamais dans la page.** Le dépôt est

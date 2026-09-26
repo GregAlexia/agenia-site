@@ -137,3 +137,7 @@ padding:7px 13px;font-size:13px;cursor:pointer}
 .outils .compte{font-size:13px;color:var(--mu)}
 table.donnees th.coche,table.donnees td.coche{width:34px;padding-right:0}
 table.donnees input[type=checkbox]{width:16px;height:16px;cursor:pointer;accent-color:var(--ac)}
+
+/* La veille WhatsApp × IA tient dans un tableau large : on lui laisse la
+   place plutôt que de le faire défiler dans 960 px. */
+.conteneur--large{max-width:1240px}

@@ -60,7 +60,8 @@ les deux versions offrent la même chose, PDF des guides compris
 | `documentation/statistiques.html` | Audience du site, prospects collectés, export tableur et suppression |
 | `documentation/audit.html` | Audit technique et fonctionnel, **exécuté à chaque ouverture** |
 | `documentation/referencement.html` | Le plan de référencement : pourquoi chaque action, et comment la faire |
-| `documentation/acces.js` | Connexion, réinitialisation et décompression, **partagé par les cinq pages** |
+| `documentation/whatsapp-ia.html` | Veille des offres Upwork « WhatsApp × IA » : besoins clients, étapes du process, offres où un PoC est facile |
+| `documentation/acces.js` | Connexion, réinitialisation et décompression, **partagé par les six pages** |
 | `documentation/style.css` | Feuille propre à l'espace interne |
 
 **Communs** :
@@ -513,7 +514,7 @@ chiffrer, à recompiler ni à redéployer : la page lit la base à chaque ouvert
 Y écrire du HTML en clair fonctionne aussi — c'est le sens de la détection
 ci-dessus.
 
-Trois clés aujourd'hui : `guide`, `prospection`, `referencement`. La colonne
+Quatre clés aujourd'hui : `guide`, `prospection`, `referencement`, `whatsapp-ia`. Le document `whatsapp-ia` embarque ses données dans un `<script type="application/json">` que `whatsapp-ia.js` lit après injection : innerHTML ne l'exécute pas, mais son texte reste lisible. La colonne
 `titre` est **obligatoire**.
 
 ⚠️ **Le contenu ne doit jamais être écrit dans le fichier `.html` de la page.**
