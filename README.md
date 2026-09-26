@@ -343,6 +343,20 @@ C'est aussi pourquoi elle sert de mailer à `documentation_demander_code()` côt
 Postgres : un code de réinitialisation ne peut structurellement pas partir
 ailleurs.
 
+## Newsletter
+
+Le pied de page de l'accueil (les deux langues) porte un cinquième formulaire :
+une adresse email, une case de consentement **non pré-cochée**, envoyés par
+Web3Forms comme les quatre autres **et** écrits directement dans
+`newsletter_abonnements`. Cette table n'est **pas** `site_agenia_prospects` :
+elle est **partagée avec Margéo** (dépôt `margeresto-ia`), dont le pied de page
+y écrit aussi — par un chemin différent (rôle privilégié de sa webapp, pas la
+clé publique de ce dépôt). La colonne `source` distingue les deux
+(`site-agenia` ici, `pied-de-page` côté Margéo) ; une policy d'insertion
+n'admet la clé publique qu'avec la première valeur. Détail complet — durées,
+base légale, les deux mécanismes d'écriture — dans `RGPD-REGISTRE.md` (dépôt
+`margeresto-ia`), finalité A8.
+
 ## Mesure d'audience et prospects
 
 `script.js` écrit **directement dans Supabase** : une ligne par page vue

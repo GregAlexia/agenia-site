@@ -424,7 +424,7 @@ bisecter par `md5(substr(...))` en cas d'écart plutôt que de tout renvoyer.
 | Clé | Pourquoi elle peut être publique |
 |---|---|
 | Web3Forms | Le service ne délivre qu'à l'adresse propriétaire de la clé. La copier ne permet que de vous écrire |
-| Supabase `sb_publishable_…` | Les policies n'autorisent que l'insertion dans deux tables. Elle ne lit rien |
+| Supabase `sb_publishable_…` | Les policies n'autorisent que l'insertion dans trois tables (`site_agenia_vues`, `site_agenia_prospects`, `newsletter_abonnements`). Elle ne lit rien |
 
 Toute autre clé — service role, jeton d'API, chaîne de connexion — n'a rien à
 faire ici. Et ce qui coûte de l'argent ou envoie un email se vérifie **avant**

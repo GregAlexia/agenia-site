@@ -22,6 +22,7 @@
         echec: "Sorry, sending failed. Try again or write to contact@agenia.pro.",
         reseau: "Connection problem. Try again or write to contact@agenia.pro.",
         demo: "Product demo",
+        newsletterMerci: "Noted ✓ — unsubscribe at any time by emailing contact@agenia.pro.",
       }
     : {
         envoi: "Envoi en cours…",
@@ -30,6 +31,7 @@
         echec: "Oups, l'envoi a échoué. Réessayez ou écrivez-nous à contact@agenia.pro.",
         reseau: "Problème de connexion. Réessayez ou écrivez-nous à contact@agenia.pro.",
         demo: "Démo vidéo",
+        newsletterMerci: "C'est noté ✓ — désabonnement à tout moment par email à contact@agenia.pro.",
       };
   window.AgeniaLangue = { en: EN, t: T };
 
@@ -108,6 +110,18 @@
         ressource: data.get("ressource") || "",
         message: data.get("message") || "",
         page: location.pathname,
+      });
+    },
+    // Table distincte de site_agenia_prospects : un abonnement newsletter
+    // n'est ni une demande de rappel ni un téléchargement, et la fusionner
+    // aurait mélangé deux intentions dans les mêmes statistiques. Même table
+    // que le pied de page de margeo.agenia.pro (dépôt margeresto-ia) — la
+    // policy d'insertion n'y accepte que source = 'site-agenia' depuis ici.
+    newsletter: function (email) {
+      poster("newsletter_abonnements", {
+        email: email,
+        langue: EN ? "en" : "fr",
+        source: "site-agenia",
       });
     },
   };
@@ -385,6 +399,77 @@
           if (submitBtn) {
             submitBtn.disabled = false;
             submitBtn.textContent = original;
+          }
+        });
+    });
+  }
+
+  /* ---- Newsletter (pied de page, envoi AJAX vers Web3Forms) ----
+     Présente sur l'accueil des deux langues seulement (index.html,
+     en/index.html) : c'est le seul pied de page à porter la grille de
+     navigation à trois colonnes — les vingt-deux autres pages n'ont qu'un
+     pied minimal (copyright + réseaux sociaux), et y ajouter le formulaire
+     l'aurait fait naître hors de tout contexte de marque. */
+  var newsletterForm = document.getElementById("newsletterForm");
+  var newsletterNote = document.getElementById("newsletterNote");
+  if (newsletterForm) {
+    var nlSubmitBtn = newsletterForm.querySelector('button[type="submit"]');
+    var setNlNote = function (msg, ok) {
+      if (!newsletterNote) return;
+      newsletterNote.textContent = msg;
+      newsletterNote.style.color = ok === false ? "#ff8a8a" : "var(--accent-3)";
+    };
+
+    newsletterForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      if (!newsletterForm.checkValidity()) {
+        newsletterForm.reportValidity();
+        return;
+      }
+
+      var key = newsletterForm.querySelector('input[name="access_key"]');
+      if (key && /REMPLACER/.test(key.value)) {
+        setNlNote(T.cleManquante, false);
+        return;
+      }
+
+      var nlOriginal = nlSubmitBtn ? nlSubmitBtn.textContent : "";
+      if (nlSubmitBtn) {
+        nlSubmitBtn.disabled = true;
+        nlSubmitBtn.textContent = T.envoi;
+      }
+      setNlNote("");
+
+      var nlData = new FormData(newsletterForm);
+      var nlEmail = nlData.get("email");
+
+      fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: nlData,
+      })
+        .then(function (res) {
+          return res.json().then(function (json) {
+            return { ok: res.ok, json: json };
+          });
+        })
+        .then(function (r) {
+          if (r.ok && r.json.success) {
+            window.AgeniaTrack.newsletter(nlEmail);
+            newsletterForm.reset();
+            setNlNote(T.newsletterMerci, true);
+          } else {
+            setNlNote(T.echec, false);
+          }
+        })
+        .catch(function () {
+          setNlNote(T.reseau, false);
+        })
+        .finally(function () {
+          if (nlSubmitBtn) {
+            nlSubmitBtn.disabled = false;
+            nlSubmitBtn.textContent = nlOriginal;
           }
         });
     });

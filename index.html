@@ -927,6 +927,27 @@
                alt="Agenia" />
         </a>
         <p>L'intelligence artificielle sur mesure, au service de la performance des PME et ETI.</p>
+
+        <form class="footer__newsletter" id="newsletterForm" action="https://api.web3forms.com/submit" method="POST" novalidate>
+          <input type="hidden" name="access_key" value="659aaa00-f8c4-45f0-a1b7-7f5e5937b082" />
+          <input type="hidden" name="subject" value="Nouvel abonnement newsletter — agenia.pro" />
+          <input type="hidden" name="from_name" value="Site Agenia" />
+          <!-- Anti-spam (honeypot) : masqué aux humains, piège les robots -->
+          <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" />
+
+          <p class="footer__newsletter-label">Newsletter — un email quand Agenia change vraiment.</p>
+          <div class="footer__newsletter-row">
+            <label for="newsletterEmail" class="sr-only">Votre adresse email</label>
+            <input id="newsletterEmail" name="email" type="email" required autocomplete="email" placeholder="votre@email.fr" />
+            <button class="btn btn--primary" type="submit">S'abonner</button>
+          </div>
+          <label class="res-gate__consent">
+            <input type="checkbox" id="newsletterConsent" required />
+            <span>J'accepte de recevoir les actualités d'AgenIA par email — voir la
+              <a href="mentions-legales.html#confidentialite">politique de confidentialité</a>.</span>
+          </label>
+          <p class="form__note" id="newsletterNote" role="status" aria-live="polite"></p>
+        </form>
       </div>
       <nav class="footer__nav" aria-label="Pied de page">
         <!-- Ces liens ne sont pas décoratifs : ce sont les seuls liens internes
