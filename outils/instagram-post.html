@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<!-- Gabarit des visuels Instagram, 1080 × 1080 — un seul fichier pour les
+     quatre types de carte d'un carrousel (hook, point, regard AgenIA, CTA),
+     pas un fichier par type : le dessin ne doit exister qu'une fois, comme
+     pour og-image.html, sinon les types divergent au premier changement de
+     charte et personne ne le voit — aucun contrôle ne lit une image.
+
+     Contenu piloté par la chaîne de requête, une carte à la fois :
+       ?type=hook&tag=…&titre=…&corps=…&foot=Suite+→
+       ?type=point&tag=01+·+Le+symptôme&num=1+/+5&titre=…&corps=…
+       ?type=quote&tag=Le+regard+d'AgenIA&titre=…&corps=…
+       ?type=cta&titre=…&corps=…&foot=www.agenia.pro
+
+     Sans JavaScript, le gabarit montre encore quelque chose de juste (le
+     premier hook validé du carrousel « Prospection mal cadrée ») — même
+     principe que og-image.html.
+
+     Pour générer les images d'un carrousel : voir outils/faire-instagram.cjs.
+     ============================================================ -->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<style>
+  /* Mêmes fontes et mêmes teintes que le reste du site (og-image.html) : un
+     visuel Instagram doit être reconnaissable comme un visuel AgenIA au
+     premier coup d'œil, pas comme un gabarit générique rempli au dernier
+     moment. */
+  @font-face { font-family:"Archivo"; font-style:normal; font-weight:600;
+    src:url("../assets/fonts/archivo-latin-600-normal.woff2") format("woff2"); }
+  @font-face { font-family:"Archivo"; font-style:normal; font-weight:700;
+    src:url("../assets/fonts/archivo-latin-700-normal.woff2") format("woff2"); }
+  @font-face { font-family:"Source Serif 4"; font-style:normal; font-weight:400;
+    src:url("../assets/fonts/source-serif-4-latin-400-normal.woff2") format("woff2"); }
+  @font-face { font-family:"Source Serif 4"; font-style:italic; font-weight:600;
+    src:url("../assets/fonts/source-serif-4-latin-400-italic.woff2") format("woff2"); }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{width:1080px;height:1080px;background:#f0efe8;color:#171613;
+       font-family:"Source Serif 4",Georgia,serif;overflow:hidden}
+  .cadre{height:100%;padding:64px;display:flex;flex-direction:column}
+
+  .entete{display:flex;align-items:center;justify-content:space-between}
+  .tag{font-family:"Archivo",sans-serif;font-weight:600;font-size:20px;
+       letter-spacing:.12em;text-transform:uppercase;color:#57534a;
+       display:flex;align-items:center;gap:12px}
+  .tag::before{content:"";width:11px;height:11px;border-radius:50%;
+       background:linear-gradient(135deg,#6d8bff,#b06bff)}
+  .num{font-family:"Archivo",sans-serif;font-weight:600;font-size:18px;
+       letter-spacing:.06em;color:#57534a}
+
+  h1{font-family:"Archivo",sans-serif;font-weight:700;font-size:64px;
+     line-height:1.14;letter-spacing:-.02em;margin-top:32px}
+
+  .quote{font-style:italic;font-weight:600;font-size:58px;line-height:1.24;
+       margin-top:32px}
+
+  .corps{font-size:32px;line-height:1.55;color:#57534a;margin-top:28px;
+       max-width:900px}
+
+  .pied{margin-top:auto;padding-top:28px;border-top:1px solid #d3ccbc;
+       display:flex;justify-content:space-between;align-items:center}
+  .marque{display:flex;align-items:center;gap:14px}
+  .marque img{width:52px;height:52px;border-radius:11px}
+  .marque span{font-family:"Archivo",sans-serif;font-weight:700;font-size:22px;
+       letter-spacing:.06em}
+  .foot-droite{font-family:"Archivo",sans-serif;font-size:22px;color:#57534a;
+       letter-spacing:.02em}
+</style>
+</head>
+<body>
+  <div class="cadre">
+    <div class="entete">
+      <p class="tag" id="tag">Automatisation &amp; process</p>
+      <span class="num" id="num" hidden></span>
+    </div>
+
+    <h1 id="titre">Plus de volume. Même taux de réponse. 0 surprise.</h1>
+    <p class="quote" id="quote" hidden></p>
+
+    <p class="corps" id="corps">Un message mal ciblé automatisé reste mal ciblé — il part juste plus vite.</p>
+
+    <div class="pied">
+      <div class="marque">
+        <img src="../assets/logo_agenia-hd.png" alt="">
+        <span>AGENIA</span>
+      </div>
+      <span class="foot-droite" id="foot">Suite →</span>
+    </div>
+  </div>
+
+<script>
+  /* Aucun paramètre du tout : le gabarit garde son contenu par défaut, écrit
+     en dur ci-dessus — même principe que og-image.html. Dès qu'un `type` est
+     fourni (c'est le cas à chaque appel de faire-instagram.cjs), chaque champ
+     se recalcule entièrement à partir de la requête : un champ absent se vide
+     et se masque, plutôt que de garder une valeur par défaut qui ne
+     correspond à aucun des quatre types (« Suite → » n'a de sens que sur le
+     hook, pas sur un point ou le CTA). */
+  (function () {
+    var q = new URLSearchParams(location.search);
+    var type = q.get("type"); // hook | point | quote | cta
+    if (type === null) return;
+
+    function champ(nom, id) {
+      var valeur = q.get(nom) || "";
+      var el = document.getElementById(id);
+      el.textContent = valeur;
+      el.hidden = !valeur;
+    }
+
+    champ("tag", "tag");
+    champ("num", "num");
+    champ("corps", "corps");
+    champ("foot", "foot");
+
+    if (type === "quote") {
+      document.getElementById("titre").hidden = true;
+      champ("titre", "quote");
+    } else {
+      champ("titre", "titre");
+    }
+  })();
+</script>
+</body>
+</html>
