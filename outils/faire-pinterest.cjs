@@ -39,13 +39,14 @@ const BASE = process.env.BASE_URL || 'http://localhost:8420';
 
 const SLUG = 'automatiser-prospection-mal-cadree';
 
-// Épingle validée le 28/09/2026 pour cet article — voir reseauteo,
+// Épingle mise à jour le 28/09/2026 : reprend le hook « Mythe vs Réalité »
+// du carrousel Instagram (même scène de mascotte) — voir reseauteo,
 // .claude/skills/agenia-contenu/reference/mascotte.md pour le processus de
 // validation de la mascotte à suivre pour la prochaine épingle.
 const PIN = {
   tag: 'Automatisation & process',
   // Même hook que la carte 1 (type: 'hook') de CARTES dans faire-instagram.cjs.
-  titre: 'Plus de volume. Même taux de réponse. 0 surprise.',
+  titre: '3 mythes sur la prospection automatisée.',
   points: [
     '0 corrélation entre volume envoyé et taux de réponse, si le ciblage est mauvais.',
     "1 lead noté doit être routé en minutes, pas dormir dans une file d'attente.",
@@ -54,7 +55,7 @@ const PIN = {
   ].join('|'),
   cta: "Lire l'article complet",
   illustration: 'mascotte/hausse-epaules.png',
-  props: 'email:Emails envoyés,telephone:Appels passés,bulle:Le patron demande,resultat:0 RDV obtenu',
+  props: "email:Plus d'emails,bulle:Lead noté,telephone:Plus de relances,resultat:0 RDV obtenu",
 };
 
 (async () => {

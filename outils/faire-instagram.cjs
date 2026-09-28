@@ -13,6 +13,15 @@
    paramètre de outils/instagram-post.html ; voir son en-tête pour le détail
    des types (hook / point / quote / cta).
 
+   Format « Mythe vs Réalité » depuis le 28/09/2026 : une veille des formats
+   qui font le plus swiper en carrousel B2B/tech a fait ressortir ce format
+   au-dessus du carrousel « À savoir » point par point utilisé jusque-là — la
+   promesse chiffrée du hook (« 3 mythes ») annonce exactement le nombre de
+   cartes mythe/réalité qui suivent, voir reseauteo docs/DASHBOARD-CONTENU.md
+   pour l'analyse complète. Le hook de cet article reste la même phrase que
+   celle reprise par outils/pinterest-post.html — un seul hook validé pour
+   les deux formats.
+
    Il faut Playwright et un Chromium.
 
    ⚠️ **Ne pas installer Playwright dans le dépôt.** Le dépôt est publié en
@@ -34,26 +43,25 @@ const SLUG = 'automatiser-prospection-mal-cadree';
 const DOSSIER = `assets/instagram/${SLUG}`;
 
 const CARTES = [
-  // Scène validée le 28/09/2026 — voir reseauteo,
-  // .claude/skills/agenia-contenu/reference/mascotte.md pour le script et le
-  // processus de validation à suivre pour le prochain carrousel.
-  { type: 'hook', tag: 'Automatisation & process',
-    titre: 'Plus de volume. Même taux de réponse. 0 surprise.',
+  // Scène validée le 28/09/2026 — pose "hausse les épaules" réutilisée pour
+  // le doute plutôt que l'échec (voir reseauteo,
+  // .claude/skills/agenia-contenu/reference/mascotte.md, section « pose
+  // neutre réutilisable »), avec des badges propres à ce hook plutôt qu'un
+  // recadrage de pose supplémentaire.
+  { type: 'hook', tag: '3 mythes qui coûtent cher',
+    titre: '3 mythes sur la prospection automatisée.',
     illustration: 'mascotte/hausse-epaules.png',
-    props: 'email:Emails envoyés,telephone:Appels passés,bulle:Le patron demande,resultat:0 RDV obtenu' },
-  { type: 'point', tag: '01 · Le symptôme', num: '1 / 5',
-    titre: 'Vous envoyez 2 fois plus. Ça ne change rien.',
-    corps: "C'est le signe d'un ciblage mal cadré — pas d'un outil mal réglé. Envoyer davantage à la mauvaise cible ne fait qu'agrandir la même erreur." },
-  { type: 'point', tag: '02 · Les signaux', num: '2 / 5',
-    titre: '« On regarde et on revient vers vous. »',
-    corps: "Une question sur le prix ou le délai mérite une relance dans l'heure. Un accusé de réception poli peut patienter dans une séquence standard." },
-  { type: 'point', tag: '03 · La vitesse', num: '3 / 5',
-    titre: 'Un lead noté et oublié. C’est un lead perdu.',
-    corps: "Traité dans la minute, il convertit. Oublié dans une file d'attente, le scoring n'a servi à rien." },
-  { type: 'point', tag: '04 · Les limites', num: '4 / 5',
-    titre: '50 emails par jour. Un domaine grillé pour un mois.',
-    corps: "Au-delà de 20 à 50 emails par jour et 4 à 5 relances, le taux de plaintes grimpe — et il faut ensuite des semaines pour reconstruire la réputation d'envoi." },
-  { type: 'quote', tag: "Le regard d'AgenIA", num: '5 / 5',
+    props: "email:Plus d'emails,bulle:Lead noté,telephone:Plus de relances,resultat:0 RDV obtenu" },
+  { type: 'point', tag: 'Mythe', num: '1 / 3',
+    titre: 'Plus vous envoyez, plus on vous répond.',
+    corps: "Réalité : sans ciblage, le volume n'aide pas. Il agrandit la même erreur, plus vite." },
+  { type: 'point', tag: 'Mythe', num: '2 / 3',
+    titre: 'Un lead noté est un lead traité.',
+    corps: "Réalité : oublié dans une file d'attente, le scoring n'a servi à rien. Il faut un routage en minutes." },
+  { type: 'point', tag: 'Mythe', num: '3 / 3',
+    titre: 'Plus de relances, plus de chances.',
+    corps: 'Réalité : au-delà de 4 à 5 relances, le taux de plaintes grimpe. Un domaine grillé ne se répare pas vite.' },
+  { type: 'quote', tag: "Le regard d'AgenIA",
     titre: 'Un cadrage non fait aujourd’hui. 3 semaines perdues demain.',
     corps: 'Poser la définition du client visé prend 1 heure. Ne pas le faire coûte.' },
   { type: 'cta', tag: 'À lire en entier',
