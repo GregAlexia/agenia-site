@@ -8,23 +8,21 @@
      node outils/faire-instagram.cjs
 
    La liste CARTES ci-dessous est celle du carrousel validé pour l'article
-   « Automatiser une prospection mal cadrée l'aggrave » — à remplacer par les
-   cartes du prochain article avant de relancer. Chaque carte correspond à un
-   paramètre de outils/instagram-post.html ; voir son en-tête pour le détail
-   des types (hook / point / quote / cta).
+   « Buffer suffit-il à publier sur Instagram sans Meta ? » — à remplacer par
+   les cartes du prochain article avant de relancer. Chaque carte correspond
+   à un paramètre de outils/instagram-post.html ; voir son en-tête pour le
+   détail des types (hook / point / quote / cta).
 
    ⚠️ Changer aussi SLUG ci-dessous pour le nouvel article, pas seulement
    CARTES : DOSSIER en dépend, et l'oublier écrit les nouvelles images
    par-dessus celles de l'article précédent au lieu d'un nouveau dossier.
 
-   Format « Mythe vs Réalité » depuis le 28/09/2026 : une veille des formats
-   qui font le plus swiper en carrousel B2B/tech a fait ressortir ce format
-   au-dessus du carrousel « À savoir » point par point utilisé jusque-là — la
-   promesse chiffrée du hook (« 3 mythes ») annonce exactement le nombre de
-   cartes mythe/réalité qui suivent, voir reseauteo docs/DASHBOARD-CONTENU.md
-   pour l'analyse complète. Le hook de cet article reste la même phrase que
-   celle reprise par outils/pinterest-post.html — un seul hook validé pour
-   les deux formats.
+   Format « Accroche contrariante + preuve » (reseauteo,
+   .claude/skills/agenia-contenu/reference/formats-viraux.md, formule 2) —
+   changé depuis « Mythe vs Réalité » du premier article, pour varier la
+   structure d'un article à l'autre plutôt que la reproduire par réflexe.
+   Le hook de cet article reste la même phrase que celle reprise par
+   outils/faire-pinterest.cjs — un seul hook validé pour les deux formats.
 
    Il faut Playwright et un Chromium.
 
@@ -43,33 +41,32 @@ const fs = require('fs');
 const CHROMIUM = process.env.CHROMIUM_PATH || undefined;
 const BASE = process.env.BASE_URL || 'http://localhost:8420';
 
-const SLUG = 'automatiser-prospection-mal-cadree';
+const SLUG = 'buffer-publier-instagram-sans-meta';
 const DOSSIER = `assets/instagram/${SLUG}`;
 
 const CARTES = [
-  // Personnage remplacé le 28/09/2026 : la mascotte AgenIA est désormais un
-  // personnage illustré (plus le robot des premières cartes), recadré depuis
-  // la planche fournie par le propriétaire — voir reseauteo,
-  // .claude/skills/agenia-contenu/reference/mascotte.md. Pose « réflexion »
-  // (main au menton), qui porte le doute du hook mieux que la précédente.
-  { type: 'hook', tag: '3 mythes qui coûtent cher',
-    titre: '3 mythes sur la prospection automatisée.',
+  // Scène validée le 28/09/2026 — même pose « réflexion » que le premier
+  // article (voir reseauteo, .claude/skills/agenia-contenu/reference/
+  // mascotte.md) : le doute qu'elle porte colle à un choix qu'on pèse
+  // (Buffer ou construire soi-même), pas seulement à un échec.
+  { type: 'hook', tag: 'Buffer ou DIY ?',
+    titre: 'Payer Buffer. Ou construire sa propre revue Meta.',
     illustration: 'mascotte/reflexion.png',
-    props: "email:Plus d'emails,bulle:Lead noté,telephone:Plus de relances,resultat:0 RDV obtenu" },
-  { type: 'point', tag: 'Mythe', num: '1 / 3',
-    titre: 'Plus vous envoyez, plus on vous répond.',
-    corps: "Réalité : sans ciblage, le volume n'aide pas. Il agrandit la même erreur, plus vite." },
-  { type: 'point', tag: 'Mythe', num: '2 / 3',
-    titre: 'Un lead noté est un lead traité.',
-    corps: "Réalité : oublié dans une file d'attente, le scoring n'a servi à rien. Il faut un routage en minutes." },
-  { type: 'point', tag: 'Mythe', num: '3 / 3',
-    titre: 'Plus de relances, plus de chances.',
-    corps: 'Réalité : au-delà de 4 à 5 relances, le taux de plaintes grimpe. Un domaine grillé ne se répare pas vite.' },
+    props: "bulle:Revue Meta,telephone:Jetons à renouveler,email:Connexion Buffer,resultat:On garde Buffer" },
+  { type: 'point', tag: 'Coût caché', num: '1 / 3',
+    titre: 'La revue Meta se compte en semaines.',
+    corps: "Chaque permission se demande séparément, avec sa propre démonstration filmée. Buffer l'a déjà fait à votre place." },
+  { type: 'point', tag: 'Coût caché', num: '2 / 3',
+    titre: 'Le plan gratuit couvre 3 canaux.',
+    corps: '10 publications programmées à l’avance — largement assez pour un rythme hebdomadaire.' },
+  { type: 'point', tag: 'Coût caché', num: '3 / 3',
+    titre: 'Construire sa propre intégration a un coût continu.',
+    corps: 'Jetons à renouveler tous les 60 jours, contrôle annuel obligatoire, statut Tech Provider à maintenir.' },
   { type: 'quote', tag: "Le regard d'AgenIA",
-    titre: 'Un cadrage non fait aujourd’hui. 3 semaines perdues demain.',
-    corps: 'Poser la définition du client visé prend 1 heure. Ne pas le faire coûte.' },
+    titre: "On l'a chiffré avant de choisir, pas après.",
+    corps: "Buffer n'est pas un choix par défaut. C'est un calcul qu'on referait à chaque palier de croissance." },
   { type: 'cta', tag: 'À lire en entier',
-    titre: 'Un call de 30 minutes. Ou des semaines de relances dans le vide.',
+    titre: '30 minutes pour savoir si Buffer suffit à votre volume.',
     corps: "L'article complet, sources incluses → lien en bio." },
 ];
 

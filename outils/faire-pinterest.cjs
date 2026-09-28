@@ -41,26 +41,25 @@ const fs = require('fs');
 const CHROMIUM = process.env.CHROMIUM_PATH || undefined;
 const BASE = process.env.BASE_URL || 'http://localhost:8420';
 
-const SLUG = 'automatiser-prospection-mal-cadree';
+const SLUG = 'buffer-publier-instagram-sans-meta';
 
-// Épingle mise à jour le 28/09/2026 : reprend le hook « Mythe vs Réalité »
+// Épingle validée le 28/09/2026 : reprend le hook « Accroche contrariante »
 // du carrousel Instagram (même scène de mascotte) — voir reseauteo,
 // .claude/skills/agenia-contenu/reference/mascotte.md pour le processus de
 // validation de la mascotte à suivre pour la prochaine épingle.
 const PIN = {
-  tag: 'Automatisation & process',
+  tag: 'Outils & comparatifs',
   // Même hook que la carte 1 (type: 'hook') de CARTES dans faire-instagram.cjs.
-  titre: '3 mythes sur la prospection automatisée.',
+  titre: 'Payer Buffer. Ou construire sa propre revue Meta.',
   points: [
-    '0 corrélation entre volume envoyé et taux de réponse, si le ciblage est mauvais.',
-    "1 lead noté doit être routé en minutes, pas dormir dans une file d'attente.",
-    '20 à 50 emails par jour, 4 à 5 relances maximum, avant que le taux de plaintes grimpe.',
-    '1 heure pour cadrer le client visé. 3 semaines perdues si on la saute.',
+    '3 canaux et 10 publications programmées sur le plan gratuit de Buffer.',
+    "0 démarche technique pour connecter Instagram — l'écran officiel de Meta suffit.",
+    "60 jours : durée de vie d'un jeton d'accès Meta, à renouveler soi-même en direct.",
+    '100 publications par compte et par 24h, le plafond réel d’Instagram une fois en ligne.',
   ].join('|'),
   cta: "Lire l'article complet",
-  // Personnage remplacé le 28/09/2026, voir faire-instagram.cjs.
   illustration: 'mascotte/reflexion.png',
-  props: "email:Plus d'emails,bulle:Lead noté,telephone:Plus de relances,resultat:0 RDV obtenu",
+  props: "bulle:Revue Meta,telephone:Jetons à renouveler,email:Connexion Buffer,resultat:On garde Buffer",
 };
 
 (async () => {
