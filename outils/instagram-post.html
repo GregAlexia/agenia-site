@@ -11,6 +11,14 @@
        ?type=quote&tag=Le+regard+d'AgenIA&titre=…&corps=…
        ?type=cta&titre=…&corps=…&foot=www.agenia.pro
 
+     `illustration` (chemin relatif vers un SVG ou une image, ex.
+     illustrations/prospection-hook.svg) remplace le texte de corps par un
+     visuel — pensé pour le hook : une image humoristique sur le thème de
+     l'article accroche mieux qu'une ligne de texte de plus. Une par
+     carrousel suffit ; en fabriquer une nouvelle pour chaque sujet plutôt
+     que de réutiliser celle d'un autre article (voir hooks.md, formule 9 :
+     montrer plutôt qu'expliquer s'applique aussi à l'image).
+
      Sans JavaScript, le gabarit montre encore quelque chose de juste (le
      premier hook validé du carrousel « Prospection mal cadrée ») — même
      principe que og-image.html.
@@ -54,10 +62,15 @@
   .quote{font-style:italic;font-weight:600;font-size:58px;line-height:1.24;
        margin-top:32px}
 
-  .corps{font-size:32px;line-height:1.55;color:#57534a;margin-top:28px;
-       max-width:900px}
+  /* Le milieu remplit tout ce qui reste entre le titre et le pied — jamais
+     un bloc de texte collé sous le titre avec un grand vide avant le pied.
+     Un seul enfant visible à la fois (texte ou illustration), centré dans
+     l'espace disponible plutôt qu'aligné en haut. */
+  .milieu{flex:1;display:flex;align-items:center;margin-top:28px;min-height:0}
+  .corps{font-size:32px;line-height:1.55;color:#57534a;max-width:900px}
+  .illustration{max-width:100%;max-height:100%;margin:0 auto;display:block}
 
-  .pied{margin-top:auto;padding-top:28px;border-top:1px solid #d3ccbc;
+  .pied{padding-top:28px;border-top:1px solid #d3ccbc;
        display:flex;justify-content:space-between;align-items:center}
   .marque{display:flex;align-items:center;gap:14px}
   .marque img{width:52px;height:52px;border-radius:11px}
@@ -77,7 +90,10 @@
     <h1 id="titre">Plus de volume. Même taux de réponse. 0 surprise.</h1>
     <p class="quote" id="quote" hidden></p>
 
-    <p class="corps" id="corps">Un message mal ciblé automatisé reste mal ciblé — il part juste plus vite.</p>
+    <div class="milieu">
+      <p class="corps" id="corps">Un message mal ciblé automatisé reste mal ciblé — il part juste plus vite.</p>
+      <img class="illustration" id="illustration" alt="" hidden>
+    </div>
 
     <div class="pied">
       <div class="marque">
@@ -110,7 +126,6 @@
 
     champ("tag", "tag");
     champ("num", "num");
-    champ("corps", "corps");
     champ("foot", "foot");
 
     if (type === "quote") {
@@ -118,6 +133,19 @@
       champ("titre", "quote");
     } else {
       champ("titre", "titre");
+    }
+
+    // Une illustration remplace le corps de texte, elle ne coexiste pas
+    // avec lui : le milieu montre l'un ou l'autre, jamais les deux.
+    var illustration = q.get("illustration");
+    if (illustration) {
+      var img = document.getElementById("illustration");
+      img.src = illustration;
+      img.alt = q.get("corps") || q.get("titre") || "";
+      img.hidden = false;
+      document.getElementById("corps").hidden = true;
+    } else {
+      champ("corps", "corps");
     }
   })();
 </script>

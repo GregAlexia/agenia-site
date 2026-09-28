@@ -36,7 +36,8 @@ const DOSSIER = `assets/instagram/${SLUG}`;
 const CARTES = [
   { type: 'hook', tag: 'Automatisation & process',
     titre: 'Plus de volume. Même taux de réponse. 0 surprise.',
-    corps: 'Un message mal ciblé automatisé reste mal ciblé — il part juste plus vite.',
+    illustration: 'illustrations/prospection-hook.svg',
+    corps: 'On arrose toute la liste. Le bon prospect reste sec.',
     foot: 'Suite →' },
   { type: 'point', tag: '01 · Le symptôme', num: '1 / 5',
     titre: 'Vous envoyez 2 fois plus. Ça ne change rien.',
