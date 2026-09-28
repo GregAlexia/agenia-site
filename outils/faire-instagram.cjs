@@ -43,14 +43,14 @@ const SLUG = 'automatiser-prospection-mal-cadree';
 const DOSSIER = `assets/instagram/${SLUG}`;
 
 const CARTES = [
-  // Scène validée le 28/09/2026 — pose "hausse les épaules" réutilisée pour
-  // le doute plutôt que l'échec (voir reseauteo,
-  // .claude/skills/agenia-contenu/reference/mascotte.md, section « pose
-  // neutre réutilisable »), avec des badges propres à ce hook plutôt qu'un
-  // recadrage de pose supplémentaire.
+  // Personnage remplacé le 28/09/2026 : la mascotte AgenIA est désormais un
+  // personnage illustré (plus le robot des premières cartes), recadré depuis
+  // la planche fournie par le propriétaire — voir reseauteo,
+  // .claude/skills/agenia-contenu/reference/mascotte.md. Pose « réflexion »
+  // (main au menton), qui porte le doute du hook mieux que la précédente.
   { type: 'hook', tag: '3 mythes qui coûtent cher',
     titre: '3 mythes sur la prospection automatisée.',
-    illustration: 'mascotte/hausse-epaules.png',
+    illustration: 'mascotte/reflexion.png',
     props: "email:Plus d'emails,bulle:Lead noté,telephone:Plus de relances,resultat:0 RDV obtenu" },
   { type: 'point', tag: 'Mythe', num: '1 / 3',
     titre: 'Plus vous envoyez, plus on vous répond.',

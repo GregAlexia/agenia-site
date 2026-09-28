@@ -12,12 +12,12 @@
 
      Contenu piloté par la chaîne de requête, une épingle par article :
        ?tag=Automatisation+%26+process
-       &titre=Plus+de+volume.+Même+taux+de+réponse.+0+surprise.
+       &titre=3+mythes+sur+la+prospection+automatisée.
        &points=0+corrélation…|1+lead…|20+à+50+emails…|1+heure…
        &cta=Lire+l'article+complet
        (optionnel, même convention que instagram-post.html)
-       &illustration=mascotte/hausse-epaules.png
-       &props=email:Emails+envoyés,…
+       &illustration=mascotte/reflexion.png
+       &props=email:Plus+d'emails,…
 
      `points` : jusqu'à quatre reprises séparées par `|`, numérotées
      automatiquement 1 à 4 — les chiffres à retenir de l'article, pas un
@@ -74,11 +74,14 @@
 
   /* La mascotte occupe l'espace qui reste entre la liste et le bandeau
      d'appel à l'action — jamais posée sur les points ni sur le bandeau,
-     même règle que sur instagram-post.html : entière, tête comprise. */
+     même règle que sur instagram-post.html : entière, tête comprise, et
+     même règle de remplissage (28/09/2026) : `flex:1` sur l'illustration
+     plutôt qu'un plafond en pixels, `object-fit:contain` pour ne jamais
+     rogner dans le fichier — voir instagram-post.html pour le détail. */
   .scene{flex:1;display:flex;flex-direction:column;align-items:center;
-       justify-content:center;gap:20px;min-height:0;margin-top:24px}
-  .illustration{max-height:100%;max-width:100%;display:block}
-  .props{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;max-width:860px}
+       gap:20px;min-height:0;margin-top:24px}
+  .illustration{flex:1;min-height:0;max-width:100%;display:block;object-fit:contain}
+  .props{flex:none;display:flex;flex-wrap:wrap;justify-content:center;gap:8px;max-width:860px}
   .prop{display:flex;align-items:center;gap:7px;font-family:"Archivo",sans-serif;
        font-weight:600;font-size:15px;color:#57534a;background:#fff;
        padding:8px 14px;border:1px solid #d3ccbc;border-radius:100px}

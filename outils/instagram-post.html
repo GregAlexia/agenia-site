@@ -16,16 +16,17 @@
      toujours porter l'adresse du site.
 
      `illustration` (chemin relatif vers une image PNG détourée, ex.
-     mascotte/hausse-epaules.png) remplace le texte de corps par la
-     mascotte AgenIA, mise en situation sur le sujet du hook. `props`
+     mascotte/reflexion.png) remplace le texte de corps par la mascotte
+     AgenIA, mise en situation sur le sujet du hook — personnage illustré
+     depuis le 28/09/2026, plus le robot des premières cartes. `props`
      ajoute une rangée de badges sous la mascotte, jamais dessus — la
      mascotte reste toujours entière, tête comprise, c'est la règle qui ne
      se discute pas. Format : liste séparée par des virgules de
      `icone:texte du badge`, ex. :
 
-       ?illustration=mascotte/hausse-epaules.png
-       &props=email:Emails+envoyés,telephone:Appels+passés,
-              bulle:Le+patron+demande,resultat:0+RDV+obtenu
+       ?illustration=mascotte/reflexion.png
+       &props=email:Plus+d'emails,bulle:Lead+noté,
+              telephone:Plus+de+relances,resultat:0+RDV+obtenu
 
      Icônes disponibles : email, telephone, bulle, resultat (le badge qui
      tranche, bordure pleine plutôt que grise). Le processus complet —
@@ -85,10 +86,25 @@
 
   /* La mascotte au-dessus, les badges dessous — jamais l'inverse, jamais un
      badge posé sur elle : la règle du propriétaire est qu'elle apparaisse
-     toujours entière, tête comprise. */
-  .scene{display:flex;flex-direction:column;align-items:center;gap:24px;width:100%}
-  .illustration{max-height:480px;max-width:100%;display:block}
-  .props{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;max-width:920px}
+     toujours entière, tête comprise.
+
+     RÈGLE DE REMPLISSAGE (28/09/2026) : l'illustration n'a plus de hauteur
+     fixe en pixels — `flex:1` la fait grandir jusqu'à occuper tout ce que
+     la scène laisse une fois les badges posés, et la scène occupe elle-même
+     toute la hauteur du milieu (100%, pas un hug-content centré avec du
+     vide autour). Un titre plus court ou plus long, une future pose plus
+     large : la mascotte se redimensionne automatiquement, sans numéro magique
+     à retoucher par article. `object-fit:contain` respecte les proportions
+     du fichier sans jamais rogner dedans — c'est ce qui garantit "entière,
+     tête comprise" au niveau du CSS, pas seulement au niveau du recadrage.
+     Corollaire côté recadrage d'une pose (voir aussi reference/mascotte.md) :
+     détourer au plus près du personnage, sans marge transparente inutile —
+     toute marge vide dans le fichier réduit d'autant la taille perçue une
+     fois affiché, `object-fit:contain` ne fait qu'agrandir le fichier tel
+     quel, marge comprise. */
+  .scene{height:100%;display:flex;flex-direction:column;align-items:center;gap:24px;width:100%}
+  .illustration{flex:1;min-height:0;max-width:100%;display:block;object-fit:contain}
+  .props{flex:none;display:flex;flex-wrap:wrap;justify-content:center;gap:10px;max-width:920px}
   .prop{display:flex;align-items:center;gap:8px;font-family:"Archivo",sans-serif;
        font-weight:600;font-size:17px;color:#57534a;background:#fff;
        padding:9px 16px;border:1px solid #d3ccbc;border-radius:100px}
@@ -108,15 +124,15 @@
 <body>
   <div class="cadre">
     <div class="entete">
-      <p class="tag" id="tag">Automatisation &amp; process</p>
+      <p class="tag" id="tag">3 mythes qui coûtent cher</p>
       <span class="num" id="num" hidden></span>
     </div>
 
-    <h1 id="titre">Plus de volume. Même taux de réponse. 0 surprise.</h1>
+    <h1 id="titre">3 mythes sur la prospection automatisée.</h1>
     <p class="quote" id="quote" hidden></p>
 
     <div class="milieu">
-      <p class="corps" id="corps">Un message mal ciblé automatisé reste mal ciblé — il part juste plus vite.</p>
+      <p class="corps" id="corps">Le dernier grille un domaine d'envoi entier.</p>
       <div class="scene" id="scene" hidden>
         <img class="illustration" id="illustration" alt="">
         <div class="props" id="props"></div>

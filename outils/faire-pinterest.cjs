@@ -54,7 +54,8 @@ const PIN = {
     '1 heure pour cadrer le client visé. 3 semaines perdues si on la saute.',
   ].join('|'),
   cta: "Lire l'article complet",
-  illustration: 'mascotte/hausse-epaules.png',
+  // Personnage remplacé le 28/09/2026, voir faire-instagram.cjs.
+  illustration: 'mascotte/reflexion.png',
   props: "email:Plus d'emails,bulle:Lead noté,telephone:Plus de relances,resultat:0 RDV obtenu",
 };
 
