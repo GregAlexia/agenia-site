@@ -15,14 +15,25 @@
      paramètre : une carte qui circule seule (repartagée, sauvegardée) doit
      toujours porter l'adresse du site.
 
-     `illustration` (chemin relatif vers un SVG ou une image PNG détourée,
-     ex. mascotte/hausse-epaules.png) remplace le texte de corps par un
-     visuel — pensé pour le hook : la mascotte AgenIA dans une action liée
-     au sujet accroche mieux qu'une ligne de texte de plus. Une pose par
-     carrousel, choisie pour ce sujet précis plutôt que réutilisée par
-     réflexe (voir hooks.md, formule 9 : montrer plutôt qu'expliquer
-     s'applique aussi à l'image). Poses détourées dans outils/mascotte/,
-     à partir de la planche fournie par le propriétaire — pas générées ici.
+     `illustration` (chemin relatif vers une image PNG détourée, ex.
+     mascotte/hausse-epaules.png) remplace le texte de corps par la
+     mascotte AgenIA, mise en situation sur le sujet du hook. `props`
+     ajoute une rangée de badges sous la mascotte, jamais dessus — la
+     mascotte reste toujours entière, tête comprise, c'est la règle qui ne
+     se discute pas. Format : liste séparée par des virgules de
+     `icone:texte du badge`, ex. :
+
+       ?illustration=mascotte/hausse-epaules.png
+       &props=email:Emails+envoyés,telephone:Appels+passés,
+              bulle:Le+patron+demande,resultat:0+RDV+obtenu
+
+     Icônes disponibles : email, telephone, bulle, resultat (le badge qui
+     tranche, bordure pleine plutôt que grise). Le processus complet —
+     écrire le script de mise en situation, le faire valider par le
+     propriétaire avant toute publication, choisir ou recadrer la pose —
+     vit dans reseauteo, .claude/skills/agenia-contenu/reference/mascotte.md
+     (pas ici : ce gabarit ne fait qu'exécuter la mise en page une fois le
+     script validé).
 
      Sans JavaScript, le gabarit montre encore quelque chose de juste (le
      premier hook validé du carrousel « Prospection mal cadrée ») — même
@@ -71,7 +82,18 @@
      l'espace disponible plutôt qu'aligné en haut. */
   .milieu{flex:1;display:flex;align-items:center;margin-top:28px;min-height:0}
   .corps{font-size:40px;line-height:1.5;color:#57534a;max-width:900px}
-  .illustration{max-width:100%;max-height:100%;margin:0 auto;display:block}
+
+  /* La mascotte au-dessus, les badges dessous — jamais l'inverse, jamais un
+     badge posé sur elle : la règle du propriétaire est qu'elle apparaisse
+     toujours entière, tête comprise. */
+  .scene{display:flex;flex-direction:column;align-items:center;gap:24px;width:100%}
+  .illustration{max-height:480px;max-width:100%;display:block}
+  .props{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;max-width:920px}
+  .prop{display:flex;align-items:center;gap:8px;font-family:"Archivo",sans-serif;
+       font-weight:600;font-size:17px;color:#57534a;background:#fff;
+       padding:9px 16px;border:1px solid #d3ccbc;border-radius:100px}
+  .prop svg{width:18px;height:18px;flex:none}
+  .prop.resultat{color:#171613;border-color:#171613;font-weight:700}
 
   .pied{padding-top:28px;border-top:1px solid #d3ccbc;
        display:flex;justify-content:space-between;align-items:center}
@@ -95,8 +117,30 @@
 
     <div class="milieu">
       <p class="corps" id="corps">Un message mal ciblé automatisé reste mal ciblé — il part juste plus vite.</p>
-      <img class="illustration" id="illustration" alt="" hidden>
+      <div class="scene" id="scene" hidden>
+        <img class="illustration" id="illustration" alt="">
+        <div class="props" id="props"></div>
+      </div>
     </div>
+
+    <svg aria-hidden="true" style="position:absolute;width:0;height:0">
+      <symbol id="icone-email" viewBox="0 0 24 24">
+        <rect x="2" y="4" width="20" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/>
+        <path d="M3 6l9 7 9-7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="icone-telephone" viewBox="0 0 24 24">
+        <path d="M6.6 3.5c.6-.2 1.3 0 1.6.6l1.4 2.7c.3.5.2 1.1-.2 1.5L8.1 9.6c.8 2 2.4 3.6 4.4 4.4l1.3-1.3c.4-.4 1-.5 1.5-.2l2.7 1.4c.6.3.8 1 .6 1.6l-.7 2c-.2.6-.8 1-1.4 1-7 0-13-6-13-13 0-.6.4-1.2 1-1.4l2-.6z"
+              fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="icone-bulle" viewBox="0 0 24 24">
+        <rect x="3" y="4" width="18" height="13" rx="4" fill="none" stroke="currentColor" stroke-width="1.8"/>
+        <path d="M8 17v3.5L12.5 17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="icone-resultat" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/>
+        <line x1="6.5" y1="17.5" x2="17.5" y2="6.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      </symbol>
+    </svg>
 
     <div class="pied">
       <div class="marque">
@@ -143,8 +187,27 @@
       var img = document.getElementById("illustration");
       img.src = illustration;
       img.alt = q.get("corps") || q.get("titre") || "";
-      img.hidden = false;
+      document.getElementById("scene").hidden = false;
       document.getElementById("corps").hidden = true;
+
+      // Badges sous la mascotte : "icone:texte,icone:texte,…". Une icône
+      // inconnue n'interrompt rien, elle sort simplement sans pictogramme.
+      var propsParam = q.get("props");
+      if (propsParam) {
+        var conteneur = document.getElementById("props");
+        propsParam.split(",").forEach(function (entree) {
+          var i = entree.indexOf(":");
+          var cle = i === -1 ? entree : entree.slice(0, i);
+          var texte = i === -1 ? "" : entree.slice(i + 1);
+          var span = document.createElement("span");
+          span.className = "prop" + (cle === "resultat" ? " resultat" : "");
+          if (document.getElementById("icone-" + cle)) {
+            span.innerHTML = '<svg><use href="#icone-' + cle + '"></use></svg>';
+          }
+          span.appendChild(document.createTextNode(texte));
+          conteneur.appendChild(span);
+        });
+      }
     } else {
       champ("corps", "corps");
     }

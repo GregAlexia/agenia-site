@@ -34,10 +34,13 @@ const SLUG = 'automatiser-prospection-mal-cadree';
 const DOSSIER = `assets/instagram/${SLUG}`;
 
 const CARTES = [
+  // Scène validée le 28/09/2026 — voir reseauteo,
+  // .claude/skills/agenia-contenu/reference/mascotte.md pour le script et le
+  // processus de validation à suivre pour le prochain carrousel.
   { type: 'hook', tag: 'Automatisation & process',
     titre: 'Plus de volume. Même taux de réponse. 0 surprise.',
     illustration: 'mascotte/hausse-epaules.png',
-    corps: 'La mascotte AgenIA hausse les épaules : on arrose toute la liste, le bon prospect reste sec.' },
+    props: 'email:Emails envoyés,telephone:Appels passés,bulle:Le patron demande,resultat:0 RDV obtenu' },
   { type: 'point', tag: '01 · Le symptôme', num: '1 / 5',
     titre: 'Vous envoyez 2 fois plus. Ça ne change rien.',
     corps: "C'est le signe d'un ciblage mal cadré — pas d'un outil mal réglé. Envoyer davantage à la mauvaise cible ne fait qu'agrandir la même erreur." },
