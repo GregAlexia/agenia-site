@@ -19,6 +19,10 @@
    faire-instagram.cjs (script à valider avant l'image, voir
    reference/mascotte.md).
 
+   ⚠️ Changer aussi SLUG ci-dessous pour le nouvel article, pas seulement
+   PIN : le nom du fichier de sortie en dépend, et l'oublier écrase
+   l'épingle de l'article précédent au lieu d'en écrire une nouvelle.
+
    Il faut Playwright et un Chromium.
 
    ⚠️ **Ne pas installer Playwright dans le dépôt.** Le dépôt est publié en

@@ -13,6 +13,10 @@
    paramètre de outils/instagram-post.html ; voir son en-tête pour le détail
    des types (hook / point / quote / cta).
 
+   ⚠️ Changer aussi SLUG ci-dessous pour le nouvel article, pas seulement
+   CARTES : DOSSIER en dépend, et l'oublier écrit les nouvelles images
+   par-dessus celles de l'article précédent au lieu d'un nouveau dossier.
+
    Format « Mythe vs Réalité » depuis le 28/09/2026 : une veille des formats
    qui font le plus swiper en carrousel B2B/tech a fait ressortir ce format
    au-dessus du carrousel « À savoir » point par point utilisé jusque-là — la
