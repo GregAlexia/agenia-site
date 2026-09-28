@@ -9,11 +9,14 @@
 
    Une seule image par article (pas un carrousel comme Instagram) : modifier
    l'objet PIN ci-dessous pour le prochain article avant de relancer — tag,
-   titre (reprendre le H1 du blog pour la recherche Pinterest), quatre points
-   au plus séparés par `|` dans `points` (chiffres en chiffres, jamais en
-   lettres — voir reseauteo, .claude/skills/agenia-contenu/reference/hooks.md),
-   et en option `illustration`/`props` pour la mascotte en situation, même
-   convention que faire-instagram.cjs (script à valider avant l'image, voir
+   titre (reprendre telle quelle la phrase de hook déjà validée dans CARTES
+   de faire-instagram.cjs, jamais une reformulation ni le H1 du blog : un
+   seul hook validé par le propriétaire sert les deux réseaux), quatre
+   points au plus séparés par `|` dans `points` (chiffres en chiffres,
+   jamais en lettres — voir reseauteo,
+   .claude/skills/agenia-contenu/reference/hooks.md), et en option
+   `illustration`/`props` pour la mascotte en situation, même convention que
+   faire-instagram.cjs (script à valider avant l'image, voir
    reference/mascotte.md).
 
    Il faut Playwright et un Chromium.
@@ -41,7 +44,8 @@ const SLUG = 'automatiser-prospection-mal-cadree';
 // validation de la mascotte à suivre pour la prochaine épingle.
 const PIN = {
   tag: 'Automatisation & process',
-  titre: "Automatiser une prospection mal cadrée l'aggrave",
+  // Même hook que la carte 1 (type: 'hook') de CARTES dans faire-instagram.cjs.
+  titre: 'Plus de volume. Même taux de réponse. 0 surprise.',
   points: [
     '0 corrélation entre volume envoyé et taux de réponse, si le ciblage est mauvais.',
     "1 lead noté doit être routé en minutes, pas dormir dans une file d'attente.",
