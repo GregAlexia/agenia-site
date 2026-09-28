@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<!-- Gabarit des épingles Pinterest, 1000 × 1500 (format 2:3, celui que
+     Pinterest recommande et recadre le moins). Une épingle résume l'article
+     entier sur une seule image — pas un carrousel comme Instagram — d'où un
+     gabarit séparé plutôt qu'un cinquième type ajouté à instagram-post.html :
+     les deux réseaux n'ont ni le même format ni le même usage (Pinterest est
+     un moteur de recherche, le titre doit porter la requête, pas juste
+     accrocher l'œil une seconde).
+
+     Contenu piloté par la chaîne de requête, une épingle par article :
+       ?tag=Automatisation+%26+process
+       &titre=Automatiser+une+prospection+mal+cadrée+l'aggrave
+       &points=0+corrélation…|1+lead…|20+à+50+emails…|1+heure…
+       &cta=Lire+l'article+complet
+       (optionnel, même convention que instagram-post.html)
+       &illustration=mascotte/hausse-epaules.png
+       &props=email:Emails+envoyés,…
+
+     `points` : jusqu'à quatre reprises séparées par `|`, numérotées
+     automatiquement 1 à 4 — les chiffres à retenir de l'article, pas un
+     résumé en prose. Respecter la règle du skill agenia-contenu : les
+     nombres s'écrivent en chiffres, jamais en lettres.
+
+     www.agenia.pro est fixe en pied de page, comme sur instagram-post.html —
+     une épingle enregistrée circule loin de l'article, elle doit toujours
+     porter l'adresse du site.
+
+     Sans JavaScript, le gabarit montre l'épingle validée pour l'article
+     « Automatiser une prospection mal cadrée l'aggrave » — même principe que
+     og-image.html et instagram-post.html.
+
+     Pour générer l'image : voir outils/faire-pinterest.cjs.
+     ============================================================ -->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<style>
+  /* Mêmes fontes et mêmes teintes que le reste du site : une épingle doit se
+     reconnaître comme un contenu AgenIA au premier coup d'œil, y compris
+     ressortie de son contexte des mois plus tard dans un tableau Pinterest. */
+  @font-face { font-family:"Archivo"; font-style:normal; font-weight:600;
+    src:url("../assets/fonts/archivo-latin-600-normal.woff2") format("woff2"); }
+  @font-face { font-family:"Archivo"; font-style:normal; font-weight:700;
+    src:url("../assets/fonts/archivo-latin-700-normal.woff2") format("woff2"); }
+  @font-face { font-family:"Source Serif 4"; font-style:normal; font-weight:400;
+    src:url("../assets/fonts/source-serif-4-latin-400-normal.woff2") format("woff2"); }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{width:1000px;height:1500px;background:#f0efe8;color:#171613;
+       font-family:"Source Serif 4",Georgia,serif;overflow:hidden}
+  .cadre{height:100%;padding:64px;display:flex;flex-direction:column}
+
+  .tag{font-family:"Archivo",sans-serif;font-weight:600;font-size:19px;
+       letter-spacing:.12em;text-transform:uppercase;color:#57534a;
+       display:flex;align-items:center;gap:12px}
+  .tag::before{content:"";width:11px;height:11px;border-radius:50%;
+       background:linear-gradient(135deg,#6d8bff,#b06bff)}
+
+  h1{font-family:"Archivo",sans-serif;font-weight:700;font-size:52px;
+     line-height:1.16;letter-spacing:-.02em;margin-top:26px}
+
+  /* La liste des reprises est le cœur de l'épingle — Pinterest se parcourt
+     en diagonale, quatre chiffres se retiennent, un paragraphe non. */
+  .points{list-style:none;margin-top:36px;display:flex;flex-direction:column;gap:22px}
+  .points li{display:flex;gap:16px;align-items:flex-start}
+  .puce{flex:none;width:38px;height:38px;border-radius:50%;
+       background:linear-gradient(135deg,#6d8bff,#b06bff);color:#fff;
+       font-family:"Archivo",sans-serif;font-weight:700;font-size:18px;
+       display:flex;align-items:center;justify-content:center;margin-top:2px}
+  .points p{font-size:27px;line-height:1.4;color:#171613}
+
+  /* La mascotte occupe l'espace qui reste entre la liste et le bandeau
+     d'appel à l'action — jamais posée sur les points ni sur le bandeau,
+     même règle que sur instagram-post.html : entière, tête comprise. */
+  .scene{flex:1;display:flex;flex-direction:column;align-items:center;
+       justify-content:center;gap:20px;min-height:0;margin-top:24px}
+  .illustration{max-height:100%;max-width:100%;display:block}
+  .props{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;max-width:860px}
+  .prop{display:flex;align-items:center;gap:7px;font-family:"Archivo",sans-serif;
+       font-weight:600;font-size:15px;color:#57534a;background:#fff;
+       padding:8px 14px;border:1px solid #d3ccbc;border-radius:100px}
+  .prop svg{width:16px;height:16px;flex:none}
+  .prop.resultat{color:#171613;border-color:#171613;font-weight:700}
+
+  .remplissage{flex:1;min-height:24px}
+
+  .bandeau{margin-top:28px;padding:22px 28px;border-radius:16px;
+       background:linear-gradient(135deg,#6d8bff,#b06bff);
+       display:flex;align-items:center;justify-content:center}
+  .bandeau span{font-family:"Archivo",sans-serif;font-weight:700;font-size:24px;
+       color:#fff;letter-spacing:.01em}
+
+  .pied{margin-top:24px;padding-top:24px;border-top:1px solid #d3ccbc;
+       display:flex;justify-content:space-between;align-items:center}
+  .marque{display:flex;align-items:center;gap:12px}
+  .marque img{width:44px;height:44px;border-radius:10px}
+  .marque span{font-family:"Archivo",sans-serif;font-weight:700;font-size:19px;
+       letter-spacing:.06em}
+  .foot-droite{font-family:"Archivo",sans-serif;font-size:19px;color:#57534a;
+       letter-spacing:.02em}
+</style>
+</head>
+<body>
+  <div class="cadre">
+    <p class="tag" id="tag">Automatisation &amp; process</p>
+
+    <h1 id="titre">Automatiser une prospection mal cadrée l'aggrave</h1>
+
+    <ul class="points" id="points">
+      <li><span class="puce">1</span><p>0 corrélation entre volume envoyé et taux de réponse, si le ciblage est mauvais.</p></li>
+      <li><span class="puce">2</span><p>1 lead noté doit être routé en minutes, pas dormir dans une file d'attente.</p></li>
+      <li><span class="puce">3</span><p>20 à 50 emails par jour, 4 à 5 relances maximum, avant que le taux de plaintes grimpe.</p></li>
+      <li><span class="puce">4</span><p>1 heure pour cadrer le client visé. 3 semaines perdues si on la saute.</p></li>
+    </ul>
+
+    <div class="scene" id="scene" hidden>
+      <img class="illustration" id="illustration" alt="">
+      <div class="props" id="props"></div>
+    </div>
+    <div class="remplissage" id="remplissage"></div>
+
+    <svg aria-hidden="true" style="position:absolute;width:0;height:0">
+      <symbol id="icone-email" viewBox="0 0 24 24">
+        <rect x="2" y="4" width="20" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/>
+        <path d="M3 6l9 7 9-7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="icone-telephone" viewBox="0 0 24 24">
+        <path d="M6.6 3.5c.6-.2 1.3 0 1.6.6l1.4 2.7c.3.5.2 1.1-.2 1.5L8.1 9.6c.8 2 2.4 3.6 4.4 4.4l1.3-1.3c.4-.4 1-.5 1.5-.2l2.7 1.4c.6.3.8 1 .6 1.6l-.7 2c-.2.6-.8 1-1.4 1-7 0-13-6-13-13 0-.6.4-1.2 1-1.4l2-.6z"
+              fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="icone-bulle" viewBox="0 0 24 24">
+        <rect x="3" y="4" width="18" height="13" rx="4" fill="none" stroke="currentColor" stroke-width="1.8"/>
+        <path d="M8 17v3.5L12.5 17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="icone-resultat" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/>
+        <line x1="6.5" y1="17.5" x2="17.5" y2="6.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      </symbol>
+    </svg>
+
+    <div class="bandeau">
+      <span id="cta">Lire l'article complet</span>
+    </div>
+
+    <div class="pied">
+      <div class="marque">
+        <img src="../assets/logo_agenia-hd.png" alt="">
+        <span>AGENIA</span>
+      </div>
+      <span class="foot-droite">www.agenia.pro</span>
+    </div>
+  </div>
+
+<script>
+  /* Aucun paramètre : le gabarit garde son contenu par défaut, écrit en dur
+     ci-dessus. Dès qu'un `titre` est fourni (le cas à chaque appel de
+     faire-pinterest.cjs), tout se recalcule à partir de la requête. */
+  (function () {
+    var q = new URLSearchParams(location.search);
+    if (q.get("titre") === null) return;
+
+    function champ(nom, id, defaut) {
+      var valeur = q.get(nom) || defaut || "";
+      document.getElementById(id).textContent = valeur;
+    }
+
+    champ("tag", "tag");
+    champ("titre", "titre");
+    champ("cta", "cta", "Lire l'article complet");
+
+    var pointsParam = q.get("points");
+    var liste = document.getElementById("points");
+    liste.innerHTML = "";
+    if (pointsParam) {
+      pointsParam.split("|").forEach(function (texte, i) {
+        var li = document.createElement("li");
+        var puce = document.createElement("span");
+        puce.className = "puce";
+        puce.textContent = String(i + 1);
+        var p = document.createElement("p");
+        p.textContent = texte;
+        li.appendChild(puce);
+        li.appendChild(p);
+        liste.appendChild(li);
+      });
+    }
+
+    // Même convention que instagram-post.html : la mascotte au-dessus de ses
+    // badges, jamais recouverte, jamais coupée.
+    var illustration = q.get("illustration");
+    var remplissage = document.getElementById("remplissage");
+    if (illustration) {
+      var img = document.getElementById("illustration");
+      img.src = illustration;
+      img.alt = q.get("titre") || "";
+      document.getElementById("scene").hidden = false;
+      remplissage.hidden = true;
+
+      var propsParam = q.get("props");
+      if (propsParam) {
+        var conteneur = document.getElementById("props");
+        propsParam.split(",").forEach(function (entree) {
+          var i = entree.indexOf(":");
+          var cle = i === -1 ? entree : entree.slice(0, i);
+          var texte = i === -1 ? "" : entree.slice(i + 1);
+          var span = document.createElement("span");
+          span.className = "prop" + (cle === "resultat" ? " resultat" : "");
+          if (document.getElementById("icone-" + cle)) {
+            span.innerHTML = '<svg><use href="#icone-' + cle + '"></use></svg>';
+          }
+          span.appendChild(document.createTextNode(texte));
+          conteneur.appendChild(span);
+        });
+      }
+    }
+  })();
+</script>
+</body>
+</html>
