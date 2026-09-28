@@ -1,5 +1,7 @@
 /* ============================================================
-   Génère la version PDF des trois guides de /ressources/.
+   Génère la version PDF des trois guides français de /blog/ et de leurs
+   jumeaux anglais de /en/blog/ — les deux dossiers ont fusionné avec leur
+   ressources/ respectif le 28/09/2026, à une semaine d'écart.
 
    Pourquoi un script plutôt que trois fichiers écrits à la main : le PDF est
    ce que le formulaire promet en échange des coordonnées. S'il décrit une
@@ -37,34 +39,40 @@ const fs = require('fs');
 const CHROMIUM = process.env.CHROMIUM_PATH || undefined;
 const BASE = process.env.BASE_URL || 'http://localhost:8420';
 
-// Six guides : les trois français de /ressources/ et leurs jumeaux anglais de
-// /en/. Chaque entrée dit quelle page imprimer et où écrire le PDF, parce que
-// les deux langues ne rangent pas leurs fichiers pareil — l'anglais est à plat
-// dans /en/, le français dans /ressources/.
+// Six guides : les trois français de /blog/ et leurs jumeaux anglais de
+// /en/blog/. Chaque entrée dit quelle page imprimer et où écrire le PDF. Le
+// PDF reste écrit dans ressources/pdf/ ou en/pdf/ même si la page source a
+// déménagé — ces deux dossiers n'ont pas bougé, et robots.txt les vise
+// encore par ces chemins.
 const GUIDES = [
-  ['/ressources/20-taches-a-automatiser.html',
+  ['/blog/20-taches-a-automatiser.html',
    'ressources/pdf/20-taches-a-automatiser.pdf',
    '20 tâches à automatiser en premier'],
-  ['/ressources/auditer-process-pme.html',
+  ['/blog/auditer-process-pme.html',
    'ressources/pdf/auditer-process-pme.pdf',
    "Auditer ses process avant d'automatiser"],
-  ['/ressources/calculer-roi-automatisation.html',
+  ['/blog/calculer-roi-automatisation.html',
    'ressources/pdf/calculer-roi-automatisation.pdf',
    "Calculer le ROI d'une automatisation"],
-  ['/en/20-tasks-to-automate.html',
+  ['/en/blog/20-tasks-to-automate.html',
    'en/pdf/20-tasks-to-automate.pdf',
    '20 tasks to automate first'],
-  ['/en/audit-before-you-automate.html',
+  ['/en/blog/audit-before-you-automate.html',
    'en/pdf/audit-before-you-automate.pdf',
    'Why you should audit your processes before automating'],
-  ['/en/automation-roi.html',
+  ['/en/blog/automation-roi.html',
    'en/pdf/automation-roi.pdf',
    'Working out the ROI of an automation'],
 ];
 
 // `:last-of-type` vise le bloc « À lire ensuite », qui termine chaque guide.
+// .pdf-cta : le bloc de téléchargement direct des six guides depuis leur
+// passage dans blog/ (28/09/2026, français puis anglais) — imprimer un
+// bouton « télécharger ce PDF » à l'intérieur du PDF lui-même n'aurait aucun
+// sens. #portail/#contenu ne sont plus utilisés nulle part mais restent
+// listés : les retirer ne casserait rien, les laisser ne coûte rien non plus.
 const IMPRESSION = `
-  .site-header, .site-footer, #portail, #contenu, .pill,
+  .site-header, .site-footer, #portail, #contenu, .pdf-cta, .pill,
   .res-article__inner > h2:last-of-type,
   .res-article__inner > ul:last-of-type { display: none !important; }
   body { background: #fff; }

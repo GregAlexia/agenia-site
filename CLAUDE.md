@@ -49,41 +49,54 @@ est derrière AgenIA.
 
 ---
 
-## Le piège de fond : vingt-quatre fichiers, un seul en-tête
+## Le piège de fond : vingt-six fichiers, un seul en-tête
 
 Il n'y a pas de gabarit. L'en-tête, la navigation, le menu mobile et le pied de
-page sont **répétés dans les vingt-quatre pages publiques** — douze en
-français, douze en anglais depuis le 20 septembre 2026 :
+page sont **répétés dans les vingt-six pages publiques** — treize en
+français, treize en anglais depuis le 28 septembre 2026 (`en/resources.html`
+a rejoint `en/blog/` ce jour-là, comme son équivalent français une semaine
+plus tôt) :
 
 ```
 index.html · demo-margeo.html · demo-prospeo.html · demo-keo.html
 demo-planeo.html · essai-outils.html · agence-ia-haute-savoie.html
-mentions-legales.html · ressources/index.html
-ressources/20-taches-a-automatiser.html · ressources/auditer-process-pme.html
-ressources/calculer-roi-automatisation.html
+mentions-legales.html · blog/index.html
+blog/automatiser-prospection-mal-cadree.html · blog/20-taches-a-automatiser.html
+blog/auditer-process-pme.html · blog/calculer-roi-automatisation.html
 
 en/index.html · en/margeo.html · en/prospeo.html · en/keo.html
 en/planeo.html · en/free-tools.html · en/ai-agency-geneva-haute-savoie.html
-en/legal-notice.html · en/resources.html · en/20-tasks-to-automate.html
-en/audit-before-you-automate.html · en/automation-roi.html
+en/legal-notice.html · en/blog/index.html
+en/blog/unqualified-prospecting-backfires.html · en/blog/20-tasks-to-automate.html
+en/blog/audit-before-you-automate.html · en/blog/automation-roi.html
 ```
+
+**28/09/2026 : `ressources/` a fusionné avec `blog/`.** Les trois guides ont
+déménagé (mêmes noms de fichier, dossier différent), et `ressources/index.html`
+n'est plus une page du club ci-dessus : c'est une redirection statique (comme
+les trois anciennes adresses des guides), `noindex`, hors sitemap. `ressources/`
+n'a pas disparu pour autant : `gate.js` y reste, chargé par une dizaine de
+pages sans rapport avec les guides (portails vidéo, calculateurs), et
+`ressources/pdf/` garde les PDF des trois guides, maintenant téléchargeables
+sans formulaire depuis leur nouvelle page.
 
 **Une page ajoutée d'un côté doit l'être de l'autre**, sans quoi son `hreflang`
 pointe dans le vide. Écrire l'anglais en français, ou l'inverse, est l'erreur
 qui se voit le moins : relire la page dans sa langue avant de pousser.
 
-La **grille des ressources** est dupliquée de la même façon, entre l'accueil
-(`#guides`) et `ressources/index.html`.
+La **grille des guides** est dupliquée de la même façon, entre l'accueil
+(`#guides`) et `blog/index.html` — plus complète sur ce second, qui porte
+aussi les futurs articles et les calculateurs.
 
 Le bloc `<nav class="social">` du pied de page l'est aussi — mais il fait
 exception : ses adresses étant absolues, il est **strictement identique dans les
-douze fichiers**, sans variante en `../`. Un compte ajouté se recopie tel quel
+treize fichiers**, sans variante en `../`. Un compte ajouté se recopie tel quel
 — et se déclare **aussi dans le `sameAs`** de l'accueil.
 
 Toucher à la navigation sans les traiter toutes laisse un site incohérent, sans
 erreur ni test rouge pour le signaler. **Après toute modification de
 navigation, compter les occurrences** — et attention aux chemins : les pages de
-`ressources/` pointent en `../`, celles de `en/` aussi (elles partagent
+`blog/` pointent en `../`, celles de `en/` aussi (elles partagent
 `styles.css`, `script.js` et `ressources/gate.js` avec le français, plutôt que
 d'en avoir une copie), les autres pointent à la racine.
 
@@ -119,7 +132,7 @@ forme sans `min()` est un débordement qui attend son écran.
 *derrière* la barre — mesuré à 65 px quand elle en occupe 77. Corrigé le
 22/09/2026 ; la règle doit suivre si la hauteur de l'en-tête change.
 
-**Le contrôle** : mesurer `scrollWidth − clientWidth` sur les vingt-quatre
+**Le contrôle** : mesurer `scrollWidth − clientWidth` sur les vingt-six
 pages, de 320 à 412 px. C'est trois lignes de Playwright, et c'est le seul moyen
 de voir ce qu'aucune relecture ne montre. Les seuils utiles : **320** (vieil
 iPhone SE), **375** (iPhone 8 et SE 2022, encore très répandus), **390** (iPhone
@@ -335,10 +348,13 @@ par page** :
 | Public, donc indexable | Derrière le formulaire |
 |---|---|
 | Ce que fait le produit, pour qui, la FAQ | La **vidéo** et l'**accès** à l'application |
-| L'article entier d'un guide | Sa version **PDF** |
 
-La capture de prospects n'a pas été sacrifiée : elle a été déplacée, et elle
-qualifie mieux — quelqu'un qui remplit après avoir lu sait ce qu'il demande.
+La capture de prospects n'a pas été sacrifiée sur les pages produit : elle a
+été déplacée, et elle qualifie mieux — quelqu'un qui remplit après avoir lu
+sait ce qu'il demande. **Les guides, eux, ont perdu ce formulaire** en
+rejoignant `blog/` — le 28/09/2026 côté français, le même jour côté anglais :
+leur PDF est en téléchargement direct partout, cohérent avec la doctrine du
+blog — entièrement public, sans aucune porte, dans les deux langues.
 
 ⚠️ **Le piège est silencieux.** Remonter un formulaire devant un contenu, ou
 réintroduire un `noindex`, annule des mois de positionnement sans qu'aucun test

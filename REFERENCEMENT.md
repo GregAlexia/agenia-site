@@ -72,7 +72,7 @@ verra. Si c'est un formulaire, la page ne ramènera personne.
 | JSON-LD `Article` | 3 guides | Titre, dates, auteur = l'organisation |
 | JSON-LD `ProfessionalService` | `agence-ia-haute-savoie.html` | Adresse, coordonnées, zone desservie |
 | JSON-LD `BreadcrumbList` | toutes sauf l'accueil | Fil d'Ariane |
-| JSON-LD `ItemList` | `ressources/index.html` | Liste des guides |
+| JSON-LD `ItemList` | `blog/index.html` | Liste des articles |
 
 ### Les balises de vérification de propriété
 
@@ -86,9 +86,9 @@ ne donnent aucun droit sur le site ; ils prouvent l'inverse. En revanche,
 **ne jamais les retirer** : la revendication est revérifiée périodiquement, et
 une balise disparue la révoque sans prévenir.
 
-Elles vont sur **`index.html` uniquement**, pas sur les douze pages : la
-plateforme vérifie l'URL qu'on lui a donnée, et douze copies d'un jeton sont
-douze occasions d'en oublier une.
+Elles vont sur **`index.html` uniquement**, pas sur les treize pages : la
+plateforme vérifie l'URL qu'on lui a donnée, et treize copies d'un jeton sont
+treize occasions d'en oublier une.
 
 ### `sameAs` : à quoi il sert vraiment ici
 
@@ -111,7 +111,21 @@ recherche qui ne marche pas.
 
 ### Pages indexables
 
-Les **12 pages publiques** sont toutes indexables et toutes au sitemap.
+Les **26 pages publiques** (13 françaises, 13 anglaises) sont toutes
+indexables et toutes au sitemap.
+
+**28/09/2026 : `ressources/` a fusionné avec `blog/`, côté français puis,
+le même jour, côté anglais (`en/resources.html` → `en/blog/`).** Les trois
+guides de chaque langue ont déménagé vers `blog/*.html` / `en/blog/*.html`
+(même nom de fichier, dossier différent), leur formulaire de capture PDF a
+disparu dans les deux langues, et chaque `blog/index.html` a ouvert avec un
+premier article original — le français d'abord, sa traduction anglaise
+adaptée le même jour. Les huit anciennes adresses `ressources/*.html` et
+`en/resources.html` + ses trois guides sont devenues des redirections
+`noindex` — hors sitemap, comme toute page `noindex` — vers leur nouvelle
+adresse : pas un vrai 301 (GitHub Pages ne sait pas en poser), mais un
+`<meta http-equiv="refresh">` doublé d'un `rel="canonical"` vers la nouvelle
+page, pour qu'un lien externe ou un signet ne tombe pas sur un 404 sec.
 
 Restent hors index, volontairement :
 
@@ -119,10 +133,14 @@ Restent hors index, volontairement :
   n'est **pas** refusée dans `robots.txt`, et c'est délibéré : un robot à qui
   l'on interdit d'explorer une page ne peut pas lire le `noindex` qu'elle
   contient, et elle finirait indexée sans titre plutôt qu'absente.
-- **`/ressources/pdf/`** — refusé au crawl. Ces PDF reprennent mot pour mot
-  l'article qui les précède ; laissés libres, ils lui feraient concurrence dans
-  l'index, et c'est parfois le PDF qui l'emporte — un document sans navigation,
-  sans lien et sans formulaire.
+- **`/ressources/pdf/` et `/en/pdf/`** — refusés au crawl. Ces PDF reprennent
+  mot pour mot l'article qui les précède ; laissés libres, ils lui feraient
+  concurrence dans l'index, et c'est parfois le PDF qui l'emporte — un
+  document sans navigation, sans lien et sans formulaire. Ni l'un ni l'autre
+  n'a bougé : seules les pages qui y renvoient ont déménagé vers `blog/`
+  et `en/blog/`.
+- **Les huit redirections `ressources/*.html` et `en/resources.html` +
+  guides**, pour la raison dite plus haut.
 
 **Quand ajouter une page au sitemap** : dès qu'elle porte `index, follow`. Une
 page `noindex` n'a rien à y faire, et une page indexable absente du sitemap est
@@ -144,7 +162,7 @@ casse un travail de positionnement qui met des mois à s'installer.
 | `demo-planeo.html` | plan de permis de construire en 3D · visualiser sa maison avant construction |
 | `essai-outils.html` | calculateur coût de revient restaurant · calcul prime cost · calculateur food cost |
 | `agence-ia-haute-savoie.html` | agence IA Annecy · automatisation PME Haute-Savoie |
-| `ressources/*` | quelles tâches automatiser · auditer ses process · calculer le ROI |
+| `blog/*` | quelles tâches automatiser · auditer ses process · calculer le ROI, plus un mot-clé par nouvel article |
 
 > ⚠️ **« gratuit » est sorti de l'intention visée le 22/09/2026.** Les huit
 > calculateurs sont passés derrière authentification côté Margeo : ils sont

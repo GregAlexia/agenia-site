@@ -13,6 +13,11 @@
   reprennent mot pour mot l'article qui les précède, et deux versions du même
   texte se font concurrence dans l'index.
 
+  Le 28/09/2026, ressources/ a fusionné avec le nouveau blog/ : les trois
+  guides ont déménagé vers blog/*.html (nouvelles adresses ci-dessous), et
+  les quatre anciennes adresses ressources/*.html sont devenues de simples
+  redirections en noindex — donc absentes d'ici, comme toute page noindex.
+
   lastmod n'est un signal que s'il est vrai : ne le bouger que quand le contenu
   de la page a réellement changé.
 -->
@@ -63,28 +68,40 @@
     <priority>0.7</priority>
   </url>
 
-  <!-- Les guides : le trafic qui arrive avant l'intention d'achat. -->
+  <!-- Le blog : production récurrente, ouvert le 28/09/2026, rejoint le
+       28/09/2026 par les trois anciens guides de ressources/ (fusion des
+       deux sections — voir CLAUDE.md). changefreq "weekly" sur l'index
+       puisque de nouveaux articles y arrivent à ce rythme visé ; chaque
+       article reste "monthly". ressources/ n'a plus d'entrée ici : ses
+       quatre anciennes adresses ne sont plus que des redirections
+       (noindex), rien à faire indexer là-bas. -->
   <url>
-    <loc>https://www.agenia.pro/ressources/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <loc>https://www.agenia.pro/blog/</loc>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.agenia.pro/ressources/20-taches-a-automatiser.html</loc>
-    <lastmod>2026-09-19</lastmod>
+    <loc>https://www.agenia.pro/blog/automatiser-prospection-mal-cadree.html</loc>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.agenia.pro/ressources/auditer-process-pme.html</loc>
-    <lastmod>2026-09-19</lastmod>
+    <loc>https://www.agenia.pro/blog/20-taches-a-automatiser.html</loc>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.agenia.pro/ressources/calculer-roi-automatisation.html</loc>
-    <lastmod>2026-09-19</lastmod>
+    <loc>https://www.agenia.pro/blog/auditer-process-pme.html</loc>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.agenia.pro/blog/calculer-roi-automatisation.html</loc>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -143,27 +160,36 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <!-- en/blog/ : ouvert le 28/09/2026, même jour et même fusion que
+       blog/ côté français. en/resources.html et ses trois guides ne sont
+       plus ici : ce sont des redirections noindex vers ces adresses. -->
   <url>
-    <loc>https://www.agenia.pro/en/resources.html</loc>
-    <lastmod>2026-09-20</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://www.agenia.pro/en/blog/</loc>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.agenia.pro/en/20-tasks-to-automate.html</loc>
-    <lastmod>2026-09-20</lastmod>
+    <loc>https://www.agenia.pro/en/blog/unqualified-prospecting-backfires.html</loc>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.agenia.pro/en/audit-before-you-automate.html</loc>
-    <lastmod>2026-09-20</lastmod>
+    <loc>https://www.agenia.pro/en/blog/20-tasks-to-automate.html</loc>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.agenia.pro/en/automation-roi.html</loc>
-    <lastmod>2026-09-20</lastmod>
+    <loc>https://www.agenia.pro/en/blog/audit-before-you-automate.html</loc>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.agenia.pro/en/blog/automation-roi.html</loc>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
