@@ -9,8 +9,8 @@ automatiquement sur **GitHub Pages** à chaque push sur `main`.
 
 ## Structure
 
-**Pages publiques françaises** — douze, toutes autonomes, toutes avec le même en-tête et le
-même pied de page, et **toutes indexables** depuis le 19 septembre 2026 :
+**Pages publiques françaises** — treize, toutes autonomes, toutes avec le même en-tête et le
+même pied de page, et **toutes indexables** :
 
 | Fichier | Rôle |
 |---------|------|
@@ -18,12 +18,15 @@ même pied de page, et **toutes indexables** depuis le 19 septembre 2026 :
 | `demo-margeo.html` · `demo-prospeo.html` · `demo-keo.html` · `demo-planeo.html` | Une page de vente par produit. Le contenu est public ; seuls la vidéo et l'accès à l'application se déverrouillent contre coordonnées |
 | `essai-outils.html` | Les huit calculateurs gratuits, décrits en clair ; le lien d'ouverture est déverrouillé |
 | `agence-ia-haute-savoie.html` | Page de référencement local : Annecy, le Genevois, la Haute-Savoie |
-| `ressources/index.html` + 3 articles | Guides, lisibles en entier ; c'est la version PDF qui est déverrouillée |
-| `ressources/pdf/` | Les trois guides en PDF, régénérés depuis les pages elles-mêmes |
+| `blog/index.html` + articles | Ouvert le 28/09/2026, rejoint le même jour par les trois anciens guides de `ressources/` (fusion des deux sections) — tout est public, y compris le PDF des anciens guides, en téléchargement direct |
+| `ressources/pdf/` | Les trois PDF, toujours régénérés depuis les pages du blog qui les précèdent. `ressources/` n'est plus une section publique : `gate.js` y reste (chargé par une dizaine d'autres pages), et ses quatre anciennes pages sont des redirections vers `blog/` |
 | `mentions-legales.html` | Mentions et confidentialité (ancre `#confidentialite`) |
 
-**Version anglaise** — `en/`, ouverte le 20 septembre 2026 : les douze mêmes
-pages, à plat dans un seul dossier, avec des adresses en anglais.
+**Version anglaise** — `en/`, ouverte le 20 septembre 2026 : douze pages,
+à plat dans un seul dossier, avec des adresses en anglais. Elle n'a **pas**
+suivi la fusion du 28/09 : ses trois guides restent à part (`en/resources.html`
+et consorts), gardent leur formulaire, et n'ont pas d'équivalent dans un
+« blog anglais » qui n'existe pas encore — voir `CLAUDE.md`.
 
 | Fichier `en/` | Page française correspondante |
 |---------------|-------------------------------|
@@ -31,8 +34,8 @@ pages, à plat dans un seul dossier, avec des adresses en anglais.
 | `margeo.html` · `prospeo.html` · `keo.html` · `planeo.html` | les quatre `demo-*.html` |
 | `free-tools.html` | `essai-outils.html` |
 | `ai-agency-geneva-haute-savoie.html` | `agence-ia-haute-savoie.html` |
-| `resources.html` | `ressources/index.html` |
-| `20-tasks-to-automate.html` · `audit-before-you-automate.html` · `automation-roi.html` | les trois guides de `ressources/` |
+| `resources.html` | `blog/index.html` (la paire la plus proche, imparfaite : `resources.html` ne couvre que les guides) |
+| `20-tasks-to-automate.html` · `audit-before-you-automate.html` · `automation-roi.html` | les trois guides, déménagés dans `blog/` côté français |
 | `legal-notice.html` | `mentions-legales.html` |
 
 Chaque page déclare sa jumelle en `hreflang`, **dans les deux sens**, et porte
@@ -106,12 +109,13 @@ est remontée juste après l'accroche : c'est elle qu'on vient voir désormais, 
 conseil sur mesure restant plus bas, comme ce qui a rendu ces produits possibles.
 
 La carte « Huit calculateurs gratuits » a quitté la section produits le
-3 septembre pour la section **Ressources**, où elle est à sa place : ce n'est pas
-un produit, c'est une porte d'entrée gratuite. Les deux grilles y gagnent — quatre
-logiciels d'un côté, quatre ressources de l'autre, deux lignes de deux chacune.
+3 septembre pour la section **Ressources**, devenue **Blog** le 28 septembre
+(fusion avec `ressources/`) — où elle est toujours à sa place : ce n'est pas
+un produit, c'est une porte d'entrée gratuite.
 
-⚠️ **La grille des ressources existe en double** : sur l'accueil (`#guides`) et
-sur `ressources/index.html`. Une ressource ajoutée d'un seul côté passe
+⚠️ **La grille du blog existe en double** : sur l'accueil (`#guides`, qui ne
+montre que les trois guides et pas les futurs articles) et sur
+`blog/index.html` (la liste complète). Un article ajouté d'un seul côté passe
 inaperçue — l'audit ne le voit pas, les deux pages restant valides.
 
 Deux règles tenues dans les cartes :
@@ -197,7 +201,7 @@ conclure que le déploiement a échoué.
 
 ## Les réseaux sociaux
 
-Le pied de page des douze pages porte cinq icônes — Facebook, Instagram,
+Le pied de page des treize pages porte cinq icônes — Facebook, Instagram,
 YouTube, Pinterest, LinkedIn — qui ouvrent les comptes d'AgenIA dans un
 nouvel onglet. **L'ordre est celui d'ajout des comptes**, choisi par le
 propriétaire : un compte qui arrive se met à la suite, il ne se classe pas.
@@ -210,9 +214,9 @@ Les icônes sont des **SVG écrits dans le HTML** : aucune requête
 supplémentaire, aucune fonte d'icônes, et la couleur suit le texte
 (`fill: currentColor`), donc elles s'adaptent seules si la palette change.
 
-Le bloc est **rigoureusement identique dans les douze fichiers** parce que les
+Le bloc est **rigoureusement identique dans les treize fichiers** parce que les
 adresses sont absolues : contrairement à la navigation, il n'a pas de variante
-en `../` pour les pages de `ressources/`. Un compte ajouté se copie donc tel
+en `../` pour les pages de `blog/`. Un compte ajouté se copie donc tel
 quel partout.
 
 ## Prendre rendez-vous (Calendly)
@@ -279,7 +283,7 @@ redirection, donc lu tel quel dans la barre d'adresse du prospect.
 
 Ce raccourci coûte à chaque fois **un lien interne vers la page produit depuis
 l'accueil** — le pied de page, `essai-outils.html` et la page Haute-Savoie le
-compensent, et l'audit continue d'atteindre les vingt-quatre pages. La section
+compensent, et l'audit continue d'atteindre les vingt-cinq pages. La section
 « Maillage interne » de `REFERENCEMENT.md` porte le compte de ce que l'accueil
 envoie désormais dehors.
 
@@ -535,9 +539,11 @@ Pour servir le site sur `www.agenia.pro` :
 Le site était indexable sur **trois pages**, dont les mentions légales — tout
 le reste portait `noindex` parce qu'un formulaire cachait le contenu. Le
 19 septembre 2026, les neuf autres ont été ouvertes : ce qui décrit un produit
-ou compose un guide est public, seuls la vidéo, l'accès à l'application et la
-version PDF restent derrière le formulaire. Douze pages sont maintenant
-indexables.
+ou compose un guide est public, seuls la vidéo et l'accès à l'application
+restent derrière le formulaire (plus la version PDF, mais seulement côté
+anglais depuis le 28/09 — voir plus bas). **Treize pages** sont indexables
+aujourd'hui : les douze du 19/09, moins `ressources/index.html` (devenue une
+redirection), plus les quatre pages du blog qui l'ont emporté.
 
 ⚠️ **C'est réversible sans bruit.** Remonter un formulaire devant un contenu, ou
 réintroduire un `noindex`, ne fait rougir aucun test. Le contrôle tient en dix

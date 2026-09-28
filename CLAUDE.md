@@ -58,9 +58,9 @@ français, douze en anglais depuis le 20 septembre 2026 :
 ```
 index.html · demo-margeo.html · demo-prospeo.html · demo-keo.html
 demo-planeo.html · essai-outils.html · agence-ia-haute-savoie.html
-mentions-legales.html · ressources/index.html
-ressources/20-taches-a-automatiser.html · ressources/auditer-process-pme.html
-ressources/calculer-roi-automatisation.html
+mentions-legales.html · blog/index.html
+blog/automatiser-prospection-mal-cadree.html · blog/20-taches-a-automatiser.html
+blog/auditer-process-pme.html · blog/calculer-roi-automatisation.html
 
 en/index.html · en/margeo.html · en/prospeo.html · en/keo.html
 en/planeo.html · en/free-tools.html · en/ai-agency-geneva-haute-savoie.html
@@ -68,12 +68,22 @@ en/legal-notice.html · en/resources.html · en/20-tasks-to-automate.html
 en/audit-before-you-automate.html · en/automation-roi.html
 ```
 
+**28/09/2026 : `ressources/` a fusionné avec `blog/`.** Les trois guides ont
+déménagé (mêmes noms de fichier, dossier différent), et `ressources/index.html`
+n'est plus une page du club ci-dessus : c'est une redirection statique (comme
+les trois anciennes adresses des guides), `noindex`, hors sitemap. `ressources/`
+n'a pas disparu pour autant : `gate.js` y reste, chargé par une dizaine de
+pages sans rapport avec les guides (portails vidéo, calculateurs), et
+`ressources/pdf/` garde les PDF des trois guides, maintenant téléchargeables
+sans formulaire depuis leur nouvelle page.
+
 **Une page ajoutée d'un côté doit l'être de l'autre**, sans quoi son `hreflang`
 pointe dans le vide. Écrire l'anglais en français, ou l'inverse, est l'erreur
 qui se voit le moins : relire la page dans sa langue avant de pousser.
 
-La **grille des ressources** est dupliquée de la même façon, entre l'accueil
-(`#guides`) et `ressources/index.html`.
+La **grille des guides** est dupliquée de la même façon, entre l'accueil
+(`#guides`) et `blog/index.html` — plus complète sur ce second, qui porte
+aussi les futurs articles et les calculateurs.
 
 Le bloc `<nav class="social">` du pied de page l'est aussi — mais il fait
 exception : ses adresses étant absolues, il est **strictement identique dans les
@@ -83,7 +93,7 @@ douze fichiers**, sans variante en `../`. Un compte ajouté se recopie tel quel
 Toucher à la navigation sans les traiter toutes laisse un site incohérent, sans
 erreur ni test rouge pour le signaler. **Après toute modification de
 navigation, compter les occurrences** — et attention aux chemins : les pages de
-`ressources/` pointent en `../`, celles de `en/` aussi (elles partagent
+`blog/` pointent en `../`, celles de `en/` aussi (elles partagent
 `styles.css`, `script.js` et `ressources/gate.js` avec le français, plutôt que
 d'en avoir une copie), les autres pointent à la racine.
 
@@ -335,10 +345,17 @@ par page** :
 | Public, donc indexable | Derrière le formulaire |
 |---|---|
 | Ce que fait le produit, pour qui, la FAQ | La **vidéo** et l'**accès** à l'application |
-| L'article entier d'un guide | Sa version **PDF** |
+| L'article entier d'un guide anglais (`en/`) | Sa version **PDF** |
 
-La capture de prospects n'a pas été sacrifiée : elle a été déplacée, et elle
-qualifie mieux — quelqu'un qui remplit après avoir lu sait ce qu'il demande.
+La capture de prospects n'a pas été sacrifiée sur les pages produit : elle a
+été déplacée, et elle qualifie mieux — quelqu'un qui remplit après avoir lu
+sait ce qu'il demande. **Les trois guides français, eux, ont perdu ce
+formulaire le 28/09/2026** en rejoignant `blog/` : leur PDF est en
+téléchargement direct, cohérent avec la doctrine du blog — entièrement
+public, sans aucune porte. Ce n'est **pas** encore vrai côté anglais
+(`en/20-tasks-to-automate.html` etc.), qui garde son formulaire : une
+divergence assumée pour l'instant, à revoir si `en/` rejoint un jour le même
+mouvement.
 
 ⚠️ **Le piège est silencieux.** Remonter un formulaire devant un contenu, ou
 réintroduire un `noindex`, annule des mois de positionnement sans qu'aucun test
