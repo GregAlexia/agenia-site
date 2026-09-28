@@ -154,9 +154,9 @@ C'est un lien externe en nouvel onglet, jamais un widget — voir la section sur
 la prise de rendez-vous dans `README.md`.
 
 **Les attributs `width`/`height` du logo doivent décrire l'image réelle**
-(352×220). Ils servent à réserver la place avant le chargement ; un rapport faux
-provoque un saut de mise en page que Google mesure. Ils annonçaient 330×220
-jusqu'au 21/09/2026.
+(615×450 depuis le 28/09/2026, était 352×220). Ils servent à réserver la place
+avant le chargement ; un rapport faux provoque un saut de mise en page que
+Google mesure. Ils annonçaient 330×220 jusqu'au 21/09/2026.
 
 ---
 
