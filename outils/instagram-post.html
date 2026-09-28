@@ -6,18 +6,23 @@
      charte et personne ne le voit — aucun contrôle ne lit une image.
 
      Contenu piloté par la chaîne de requête, une carte à la fois :
-       ?type=hook&tag=…&titre=…&corps=…&foot=Suite+→
+       ?type=hook&tag=…&titre=…&corps=…
        ?type=point&tag=01+·+Le+symptôme&num=1+/+5&titre=…&corps=…
        ?type=quote&tag=Le+regard+d'AgenIA&titre=…&corps=…
-       ?type=cta&titre=…&corps=…&foot=www.agenia.pro
+       ?type=cta&titre=…&corps=…
 
-     `illustration` (chemin relatif vers un SVG ou une image, ex.
-     illustrations/prospection-hook.svg) remplace le texte de corps par un
-     visuel — pensé pour le hook : une image humoristique sur le thème de
-     l'article accroche mieux qu'une ligne de texte de plus. Une par
-     carrousel suffit ; en fabriquer une nouvelle pour chaque sujet plutôt
-     que de réutiliser celle d'un autre article (voir hooks.md, formule 9 :
-     montrer plutôt qu'expliquer s'applique aussi à l'image).
+     www.agenia.pro est fixe en pied de page, sur les quatre types — pas un
+     paramètre : une carte qui circule seule (repartagée, sauvegardée) doit
+     toujours porter l'adresse du site.
+
+     `illustration` (chemin relatif vers un SVG ou une image PNG détourée,
+     ex. mascotte/hausse-epaules.png) remplace le texte de corps par un
+     visuel — pensé pour le hook : la mascotte AgenIA dans une action liée
+     au sujet accroche mieux qu'une ligne de texte de plus. Une pose par
+     carrousel, choisie pour ce sujet précis plutôt que réutilisée par
+     réflexe (voir hooks.md, formule 9 : montrer plutôt qu'expliquer
+     s'applique aussi à l'image). Poses détourées dans outils/mascotte/,
+     à partir de la planche fournie par le propriétaire — pas générées ici.
 
      Sans JavaScript, le gabarit montre encore quelque chose de juste (le
      premier hook validé du carrousel « Prospection mal cadrée ») — même
@@ -39,8 +44,6 @@
     src:url("../assets/fonts/archivo-latin-700-normal.woff2") format("woff2"); }
   @font-face { font-family:"Source Serif 4"; font-style:normal; font-weight:400;
     src:url("../assets/fonts/source-serif-4-latin-400-normal.woff2") format("woff2"); }
-  @font-face { font-family:"Source Serif 4"; font-style:italic; font-weight:600;
-    src:url("../assets/fonts/source-serif-4-latin-400-italic.woff2") format("woff2"); }
 
   *{box-sizing:border-box;margin:0;padding:0}
   body{width:1080px;height:1080px;background:#f0efe8;color:#171613;
@@ -56,18 +59,18 @@
   .num{font-family:"Archivo",sans-serif;font-weight:600;font-size:18px;
        letter-spacing:.06em;color:#57534a}
 
-  h1{font-family:"Archivo",sans-serif;font-weight:700;font-size:64px;
+  /* Un seul style de titre, que ce soit le hook, un point ou la citation du
+     regard AgenIA — h1 et .quote partagent exactement les mêmes règles,
+     jamais une police différente pour l'un des quatre types. */
+  h1, .quote{font-family:"Archivo",sans-serif;font-weight:700;font-size:64px;
      line-height:1.14;letter-spacing:-.02em;margin-top:32px}
-
-  .quote{font-style:italic;font-weight:600;font-size:58px;line-height:1.24;
-       margin-top:32px}
 
   /* Le milieu remplit tout ce qui reste entre le titre et le pied — jamais
      un bloc de texte collé sous le titre avec un grand vide avant le pied.
      Un seul enfant visible à la fois (texte ou illustration), centré dans
      l'espace disponible plutôt qu'aligné en haut. */
   .milieu{flex:1;display:flex;align-items:center;margin-top:28px;min-height:0}
-  .corps{font-size:32px;line-height:1.55;color:#57534a;max-width:900px}
+  .corps{font-size:40px;line-height:1.5;color:#57534a;max-width:900px}
   .illustration{max-width:100%;max-height:100%;margin:0 auto;display:block}
 
   .pied{padding-top:28px;border-top:1px solid #d3ccbc;
@@ -100,7 +103,7 @@
         <img src="../assets/logo_agenia-hd.png" alt="">
         <span>AGENIA</span>
       </div>
-      <span class="foot-droite" id="foot">Suite →</span>
+      <span class="foot-droite">www.agenia.pro</span>
     </div>
   </div>
 
@@ -109,9 +112,8 @@
      en dur ci-dessus — même principe que og-image.html. Dès qu'un `type` est
      fourni (c'est le cas à chaque appel de faire-instagram.cjs), chaque champ
      se recalcule entièrement à partir de la requête : un champ absent se vide
-     et se masque, plutôt que de garder une valeur par défaut qui ne
-     correspond à aucun des quatre types (« Suite → » n'a de sens que sur le
-     hook, pas sur un point ou le CTA). */
+     et se masque. Le pied (www.agenia.pro) n'est pas de ceux-là : il est fixe
+     dans le HTML, sur les quatre types. */
   (function () {
     var q = new URLSearchParams(location.search);
     var type = q.get("type"); // hook | point | quote | cta
@@ -126,7 +128,6 @@
 
     champ("tag", "tag");
     champ("num", "num");
-    champ("foot", "foot");
 
     if (type === "quote") {
       document.getElementById("titre").hidden = true;

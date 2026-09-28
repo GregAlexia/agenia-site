@@ -36,9 +36,8 @@ const DOSSIER = `assets/instagram/${SLUG}`;
 const CARTES = [
   { type: 'hook', tag: 'Automatisation & process',
     titre: 'Plus de volume. Même taux de réponse. 0 surprise.',
-    illustration: 'illustrations/prospection-hook.svg',
-    corps: 'On arrose toute la liste. Le bon prospect reste sec.',
-    foot: 'Suite →' },
+    illustration: 'mascotte/hausse-epaules.png',
+    corps: 'La mascotte AgenIA hausse les épaules : on arrose toute la liste, le bon prospect reste sec.' },
   { type: 'point', tag: '01 · Le symptôme', num: '1 / 5',
     titre: 'Vous envoyez 2 fois plus. Ça ne change rien.',
     corps: "C'est le signe d'un ciblage mal cadré — pas d'un outil mal réglé. Envoyer davantage à la mauvaise cible ne fait qu'agrandir la même erreur." },
@@ -56,8 +55,7 @@ const CARTES = [
     corps: 'Poser la définition du client visé prend 1 heure. Ne pas le faire coûte.' },
   { type: 'cta', tag: 'À lire en entier',
     titre: 'Un call de 30 minutes. Ou des semaines de relances dans le vide.',
-    corps: "L'article complet, sources incluses → lien en bio.",
-    foot: 'www.agenia.pro' },
+    corps: "L'article complet, sources incluses → lien en bio." },
 ];
 
 (async () => {
