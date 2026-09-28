@@ -160,27 +160,36 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <!-- en/blog/ : ouvert le 28/09/2026, même jour et même fusion que
+       blog/ côté français. en/resources.html et ses trois guides ne sont
+       plus ici : ce sont des redirections noindex vers ces adresses. -->
   <url>
-    <loc>https://www.agenia.pro/en/resources.html</loc>
-    <lastmod>2026-09-20</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://www.agenia.pro/en/blog/</loc>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.agenia.pro/en/20-tasks-to-automate.html</loc>
-    <lastmod>2026-09-20</lastmod>
+    <loc>https://www.agenia.pro/en/blog/unqualified-prospecting-backfires.html</loc>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.agenia.pro/en/audit-before-you-automate.html</loc>
-    <lastmod>2026-09-20</lastmod>
+    <loc>https://www.agenia.pro/en/blog/20-tasks-to-automate.html</loc>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.agenia.pro/en/automation-roi.html</loc>
-    <lastmod>2026-09-20</lastmod>
+    <loc>https://www.agenia.pro/en/blog/audit-before-you-automate.html</loc>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.agenia.pro/en/blog/automation-roi.html</loc>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

@@ -22,11 +22,13 @@ même pied de page, et **toutes indexables** :
 | `ressources/pdf/` | Les trois PDF, toujours régénérés depuis les pages du blog qui les précèdent. `ressources/` n'est plus une section publique : `gate.js` y reste (chargé par une dizaine d'autres pages), et ses quatre anciennes pages sont des redirections vers `blog/` |
 | `mentions-legales.html` | Mentions et confidentialité (ancre `#confidentialite`) |
 
-**Version anglaise** — `en/`, ouverte le 20 septembre 2026 : douze pages,
-à plat dans un seul dossier, avec des adresses en anglais. Elle n'a **pas**
-suivi la fusion du 28/09 : ses trois guides restent à part (`en/resources.html`
-et consorts), gardent leur formulaire, et n'ont pas d'équivalent dans un
-« blog anglais » qui n'existe pas encore — voir `CLAUDE.md`.
+**Version anglaise** — `en/`, ouverte le 20 septembre 2026 : treize pages,
+à plat dans un seul dossier, avec des adresses en anglais.
+`en/resources.html` a suivi la même fusion que son équivalent français, une
+semaine plus tard : `en/blog/` est ouvert depuis le 28/09/2026, avec ses
+trois guides déménagés (sans formulaire, comme côté français) et un premier
+article original en anglais, traduction adaptée — pas mot pour mot — de son
+équivalent français.
 
 | Fichier `en/` | Page française correspondante |
 |---------------|-------------------------------|
@@ -34,8 +36,7 @@ et consorts), gardent leur formulaire, et n'ont pas d'équivalent dans un
 | `margeo.html` · `prospeo.html` · `keo.html` · `planeo.html` | les quatre `demo-*.html` |
 | `free-tools.html` | `essai-outils.html` |
 | `ai-agency-geneva-haute-savoie.html` | `agence-ia-haute-savoie.html` |
-| `resources.html` | `blog/index.html` (la paire la plus proche, imparfaite : `resources.html` ne couvre que les guides) |
-| `20-tasks-to-automate.html` · `audit-before-you-automate.html` · `automation-roi.html` | les trois guides, déménagés dans `blog/` côté français |
+| `blog/index.html` + articles | `blog/index.html` + articles |
 | `legal-notice.html` | `mentions-legales.html` |
 
 Chaque page déclare sa jumelle en `hreflang`, **dans les deux sens**, et porte
@@ -84,7 +85,7 @@ les deux versions offrent la même chose, PDF des guides compris
 Le site n'a **ni build ni dépendance** : ce qui est dans le dépôt est
 exactement ce qui est servi. Un fichier modifié est en ligne en une à deux
 minutes, sans étape intermédiaire — c'est la contrepartie de devoir répéter
-l'en-tête et le pied de page dans vingt-quatre fichiers.
+l'en-tête et le pied de page dans vingt-six fichiers.
 
 ## Modifier le site depuis n'importe quel PC
 
@@ -231,7 +232,7 @@ site affirme n'en poser aucun et se passe de bandeau — même raisonnement que
 les façades vidéo. **Ne pas remplacer ce lien par une intégration.**
 
 **Tout bouton qui promet un rendez-vous ou un audit gratuit y mène** :
-« Parler à un expert » de l'en-tête et du menu déroulant, sur les vingt-quatre
+« Parler à un expert » de l'en-tête et du menu déroulant, sur les vingt-six
 pages&nbsp;; « Réserver un audit gratuit », « Réserver mon audit gratuit » et
 « Estimer votre potentiel » là où ils apparaissent, avec leurs équivalents
 anglais. L'adresse est donc répétée deux à six fois par page — ne pas s'en
@@ -283,7 +284,7 @@ redirection, donc lu tel quel dans la barre d'adresse du prospect.
 
 Ce raccourci coûte à chaque fois **un lien interne vers la page produit depuis
 l'accueil** — le pied de page, `essai-outils.html` et la page Haute-Savoie le
-compensent, et l'audit continue d'atteindre les vingt-cinq pages. La section
+compensent, et l'audit continue d'atteindre les vingt-six pages. La section
 « Maillage interne » de `REFERENCEMENT.md` porte le compte de ce que l'accueil
 envoie désormais dehors.
 
