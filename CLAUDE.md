@@ -415,7 +415,8 @@ croire l'inverse. Ce qui est protégé ici l'est par une policy RLS.
 
 Table `documentation_pages`, une ligne par document (`cle` = `guide`,
 `prospection`…). La clé `veille-ia-us` (HTML en clair) forme la sous-rubrique
-« Tendances IA US » de l'onglet Veille (`#ia-us`) : la liste se met à jour par un simple
+« Tendances IA US » de l'onglet Veille (`#ia-us`), et `veille-youtube` la sous-rubrique
+« Chaînes YouTube » (`#youtube`) — une ligne dans `RUBRIQUES` (`veille.js`) par sous-rubrique : la liste se met à jour par un simple
 `update`, sans toucher au guide compressé. De même, `claude-connecteurs` et
 `claude-astuces` forment les sous-rubriques « Connecteurs & Claude » (`#claude`) et
 « Tips & tricks » (`#astuces`) de l'onglet Documentation — une ligne de plus dans
