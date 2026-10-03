@@ -377,12 +377,18 @@ Profile, le dépôt GitHub à passer en privé — est dans
 
 ## Espace interne (`documentation/`)
 
-Neuf pages, un seul module d'accès (`acces.js`) : le guide, la veille, les
+Dix pages, un seul module d'accès (`acces.js`) : le guide, la veille, les
 outils, le playbook de prospection, les statistiques, l'audit, le plan de
-référencement, la veille WhatsApp × IA et Upwork (plan d'action, étude de
+référencement, la veille WhatsApp × IA, Upwork (plan d'action, étude de
 marché, offres du Project Catalog — clé `upwork`, une sous-rubrique par
-`<section class="rubrique">`). **Un onglet ajouté doit l'être dans les neuf** —
-c'est le même piège que l'en-tête des pages publiques, en plus petit.
+`<section class="rubrique">`) et ZénithIA (dossier partenaire et préparation
+de séance — clé `zenithia`, même découpage en rubriques). **Un onglet ajouté
+doit l'être dans les dix** — c'est le même piège que l'en-tête des pages
+publiques, en plus petit.
+
+Le dossier ZénithIA décrit des personnes réelles (dirigeants, âges, chiffres
+qu'ils annoncent) : raison de plus pour qu'il ne vive qu'en base, jamais dans
+`zenithia.html` ou `zenithia.js`.
 
 ⚠️ **Le contenu d'un onglet va en base, jamais dans la page.** Le dépôt est
 public et servi tel quel : `[hidden]` cache à l'œil, pas au téléchargement. La
