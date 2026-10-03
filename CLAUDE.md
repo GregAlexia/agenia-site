@@ -380,7 +380,8 @@ Profile, le dépôt GitHub à passer en privé — est dans
 Dix pages, un seul module d'accès (`acces.js`) : le guide, la veille, les
 outils, le playbook de prospection, les statistiques, l'audit, le plan de
 référencement, la veille WhatsApp × IA, Upwork (plan d'action, étude de
-marché, offres du Project Catalog — clé `upwork`, une sous-rubrique par
+marché, offres du Project Catalog, clients de la zone, prix des premières
+missions — clé `upwork`, une sous-rubrique par
 `<section class="rubrique">`) et ZénithIA (dossier partenaire et préparation
 de séance — clé `zenithia`, même découpage en rubriques). **Un onglet ajouté
 doit l'être dans les dix** — c'est le même piège que l'en-tête des pages
