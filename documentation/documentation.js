@@ -10,31 +10,33 @@
    compressé ; c'est acces.js qui sait le déplier, puisque la page
    Prospection en a besoin aussi.
 
-   « Connecteurs & Claude » vit sous sa propre clé,
-   « claude-connecteurs », et forme une sous-rubrique : la greffer
-   dans le guide la ferait écraser à la prochaine recopie de celui-ci.
-   Elle est facultative — son absence retire la sous-rubrique sans
-   masquer le guide. Le fragment #claude l'ouvre directement.
+   Les autres sous-rubriques vivent chacune sous leur propre clé : les
+   greffer dans le guide les ferait écraser à la prochaine recopie de
+   celui-ci. Elles sont facultatives — une clé absente retire sa
+   sous-rubrique sans masquer le reste. Le fragment (#claude,
+   #astuces) ouvre directement la sienne.
    ============================================================ */
 (function () {
   "use strict";
 
   var doc = document.getElementById("doc");
 
+  // La première est obligatoire : sans le guide, la session est jugée
+  // expirée. Ajouter une sous-rubrique = ajouter une ligne ici et sa clé en base.
   var RUBRIQUES = [
-    { fragment: "", libelle: "Guide" },
-    { fragment: "claude", libelle: "Connecteurs & Claude" },
+    { cle: "guide", fragment: "", libelle: "Guide" },
+    { cle: "claude-connecteurs", fragment: "claude", libelle: "Connecteurs & Claude" },
+    { cle: "claude-astuces", fragment: "astuces", libelle: "Tips & tricks" },
   ];
 
-  function afficher(guide, claude) {
-    if (!claude) {
-      doc.innerHTML = guide;
+  function afficher(presentes) {
+    if (presentes.length === 1) {
+      doc.innerHTML = presentes[0].html;
       return;
     }
-    var contenus = [guide, claude];
     var boutons = "";
-    for (var i = 0; i < RUBRIQUES.length; i++) {
-      boutons += '<button type="button" data-rubrique="' + i + '">' + RUBRIQUES[i].libelle + "</button>";
+    for (var i = 0; i < presentes.length; i++) {
+      boutons += '<button type="button" data-rubrique="' + i + '">' + presentes[i].libelle + "</button>";
     }
     doc.innerHTML = '<nav class="sousMenu" aria-label="Rubriques de la documentation">' + boutons + '</nav><div id="vue"></div>';
     var vue = document.getElementById("vue");
@@ -43,7 +45,7 @@
     // Le contenu est remplacé plutôt que masqué : deux blocs cachés par
     // [hidden] laisseraient leurs feuilles de style se marcher dessus.
     function ouvrir(n, majFragment) {
-      vue.innerHTML = contenus[n];
+      vue.innerHTML = presentes[n].html;
       for (var j = 0; j < liste.length; j++) {
         var actif = j === n;
         liste[j].className = actif ? "actif" : "";
@@ -51,7 +53,7 @@
         else liste[j].removeAttribute("aria-current");
       }
       if (majFragment && history.replaceState) {
-        history.replaceState(null, "", RUBRIQUES[n].fragment ? "#" + RUBRIQUES[n].fragment : location.pathname);
+        history.replaceState(null, "", presentes[n].fragment ? "#" + presentes[n].fragment : location.pathname);
       }
     }
 
@@ -60,24 +62,34 @@
         ouvrir(parseInt(this.getAttribute("data-rubrique"), 10), true);
       });
     }
-    ouvrir(location.hash === "#claude" ? 1 : 0, false);
+
+    var depart = 0;
+    for (var m = 1; m < presentes.length; m++) {
+      if (location.hash === "#" + presentes[m].fragment) depart = m;
+    }
+    ouvrir(depart, false);
   }
 
   window.AgeniaAcces.demarrer(function (jeton, outils) {
     doc.innerHTML = '<div id="chargement">Chargement…</div>';
 
-    // Lancée en même temps pour ne pas doubler l'attente ; une erreur
-    // se résout en chaîne vide plutôt que d'échouer le tout.
-    var claude = outils
-      .requete("/rest/v1/documentation_pages?cle=eq.claude-connecteurs&select=html", { jeton: jeton })
-      .then(function (r) {
-        if (!(r.ok && Array.isArray(r.json) && r.json.length && r.json[0].html)) return "";
-        return outils.decompresser(r.json[0].html);
-      })
-      .catch(function () { return ""; });
+    function charger(cle) {
+      return outils.requete("/rest/v1/documentation_pages?cle=eq." + cle + "&select=html", { jeton: jeton });
+    }
 
-    outils
-      .requete("/rest/v1/documentation_pages?cle=eq.guide&select=html", { jeton: jeton })
+    // Les sous-rubriques facultatives partent en même temps que le guide,
+    // pour ne pas additionner les attentes ; une erreur se résout en
+    // chaîne vide plutôt que d'échouer le tout.
+    var facultatives = RUBRIQUES.slice(1).map(function (r) {
+      return charger(r.cle)
+        .then(function (rep) {
+          if (!(rep.ok && Array.isArray(rep.json) && rep.json.length && rep.json[0].html)) return "";
+          return outils.decompresser(rep.json[0].html);
+        })
+        .catch(function () { return ""; });
+    });
+
+    charger(RUBRIQUES[0].cle)
       .then(function (r) {
         // Une policy RLS ne renvoie pas d'erreur : elle renvoie zéro ligne.
         // Un tableau vide signifie donc « ce jeton n'ouvre pas ce contenu ».
@@ -85,9 +97,15 @@
           outils.echec("Session expirée, reconnectez-vous.");
           return;
         }
-        return Promise.all([outils.decompresser(r.json[0].html), claude]).then(function (parts) {
+        return Promise.all([outils.decompresser(r.json[0].html)].concat(facultatives)).then(function (contenus) {
           outils.memoriser();
-          afficher(parts[0], parts[1]);
+          var presentes = [];
+          for (var i = 0; i < RUBRIQUES.length; i++) {
+            if (contenus[i]) {
+              presentes.push({ fragment: RUBRIQUES[i].fragment, libelle: RUBRIQUES[i].libelle, html: contenus[i] });
+            }
+          }
+          afficher(presentes);
         });
       })
       .catch(function () {
