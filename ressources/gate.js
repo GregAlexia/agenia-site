@@ -30,9 +30,11 @@
   // champ répété dans chaque page.
   // Toute source ajoutée ici doit l'être aussi dans la contrainte de la policy
   // d'insertion de site_agenia_prospects, sinon la ligne est rejetée en silence.
-  // Les pages anglaises portent un nom court (margeo.html) là où les pages
-  // françaises portent demo-margeo.html : on teste la FIN du chemin, qui est
-  // commune aux deux. Les valeurs, elles, restent identiques dans les deux
+  // Les pages anglaises portent un nom court (prospeo.html) là où les pages
+  // françaises portent demo-prospeo.html : on teste la FIN du chemin, qui est
+  // commune aux deux. Margeo n'a plus de page ici depuis le 03/10/2026 ; sa
+  // source `demo_margeo` reste dans la policy et les statistiques pour
+  // l'historique, mais plus rien ne l'émet. Les valeurs, elles, restent identiques dans les deux
   // langues — la policy d'insertion de site_agenia_prospects n'accepte que
   // cette liste, et les statistiques comptent un produit, pas une langue.
   var finit = function (suffixe) {
@@ -40,7 +42,6 @@
     return chemin.indexOf(suffixe) === chemin.length - suffixe.length;
   };
   var source =
-    finit("margeo.html") ? "demo_margeo" :
     finit("prospeo.html") ? "demo_prospeo" :
     finit("keo.html") ? "demo_keo" :
     finit("planeo.html") ? "demo_planeo" :

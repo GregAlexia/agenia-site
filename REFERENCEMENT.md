@@ -86,9 +86,9 @@ ne donnent aucun droit sur le site ; ils prouvent l'inverse. En revanche,
 **ne jamais les retirer** : la revendication est revérifiée périodiquement, et
 une balise disparue la révoque sans prévenir.
 
-Elles vont sur **`index.html` uniquement**, pas sur les treize pages : la
-plateforme vérifie l'URL qu'on lui a donnée, et treize copies d'un jeton sont
-treize occasions d'en oublier une.
+Elles vont sur **`index.html` uniquement**, pas sur les douze pages : la
+plateforme vérifie l'URL qu'on lui a donnée, et douze copies d'un jeton sont
+douze occasions d'en oublier une.
 
 ### `sameAs` : à quoi il sert vraiment ici
 
@@ -111,7 +111,7 @@ recherche qui ne marche pas.
 
 ### Pages indexables
 
-Les **26 pages publiques** (13 françaises, 13 anglaises) sont toutes
+Les **24 pages publiques** (12 françaises, 12 anglaises) sont toutes
 indexables et toutes au sitemap.
 
 **28/09/2026 : `ressources/` a fusionné avec `blog/`, côté français puis,
@@ -156,7 +156,6 @@ casse un travail de positionnement qui met des mois à s'installer.
 | Page | Intention visée |
 |---|---|
 | `/` | La marque, et « éditeur de logiciels IA pour PME » |
-| `demo-margeo.html` | logiciel calcul marge restaurant · coût de revient d'un plat · food cost |
 | `demo-prospeo.html` | logiciel prospection commerciale IA · outil de prospection B2B |
 | `demo-keo.html` | logiciel gestion agence immobilière · automatisation quittance de loyer |
 | `demo-planeo.html` | plan de permis de construire en 3D · visualiser sa maison avant construction |
@@ -205,7 +204,7 @@ avec la langue** — `/presentation` et `/en/presentation` — parce qu'il est l
 seul dont la page de destination est traduite : envoyer un anglophone sur la
 version française annulerait ce que la page anglaise vient de gagner. Les
 commentaires HTML qui signalent ces liens sont numérotés par produit et par
-langue — `URL Margeo (n/3)`, `URL Keo (n/2)`, `URL Planeo (n/2)`,
+langue — `URL Margeo (n/6)`, `URL Keo (n/2)`, `URL Planeo (n/2)`,
 `URL Prospeo (1/1)` — pour qu'un changement d'adresse n'en oublie aucun.
 
 ---

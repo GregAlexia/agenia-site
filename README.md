@@ -9,20 +9,20 @@ automatiquement sur **GitHub Pages** à chaque push sur `main`.
 
 ## Structure
 
-**Pages publiques françaises** — treize, toutes autonomes, toutes avec le même en-tête et le
+**Pages publiques françaises** — douze, toutes autonomes, toutes avec le même en-tête et le
 même pied de page, et **toutes indexables** :
 
 | Fichier | Rôle |
 |---------|------|
 | `index.html` | Page de vente principale, à ancres (`#services`, `#methode`, `#resultats`, `#secteurs`, `#produit`, `#faq`, `#contact`) |
-| `demo-margeo.html` · `demo-prospeo.html` · `demo-keo.html` · `demo-planeo.html` | Une page de vente par produit. Le contenu est public ; seuls la vidéo et l'accès à l'application se déverrouillent contre coordonnées |
+| `demo-prospeo.html` · `demo-keo.html` · `demo-planeo.html` | Une page de vente par produit — sauf Margeo, dont la page a été supprimée le 03/10/2026 : l'application porte sa propre page de vente, bilingue, et tous les liens Margeo y mènent. Le contenu est public ; seuls la vidéo et l'accès à l'application se déverrouillent contre coordonnées |
 | `essai-outils.html` | Les huit calculateurs gratuits, décrits en clair ; le lien d'ouverture est déverrouillé |
 | `agence-ia-haute-savoie.html` | Page de référencement local : Annecy, le Genevois, la Haute-Savoie |
 | `blog/index.html` + articles | Ouvert le 28/09/2026, rejoint le même jour par les trois anciens guides de `ressources/` (fusion des deux sections) — tout est public, y compris le PDF des anciens guides, en téléchargement direct |
 | `ressources/pdf/` | Les trois PDF, toujours régénérés depuis les pages du blog qui les précèdent. `ressources/` n'est plus une section publique : `gate.js` y reste (chargé par une dizaine d'autres pages), et ses quatre anciennes pages sont des redirections vers `blog/` |
 | `mentions-legales.html` | Mentions et confidentialité (ancre `#confidentialite`) |
 
-**Version anglaise** — `en/`, ouverte le 20 septembre 2026 : treize pages,
+**Version anglaise** — `en/`, ouverte le 20 septembre 2026 : douze pages,
 à plat dans un seul dossier, avec des adresses en anglais.
 `en/resources.html` a suivi la même fusion que son équivalent français, une
 semaine plus tard : `en/blog/` est ouvert depuis le 28/09/2026, avec ses
@@ -33,7 +33,7 @@ article original en anglais, traduction adaptée — pas mot pour mot — de son
 | Fichier `en/` | Page française correspondante |
 |---------------|-------------------------------|
 | `index.html` | `index.html` |
-| `margeo.html` · `prospeo.html` · `keo.html` · `planeo.html` | les quatre `demo-*.html` |
+| `prospeo.html` · `keo.html` · `planeo.html` | les trois `demo-*.html` |
 | `free-tools.html` | `essai-outils.html` |
 | `ai-agency-geneva-haute-savoie.html` | `agence-ia-haute-savoie.html` |
 | `blog/index.html` + articles | `blog/index.html` + articles |
@@ -85,7 +85,7 @@ les deux versions offrent la même chose, PDF des guides compris
 Le site n'a **ni build ni dépendance** : ce qui est dans le dépôt est
 exactement ce qui est servi. Un fichier modifié est en ligne en une à deux
 minutes, sans étape intermédiaire — c'est la contrepartie de devoir répéter
-l'en-tête et le pied de page dans vingt-six fichiers.
+l'en-tête et le pied de page dans vingt-quatre fichiers.
 
 ## Modifier le site depuis n'importe quel PC
 
@@ -202,7 +202,7 @@ conclure que le déploiement a échoué.
 
 ## Les réseaux sociaux
 
-Le pied de page des treize pages porte cinq icônes — Facebook, Instagram,
+Le pied de page des douze pages porte cinq icônes — Facebook, Instagram,
 YouTube, Pinterest, LinkedIn — qui ouvrent les comptes d'AgenIA dans un
 nouvel onglet. **L'ordre est celui d'ajout des comptes**, choisi par le
 propriétaire : un compte qui arrive se met à la suite, il ne se classe pas.
@@ -215,7 +215,7 @@ Les icônes sont des **SVG écrits dans le HTML** : aucune requête
 supplémentaire, aucune fonte d'icônes, et la couleur suit le texte
 (`fill: currentColor`), donc elles s'adaptent seules si la palette change.
 
-Le bloc est **rigoureusement identique dans les treize fichiers** parce que les
+Le bloc est **rigoureusement identique dans les douze fichiers** parce que les
 adresses sont absolues : contrairement à la navigation, il n'a pas de variante
 en `../` pour les pages de `blog/`. Un compte ajouté se copie donc tel
 quel partout.
@@ -232,7 +232,7 @@ site affirme n'en poser aucun et se passe de bandeau — même raisonnement que
 les façades vidéo. **Ne pas remplacer ce lien par une intégration.**
 
 **Tout bouton qui promet un rendez-vous ou un audit gratuit y mène** :
-« Parler à un expert » de l'en-tête et du menu déroulant, sur les vingt-six
+« Parler à un expert » de l'en-tête et du menu déroulant, sur les vingt-quatre
 pages&nbsp;; « Réserver un audit gratuit », « Réserver mon audit gratuit » et
 « Estimer votre potentiel » là où ils apparaissent, avec leurs équivalents
 anglais. L'adresse est donc répétée deux à six fois par page — ne pas s'en
@@ -284,7 +284,7 @@ redirection, donc lu tel quel dans la barre d'adresse du prospect.
 
 Ce raccourci coûte à chaque fois **un lien interne vers la page produit depuis
 l'accueil** — le pied de page, `essai-outils.html` et la page Haute-Savoie le
-compensent, et l'audit continue d'atteindre les vingt-six pages. La section
+compensent, et l'audit continue d'atteindre les vingt-quatre pages. La section
 « Maillage interne » de `REFERENCEMENT.md` porte le compte de ce que l'accueil
 envoie désormais dehors.
 

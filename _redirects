@@ -25,3 +25,9 @@
 # Gabarit de l'image de partage et script de génération des PDF : des outils,
 # pas des pages. Le dossier entier, pour ne pas avoir à y revenir.
 /outils/*          /  301
+
+# Pages supprimées : Margeo n'a plus de page sur ce site depuis le 03/10/2026,
+# l'application porte la sienne. Une 301 vers elle plutôt qu'un 404, pour les
+# liens déjà indexés. Comme le reste de ce fichier, sans effet sur GitHub Pages.
+/demo-margeo.html  https://margeo.agenia.pro     301
+/en/margeo.html    https://margeo.agenia.pro/en  301

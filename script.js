@@ -141,8 +141,8 @@
      LA PAGE JUMELLE N'EST PAS DEVINÉE. Elle est lue dans le
      `<link rel="alternate" hreflang>` que chaque page porte déjà, et dont
      l'audit vérifie la réciprocité. Une table de correspondance écrite ici
-     aurait divergé au premier renommage : `demo-margeo.html` devient
-     `margeo.html`, `essai-outils.html` devient `free-tools.html` — rien
+     aurait divergé au premier renommage : `demo-prospeo.html` devient
+     `prospeo.html`, `essai-outils.html` devient `free-tools.html` — rien
      n'est mécanique. Une page sans jumelle ne propose donc rien, ce qui
      est le bon comportement plutôt qu'un lien mort.
      ============================================================= */
