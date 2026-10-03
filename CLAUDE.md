@@ -415,7 +415,8 @@ croire l'inverse. Ce qui est protégé ici l'est par une policy RLS.
 Table `documentation_pages`, une ligne par document (`cle` = `guide`,
 `prospection`…). La clé `veille-ia-us` (HTML en clair) forme la sous-rubrique
 « Tendances IA US » de l'onglet Veille (`#ia-us`) : la liste se met à jour par un simple
-`update`, sans toucher au guide compressé. Ils y sont rangés en **gzip puis base64** : la colonne reste du
+`update`, sans toucher au guide compressé. De même, `claude-connecteurs` forme la
+sous-rubrique « Connecteurs & Claude » de l'onglet Documentation (`#claude`). Ils y sont rangés en **gzip puis base64** : la colonne reste du
 texte, donc écrivable par n'importe quel outil SQL, et il transite trois fois
 moins d'octets. `acces.js` expose `outils.decompresser`, qui reconnaît le format
 à la lecture — un contenu commençant par `<` est du HTML tel quel. Écrire du HTML
@@ -441,6 +442,14 @@ et **une recopie manuelle altère silencieusement des caractères** : quatre l'o
 été en important le playbook, pour une longueur pourtant identique. Donc
 **toujours vérifier `md5(html)` contre l'empreinte locale** après écriture, et
 bisecter par `md5(substr(...))` en cas d'écart plutôt que de tout renvoyer.
+
+**Envoyer par morceaux d'environ 900 caractères.** Le 03/10/2026, toute requête
+d'écriture au-delà d'environ 1 Ko expirait côté outil SQL, sans rien appliquer,
+alors que les petites passaient. La parade : créer la ligne avec le premier
+morceau, puis `update … set html = html || '<morceau>' where cle = … and
+md5(html) = '<empreinte attendue>'` — chaque ajout ne s'applique que sur l'état
+précédent vérifié, donc une relance après expiration ne double jamais un morceau.
+Le base64 d'un contenu gzip se découpe sans risque d'échappement.
 
 ---
 
