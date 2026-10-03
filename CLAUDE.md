@@ -377,10 +377,12 @@ Profile, le dépôt GitHub à passer en privé — est dans
 
 ## Espace interne (`documentation/`)
 
-Six pages, un seul module d'accès (`acces.js`) : le guide, le playbook de
-prospection, les statistiques, l'audit, le plan de référencement et la veille
-WhatsApp × IA. **Un onglet ajouté doit l'être dans les six** — c'est le même piège que l'en-tête des pages
-publiques, en plus petit.
+Neuf pages, un seul module d'accès (`acces.js`) : le guide, la veille, les
+outils, le playbook de prospection, les statistiques, l'audit, le plan de
+référencement, la veille WhatsApp × IA et Upwork (plan d'action, étude de
+marché, offres du Project Catalog — clé `upwork`, une sous-rubrique par
+`<section class="rubrique">`). **Un onglet ajouté doit l'être dans les neuf** —
+c'est le même piège que l'en-tête des pages publiques, en plus petit.
 
 ⚠️ **Le contenu d'un onglet va en base, jamais dans la page.** Le dépôt est
 public et servi tel quel : `[hidden]` cache à l'œil, pas au téléchargement. La
