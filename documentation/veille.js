@@ -9,15 +9,59 @@
    Copie affichée de docs/VEILLE-CONTENU.md (dépôt reseauteo) — la
    source à modifier reste ce fichier markdown, pas cette page.
 
-   La veille IA US vit sous sa propre clé, « veille-ia-us », et
-   s'affiche à la suite : la greffer dans « veille » la ferait écraser
-   à la prochaine recopie du markdown. Elle est facultative — son
-   absence ne doit pas masquer la veille principale.
+   La veille IA US vit sous sa propre clé, « veille-ia-us », et forme
+   une sous-rubrique de l'onglet : la greffer dans « veille » la ferait
+   écraser à la prochaine recopie du markdown. Elle est facultative —
+   son absence retire la sous-rubrique sans masquer la veille principale.
+   Le fragment #ia-us ouvre directement la sous-rubrique, pour qu'un
+   lien ou un rechargement retombe au même endroit.
    ============================================================ */
 (function () {
   "use strict";
 
   var doc = document.getElementById("doc");
+
+  var RUBRIQUES = [
+    { fragment: "", libelle: "Concurrence et branding" },
+    { fragment: "ia-us", libelle: "Tendances IA US" },
+  ];
+
+  function afficher(principale, iaUs) {
+    if (!iaUs) {
+      doc.innerHTML = principale;
+      return;
+    }
+    var contenus = [principale, iaUs];
+    var boutons = "";
+    for (var i = 0; i < RUBRIQUES.length; i++) {
+      boutons += '<button type="button" data-rubrique="' + i + '">' + RUBRIQUES[i].libelle + "</button>";
+    }
+    doc.innerHTML = '<nav class="sousMenu" aria-label="Rubriques de la veille">' + boutons + '</nav><div id="vue"></div>';
+    var vue = document.getElementById("vue");
+    var liste = doc.querySelectorAll(".sousMenu button");
+
+    // Le contenu est remplacé plutôt que masqué : deux blocs cachés par
+    // [hidden] laisseraient leurs feuilles de style se marcher dessus.
+    function ouvrir(n, majFragment) {
+      vue.innerHTML = contenus[n];
+      for (var j = 0; j < liste.length; j++) {
+        var actif = j === n;
+        liste[j].className = actif ? "actif" : "";
+        if (actif) liste[j].setAttribute("aria-current", "page");
+        else liste[j].removeAttribute("aria-current");
+      }
+      if (majFragment && history.replaceState) {
+        history.replaceState(null, "", RUBRIQUES[n].fragment ? "#" + RUBRIQUES[n].fragment : location.pathname);
+      }
+    }
+
+    for (var k = 0; k < liste.length; k++) {
+      liste[k].addEventListener("click", function () {
+        ouvrir(parseInt(this.getAttribute("data-rubrique"), 10), true);
+      });
+    }
+    ouvrir(location.hash === "#ia-us" ? 1 : 0, false);
+  }
 
   window.AgeniaAcces.demarrer(function (jeton, outils) {
     doc.innerHTML = '<div id="chargement">Chargement…</div>';
@@ -43,7 +87,7 @@
         }
         return Promise.all([outils.decompresser(r.json[0].html), veilleUs]).then(function (parts) {
           outils.memoriser();
-          doc.innerHTML = parts[0] + parts[1];
+          afficher(parts[0], parts[1]);
         });
       })
       .catch(function () {

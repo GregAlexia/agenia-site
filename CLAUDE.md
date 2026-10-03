@@ -405,8 +405,8 @@ croire l'inverse. Ce qui est protégé ici l'est par une policy RLS.
 ### Les documents vivent en base, compressés
 
 Table `documentation_pages`, une ligne par document (`cle` = `guide`,
-`prospection`…). La clé `veille-ia-us` (HTML en clair) s'affiche à la suite
-de la veille sur la page Veille : la liste se met à jour par un simple
+`prospection`…). La clé `veille-ia-us` (HTML en clair) forme la sous-rubrique
+« Tendances IA US » de l'onglet Veille (`#ia-us`) : la liste se met à jour par un simple
 `update`, sans toucher au guide compressé. Ils y sont rangés en **gzip puis base64** : la colonne reste du
 texte, donc écrivable par n'importe quel outil SQL, et il transite trois fois
 moins d'octets. `acces.js` expose `outils.decompresser`, qui reconnaît le format

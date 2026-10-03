@@ -141,3 +141,10 @@ table.donnees input[type=checkbox]{width:16px;height:16px;cursor:pointer;accent-
 /* La veille WhatsApp × IA tient dans un tableau large : on lui laisse la
    place plutôt que de le faire défiler dans 960 px. */
 .conteneur--large{max-width:1240px}
+/* Sous-rubriques d'un onglet (Veille) : même langage que .menu, un cran plus discret */
+.sousMenu{display:flex;gap:4px;flex-wrap:wrap;margin:0 0 28px;padding:4px;background:var(--sb);
+border:1px solid var(--ln);border-radius:10px;width:fit-content;max-width:100%}
+.sousMenu button{padding:7px 13px;border:0;border-radius:7px;background:transparent;
+color:var(--mu);font:inherit;font-size:14px;font-weight:600;cursor:pointer}
+.sousMenu button:hover{color:var(--tx)}
+.sousMenu button.actif{background:#fff;color:var(--tx);box-shadow:0 1px 2px rgba(0,0,0,.08)}
