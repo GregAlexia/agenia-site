@@ -13,8 +13,8 @@
    Les autres sous-rubriques vivent chacune sous leur propre clé : les
    greffer dans le guide les ferait écraser à la prochaine recopie de
    celui-ci. Elles sont facultatives — une clé absente retire sa
-   sous-rubrique sans masquer le reste. Le fragment (#claude,
-   #astuces) ouvre directement la sienne.
+   sous-rubrique sans masquer le reste. Le fragment (#priorites,
+   #claude, #astuces) ouvre directement la sienne.
    ============================================================ */
 (function () {
   "use strict";
@@ -25,13 +25,34 @@
   // expirée. Ajouter une sous-rubrique = ajouter une ligne ici et sa clé en base.
   var RUBRIQUES = [
     { cle: "guide", fragment: "", libelle: "Guide" },
+    { cle: "priorites", fragment: "priorites", libelle: "Priorités" },
     { cle: "claude-connecteurs", fragment: "claude", libelle: "Connecteurs & Claude" },
     { cle: "claude-astuces", fragment: "astuces", libelle: "Tips & tricks" },
   ];
 
+  /* L'avancement des cases vit en localStorage, comme dans l'onglet
+     Upwork : un pense-bête propre à cette machine, pas une donnée partagée. */
+  var PREFIXE = "agenia_doc_tache_";
+
+  function cablerCases(racine) {
+    var cases = racine.querySelectorAll("input[type=checkbox][data-tache]");
+    Array.prototype.forEach.call(cases, function (c) {
+      var cle = c.getAttribute("data-tache");
+      var etiquette = c.parentNode;
+      try { c.checked = localStorage.getItem(PREFIXE + cle) === "1"; } catch (e) { c.checked = false; }
+      etiquette.classList.toggle("faite", c.checked);
+      c.addEventListener("change", function () {
+        try { localStorage.setItem(PREFIXE + cle, c.checked ? "1" : "0"); }
+        catch (e) { /* navigation privée stricte : les cases marchent sans mémoire */ }
+        etiquette.classList.toggle("faite", c.checked);
+      });
+    });
+  }
+
   function afficher(presentes) {
     if (presentes.length === 1) {
       doc.innerHTML = presentes[0].html;
+      cablerCases(doc);
       return;
     }
     var boutons = "";
@@ -46,6 +67,7 @@
     // [hidden] laisseraient leurs feuilles de style se marcher dessus.
     function ouvrir(n, majFragment) {
       vue.innerHTML = presentes[n].html;
+      cablerCases(vue);
       for (var j = 0; j < liste.length; j++) {
         var actif = j === n;
         liste[j].className = actif ? "actif" : "";
