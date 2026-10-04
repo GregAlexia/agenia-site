@@ -408,9 +408,23 @@ croire l'inverse. Ce qui est protégé ici l'est par une policy RLS.
   pas « email ». C'est une demande explicite : ne pas la réintroduire, même
   dans un message d'aide. ⚠️ **Elle n'est pourtant pas confidentielle** : elle
   est en clair dans `documentation/acces.js` (constante `COMPTE_EMAIL`), servi
-  publiquement comme tout le dépôt. Seul le mot de passe protège donc l'accès,
-  sans second facteur (analyse du 4 octobre, `/documentation/audit.html#analyse`).
-  Ne pas écrire ici que l'adresse est secrète : c'est faux.
+  publiquement comme tout le dépôt. Ne pas écrire ici que l'adresse est
+  secrète : c'est faux. C'est le second facteur qui protège, pas la discrétion.
+- **Le second facteur (TOTP) est exigé par la base, pas par la page.**
+  `public.documentation_acces_autorise()` (définer, exécutable par
+  `authenticated` seulement) renvoie vrai si l'adresse est la bonne **et** que
+  le jeton est `aal2` **ou** qu'aucun facteur n'est vérifié — le second cas
+  évite de s'enfermer dehors avant le premier enrôlement. Elle garde les
+  politiques `documentation_pages_lecture` et `documentation_contenu_lecture`
+  et les enveloppes `site_agenia_statistiques` / `site_agenia_supprimer_prospects`
+  (les originales, renommées `…_interne`, ne sont plus appelables). `acces.js`
+  construit l'étape (enrôlement par QR la première fois, puis code à chaque
+  connexion) ; **une page qui lit la base doit rappeler `echec` sur zéro ligne**,
+  c'est ce qui renvoie un jeton aal1 au portail une fois le facteur enrôlé.
+  Téléphone perdu : supprimer la ligne du compte dans `auth.mfa_factors` (éditeur
+  SQL Supabase). ⚠️ L'outil SQL du connecteur Supabase **expire sans erreur**
+  sur toute requête contenant `drop` ou `delete from` (il attend une
+  confirmation) : rien n'est appliqué, vérifier l'état avant de réessayer.
 - **La réinitialisation passe par un code à 6 chiffres, jamais par un lien.**
   Ce point a coûté plusieurs allers-retours : un lien de récupération Supabase
   ouvre l'URL de l'application *Margeo*, parce qu'une adresse de redirection

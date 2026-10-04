@@ -12,12 +12,18 @@
   // données, ce sont les politiques RLS côté base, pas la discrétion de la clé.
   var SUPABASE_ANON_KEY = "sb_publishable_yYSJTuUgs-IVI3TmPiuHYA_jAzEgFfx";
   var STOCKAGE = "agenia_doc_jeton";
-  // Compte autorisé, fixé ici et jamais affiché : la page ne doit pas indiquer
-  // à un visiteur quelle adresse ouvre l'accès.
+  // Compte autorisé. Cette adresse est en clair dans un fichier public et c'est
+  // aussi celle des mentions légales : on ne prétend plus la cacher. Ce qui
+  // protège l'accès, c'est le mot de passe PLUS le code d'une application
+  // d'authentification (TOTP), exigé par la base dès qu'un facteur est enrôlé.
   var COMPTE_EMAIL = "contact@agenia.pro";
 
   var portail, contenu, msg, champMdp, bouton, lienOubli, formCode,
       champCode, champNouveau, champNouveau2, boutonCode, deconnexion;
+  var etapeMfa, mfaTexte, mfaQr, mfaSaisie, champMfa, boutonMfa, boutonPlusTard;
+  // Jeton obtenu avec le seul mot de passe (niveau aal1) : il ne sert qu'à
+  // dialoguer avec l'API d'authentification pour passer le second facteur.
+  var mfa = { jeton: null, facteur: null };
   var surSession = function () {};
 
   function setMsg(texte, erreur) {
@@ -31,7 +37,7 @@
     if (o.jeton) entetes.Authorization = "Bearer " + o.jeton;
     if (o.corps) entetes["Content-Type"] = "application/json";
     return fetch(SUPABASE_URL + chemin, {
-      method: o.corps ? "POST" : "GET",
+      method: o.methode || (o.corps ? "POST" : "GET"),
       headers: entetes,
       body: o.corps ? JSON.stringify(o.corps) : undefined,
     }).then(function (res) {
@@ -61,7 +67,216 @@
     try { sessionStorage.removeItem(STOCKAGE); } catch (e) { /* stockage indisponible */ }
     contenu.hidden = true;
     portail.hidden = false;
+    reinitialiserEtape();
     if (texte) setMsg(texte, true);
+  }
+
+  /* ---- Second facteur (TOTP) ---------------------------------------------
+     Après le mot de passe, la base délivre un jeton aal1. Selon l'état du
+     compte, deux parcours : un facteur est déjà vérifié → on demande le code
+     du moment ; aucun → on propose de l'enrôler (QR à scanner), faute de quoi
+     le premier venu qui connaît le mot de passe pourrait le faire à la place
+     du propriétaire. Le jeton aal2 renvoyé par la vérification est celui que
+     les politiques RLS acceptent. */
+
+  function elementsMdp() {
+    return [
+      document.querySelector('label[for="mdp"]'), champMdp, bouton,
+      document.getElementById("lignelien"),
+    ];
+  }
+
+  function reinitialiserEtape() {
+    mfa.jeton = null;
+    mfa.facteur = null;
+    if (!etapeMfa) return;
+    etapeMfa.hidden = true;
+    mfaQr.textContent = "";
+    champMfa.value = "";
+    mfaSaisie.hidden = false;
+    elementsMdp().forEach(function (el) { if (el) el.hidden = false; });
+  }
+
+  function montrerEtape(texte, avecQr) {
+    elementsMdp().forEach(function (el) { if (el) el.hidden = true; });
+    formCode.hidden = true;
+    mfaTexte.textContent = texte;
+    mfaQr.hidden = !avecQr;
+    boutonPlusTard.hidden = !avecQr;
+    etapeMfa.hidden = false;
+    champMfa.value = "";
+    champMfa.focus();
+  }
+
+  function enroler(brouillons) {
+    // Un enrôlement abandonné laisse un facteur non vérifié ; on le retire
+    // pour ne pas en accumuler (la limite par compte est de dix).
+    Promise.all(brouillons.map(function (f) {
+      return requete("/auth/v1/factors/" + f.id, { jeton: mfa.jeton, methode: "DELETE" });
+    }))
+      .then(function () {
+        return requete("/auth/v1/factors", {
+          jeton: mfa.jeton,
+          corps: { factor_type: "totp", friendly_name: "AgenIA " + Date.now(), issuer: "AgenIA" },
+        });
+      })
+      .then(function (r) {
+        if (!r.ok || !r.json || !r.json.id || !r.json.totp) {
+          // Typiquement : TOTP non activé dans le projet. On laisse entrer au
+          // niveau mot de passe seul plutôt que de bloquer le propriétaire.
+          montrerEtape("La double vérification n'est pas disponible pour le moment.", false);
+          mfaSaisie.hidden = true;
+          boutonPlusTard.hidden = false;
+          boutonPlusTard.textContent = "Continuer avec le mot de passe seul";
+          setMsg("", false);
+          return;
+        }
+        mfa.facteur = r.json.id;
+        mfaQr.textContent = "";
+        var qr = r.json.totp.qr_code;
+        if (typeof qr === "string" && qr.indexOf("data:image/svg+xml") === 0) {
+          var img = document.createElement("img");
+          img.src = qr;
+          img.alt = "Code QR à scanner avec l'application d'authentification";
+          img.width = img.height = 168;
+          mfaQr.appendChild(img);
+        }
+        var secret = document.createElement("p");
+        secret.textContent = "Ou saisissez cette clé : ";
+        var code = document.createElement("code");
+        code.textContent = r.json.totp.secret || "";
+        secret.appendChild(code);
+        mfaQr.appendChild(secret);
+        montrerEtape(
+          "Première connexion : scannez ce code avec une application d'authentification (Google Authenticator, Authy, 1Password…), puis saisissez le code à 6 chiffres qu'elle affiche.",
+          true
+        );
+        setMsg("", false);
+      })
+      .catch(function () {
+        setMsg("Problème de connexion. Réessayez.", true);
+      });
+  }
+
+  function apresMotDePasse(jeton) {
+    mfa.jeton = jeton;
+    setMsg("Vérification du compte…", false);
+    requete("/auth/v1/user", { jeton: jeton })
+      .then(function (r) {
+        if (!r.ok || !r.json) {
+          setMsg("Problème de connexion. Réessayez.", true);
+          return;
+        }
+        var verifie = null, brouillons = [];
+        (r.json.factors || []).forEach(function (f) {
+          if (f.factor_type !== "totp") return;
+          if (f.status === "verified") verifie = verifie || f;
+          else brouillons.push(f);
+        });
+        if (verifie) {
+          mfa.facteur = verifie.id;
+          mfaQr.textContent = "";
+          montrerEtape("Saisissez le code à 6 chiffres de votre application d'authentification.", false);
+          setMsg("", false);
+        } else {
+          enroler(brouillons);
+        }
+      })
+      .catch(function () {
+        setMsg("Problème de connexion. Réessayez.", true);
+      });
+  }
+
+  function verifierCode() {
+    var code = champMfa.value.replace(/\s+/g, "");
+    if (!/^\d{6}$/.test(code) || !mfa.facteur) {
+      setMsg("Le code comporte 6 chiffres.", true);
+      return;
+    }
+    boutonMfa.disabled = true;
+    setMsg("Vérification…", false);
+    var base = "/auth/v1/factors/" + mfa.facteur;
+    requete(base + "/challenge", { jeton: mfa.jeton, corps: {} })
+      .then(function (c) {
+        if (!c.ok || !c.json || !c.json.id) throw new Error("défi");
+        return requete(base + "/verify", {
+          jeton: mfa.jeton,
+          corps: { challenge_id: c.json.id, code: code },
+        });
+      })
+      .then(function (v) {
+        boutonMfa.disabled = false;
+        if (v.ok && v.json && v.json.access_token) {
+          setMsg("", false);
+          reinitialiserEtape();
+          ouvrirSession(v.json.access_token);
+        } else {
+          setMsg("Code incorrect ou expiré.", true);
+          champMfa.value = "";
+          champMfa.focus();
+        }
+      })
+      .catch(function () {
+        boutonMfa.disabled = false;
+        setMsg("Problème de connexion. Réessayez.", true);
+      });
+  }
+
+  function construireEtape() {
+    etapeMfa = document.createElement("div");
+    etapeMfa.id = "etapeMfa";
+    etapeMfa.hidden = true;
+
+    mfaTexte = document.createElement("p");
+    mfaTexte.id = "mfaTexte";
+    etapeMfa.appendChild(mfaTexte);
+
+    mfaQr = document.createElement("div");
+    mfaQr.id = "mfaQr";
+    mfaQr.hidden = true;
+    etapeMfa.appendChild(mfaQr);
+
+    mfaSaisie = document.createElement("div");
+    mfaSaisie.id = "mfaSaisie";
+    etapeMfa.appendChild(mfaSaisie);
+
+    var etiquette = document.createElement("label");
+    etiquette.setAttribute("for", "mfaCode");
+    etiquette.textContent = "Code à 6 chiffres";
+    mfaSaisie.appendChild(etiquette);
+
+    champMfa = document.createElement("input");
+    champMfa.id = "mfaCode";
+    champMfa.type = "text";
+    champMfa.inputMode = "numeric";
+    champMfa.autocomplete = "one-time-code";
+    champMfa.maxLength = 7; // « 123 456 » avec l'espace du milieu
+    mfaSaisie.appendChild(champMfa);
+
+    boutonMfa = document.createElement("button");
+    boutonMfa.id = "mfaValider";
+    boutonMfa.type = "button";
+    boutonMfa.textContent = "Valider";
+    mfaSaisie.appendChild(boutonMfa);
+
+    boutonPlusTard = document.createElement("button");
+    boutonPlusTard.id = "mfaPlusTard";
+    boutonPlusTard.type = "button";
+    boutonPlusTard.textContent = "Plus tard (mot de passe seul)";
+    boutonPlusTard.hidden = true;
+    etapeMfa.appendChild(boutonPlusTard);
+
+    msg.parentNode.insertBefore(etapeMfa, msg);
+
+    boutonMfa.addEventListener("click", verifierCode);
+    champMfa.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") verifierCode();
+    });
+    boutonPlusTard.addEventListener("click", function () {
+      var jeton = mfa.jeton;
+      reinitialiserEtape();
+      if (jeton) ouvrirSession(jeton);
+    });
   }
 
   function ouvrirSession(jeton) {
@@ -92,8 +307,7 @@
         .then(function (r) {
           bouton.disabled = false;
           if (r.ok && r.json && r.json.access_token) {
-            setMsg("", false);
-            ouvrirSession(r.json.access_token);
+            apresMotDePasse(r.json.access_token);
           } else {
             setMsg("Mot de passe incorrect.", true);
             champMdp.value = "";
@@ -187,6 +401,7 @@
       boutonCode = document.getElementById("validerCode");
       deconnexion = document.getElementById("deconnexion");
 
+      construireEtape();
       brancher();
 
       // Onglet déjà ouvert : on retente sans redemander. Un jeton périmé est

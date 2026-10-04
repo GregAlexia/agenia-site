@@ -160,3 +160,15 @@ border-bottom:1px solid var(--ln);width:fit-content;max-width:100%}
 background:transparent;color:var(--mu);font:inherit;font-size:14px;font-weight:600;cursor:pointer}
 .sousMenu2 button:hover{color:var(--tx)}
 .sousMenu2 button.actif{color:var(--tx);border-bottom-color:var(--ac)}
+
+/* Second facteur : étape insérée par acces.js dans la carte du portail. */
+#etapeMfa{margin-top:4px}
+#etapeMfa>p,#mfaQr p{color:var(--mu);font-size:13px;margin:0 0 12px}
+#mfaQr{text-align:center;margin:0 0 16px}
+#mfaQr img{display:block;margin:0 auto 10px;width:168px;height:168px}
+#mfaQr code{overflow-wrap:anywhere;font-size:12px}
+label[hidden],#etapeMfa[hidden],#mfaSaisie[hidden],#mfaQr[hidden],#mfaPlusTard[hidden]{display:none}
+#mfaValider{width:100%;margin-top:18px}
+#mfaPlusTard{display:block;margin:12px auto 0;padding:0;background:none;color:var(--mu);
+font-size:13px;font-weight:400}
+#mfaPlusTard:hover{color:var(--ac);text-decoration:underline;background:none}
