@@ -421,8 +421,8 @@ Table `documentation_pages`, une ligne par document (`cle` = `guide`,
 `prospection`…). La clé `veille-ia-us` (HTML en clair) forme la sous-rubrique
 « Tendances IA US » de l'onglet Veille (`#ia-us`), et `veille-youtube` la sous-rubrique
 « Chaînes YouTube » (`#youtube`) — une ligne dans `RUBRIQUES` (`veille.js`) par sous-rubrique : la liste se met à jour par un simple
-`update`, sans toucher au guide compressé. De même, `priorites`, `securite`, `analyse-site`, `claude-connecteurs` et
-`claude-astuces` forment les sous-rubriques « Priorités » (`#priorites`), « Sécurité » (`#securite`), « Analyse du site » (`#analyse`, audit sécurité et SEO daté, à refaire quand une page indexable apparaît ou disparaît), « Connecteurs & Claude » (`#claude`) et
+`update`, sans toucher au guide compressé. De même, `priorites`, `securite`, `analyse-site`, `analyse-margeo`, `claude-connecteurs` et
+`claude-astuces` forment les sous-rubriques « Priorités » (`#priorites`), « Sécurité » (`#securite`), « Analyse du site » (`#analyse`, audit sécurité et SEO daté, à refaire quand une page indexable apparaît ou disparaît), « Analyse Margéo » (`analyse-margeo`, `#margeo` : audit sécurité, SEO et performance de l'application, et ce qui manque avant le premier client), « Connecteurs & Claude » (`#claude`) et
 « Tips & tricks » (`#astuces`) de l'onglet Documentation — une ligne de plus dans
 `RUBRIQUES` (`documentation.js`) suffit pour en ajouter une. Ils y sont rangés en **gzip puis base64** : la colonne reste du
 texte, donc écrivable par n'importe quel outil SQL, et il transite trois fois
