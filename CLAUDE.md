@@ -422,9 +422,10 @@ croire l'inverse. Ce qui est protégé ici l'est par une policy RLS.
   connexion) ; **une page qui lit la base doit rappeler `echec` sur zéro ligne**,
   c'est ce qui renvoie un jeton aal1 au portail une fois le facteur enrôlé.
   Un déclencheur (`documentation_refuser_second_facteur`, sur `auth.mfa_factors`)
-  refuse d'ajouter un facteur au compte tant qu'un autre est vérifié : l'API
-  d'authentification n'exige pas elle-même le niveau aal2 pour enrôler, donc un
-  mot de passe volé aurait suffi à ajouter son propre téléphone.
+  refuse d'ajouter un facteur au compte tant qu'un autre est vérifié. C'est une
+  défense en profondeur : on n'a **pas vérifié** si l'API d'authentification
+  exige d'elle-même le niveau aal2 pour enrôler. Si elle ne l'exige pas, un mot
+  de passe volé suffirait à y ajouter son propre téléphone.
   `documentation_facteurs()` donne au portail la liste des facteurs vérifiés **de
   ce compte** (le projet est partagé avec Margéo, dont les comptes ont les leurs).
   Téléphone perdu, ou nouveau téléphone : supprimer la ligne du compte dans
