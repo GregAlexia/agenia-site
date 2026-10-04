@@ -14,7 +14,8 @@
    greffer dans le guide les ferait écraser à la prochaine recopie de
    celui-ci. Elles sont facultatives — une clé absente retire sa
    sous-rubrique sans masquer le reste. Le fragment (#priorites,
-   #securite, #cibl, #margeo, #planeo, #maileo, #prd, #claude, #astuces)
+   #securite, #cibl, #margeo, #planeo, #maileo, #prd, #claude, #astuces,
+   #cles-api)
    ouvre directement la sienne.
 
    Les rubriques d'un même groupe (les analyses des SaaS) partagent un
@@ -40,10 +41,14 @@
     { cle: "prd-modele", fragment: "prd", libelle: "PRD modèle" },
     { cle: "claude-connecteurs", fragment: "claude", libelle: "Connecteurs & Claude" },
     { cle: "claude-astuces", fragment: "astuces", libelle: "Tips & tricks" },
+    { cle: "bp-cles-api", fragment: "cles-api", libelle: "Best practices", groupe: "bonnes", court: "Clés API Anthropic" },
   ];
 
   var GROUPES = {
     analyses: { fragment: "analyses", libelle: "Analyses SaaS" },
+    // Seule pour l'instant, la page des clés API s'affiche comme un onglet
+    // ordinaire « Best practices » ; la suivante ouvrira la seconde rangée.
+    bonnes: { fragment: "bonnes-pratiques", libelle: "Best practices" },
   };
 
   /* L'avancement des cases vit en localStorage, comme dans l'onglet
@@ -167,8 +172,12 @@
     for (var m = 1; m < presentes.length; m++) {
       if (location.hash === "#" + presentes[m].fragment) depart = m;
     }
+    // Le fragment d'un groupe ouvre son premier membre, même quand le groupe,
+    // réduit à une rubrique, s'affiche comme un onglet ordinaire : un lien
+    // #bonnes-pratiques donné aujourd'hui doit encore marcher demain.
     onglets.forEach(function (o) {
-      if (o.groupe && location.hash === "#" + GROUPES[o.groupe].fragment) depart = o.membres[0];
+      var g = presentes[o.membres[0]].groupe;
+      if (g && location.hash === "#" + GROUPES[g].fragment) depart = o.membres[0];
     });
     ouvrir(depart, false);
   }
