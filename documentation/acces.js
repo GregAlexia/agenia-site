@@ -134,9 +134,18 @@
         mfa.facteur = r.json.id;
         mfaQr.textContent = "";
         var qr = r.json.totp.qr_code;
-        if (typeof qr === "string" && qr.indexOf("data:image/svg+xml") === 0) {
+        // L'API renvoie le dessin en SVG brut (« <svg … »), sans le préfixe
+        // data: — c'est au client de l'ajouter. On accepte aussi la forme déjà
+        // préfixée, au cas où le format changerait. Dans une balise <img>, un
+        // SVG n'exécute aucun script : l'afficher ainsi est sans risque.
+        var src = null;
+        if (typeof qr === "string") {
+          if (qr.indexOf("<svg") === 0) src = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(qr);
+          else if (qr.indexOf("data:image/svg+xml") === 0) src = qr;
+        }
+        if (src) {
           var img = document.createElement("img");
-          img.src = qr;
+          img.src = src;
           img.alt = "Code QR à scanner avec l'application d'authentification";
           img.width = img.height = 168;
           mfaQr.appendChild(img);
