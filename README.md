@@ -240,6 +240,15 @@ remettre à un chiffre, qui vieillira&nbsp;: `grep -rc calendly.com --include=*.
 les compte, et **un bouton qui promet un rendez-vous sans y mener est le défaut
 à chercher**.
 
+**L'adresse dépend du compte Calendly, pas du site** : `calendly.com/agenia/meeting-agenia`
+depuis le 4 octobre 2026. Avant, `calendly.com/contact-agenia/30-minute-meeting-clone`
+— le compte a changé d'identifiant et l'événement a été recréé le 30 septembre,
+et Calendly ne redirige pas l'ancienne adresse : les 64 boutons du site menaient
+à une page 404, sans erreur visible d'ici. **Renommer le compte ou l'événement
+casse tous les boutons.** Après un changement côté Calendly, ouvrir l'adresse
+en navigation privée, puis remplacer partout (et dans reseauteo, prospeo,
+cibl-app qui la reprennent).
+
 Restent volontairement tournés vers le formulaire les boutons qui portent
 `data-objet` — ils préremplissent le champ « Votre demande » avec le nom du
 produit, ce qu'un agenda ne sait pas faire — ainsi que « Nous écrire » et
