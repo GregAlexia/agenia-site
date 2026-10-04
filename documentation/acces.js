@@ -356,7 +356,7 @@
           formCode.hidden = false;
           champCode.focus();
           // L'adresse n'est jamais nommée : elle reste une information interne.
-          setMsg("Un code à 6 chiffres vient d'être envoyé à l'adresse du compte administrateur.", false);
+          setMsg("Si un code est envoyé, il arrive à l'adresse du compte administrateur : 8 chiffres, valables 15 minutes. Un nouveau code ne peut être demandé qu'au bout de 15 minutes, et trois fois par jour au plus.", false);
         })
         .catch(function () {
           setMsg("Problème de connexion. Réessayez.", true);

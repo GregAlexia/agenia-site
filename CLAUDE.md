@@ -431,13 +431,23 @@ croire l'inverse. Ce qui est protégé ici l'est par une policy RLS.
   `auth.mfa_factors` (éditeur SQL Supabase) — le portail reproposera le QR. ⚠️ L'outil SQL du connecteur Supabase **expire sans erreur**
   sur toute requête contenant `drop` ou `delete from` (il attend une
   confirmation) : rien n'est appliqué, vérifier l'état avant de réessayer.
-- **La réinitialisation passe par un code à 6 chiffres, jamais par un lien.**
+- **La réinitialisation passe par un code à 8 chiffres, jamais par un lien.**
   Ce point a coûté plusieurs allers-retours : un lien de récupération Supabase
   ouvre l'URL de l'application *Margeo*, parce qu'une adresse de redirection
   absente de la liste blanche du projet est **ignorée en silence** au profit de
   la Site URL. Le code supprime la dépendance entière. **agenia.pro et Margeo
   sont deux applications à gérer indépendamment** — ne jamais réintroduire de
   lien de l'une vers l'authentification de l'autre.
+  Limites posées le 4 octobre, dans `documentation_demander_code` : un code
+  toutes les 15 minutes, **trois par jour**, parce que chaque envoi consomme le
+  quota Web3Forms que partage le formulaire de contact. Dans
+  `documentation_reinitialiser` : dix essais par code (compteur global, faute
+  d'identité), ancien format à 6 chiffres refusé, espaces de saisie ignorés, et
+  un succès invalide tous les codes encore en vie. Conséquence assumée : un
+  inconnu peut épuiser les trois codes du jour et empêcher la réinitialisation ;
+  le propriétaire change alors son mot de passe depuis le tableau de bord
+  Supabase (Authentication › Users). Le vrai remède est une clé Web3Forms
+  distincte pour ces envois — elle se crée dans le compte Web3Forms, pas ici.
 
 ### Les documents vivent en base, compressés
 
