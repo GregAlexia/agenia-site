@@ -15,7 +15,7 @@
    celui-ci. Elles sont facultatives — une clé absente retire sa
    sous-rubrique sans masquer le reste. Le fragment (#priorites,
    #securite, #cibl, #margeo, #planeo, #maileo, #prompt-analyse, #prd,
-   #claude, #astuces, #cles-api) ouvre directement la sienne, au
+   #claude, #astuces, #cles-api, #n8n-hostinger) ouvre directement la sienne, au
    chargement comme depuis un lien écrit dans une page.
 
    Les rubriques d'un même groupe (les analyses des SaaS) partagent un
@@ -45,12 +45,13 @@
     { cle: "claude-connecteurs", fragment: "claude", libelle: "Connecteurs & Claude" },
     { cle: "claude-astuces", fragment: "astuces", libelle: "Tips & tricks" },
     { cle: "bp-cles-api", fragment: "cles-api", libelle: "Best practices", groupe: "bonnes", court: "Clés API Anthropic" },
+    { cle: "bp-n8n", fragment: "n8n-hostinger", libelle: "Best practices — n8n", groupe: "bonnes", court: "n8n sur Hostinger" },
   ];
 
   var GROUPES = {
     analyses: { fragment: "analyses", libelle: "Analyses SaaS" },
-    // Seule pour l'instant, la page des clés API s'affiche comme un onglet
-    // ordinaire « Best practices » ; la suivante ouvrira la seconde rangée.
+    // Une page restée seule (l'autre clé absente en base) s'affiche comme un
+    // onglet ordinaire, sous son libellé long.
     bonnes: { fragment: "bonnes-pratiques", libelle: "Best practices" },
   };
 
