@@ -405,8 +405,12 @@ croire l'inverse. Ce qui est protégé ici l'est par une policy RLS.
   qu'à l'adresse administrateur, et la fonction de statistiques refuse tout
   autre appelant. La clé publique du dépôt ne donne accès à rien en lecture.
 - **L'adresse du compte ne s'affiche jamais.** Le champ s'appelle « compte »,
-  pas « email ». C'est une demande explicite : l'information reste
-  confidentielle. Ne pas la réintroduire, même dans un message d'aide.
+  pas « email ». C'est une demande explicite : ne pas la réintroduire, même
+  dans un message d'aide. ⚠️ **Elle n'est pourtant pas confidentielle** : elle
+  est en clair dans `documentation/acces.js` (constante `COMPTE_EMAIL`), servi
+  publiquement comme tout le dépôt. Seul le mot de passe protège donc l'accès,
+  sans second facteur (analyse du 4 octobre, `/documentation/audit.html#analyse`).
+  Ne pas écrire ici que l'adresse est secrète : c'est faux.
 - **La réinitialisation passe par un code à 6 chiffres, jamais par un lien.**
   Ce point a coûté plusieurs allers-retours : un lien de récupération Supabase
   ouvre l'URL de l'application *Margeo*, parce qu'une adresse de redirection
@@ -501,6 +505,22 @@ liens morts, CSP, sitemap, intégrité des portails, vivacité de la collecte.
 L'ouvrir après une modification structurelle coûte dix secondes et remplace une
 relecture. Et un audit vert doit rester capable de virer au rouge : le vérifier
 en injectant une faute, puis en la retirant.
+
+**Deux vues sur la même page.** `audit.js` affiche l'audit en direct et, s'il
+trouve la ligne `analyse-site` de `documentation_pages`, un sous-menu
+« Audit en direct » / « Analyse du site » (fragment `#analyse`). L'analyse est
+une photo datée : sécurité, SEO et performance mesurés le 4 octobre 2026, puis
+la liste de ce qui reste avant le premier client. Son contenu vit en base,
+jamais dans le dépôt. Sans la ligne, ou si la requête échoue, l'audit en direct
+s'affiche seul, comme avant. Les cases à cocher de l'analyse se mémorisent
+dans le navigateur (préfixe `agenia_audit_tache_`). Pour la refaire : le prompt
+`PROMPT-ANALYSE-SAAS.md` du dépôt privé `agenia-socle`.
+
+**Le logo des pages est en WebP** (`assets/logo_agenia-288.webp`, 12 Ko), pas le
+PNG haute définition (335 Ko) : c'était la ressource la plus lourde de chaque
+page. Les attributs `width`/`height` restent
+615×450 pour réserver la place ; le PNG ne sert plus qu'aux données
+structurées.
 
 L'écran étant derrière la connexion, un agent ne peut pas l'ouvrir tel quel. La
 parade tient en une page jetable posée à la racine du site local : un `<div

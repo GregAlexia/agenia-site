@@ -13,11 +13,84 @@
    liste de pages écrite ici oublierait cette page-là exactement de la même
    façon. L'audit part donc de l'accueil et suit les liens : ce qu'il contrôle
    est ce que le site expose, pas ce que ce fichier croit savoir.
+
+   DEUX VUES, ET C'EST VOULU. « Audit en direct » est ce qui s'exécute à
+   l'ouverture. « Analyse du site » (clé analyse-site, fragment #analyse) est le
+   contraire : un document daté, rangé en base comme les autres onglets de
+   l'espace, qui porte ce qu'un script ne sait pas faire — les mesures de
+   performance au banc, les règles d'accès de la base, l'exposition du dépôt et
+   la liste de ce qui manque avant un premier client. Il vieillit, et il le dit
+   en tête ; c'est pourquoi il n'est pas écrit ici, dans un fichier public.
+   Sans ce document en base, l'écran reste exactement ce qu'il était.
    ============================================================ */
 (function () {
   "use strict";
 
   var cible = document.getElementById("audit");
+
+  // L'avancement des cases vit en localStorage, comme dans les autres onglets :
+  // un pense-bête propre à cette machine, pas une donnée partagée.
+  var PREFIXE = "agenia_audit_tache_";
+  var vues = { direct: null, analyse: null };   // HTML prêt de chaque vue, null tant qu'il manque
+  var actif = null;                              // « direct » ou « analyse », fixé au premier rendu
+
+  function cablerCases(racine) {
+    var cases = racine.querySelectorAll("input[type=checkbox][data-tache]");
+    Array.prototype.forEach.call(cases, function (c) {
+      var cle = c.getAttribute("data-tache");
+      var etiquette = c.parentNode;
+      try { c.checked = localStorage.getItem(PREFIXE + cle) === "1"; } catch (e) { c.checked = false; }
+      etiquette.classList.toggle("faite", c.checked);
+      c.addEventListener("change", function () {
+        try { localStorage.setItem(PREFIXE + cle, c.checked ? "1" : "0"); }
+        catch (e) { /* navigation privée stricte : les cases marchent sans mémoire */ }
+        etiquette.classList.toggle("faite", c.checked);
+      });
+    });
+  }
+
+  /**
+   * Un seul point d'écriture dans la page. Sans analyse en base, rien ne change :
+   * l'audit s'affiche seul, sans sous-menu. Avec elle, le sous-menu est posé une
+   * fois, puis seul le contenu de la vue est remplacé.
+   * Le contenu de l'analyse arrive dans un conteneur #doc : c'est sous cet
+   * identifiant que le style de l'espace (style.css) mise en forme ses tableaux
+   * et ses cases à cocher, comme pour les onglets de la documentation.
+   */
+  function rendre() {
+    if (!vues.analyse) {
+      cible.innerHTML = vues.direct || '<div id="chargement">Audit en cours…</div>';
+      return;
+    }
+    if (!document.getElementById("vueAudit")) {
+      if (actif === null) actif = location.hash === "#analyse" ? "analyse" : "direct";
+      cible.innerHTML =
+        '<nav class="sousMenu" aria-label="Rubriques de l’audit">' +
+        '<button type="button" data-vue="direct">Audit en direct</button>' +
+        '<button type="button" data-vue="analyse">Analyse du site</button></nav>' +
+        '<div id="vueAudit"></div>';
+      Array.prototype.forEach.call(cible.querySelectorAll(".sousMenu button"), function (b) {
+        b.addEventListener("click", function () {
+          actif = b.getAttribute("data-vue");
+          if (history.replaceState) {
+            history.replaceState(null, "", actif === "analyse" ? "#analyse" : location.pathname);
+          }
+          rendre();
+        });
+      });
+    }
+    var vue = document.getElementById("vueAudit");
+    var contenu = actif === "analyse" ? vues.analyse : vues.direct;
+    vue.innerHTML = actif === "analyse"
+      ? '<div id="doc">' + contenu + "</div>"
+      : (contenu || '<div id="chargement">Audit en cours…</div>');
+    if (actif === "analyse") cablerCases(vue);
+    Array.prototype.forEach.call(cible.querySelectorAll(".sousMenu button"), function (b) {
+      var voulu = b.getAttribute("data-vue") === actif;
+      b.className = voulu ? "actif" : "";
+      if (voulu) b.setAttribute("aria-current", "page"); else b.removeAttribute("aria-current");
+    });
+  }
 
   // `/en/` figure au départ et non seulement au fil des liens : la référence de
   // menu anglaise doit exister avant que la première page de en/ soit auditée,
@@ -420,7 +493,7 @@
         "</b><span>" + libelle + "</span></div>";
     }
 
-    cible.innerHTML =
+    var html =
       '<h1 class="titre">Audit du site</h1>' +
       '<p class="sousTitre">Exécuté à l’instant, sur les pages réellement servies par ' +
       'agenia.pro — pas sur ce que le dépôt est censé contenir. Relancer la page relance l’audit.</p>' +
@@ -478,13 +551,32 @@
         "<li>La <b>justesse des contenus</b> — un chiffre faux sur la page de vente reste un " +
           "chiffre bien balisé.</li>" +
       "</ul>";
+
+    vues.direct = html;
+    rendre();
   }
 
   // ------------------------------------------------------------ démarrage
 
   window.AgeniaAcces.demarrer(function (jeton, outils) {
-    cible.innerHTML = '<div id="chargement">Audit en cours…</div>';
+    vues.direct = null;
+    vues.analyse = null;
+    rendre();
     constats = [];
+
+    // L'analyse est facultative et se lit vite : elle part en même temps que
+    // l'audit et s'affiche sans attendre qu'il ait fini d'explorer le site. Une
+    // erreur ou une clé absente se résout en « pas d'analyse », sans rien casser.
+    outils.requete("/rest/v1/documentation_pages?cle=eq.analyse-site&select=html", { jeton: jeton })
+      .then(function (rep) {
+        if (!(rep.ok && Array.isArray(rep.json) && rep.json.length && rep.json[0].html)) return "";
+        return outils.decompresser(rep.json[0].html);
+      })
+      .catch(function () { return ""; })
+      .then(function (html) {
+        vues.analyse = html || null;
+        rendre();
+      });
 
     // Les statistiques d'abord : elles seules disent si le jeton ouvre cet écran.
     verifierDonnees(outils, jeton)
