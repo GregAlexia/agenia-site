@@ -38,6 +38,7 @@
     { cle: "analyse-margeo", fragment: "margeo", libelle: "Analyse Margéo", groupe: "analyses", court: "Margéo" },
     { cle: "analyse-planeo", fragment: "planeo", libelle: "Analyse Planeo", groupe: "analyses", court: "Planeo" },
     { cle: "analyse-maileo", fragment: "maileo", libelle: "Analyse Maileo", groupe: "analyses", court: "Maileo" },
+    { cle: "analyse-couteo", fragment: "couteo", libelle: "Analyse Coûtéo", groupe: "analyses", court: "Coûtéo" },
     // Le prompt qui produit les analyses ci-dessus : une nouvelle analyse
     // s'insère avant lui, pour qu'il reste au bout de la rangée.
     { cle: "prompt-analyse", fragment: "prompt-analyse", libelle: "Prompt d'analyse", groupe: "analyses", court: "Prompt d'analyse" },
