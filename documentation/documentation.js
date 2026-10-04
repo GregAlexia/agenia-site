@@ -14,7 +14,7 @@
    greffer dans le guide les ferait écraser à la prochaine recopie de
    celui-ci. Elles sont facultatives — une clé absente retire sa
    sous-rubrique sans masquer le reste. Le fragment (#priorites,
-   #securite, #analyse, #margeo, #planeo, #maileo, #prd, #claude, #astuces)
+   #securite, #cibl, #margeo, #planeo, #maileo, #prd, #claude, #astuces)
    ouvre directement la sienne.
    ============================================================ */
 (function () {
@@ -28,7 +28,7 @@
     { cle: "guide", fragment: "", libelle: "Guide" },
     { cle: "priorites", fragment: "priorites", libelle: "Priorités" },
     { cle: "securite", fragment: "securite", libelle: "Sécurité" },
-    { cle: "analyse-site", fragment: "analyse", libelle: "Analyse du site" },
+    { cle: "analyse-cibl", fragment: "cibl", libelle: "Analyse Cibl" },
     { cle: "analyse-margeo", fragment: "margeo", libelle: "Analyse Margéo" },
     { cle: "analyse-planeo", fragment: "planeo", libelle: "Analyse Planeo" },
     { cle: "analyse-maileo", fragment: "maileo", libelle: "Analyse Maileo" },
