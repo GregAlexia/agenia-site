@@ -14,9 +14,9 @@
    greffer dans le guide les ferait écraser à la prochaine recopie de
    celui-ci. Elles sont facultatives — une clé absente retire sa
    sous-rubrique sans masquer le reste. Le fragment (#priorites,
-   #securite, #cibl, #margeo, #planeo, #maileo, #prd, #claude, #astuces,
-   #cles-api)
-   ouvre directement la sienne.
+   #securite, #cibl, #margeo, #planeo, #maileo, #prompt-analyse, #prd,
+   #claude, #astuces, #cles-api) ouvre directement la sienne, au
+   chargement comme depuis un lien écrit dans une page.
 
    Les rubriques d'un même groupe (les analyses des SaaS) partagent un
    seul onglet, qui déplie une seconde rangée. Chacune garde son propre
@@ -38,6 +38,9 @@
     { cle: "analyse-margeo", fragment: "margeo", libelle: "Analyse Margéo", groupe: "analyses", court: "Margéo" },
     { cle: "analyse-planeo", fragment: "planeo", libelle: "Analyse Planeo", groupe: "analyses", court: "Planeo" },
     { cle: "analyse-maileo", fragment: "maileo", libelle: "Analyse Maileo", groupe: "analyses", court: "Maileo" },
+    // Le prompt qui produit les analyses ci-dessus : une nouvelle analyse
+    // s'insère avant lui, pour qu'il reste au bout de la rangée.
+    { cle: "prompt-analyse", fragment: "prompt-analyse", libelle: "Prompt d'analyse", groupe: "analyses", court: "Prompt d'analyse" },
     { cle: "prd-modele", fragment: "prd", libelle: "PRD modèle" },
     { cle: "claude-connecteurs", fragment: "claude", libelle: "Connecteurs & Claude" },
     { cle: "claude-astuces", fragment: "astuces", libelle: "Tips & tricks" },
@@ -168,18 +171,35 @@
       if (b) ouvrir(parseInt(b.getAttribute("data-rubrique"), 10), true);
     });
 
-    var depart = 0;
-    for (var m = 1; m < presentes.length; m++) {
-      if (location.hash === "#" + presentes[m].fragment) depart = m;
+    // -1 : le fragment ne désigne aucune rubrique présente.
+    function rubriqueDuFragment() {
+      var trouvee = -1;
+      for (var m = 1; m < presentes.length; m++) {
+        if (location.hash === "#" + presentes[m].fragment) trouvee = m;
+      }
+      // Le fragment d'un groupe ouvre son premier membre, même quand le groupe,
+      // réduit à une rubrique, s'affiche comme un onglet ordinaire : un lien
+      // #bonnes-pratiques donné aujourd'hui doit encore marcher demain.
+      onglets.forEach(function (o) {
+        var g = presentes[o.membres[0]].groupe;
+        if (g && location.hash === "#" + GROUPES[g].fragment) trouvee = o.membres[0];
+      });
+      return trouvee;
     }
-    // Le fragment d'un groupe ouvre son premier membre, même quand le groupe,
-    // réduit à une rubrique, s'affiche comme un onglet ordinaire : un lien
-    // #bonnes-pratiques donné aujourd'hui doit encore marcher demain.
-    onglets.forEach(function (o) {
-      var g = presentes[o.membres[0]].groupe;
-      if (g && location.hash === "#" + GROUPES[g].fragment) depart = o.membres[0];
+
+    var depart = rubriqueDuFragment();
+    ouvrir(depart < 0 ? 0 : depart, false);
+
+    // Un lien <a href="#cibl"> écrit dans une page en base ne fait que
+    // changer le fragment : sans cet écouteur, il ne changerait pas de
+    // rubrique. replaceState, lui, ne déclenche pas l'évènement.
+    window.addEventListener("hashchange", function () {
+      var n = rubriqueDuFragment();
+      if (n < 0 && !location.hash) n = 0;
+      if (n < 0) return;
+      ouvrir(n, false);
+      doc.scrollIntoView();
     });
-    ouvrir(depart, false);
   }
 
   window.AgeniaAcces.demarrer(function (jeton, outils) {
