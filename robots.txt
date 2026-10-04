@@ -14,4 +14,16 @@ Disallow: /en/pdf/
 # le noindex qu'elle contient. Interdire ici reviendrait à la rendre
 # indexable-sans-titre plutôt qu'absente.
 
+# Le dépôt entier est servi tel quel (workflow `path: .`), donc les documents
+# de travail et les gabarits d'outils sont téléchargeables. Rien n'y est un
+# secret, mais ils n'ont pas à entrer dans un index : ce ne sont pas des pages,
+# ils n'ont ni titre ni description, et une réponse en texte brut sur le
+# domaine ne sert aucun visiteur. Le refus d'exploration suffit ici ; la
+# disparition réelle viendra du passage à un dépôt privé, que `_redirects`
+# prépare déjà (voir REFERENCEMENT.md § 3).
+Disallow: /outils/
+Disallow: /CLAUDE.md
+Disallow: /README.md
+Disallow: /REFERENCEMENT.md
+
 Sitemap: https://www.agenia.pro/sitemap.xml
