@@ -421,8 +421,14 @@ croire l'inverse. Ce qui est protégé ici l'est par une policy RLS.
   construit l'étape (enrôlement par QR la première fois, puis code à chaque
   connexion) ; **une page qui lit la base doit rappeler `echec` sur zéro ligne**,
   c'est ce qui renvoie un jeton aal1 au portail une fois le facteur enrôlé.
-  Téléphone perdu : supprimer la ligne du compte dans `auth.mfa_factors` (éditeur
-  SQL Supabase). ⚠️ L'outil SQL du connecteur Supabase **expire sans erreur**
+  Un déclencheur (`documentation_refuser_second_facteur`, sur `auth.mfa_factors`)
+  refuse d'ajouter un facteur au compte tant qu'un autre est vérifié : l'API
+  d'authentification n'exige pas elle-même le niveau aal2 pour enrôler, donc un
+  mot de passe volé aurait suffi à ajouter son propre téléphone.
+  `documentation_facteurs()` donne au portail la liste des facteurs vérifiés **de
+  ce compte** (le projet est partagé avec Margéo, dont les comptes ont les leurs).
+  Téléphone perdu, ou nouveau téléphone : supprimer la ligne du compte dans
+  `auth.mfa_factors` (éditeur SQL Supabase) — le portail reproposera le QR. ⚠️ L'outil SQL du connecteur Supabase **expire sans erreur**
   sur toute requête contenant `drop` ou `delete from` (il attend une
   confirmation) : rien n'est appliqué, vérifier l'état avant de réessayer.
 - **La réinitialisation passe par un code à 6 chiffres, jamais par un lien.**

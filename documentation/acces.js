@@ -23,7 +23,7 @@
   var etapeMfa, mfaTexte, mfaQr, mfaSaisie, champMfa, boutonMfa, boutonPlusTard;
   // Jeton obtenu avec le seul mot de passe (niveau aal1) : il ne sert qu'à
   // dialoguer avec l'API d'authentification pour passer le second facteur.
-  var mfa = { jeton: null, facteur: null };
+  var mfa = { jeton: null, facteurs: [] };
   var surSession = function () {};
 
   function setMsg(texte, erreur) {
@@ -88,7 +88,7 @@
 
   function reinitialiserEtape() {
     mfa.jeton = null;
-    mfa.facteur = null;
+    mfa.facteurs = [];
     if (!etapeMfa) return;
     etapeMfa.hidden = true;
     mfaQr.textContent = "";
@@ -131,7 +131,7 @@
           setMsg("", false);
           return;
         }
-        mfa.facteur = r.json.id;
+        mfa.facteurs = [r.json.id];
         mfaQr.textContent = "";
         var qr = r.json.totp.qr_code;
         // L'API renvoie le dessin en SVG brut (« <svg … »), sans le préfixe
@@ -170,55 +170,71 @@
   function apresMotDePasse(jeton) {
     mfa.jeton = jeton;
     setMsg("Vérification du compte…", false);
-    requete("/auth/v1/user", { jeton: jeton })
+    // La liste des facteurs vérifiés vient de la base (fonction réservée au
+    // compte) plutôt que de /auth/v1/user : la décision d'enrôler ou de
+    // demander un code ne dépend ainsi que d'une source que nous maîtrisons et
+    // testons. Le projet est partagé avec Margéo, dont les comptes portent
+    // leurs propres facteurs : la fonction ne renvoie que ceux de ce compte.
+    requete("/rest/v1/rpc/documentation_facteurs", { jeton: jeton, corps: {} })
       .then(function (r) {
-        if (!r.ok || !r.json) {
+        if (!r.ok || !Array.isArray(r.json)) {
           setMsg("Problème de connexion. Réessayez.", true);
           return;
         }
-        var verifie = null, brouillons = [];
-        (r.json.factors || []).forEach(function (f) {
-          if (f.factor_type !== "totp") return;
-          if (f.status === "verified") verifie = verifie || f;
-          else brouillons.push(f);
-        });
-        if (verifie) {
-          mfa.facteur = verifie.id;
+        if (r.json.length) {
+          mfa.facteurs = r.json;
           mfaQr.textContent = "";
           montrerEtape("Saisissez le code à 6 chiffres de votre application d'authentification.", false);
           setMsg("", false);
-        } else {
-          enroler(brouillons);
+          return;
         }
+        // Aucun facteur : enrôlement. Les tentatives abandonnées se retirent.
+        return requete("/auth/v1/user", { jeton: jeton }).then(function (u) {
+          var brouillons = ((u.ok && u.json && u.json.factors) || []).filter(function (f) {
+            return f.factor_type === "totp" && f.status !== "verified";
+          });
+          enroler(brouillons);
+        });
       })
       .catch(function () {
         setMsg("Problème de connexion. Réessayez.", true);
       });
   }
 
-  function verifierCode() {
-    var code = champMfa.value.replace(/\s+/g, "");
-    if (!/^\d{6}$/.test(code) || !mfa.facteur) {
-      setMsg("Le code comporte 6 chiffres.", true);
-      return;
-    }
-    boutonMfa.disabled = true;
-    setMsg("Vérification…", false);
-    var base = "/auth/v1/factors/" + mfa.facteur;
-    requete(base + "/challenge", { jeton: mfa.jeton, corps: {} })
+  // Un compte peut porter deux facteurs (application de téléphone et reste d'un
+  // autre enrôlement) : on essaie chacun, du plus récent au plus ancien.
+  function essayerFacteur(i, code) {
+    if (i >= mfa.facteurs.length) return Promise.resolve(null);
+    var base = "/auth/v1/factors/" + mfa.facteurs[i];
+    return requete(base + "/challenge", { jeton: mfa.jeton, corps: {} })
       .then(function (c) {
-        if (!c.ok || !c.json || !c.json.id) throw new Error("défi");
+        if (!c.ok || !c.json || !c.json.id) return null;
         return requete(base + "/verify", {
           jeton: mfa.jeton,
           corps: { challenge_id: c.json.id, code: code },
         });
       })
       .then(function (v) {
+        if (v && v.ok && v.json && v.json.access_token) return v.json.access_token;
+        return essayerFacteur(i + 1, code);
+      });
+  }
+
+  function verifierCode() {
+    var code = champMfa.value.replace(/\s+/g, "");
+    if (!/^\d{6}$/.test(code) || !mfa.facteurs.length) {
+      setMsg("Le code comporte 6 chiffres.", true);
+      return;
+    }
+    boutonMfa.disabled = true;
+    setMsg("Vérification…", false);
+    essayerFacteur(0, code)
+      .then(function (jeton) {
         boutonMfa.disabled = false;
-        if (v.ok && v.json && v.json.access_token) {
+        if (jeton) {
           setMsg("", false);
           reinitialiserEtape();
-          ouvrirSession(v.json.access_token);
+          ouvrirSession(jeton);
         } else {
           setMsg("Code incorrect ou expiré.", true);
           champMfa.value = "";
