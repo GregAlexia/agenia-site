@@ -14,8 +14,8 @@
    greffer dans le guide les ferait écraser à la prochaine recopie de
    celui-ci. Elles sont facultatives — une clé absente retire sa
    sous-rubrique sans masquer le reste. Le fragment (#priorites,
-   #securite, #analyse, #margeo, #planeo, #prd, #claude, #astuces) ouvre
-   directement la sienne.
+   #securite, #analyse, #margeo, #planeo, #maileo, #prd, #claude, #astuces)
+   ouvre directement la sienne.
    ============================================================ */
 (function () {
   "use strict";
@@ -31,6 +31,7 @@
     { cle: "analyse-site", fragment: "analyse", libelle: "Analyse du site" },
     { cle: "analyse-margeo", fragment: "margeo", libelle: "Analyse Margéo" },
     { cle: "analyse-planeo", fragment: "planeo", libelle: "Analyse Planeo" },
+    { cle: "analyse-maileo", fragment: "maileo", libelle: "Analyse Maileo" },
     { cle: "prd-modele", fragment: "prd", libelle: "PRD modèle" },
     { cle: "claude-connecteurs", fragment: "claude", libelle: "Connecteurs & Claude" },
     { cle: "claude-astuces", fragment: "astuces", libelle: "Tips & tricks" },
