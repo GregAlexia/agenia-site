@@ -14,7 +14,7 @@
    greffer dans le guide les ferait écraser à la prochaine recopie de
    celui-ci. Elles sont facultatives — une clé absente retire sa
    sous-rubrique sans masquer le reste. Le fragment (#priorites,
-   #claude, #astuces) ouvre directement la sienne.
+   #securite, #claude, #astuces) ouvre directement la sienne.
    ============================================================ */
 (function () {
   "use strict";
@@ -26,6 +26,7 @@
   var RUBRIQUES = [
     { cle: "guide", fragment: "", libelle: "Guide" },
     { cle: "priorites", fragment: "priorites", libelle: "Priorités" },
+    { cle: "securite", fragment: "securite", libelle: "Sécurité" },
     { cle: "claude-connecteurs", fragment: "claude", libelle: "Connecteurs & Claude" },
     { cle: "claude-astuces", fragment: "astuces", libelle: "Tips & tricks" },
   ];
