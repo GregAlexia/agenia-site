@@ -14,9 +14,10 @@
    greffer dans le guide les ferait écraser à la prochaine recopie de
    celui-ci. Elles sont facultatives — une clé absente retire sa
    sous-rubrique sans masquer le reste. Le fragment (#priorites,
-   #securite, #cibl, #margeo, #planeo, #maileo, #prompt-analyse, #prd,
-   #claude, #astuces, #cles-api, #n8n-hostinger) ouvre directement la sienne, au
-   chargement comme depuis un lien écrit dans une page.
+   #securite, #cibl, #margeo, #planeo, #maileo, #couteo, #keo,
+   #prompt-analyse, #prd, #claude, #astuces, #cles-api, #n8n-hostinger)
+   ouvre directement la sienne, au chargement comme depuis un lien écrit
+   dans une page.
 
    Les rubriques d'un même groupe (les analyses des SaaS) partagent un
    seul onglet, qui déplie une seconde rangée. Chacune garde son propre
@@ -39,6 +40,7 @@
     { cle: "analyse-planeo", fragment: "planeo", libelle: "Analyse Planeo", groupe: "analyses", court: "Planeo" },
     { cle: "analyse-maileo", fragment: "maileo", libelle: "Analyse Maileo", groupe: "analyses", court: "Maileo" },
     { cle: "analyse-couteo", fragment: "couteo", libelle: "Analyse Coûtéo", groupe: "analyses", court: "Coûtéo" },
+    { cle: "analyse-keo", fragment: "keo", libelle: "Analyse Keo", groupe: "analyses", court: "Keo" },
     // Le prompt qui produit les analyses ci-dessus : une nouvelle analyse
     // s'insère avant lui, pour qu'il reste au bout de la rangée.
     { cle: "prompt-analyse", fragment: "prompt-analyse", libelle: "Prompt d'analyse", groupe: "analyses", court: "Prompt d'analyse" },
