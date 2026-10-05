@@ -15,11 +15,11 @@
    celui-ci. Elles sont facultatives — une clé absente retire sa
    sous-rubrique sans masquer le reste. Le fragment (#priorites,
    #securite, #cibl, #margeo, #planeo, #maileo, #couteo, #keo,
-   #prompt-analyse, #prd, #claude, #astuces, #cles-api, #n8n-hostinger)
+   #prompt-analyse, #prd, #prd-documeo, #plan-documeo, #claude, #astuces, #cles-api, #n8n-hostinger)
    ouvre directement la sienne, au chargement comme depuis un lien écrit
    dans une page.
 
-   Les rubriques d'un même groupe (les analyses des SaaS) partagent un
+   Les rubriques d'un même groupe (les analyses des SaaS, les PRD) partagent un
    seul onglet, qui déplie une seconde rangée. Chacune garde son propre
    fragment : les liens déjà donnés vers #cibl ou #margeo marchent
    toujours, et #analyses ouvre la première du groupe.
@@ -44,7 +44,11 @@
     // Le prompt qui produit les analyses ci-dessus : une nouvelle analyse
     // s'insère avant lui, pour qu'il reste au bout de la rangée.
     { cle: "prompt-analyse", fragment: "prompt-analyse", libelle: "Prompt d'analyse", groupe: "analyses", court: "Prompt d'analyse" },
-    { cle: "prd-modele", fragment: "prd", libelle: "PRD modèle" },
+    // Le gabarit d'abord, puis les PRD remplis sur ce gabarit, chacun suivi de
+    // son plan de construction : #prd garde son lien, #prd-groupe ouvre le premier.
+    { cle: "prd-modele", fragment: "prd", libelle: "PRD modèle", groupe: "prd", court: "Modèle" },
+    { cle: "prd-documeo", fragment: "prd-documeo", libelle: "PRD Documéo", groupe: "prd", court: "PRD Documéo" },
+    { cle: "plan-documeo", fragment: "plan-documeo", libelle: "Plan de construction Documéo", groupe: "prd", court: "Plan Documéo" },
     { cle: "claude-connecteurs", fragment: "claude", libelle: "Connecteurs & Claude" },
     { cle: "claude-astuces", fragment: "astuces", libelle: "Tips & tricks" },
     { cle: "bp-cles-api", fragment: "cles-api", libelle: "Best practices", groupe: "bonnes", court: "Clés API Anthropic" },
@@ -56,6 +60,7 @@
     // Une page restée seule (l'autre clé absente en base) s'affiche comme un
     // onglet ordinaire, sous son libellé long.
     bonnes: { fragment: "bonnes-pratiques", libelle: "Best practices" },
+    prd: { fragment: "prd-groupe", libelle: "PRD" },
   };
 
   /* L'avancement des cases vit en localStorage, comme dans l'onglet
