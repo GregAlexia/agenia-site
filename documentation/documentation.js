@@ -220,13 +220,20 @@
     }
 
     // Les sous-rubriques facultatives partent en même temps que le guide,
-    // pour ne pas additionner les attentes ; une erreur se résout en
+    // pour ne pas additionner les attentes ; une erreur réseau se résout en
     // chaîne vide plutôt que d'échouer le tout.
+    // Une ligne présente mais indécompressable, elle, garde son onglet et le
+    // dit : le 06/10/2026, un base64 altéré à la recopie a fait disparaître
+    // l'onglet Trimailo sans le moindre message, et l'enquête a d'abord
+    // accusé le cache.
     var facultatives = RUBRIQUES.slice(1).map(function (r) {
       return charger(r.cle)
         .then(function (rep) {
           if (!(rep.ok && Array.isArray(rep.json) && rep.json.length && rep.json[0].html)) return "";
-          return outils.decompresser(rep.json[0].html);
+          return outils.decompresser(rep.json[0].html).catch(function () {
+            return '<p><strong>Contenu illisible.</strong> La ligne « ' + r.cle +
+              " » existe en base, mais sa compression est corrompue : la réenregistrer, en vérifiant son empreinte md5.</p>";
+          });
         })
         .catch(function () { return ""; });
     });
