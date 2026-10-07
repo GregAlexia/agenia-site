@@ -14,8 +14,8 @@
    greffer dans le guide les ferait écraser à la prochaine recopie de
    celui-ci. Elles sont facultatives — une clé absente retire sa
    sous-rubrique sans masquer le reste. Le fragment (#priorites,
-   #securite, #cibl, #margeo, #planeo, #maileo, #couteo, #keo,
-   #prompt-analyse, #trimailo, #prd, #prd-documeo, #plan-documeo, #claude, #astuces, #cles-api, #n8n-hostinger)
+   #securite, #cibl, #margeo, #planeo, #maileo, #couteo, #keo, #trimailo,
+   #documeo, #prompt-analyse, #prd, #prd-documeo, #plan-documeo, #claude, #astuces, #cles-api, #n8n-hostinger)
    ouvre directement la sienne, au chargement comme depuis un lien écrit
    dans une page.
 
@@ -42,6 +42,7 @@
     { cle: "analyse-couteo", fragment: "couteo", libelle: "Analyse Coûtéo", groupe: "analyses", court: "Coûtéo" },
     { cle: "analyse-keo", fragment: "keo", libelle: "Analyse Keo", groupe: "analyses", court: "Keo" },
     { cle: "analyse-trimailo", fragment: "trimailo", libelle: "Analyse Trimailo", groupe: "analyses", court: "Trimailo" },
+    { cle: "analyse-documeo", fragment: "documeo", libelle: "Analyse Documéo", groupe: "analyses", court: "Documéo" },
     // Le prompt qui produit les analyses ci-dessus : une nouvelle analyse
     // s'insère avant lui, pour qu'il reste au bout de la rangée.
     { cle: "prompt-analyse", fragment: "prompt-analyse", libelle: "Prompt d'analyse", groupe: "analyses", court: "Prompt d'analyse" },
