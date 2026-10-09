@@ -15,7 +15,7 @@
    celui-ci. Elles sont facultatives — une clé absente retire sa
    sous-rubrique sans masquer le reste. Le fragment (#priorites,
    #securite, #cibl, #margeo, #planeo, #maileo, #couteo, #keo, #trimailo,
-   #documeo, #prompt-analyse, #prd, #prd-documeo, #plan-documeo, #claude, #astuces, #cles-api, #n8n-hostinger)
+   #documeo, #keo-comptes, #prompt-analyse, #prd, #prd-documeo, #plan-documeo, #claude, #astuces, #cles-api, #n8n-hostinger)
    ouvre directement la sienne, au chargement comme depuis un lien écrit
    dans une page.
 
@@ -43,6 +43,9 @@
     { cle: "analyse-keo", fragment: "keo", libelle: "Analyse Keo", groupe: "analyses", court: "Keo" },
     { cle: "analyse-trimailo", fragment: "trimailo", libelle: "Analyse Trimailo", groupe: "analyses", court: "Trimailo" },
     { cle: "analyse-documeo", fragment: "documeo", libelle: "Analyse Documéo", groupe: "analyses", court: "Documéo" },
+    // Keo a deux analyses : la démonstration (#keo, 04/10) et la version avec
+    // comptes, celle qu'un client signerait — la seconde ne remplace pas la première.
+    { cle: "analyse-keo-comptes", fragment: "keo-comptes", libelle: "Analyse Keo (comptes)", groupe: "analyses", court: "Keo (comptes)" },
     // Le prompt qui produit les analyses ci-dessus : une nouvelle analyse
     // s'insère avant lui, pour qu'il reste au bout de la rangée.
     { cle: "prompt-analyse", fragment: "prompt-analyse", libelle: "Prompt d'analyse", groupe: "analyses", court: "Prompt d'analyse" },
