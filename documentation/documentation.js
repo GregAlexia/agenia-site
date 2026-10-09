@@ -15,7 +15,7 @@
    celui-ci. Elles sont facultatives — une clé absente retire sa
    sous-rubrique sans masquer le reste. Le fragment (#priorites,
    #securite, #cibl, #margeo, #planeo, #maileo, #couteo, #keo, #trimailo,
-   #documeo, #keo-comptes, #prompt-analyse, #prd, #prd-documeo, #plan-documeo, #claude, #astuces, #cles-api, #n8n-hostinger)
+   #documeo, #keo-comptes, #prompt-analyse, #prd, #prd-documeo, #plan-documeo, #prd-keo, #plan-keo, #claude, #astuces, #cles-api, #n8n-hostinger)
    ouvre directement la sienne, au chargement comme depuis un lien écrit
    dans une page.
 
@@ -54,6 +54,8 @@
     { cle: "prd-modele", fragment: "prd", libelle: "PRD modèle", groupe: "prd", court: "Modèle" },
     { cle: "prd-documeo", fragment: "prd-documeo", libelle: "PRD Documéo", groupe: "prd", court: "PRD Documéo" },
     { cle: "plan-documeo", fragment: "plan-documeo", libelle: "Plan de construction Documéo", groupe: "prd", court: "Plan Documéo" },
+    { cle: "prd-keo", fragment: "prd-keo", libelle: "PRD Keo", groupe: "prd", court: "PRD Keo" },
+    { cle: "plan-keo", fragment: "plan-keo", libelle: "Plan de construction Keo", groupe: "prd", court: "Plan Keo" },
     { cle: "claude-connecteurs", fragment: "claude", libelle: "Connecteurs & Claude" },
     { cle: "claude-astuces", fragment: "astuces", libelle: "Tips & tricks" },
     { cle: "bp-cles-api", fragment: "cles-api", libelle: "Best practices", groupe: "bonnes", court: "Clés API Anthropic" },
