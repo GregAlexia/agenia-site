@@ -15,7 +15,7 @@
    celui-ci. Elles sont facultatives — une clé absente retire sa
    sous-rubrique sans masquer le reste. Le fragment (#priorites,
    #securite, #cibl, #margeo, #planeo, #maileo, #couteo, #keo, #trimailo,
-   #documeo, #keo-comptes, #prompt-analyse, #prd, #prd-documeo, #plan-documeo, #prd-keo, #plan-keo, #claude, #astuces, #cles-api, #n8n-hostinger)
+   #documeo, #keo-comptes, #prompt-analyse, #prd, #prd-documeo, #plan-documeo, #prd-keo, #plan-keo, #keo-douleurs, #keo-entretien, #keo-roadmap, #claude, #astuces, #cles-api, #n8n-hostinger)
    ouvre directement la sienne, au chargement comme depuis un lien écrit
    dans une page.
 
@@ -56,6 +56,12 @@
     { cle: "plan-documeo", fragment: "plan-documeo", libelle: "Plan de construction Documéo", groupe: "prd", court: "Plan Documéo" },
     { cle: "prd-keo", fragment: "prd-keo", libelle: "PRD Keo", groupe: "prd", court: "PRD Keo" },
     { cle: "plan-keo", fragment: "plan-keo", libelle: "Plan de construction Keo", groupe: "prd", court: "Plan Keo" },
+    // Le marché de Keo, séparé de ses PRD : ce que vivent les agents et ce qu'on
+    // en déduit, avant de construire. Les douleurs d'abord, puis le guide qui
+    // sert à les vérifier, puis la roadmap que ces vérifications corrigeront.
+    { cle: "keo-douleurs", fragment: "keo-douleurs", libelle: "Keo — Douleurs et fonctionnalités", groupe: "keo", court: "Douleurs et fonctionnalités" },
+    { cle: "keo-entretien", fragment: "keo-entretien", libelle: "Keo — Guide d'entretien", groupe: "keo", court: "Guide d'entretien" },
+    { cle: "keo-roadmap", fragment: "keo-roadmap", libelle: "Keo — Roadmap", groupe: "keo", court: "Roadmap" },
     { cle: "claude-connecteurs", fragment: "claude", libelle: "Connecteurs & Claude" },
     { cle: "claude-astuces", fragment: "astuces", libelle: "Tips & tricks" },
     { cle: "bp-cles-api", fragment: "cles-api", libelle: "Best practices", groupe: "bonnes", court: "Clés API Anthropic" },
@@ -68,6 +74,7 @@
     // onglet ordinaire, sous son libellé long.
     bonnes: { fragment: "bonnes-pratiques", libelle: "Best practices" },
     prd: { fragment: "prd-groupe", libelle: "PRD" },
+    keo: { fragment: "keo-marche", libelle: "Keo — marché" },
   };
 
   /* L'avancement des cases vit en localStorage, comme dans l'onglet
