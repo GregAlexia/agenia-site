@@ -220,14 +220,15 @@ adresses sont absolues : contrairement à la navigation, il n'a pas de variante
 en `../` pour les pages de `blog/`. Un compte ajouté se copie donc tel
 quel partout.
 
-## Prendre rendez-vous (Calendly)
+## Prendre rendez-vous (zcal)
 
 La section `#contact` de l'accueil offre deux portes : le formulaire, qui promet
-une réponse sous 24&nbsp;h, et un lien Calendly pour fixer un créneau de
-30&nbsp;minutes tout de suite.
+une réponse sous 24&nbsp;h, et un lien de prise de rendez-vous pour fixer un
+créneau de 30&nbsp;minutes tout de suite — zcal depuis le 3&nbsp;novembre 2026,
+Calendly avant.
 
-**C'est un lien, pas le widget Calendly**, et ce n'est pas un détail : insérer
-le widget chargerait un script tiers et ses cookies avant tout consentement. Le
+**C'est un lien, pas un widget embarqué**, et ce n'est pas un détail : insérer
+un widget chargerait un script tiers et ses cookies avant tout consentement. Le
 site affirme n'en poser aucun et se passe de bandeau — même raisonnement que
 les façades vidéo. **Ne pas remplacer ce lien par une intégration.**
 
@@ -236,18 +237,24 @@ les façades vidéo. **Ne pas remplacer ce lien par une intégration.**
 pages&nbsp;; « Réserver un audit gratuit », « Réserver mon audit gratuit » et
 « Estimer votre potentiel » là où ils apparaissent, avec leurs équivalents
 anglais. L'adresse est donc répétée deux à six fois par page — ne pas s'en
-remettre à un chiffre, qui vieillira&nbsp;: `grep -rc calendly.com --include=*.html .`
+remettre à un chiffre, qui vieillira&nbsp;: `grep -rc zcal.co --include=*.html .`
 les compte, et **un bouton qui promet un rendez-vous sans y mener est le défaut
 à chercher**.
 
-**L'adresse dépend du compte Calendly, pas du site** : `calendly.com/agenia/meeting-agenia`
-depuis le 4 octobre 2026. Avant, `calendly.com/contact-agenia/30-minute-meeting-clone`
-— le compte a changé d'identifiant et l'événement a été recréé le 30 septembre,
-et Calendly ne redirige pas l'ancienne adresse : les 64 boutons du site menaient
-à une page 404, sans erreur visible d'ici. **Renommer le compte ou l'événement
-casse tous les boutons.** Après un changement côté Calendly, ouvrir l'adresse
-en navigation privée, puis remplacer partout (et dans reseauteo, prospeo,
-cibl-app qui la reprennent).
+**L'adresse dépend du compte du service de prise de rendez-vous, pas du site** :
+`zcal.co/agenia/Rdv30min` depuis le 3&nbsp;novembre 2026 — 64 boutons changés
+d'un bloc, vérifiés par `grep -rc calendly --include=*.html .` à zéro après coup.
+Avant, `calendly.com/agenia/meeting-agenia` depuis le 4&nbsp;octobre 2026, et
+`calendly.com/contact-agenia/30-minute-meeting-clone` avant cela : le compte
+Calendly avait changé d'identifiant et l'événement avait été recréé le
+30&nbsp;septembre, et Calendly ne redirigeait pas l'ancienne adresse — les 64
+boutons du site menaient à une page 404, sans erreur visible d'ici.
+**Renommer le compte ou l'événement côté prestataire casse tous les boutons,
+quel que soit le prestataire.** Après un tel changement, ouvrir la nouvelle
+adresse en navigation privée pour vérifier qu'elle ouvre bien un agenda, puis
+remplacer partout. ⚠️ **reseauteo, prospeo et cibl-app reprenaient l'ancienne
+adresse Calendly** et n'ont pas été vérifiés lors de ce passage à zcal — à
+contrôler séparément si ces dépôts sont encore actifs.
 
 Restent volontairement tournés vers le formulaire les boutons qui portent
 `data-objet` — ils préremplissent le champ « Votre demande » avec le nom du

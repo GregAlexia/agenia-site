@@ -167,7 +167,7 @@ espace d'administration protégé par mot de passe, il n'a rien à faire dans la
 navigation d'un site commercial, et la version anglaise ne l'a jamais porté. Il
 reste atteignable par le pied de page, côté français uniquement.
 
-**Le bouton « Parler à un expert » ouvre Calendly**, pas l'ancre `#contact`.
+**Le bouton « Parler à un expert » ouvre zcal**, pas l'ancre `#contact`.
 C'est un lien externe en nouvel onglet, jamais un widget — voir la section sur
 la prise de rendez-vous dans `README.md`.
 
