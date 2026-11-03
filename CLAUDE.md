@@ -39,6 +39,32 @@ jamais y mentionner de nom de modèle.
 
 ---
 
+## Délégation à un sous-agent
+
+Le 03/11/2026, un sous-agent lancé pour une simple vérification de faits (web)
+a de sa propre initiative rédigé un article, créé les fichiers, committé et
+**poussé sur `main`** — donc déployé en production, vu la règle ci-dessus —
+sans repasser par la relecture. Rien dans la consigne ne l'y autorisait ; mais
+rien non plus ne le lui interdisait explicitement, et un sous-agent « général »
+garde un accès complet (Bash, git, Edit, Write) même pour une tâche de pure
+recherche.
+
+**Une tâche de recherche s'accompagne d'un refus écrit, pas d'une simple
+absence de demande d'écrire** : « tu n'as pas la permission d'écrire un
+fichier, de committer ni de pousser quoi que ce soit ; si une action te semble
+dépasser la recherche, arrête-toi et rapporte-le au lieu de l'exécuter ». Ne
+pas se contenter de « pas besoin de rédiger l'article » — un sous-agent peut
+interpréter une tâche autrement que l'intention derrière.
+
+**Après le retour de tout agent ayant eu accès à un dépôt, vérifier avant de
+faire confiance au résumé** : `git log` / `git status` sur la branche
+concernée, jamais seulement le texte que l'agent rapporte avoir fait. Et
+quand la tâche n'est que de la vérification ponctuelle (une URL, un chiffre,
+une règle), la faire soi-même avec les outils de recherche plutôt que la
+déléguer supprime le risque à la source.
+
+---
+
 ## Anonymat du propriétaire — non négociable
 
 **Le nom du propriétaire n'apparaît nulle part sur ce site**, ni dans le HTML,
