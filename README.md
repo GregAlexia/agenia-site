@@ -283,7 +283,7 @@ hésitation : ce sont trois personnes différentes.
 |---|---|---|
 | Margeo | `margeo.agenia.pro` | 22/09/2026 |
 | Prospeo | `prospeo.agenia.pro` | 24/09/2026 |
-| Planeo | `planeo.agenia.pro/fr` depuis les pages françaises | 24/09/2026, `/fr` ajouté le 03/11/2026 |
+| Planeo | `planeo.agenia.pro` | 24/09/2026 — un bref passage par `/fr` le 03/11/2026 a été annulé le jour même |
 | Keo | `keo.agenia.pro` | 24/09/2026, changé le 03/11/2026 |
 
 **Keo a mené à une page de présentation dédiée (`/presentation`, `/en/presentation`)
