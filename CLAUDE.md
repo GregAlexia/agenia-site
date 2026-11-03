@@ -68,12 +68,14 @@ essai-outils.html · agence-ia-haute-savoie.html
 mentions-legales.html · blog/index.html
 blog/automatiser-prospection-mal-cadree.html · blog/20-taches-a-automatiser.html
 blog/auditer-process-pme.html · blog/calculer-roi-automatisation.html
+blog/agents-ia-whatsapp.html
 
 en/index.html · en/prospeo.html · en/keo.html · en/planeo.html
 en/free-tools.html · en/ai-agency-geneva-haute-savoie.html
 en/legal-notice.html · en/blog/index.html
 en/blog/unqualified-prospecting-backfires.html · en/blog/20-tasks-to-automate.html
 en/blog/audit-before-you-automate.html · en/blog/automation-roi.html
+en/blog/whatsapp-ai-agents.html
 ```
 
 **28/09/2026 : `ressources/` a fusionné avec `blog/`.** Les trois guides ont
