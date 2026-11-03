@@ -284,19 +284,17 @@ hésitation : ce sont trois personnes différentes.
 | Margeo | `margeo.agenia.pro` | 22/09/2026 |
 | Prospeo | `prospeo.agenia.pro` | 24/09/2026 |
 | Planeo | `planeo.agenia.pro` | 24/09/2026 |
-| Keo | `keo.agenia.pro/presentation` · **`/en/presentation`** en anglais | 24/09/2026 |
+| Keo | `keo.agenia.pro` | 24/09/2026, changé le 03/11/2026 |
 
-**Keo est le seul dont l'adresse change avec la langue**, parce qu'il est le
-seul à avoir une page de présentation traduite. Les trois autres ouvrent une
-application dont l'interface ne dépend pas du lien. Un anglophone renvoyé sur
-`/presentation` retomberait sur le français qu'il venait de quitter — c'est la
-raison d'être de ce cas particulier, pas une inélégance à uniformiser.
-
-Ses pages produit gardent un second lien, vers la **racine** `keo.agenia.pro`,
-qui sert le tableau de bord de démonstration : la carte de l'accueil vend, le
-portail montre. Elles servaient `immomail-studio.vercel.app` jusqu'au 24/09 —
-la même application sous un nom qui n'est pas celui du produit, et sans
-redirection, donc lu tel quel dans la barre d'adresse du prospect.
+**Keo a mené à une page de présentation dédiée (`/presentation`, `/en/presentation`)
+du 24/09 au 03/11/2026** — la seule adresse des quatre qui changeait avec la
+langue, parce que seul Keo avait cette page traduite. Le propriétaire a
+demandé de revenir au tableau de bord directement, comme les trois autres
+produits ; l'accueil et le portail mènent désormais au même endroit. Les
+pages produit (`demo-keo.html`) servaient déjà `immomail-studio.vercel.app`
+jusqu'au 24/09 — la même application sous un nom qui n'est pas celui du
+produit, et sans redirection, donc lu tel quel dans la barre d'adresse du
+prospect.
 
 Ce raccourci coûte à chaque fois **un lien interne vers la page produit depuis
 l'accueil** — le pied de page, `essai-outils.html` et la page Haute-Savoie le

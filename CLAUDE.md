@@ -278,13 +278,15 @@ qui tiennent le mécanisme :
   un cookie, rien ne sort du navigateur, mais les deux pages de confidentialité
   le mentionnent : ce qui est stocké se déclare, même exempté de consentement.
 
-**Keo est le seul dont le lien change avec la langue** : `/presentation` et
-`/en/presentation`. Il est le seul dont la destination soit traduite ; les trois
-autres ouvrent une application dont l'interface ne dépend pas du lien. **Un lien
-sortant vers une page qui existe dans les deux langues doit viser celle du
-visiteur** — l'envoyer sur l'autre annule ce que la page anglaise vient de
-gagner. À vérifier à chaque nouveau lien sortant, produit par produit : c'est
-une propriété de la destination, pas une règle générale du site.
+**Keo a eu un lien qui changeait avec la langue** (`/presentation` et
+`/en/presentation`) du 24/09 au 03/11/2026, le temps d'avoir une page de
+présentation traduite ; les quatre produits visent maintenant leur tableau de
+bord, sans distinction de langue. La règle reste bonne pour la prochaine page
+traduite qu'un produit recevra : **un lien sortant vers une page qui existe
+dans les deux langues doit viser celle du visiteur** — l'envoyer sur l'autre
+annule ce que la page anglaise vient de gagner. C'est une propriété de la
+destination, pas une règle générale du site : à vérifier à chaque nouveau lien
+sortant, produit par produit.
 
 > **Prospeo a été l'exception inverse, et c'est instructif.** Ce fichier a porté
 > jusqu'au 24/09/2026 : « Prospeo ne renvoie vers aucune application, la lier
