@@ -66,6 +66,7 @@
     { cle: "claude-astuces", fragment: "astuces", libelle: "Tips & tricks" },
     { cle: "bp-cles-api", fragment: "cles-api", libelle: "Best practices", groupe: "bonnes", court: "Clés API Anthropic" },
     { cle: "bp-n8n", fragment: "n8n-hostinger", libelle: "Best practices — n8n", groupe: "bonnes", court: "n8n sur Hostinger" },
+    { cle: "whatsapp-agent", fragment: "whatsapp-agent", libelle: "WhatsApp Agent" },
   ];
 
   var GROUPES = {
