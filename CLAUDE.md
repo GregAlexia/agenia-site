@@ -541,6 +541,12 @@ apostrophes. Ce jour-là, sept morceaux de 4 Ko sont passés sans expirer.
 Depuis, une ligne présente mais indécompressable garde son onglet et y affiche
 « Contenu illisible » : avant, elle disparaissait sans un mot.
 
+**Un script collé depuis Windows change les sauts de ligne.** Le 14/11/2026,
+l'inventaire collé par le propriétaire dans l'éditeur SQL Supabase est arrivé
+avec 52 `\r\n` au lieu de 52 `\n` : même contenu, md5 faux. Avant de bisecter,
+comparer l'écart de longueur au nombre de sauts de ligne ; s'ils coïncident,
+`update … set html = replace(html, chr(13), '')` rétablit l'empreinte.
+
 ---
 
 ## Secrets
