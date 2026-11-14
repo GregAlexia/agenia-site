@@ -495,6 +495,15 @@ moins d'octets. `acces.js` expose `outils.decompresser`, qui reconnaît le forma
 à la lecture — un contenu commençant par `<` est du HTML tel quel. Écrire du HTML
 en clair reste donc valide.
 
+**« Inventaire des applications »** (`inventaire-applications`, `#inventaire`,
+depuis le 14/11/2026) : les 31 dépôts GitHub lus un par un — rôle, statut,
+adresse, hébergement, base, services utilisés, points d'attention. **Jamais une
+valeur de secret** : le tableur d'où il est parti en contenait 52 en clair (clés
+Anthropic, `service_role` Supabase, chaînes de connexion…) ; la page ne porte que
+des noms de services. Le HTML n'est pas versionné ici, pour la même raison que
+les autres onglets : il vit en base. À refaire quand un dépôt apparaît, disparaît
+ou change de statut.
+
 **Un document apporte souvent sa propre feuille de style.** Elle doit être
 cloisonnée sous `#doc` avant d'être stockée, sinon ses règles `body` et `:root`
 repeignent la page entière, barre de navigation comprise. Attention aux trois

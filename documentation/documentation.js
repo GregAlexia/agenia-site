@@ -15,7 +15,7 @@
    celui-ci. Elles sont facultatives — une clé absente retire sa
    sous-rubrique sans masquer le reste. Le fragment (#priorites,
    #securite, #cibl, #margeo, #planeo, #maileo, #couteo, #keo, #trimailo,
-   #documeo, #keo-comptes, #prompt-analyse, #prd, #prd-documeo, #plan-documeo, #prd-keo, #plan-keo, #keo-douleurs, #keo-entretien, #keo-roadmap, #claude, #astuces, #cles-api, #n8n-hostinger)
+   #documeo, #keo-comptes, #prompt-analyse, #prd, #prd-documeo, #plan-documeo, #prd-keo, #plan-keo, #keo-douleurs, #keo-entretien, #keo-roadmap, #claude, #astuces, #cles-api, #n8n-hostinger, #whatsapp-agent, #inventaire)
    ouvre directement la sienne, au chargement comme depuis un lien écrit
    dans une page.
 
@@ -67,6 +67,7 @@
     { cle: "bp-cles-api", fragment: "cles-api", libelle: "Best practices", groupe: "bonnes", court: "Clés API Anthropic" },
     { cle: "bp-n8n", fragment: "n8n-hostinger", libelle: "Best practices — n8n", groupe: "bonnes", court: "n8n sur Hostinger" },
     { cle: "whatsapp-agent", fragment: "whatsapp-agent", libelle: "WhatsApp Agent" },
+    { cle: "inventaire-applications", fragment: "inventaire", libelle: "Inventaire des applications" },
   ];
 
   var GROUPES = {
