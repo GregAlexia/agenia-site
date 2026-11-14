@@ -504,6 +504,16 @@ des noms de services. Le HTML n'est pas versionné ici, pour la même raison que
 les autres onglets : il vit en base. À refaire quand un dépôt apparaît, disparaît
 ou change de statut.
 
+**« Fiches applications »** (groupe `applications`, `#applications`, depuis le
+14/11/2026) : `app-admineo`, `app-prospeo`, `app-cibl` — fragments `#app-…`,
+parce que `#cibl` appartient déjà à l'« Analyse Cibl », qui audite en réalité le
+site vitrine. Une fiche **décrit** une application (rôle, état, fonctionnalités,
+offre, architecture, services, RGPD, sécurité, exploitation, ce qui manque avant
+le premier client, où trouver quoi dans le dépôt) ; une analyse l'**audite**. Elles
+sont écrites depuis le dépôt, sans mesure en ligne, et datées par leur commit.
+Leur CSS est cloisonné sous `#doc .fa` : les documents d'un même onglet sont dans
+la même page, une règle `#doc table` nue repeindrait les tableaux des autres.
+
 **Un document apporte souvent sa propre feuille de style.** Elle doit être
 cloisonnée sous `#doc` avant d'être stockée, sinon ses règles `body` et `:root`
 repeignent la page entière, barre de navigation comprise. Attention aux trois
