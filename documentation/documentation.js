@@ -15,7 +15,9 @@
    celui-ci. Elles sont facultatives — une clé absente retire sa
    sous-rubrique sans masquer le reste. Le fragment (#priorites,
    #securite, #cibl, #margeo, #planeo, #maileo, #couteo, #keo, #trimailo,
-   #documeo, #keo-comptes, #prompt-analyse, #prd, #prd-documeo, #plan-documeo, #prd-keo, #plan-keo, #keo-douleurs, #keo-entretien, #keo-roadmap, #claude, #astuces, #cles-api, #n8n-hostinger, #whatsapp-agent, #app-admineo, #app-prospeo, #app-cibl, #inventaire)
+   #documeo, #keo-comptes, #prompt-analyse, #prd, #prd-documeo, #plan-documeo, #prd-keo, #plan-keo, #keo-douleurs, #keo-entretien, #keo-roadmap, #claude, #astuces, #cles-api, #n8n-hostinger, #whatsapp-agent, #app-admineo, #app-prospeo, #app-cibl, #app-voceo, #app-coach-sante,
+   #app-reseauteo, #app-marcheo, #app-permis3d, #app-speed-to-lead,
+   #app-leadpage-studio, #app-resto-voice, #inventaire)
    ouvre directement la sienne, au chargement comme depuis un lien écrit
    dans une page.
 
@@ -35,7 +37,9 @@
     { cle: "guide", fragment: "", libelle: "Guide" },
     { cle: "priorites", fragment: "priorites", libelle: "Priorités" },
     { cle: "securite", fragment: "securite", libelle: "Sécurité" },
-    { cle: "analyse-cibl", fragment: "cibl", libelle: "Analyse Cibl", groupe: "analyses", court: "Cibl" },
+    // Clé et fragment historiques « cibl » gardés pour les liens, mais le document
+    // audite le site vitrine : l'application Cibl a sa fiche, #app-cibl.
+    { cle: "analyse-cibl", fragment: "cibl", libelle: "Analyse du site vitrine", groupe: "analyses", court: "Site agenia.pro" },
     { cle: "analyse-margeo", fragment: "margeo", libelle: "Analyse Margéo", groupe: "analyses", court: "Margéo" },
     { cle: "analyse-planeo", fragment: "planeo", libelle: "Analyse Planeo", groupe: "analyses", court: "Planeo" },
     { cle: "analyse-maileo", fragment: "maileo", libelle: "Analyse Maileo", groupe: "analyses", court: "Maileo" },
@@ -73,6 +77,14 @@
     { cle: "app-admineo", fragment: "app-admineo", libelle: "Fiche Adminéo", groupe: "applications", court: "Adminéo" },
     { cle: "app-prospeo", fragment: "app-prospeo", libelle: "Fiche Prospeo", groupe: "applications", court: "Prospeo" },
     { cle: "app-cibl", fragment: "app-cibl", libelle: "Fiche Cibl", groupe: "applications", court: "Cibl" },
+    { cle: "app-voceo", fragment: "app-voceo", libelle: "Fiche Vocéo", groupe: "applications", court: "Vocéo" },
+    { cle: "app-coach-sante", fragment: "app-coach-sante", libelle: "Fiche Coach santé", groupe: "applications", court: "Coach santé" },
+    { cle: "app-reseauteo", fragment: "app-reseauteo", libelle: "Fiche Reseauteo", groupe: "applications", court: "Reseauteo" },
+    { cle: "app-marcheo", fragment: "app-marcheo", libelle: "Fiche Marcheo", groupe: "applications", court: "Marcheo" },
+    { cle: "app-permis3d", fragment: "app-permis3d", libelle: "Fiche Permis3D", groupe: "applications", court: "Permis3D" },
+    { cle: "app-speed-to-lead", fragment: "app-speed-to-lead", libelle: "Fiche Speed-to-Lead", groupe: "applications", court: "Speed-to-Lead" },
+    { cle: "app-leadpage-studio", fragment: "app-leadpage-studio", libelle: "Fiche LeadPage Studio", groupe: "applications", court: "LeadPage Studio" },
+    { cle: "app-resto-voice", fragment: "app-resto-voice", libelle: "Fiche resto-voice", groupe: "applications", court: "resto-voice" },
     { cle: "inventaire-applications", fragment: "inventaire", libelle: "Inventaire des applications" },
   ];
 
