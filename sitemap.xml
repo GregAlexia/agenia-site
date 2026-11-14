@@ -18,13 +18,18 @@
   les quatre anciennes adresses ressources/*.html sont devenues de simples
   redirections en noindex — donc absentes d'ici, comme toute page noindex.
 
+  Le 14/11/2026, les deux articles sur les agents IA WhatsApp (publiés le
+  03/11 mais oubliés ici) ont été ajoutés. Les lastmod du 03/11 dus au seul
+  remplacement Calendly -> zcal n'ont pas été reportés : changer un lien de
+  rendez-vous n'est pas changer le contenu.
+
   lastmod n'est un signal que s'il est vrai : ne le bouger que quand le contenu
   de la page a réellement changé.
 -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.agenia.pro/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-11-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -71,7 +76,7 @@
        (noindex), rien à faire indexer là-bas. -->
   <url>
     <loc>https://www.agenia.pro/blog/</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -96,6 +101,12 @@
   <url>
     <loc>https://www.agenia.pro/blog/calculer-roi-automatisation.html</loc>
     <lastmod>2026-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.agenia.pro/blog/agents-ia-whatsapp.html</loc>
+    <lastmod>2026-11-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -153,7 +164,7 @@
        plus ici : ce sont des redirections noindex vers ces adresses. -->
   <url>
     <loc>https://www.agenia.pro/en/blog/</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -178,6 +189,12 @@
   <url>
     <loc>https://www.agenia.pro/en/blog/automation-roi.html</loc>
     <lastmod>2026-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.agenia.pro/en/blog/whatsapp-ai-agents.html</loc>
+    <lastmod>2026-11-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

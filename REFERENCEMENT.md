@@ -61,13 +61,15 @@ verra. Si c'est un formulaire, la page ne ramènera personne.
 | Élément | Où | Détail |
 |---|---|---|
 | `robots.txt` | racine | Autorise le crawl, refuse `/ressources/pdf/`, déclare le sitemap |
-| `sitemap.xml` | racine | Les **12 pages indexables**, avec `lastmod` réel |
-| `<link rel="canonical">` | 12 pages publiques | Une URL de référence par page |
-| Open Graph + Twitter Card | 12 pages publiques | Rendu correct sur LinkedIn, WhatsApp, Slack |
+| `sitemap.xml` | racine | Les **26 pages indexables**, avec `lastmod` réel |
+| `<link rel="canonical">` | 26 pages publiques | Une URL de référence par page |
+| `hreflang` fr / en / x-default | 26 pages publiques | Chaque page pointe sa traduction ; `x-default` = le français |
+| Open Graph + Twitter Card | 26 pages publiques | Rendu correct sur LinkedIn, WhatsApp, Slack |
 | `assets/og-image.jpg` | `assets/` | Image de partage 1200×630, gabarit dans `outils/og-image.html` |
 | JSON-LD `Organization` | `index.html` | Identité, marques, RCS, et **`sameAs`** vers les trois comptes sociaux |
 | JSON-LD `WebSite` | `index.html` | — |
 | JSON-LD `FAQPage` | `index.html` | Les 5 questions de la section FAQ |
+| JSON-LD `VideoObject` | `index.html` | La vidéo d'accueil, avec la **transcription exacte** de la voix off (14/11/2026). À mettre à jour avec le fichier : durée, date, texte |
 | JSON-LD `SoftwareApplication` | 4 pages produit | Le logiciel décrit comme une entité : catégorie, fonctions, public |
 | JSON-LD `Article` | 3 guides | Titre, dates, auteur = l'organisation |
 | JSON-LD `ProfessionalService` | `agence-ia-haute-savoie.html` | Adresse, coordonnées, zone desservie |
@@ -111,8 +113,11 @@ recherche qui ne marche pas.
 
 ### Pages indexables
 
-Les **24 pages publiques** (12 françaises, 12 anglaises) sont toutes
-indexables et toutes au sitemap.
+Les **26 pages publiques** (13 françaises, 13 anglaises) sont toutes
+indexables et toutes au sitemap. Les deux articles sur les agents IA WhatsApp,
+publiés le 03/11/2026, y manquaient jusqu'au 14/11 : une page oubliée du
+sitemap n'est pas invisible, mais elle est trouvée tard — **ajouter l'entrée
+dans le même commit que la page**.
 
 **28/09/2026 : `ressources/` a fusionné avec `blog/`, côté français puis,
 le même jour, côté anglais (`en/resources.html` → `en/blog/`).** Les trois
@@ -199,10 +204,11 @@ réflexe.
 
 Chaque produit a son propre sous-domaine, tous vérifiés côté hébergeur :
 `margeo`, `prospeo`, `planeo` et `keo` en `.agenia.pro`. Plus aucune adresse
-`.vercel.app` n'est servie depuis le site. **Keo est le seul dont le lien change
-avec la langue** — `/presentation` et `/en/presentation` — parce qu'il est le
-seul dont la page de destination est traduite : envoyer un anglophone sur la
-version française annulerait ce que la page anglaise vient de gagner. Les
+`.vercel.app` n'est servie depuis le site. Keo a longtemps été le seul dont le
+lien changeait avec la langue (`/presentation` et `/en/presentation`) ; depuis
+le 03/11/2026 les deux langues ouvrent la racine `keo.agenia.pro`. Le principe
+demeure pour toute destination traduite : envoyer un anglophone sur la version
+française annule ce que la page anglaise vient de gagner. Les
 commentaires HTML qui signalent ces liens sont numérotés par produit et par
 langue — `URL Margeo (n/6)`, `URL Keo (n/2)`, `URL Planeo (n/2)`,
 `URL Prospeo (1/1)` — pour qu'un changement d'adresse n'en oublie aucun.
