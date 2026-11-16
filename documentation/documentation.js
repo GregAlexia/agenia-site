@@ -70,6 +70,10 @@
     { cle: "claude-astuces", fragment: "astuces", libelle: "Tips & tricks" },
     { cle: "bp-cles-api", fragment: "cles-api", libelle: "Best practices", groupe: "bonnes", court: "Clés API Anthropic" },
     { cle: "bp-n8n", fragment: "n8n-hostinger", libelle: "Best practices — n8n", groupe: "bonnes", court: "n8n sur Hostinger" },
+    // Le palmarès des workflows de la bibliothèque n8n.io (données publiques,
+    // relevées le 16/11/2026) : un onglet à part, car il sert de réservoir
+    // d'idées de flux, pas de bonne pratique.
+    { cle: "n8n-top-workflows", fragment: "n8n-top", libelle: "Workflows n8n populaires" },
     { cle: "whatsapp-agent", fragment: "whatsapp-agent", libelle: "WhatsApp Agent" },
     // Fiches descriptives (ce que fait l'appli, son état, son architecture), à ne
     // pas confondre avec les analyses SaaS, qui sont des audits. Fragments
