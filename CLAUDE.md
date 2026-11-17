@@ -525,13 +525,16 @@ Leur CSS est cloisonné sous `#doc .fa` : les documents d'un même onglet sont d
 la même page, une règle `#doc table` nue repeindrait les tableaux des autres.
 
 **« WhatsApp Agent »** (groupe `whatsapp`, `#whatsapp`, depuis le 17/11/2026) :
-`whatsapp-agent` (`#whatsapp-agent`, le guide de l'agent, sous-onglet « Agent »)
-et `whatsapp-meta` (`#whatsapp-meta`, sous-onglet « Configuration Meta » : la
+`whatsapp-agent` (`#whatsapp-agent`, le guide de l'agent, sous-onglet « Agent »),
+`whatsapp-console` (`#whatsapp-console`, sous-onglet « Console » : le guide de la
+console `/admin` de Léo — écrans, première configuration, routine, dépannage) et
+`whatsapp-meta` (`#whatsapp-meta`, sous-onglet « Configuration Meta » : la
 checklist Meta Business Suite et Meta for Developers pour brancher un agent
-WhatsApp sur un vrai numéro, pièges vécus compris). La source de la seconde est
-`docs/CHECKLIST-META-AGENT-WHATSAPP.md` du dépôt privé `agent-whatsapp-leo` ;
-la ligne en base en est la conversion HTML, CSS cloisonné sous `#doc .wam`. À
-régénérer quand ce `.md` change, plutôt que de corriger le HTML en base.
+WhatsApp sur un vrai numéro, pièges vécus compris). Les sources des deux
+dernières sont `docs/GUIDE-CONSOLE-LEO.md` et `docs/CHECKLIST-META-AGENT-WHATSAPP.md`
+du dépôt privé `agent-whatsapp-leo` ; les lignes en base en sont la conversion
+HTML, CSS cloisonné sous `#doc .wam` (identique dans les deux, donc sans conflit).
+À régénérer quand un `.md` change, plutôt que de corriger le HTML en base.
 
 **Un document apporte souvent sa propre feuille de style.** Elle doit être
 cloisonnée sous `#doc` avant d'être stockée, sinon ses règles `body` et `:root`

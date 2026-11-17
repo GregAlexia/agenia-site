@@ -15,7 +15,7 @@
    celui-ci. Elles sont facultatives — une clé absente retire sa
    sous-rubrique sans masquer le reste. Le fragment (#priorites,
    #securite, #cibl, #margeo, #planeo, #maileo, #couteo, #keo, #trimailo,
-   #documeo, #keo-comptes, #prompt-analyse, #prd, #prd-documeo, #plan-documeo, #prd-keo, #plan-keo, #keo-douleurs, #keo-entretien, #keo-roadmap, #claude, #astuces, #cles-api, #n8n-hostinger, #whatsapp-agent, #whatsapp-meta, #app-admineo, #app-prospeo, #app-cibl, #app-voceo, #app-coach-sante,
+   #documeo, #keo-comptes, #prompt-analyse, #prd, #prd-documeo, #plan-documeo, #prd-keo, #plan-keo, #keo-douleurs, #keo-entretien, #keo-roadmap, #claude, #astuces, #cles-api, #n8n-hostinger, #whatsapp-agent, #whatsapp-console, #whatsapp-meta, #app-admineo, #app-prospeo, #app-cibl, #app-voceo, #app-coach-sante,
    #app-reseauteo, #app-marcheo, #app-permis3d, #app-speed-to-lead,
    #app-leadpage-studio, #app-resto-voice, #inventaire)
    ouvre directement la sienne, au chargement comme depuis un lien écrit
@@ -74,9 +74,11 @@
     // relevées le 16/11/2026) : un onglet à part, car il sert de réservoir
     // d'idées de flux, pas de bonne pratique.
     { cle: "n8n-top-workflows", fragment: "n8n-top", libelle: "Workflows n8n populaires" },
-    // Le guide de l'agent, puis la marche à suivre chez Meta pour en brancher un
-    // nouveau : #whatsapp-agent garde son lien, #whatsapp ouvre le premier présent.
+    // Le guide de l'agent, son usage au quotidien (la console), puis la marche à
+    // suivre chez Meta pour en brancher un nouveau : #whatsapp-agent garde son lien,
+    // #whatsapp ouvre le premier présent.
     { cle: "whatsapp-agent", fragment: "whatsapp-agent", libelle: "WhatsApp Agent", groupe: "whatsapp", court: "Agent" },
+    { cle: "whatsapp-console", fragment: "whatsapp-console", libelle: "WhatsApp — guide de la console", groupe: "whatsapp", court: "Console" },
     { cle: "whatsapp-meta", fragment: "whatsapp-meta", libelle: "WhatsApp — configuration Meta", groupe: "whatsapp", court: "Configuration Meta" },
     // Fiches descriptives (ce que fait l'appli, son état, son architecture), à ne
     // pas confondre avec les analyses SaaS, qui sont des audits. Fragments
