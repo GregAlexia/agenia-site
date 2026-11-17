@@ -524,6 +524,15 @@ sont écrites depuis le dépôt, sans mesure en ligne, et datées par leur commi
 Leur CSS est cloisonné sous `#doc .fa` : les documents d'un même onglet sont dans
 la même page, une règle `#doc table` nue repeindrait les tableaux des autres.
 
+**« WhatsApp Agent »** (groupe `whatsapp`, `#whatsapp`, depuis le 17/11/2026) :
+`whatsapp-agent` (`#whatsapp-agent`, le guide de l'agent, sous-onglet « Agent »)
+et `whatsapp-meta` (`#whatsapp-meta`, sous-onglet « Configuration Meta » : la
+checklist Meta Business Suite et Meta for Developers pour brancher un agent
+WhatsApp sur un vrai numéro, pièges vécus compris). La source de la seconde est
+`docs/CHECKLIST-META-AGENT-WHATSAPP.md` du dépôt privé `agent-whatsapp-leo` ;
+la ligne en base en est la conversion HTML, CSS cloisonné sous `#doc .wam`. À
+régénérer quand ce `.md` change, plutôt que de corriger le HTML en base.
+
 **Un document apporte souvent sa propre feuille de style.** Elle doit être
 cloisonnée sous `#doc` avant d'être stockée, sinon ses règles `body` et `:root`
 repeignent la page entière, barre de navigation comprise. Attention aux trois
