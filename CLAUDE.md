@@ -548,6 +548,11 @@ Le sous-onglet « Agent » (`whatsapp-agent`) décrivait jusqu'au 18/11/2026
 l'ancienne installation **Caléo** (août 2026) ; il décrit désormais **Léo**
 (source : `docs/GUIDE-AGENT-LEO.md` du dépôt de l'agent). L'ancien contenu
 est gardé sous `whatsapp-agent-caleo-archive-2026-11-08`, sans onglet.
+Le sous-onglet « Enrichir Léo » (`whatsapp-enrichir`, `#whatsapp-enrichir`,
+depuis le 18/11/2026, placé avant « Présentation client ») est le mode d'emploi
+de la base de connaissances de Léo : dossier Drive, formats acceptés, ce qui
+manque par produit, plan d'action, modèle de document. Source :
+`docs/ENRICHIR-LEO.md` du dépôt de l'agent.
 
 **Un document apporte souvent sa propre feuille de style.** Elle doit être
 cloisonnée sous `#doc` avant d'être stockée, sinon ses règles `body` et `:root`

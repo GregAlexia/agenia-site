@@ -15,7 +15,7 @@
    celui-ci. Elles sont facultatives — une clé absente retire sa
    sous-rubrique sans masquer le reste. Le fragment (#priorites,
    #securite, #cibl, #margeo, #planeo, #maileo, #couteo, #keo, #trimailo,
-   #documeo, #keo-comptes, #prompt-analyse, #prd, #prd-documeo, #plan-documeo, #prd-keo, #plan-keo, #keo-douleurs, #keo-entretien, #keo-roadmap, #claude, #astuces, #cles-api, #n8n-hostinger, #whatsapp-agent, #whatsapp-console, #whatsapp-meta, #whatsapp-client, #app-admineo, #app-prospeo, #app-cibl, #app-voceo, #app-coach-sante,
+   #documeo, #keo-comptes, #prompt-analyse, #prd, #prd-documeo, #plan-documeo, #prd-keo, #plan-keo, #keo-douleurs, #keo-entretien, #keo-roadmap, #claude, #astuces, #cles-api, #n8n-hostinger, #whatsapp-agent, #whatsapp-console, #whatsapp-meta, #whatsapp-enrichir, #whatsapp-client, #app-admineo, #app-prospeo, #app-cibl, #app-voceo, #app-coach-sante,
    #app-reseauteo, #app-marcheo, #app-permis3d, #app-speed-to-lead,
    #app-leadpage-studio, #app-resto-voice, #inventaire)
    ouvre directement la sienne, au chargement comme depuis un lien écrit
@@ -83,6 +83,9 @@
     // La version à remettre aux clients : déroulé du projet, ce qu'on attend
     // d'eux, recette, enrichissement de la base. Sans prix ni marges, qui restent
     // dans docs/offre/ du dépôt privé de l'agent.
+    // Où déposer les documents de Léo, quoi y écrire et comment vérifier : le
+    // guide qu'on suit pour qu'il réponde sur tous les produits.
+    { cle: "whatsapp-enrichir", fragment: "whatsapp-enrichir", libelle: "WhatsApp — enrichir Léo", groupe: "whatsapp", court: "Enrichir Léo" },
     { cle: "whatsapp-client", fragment: "whatsapp-client", libelle: "WhatsApp — présentation client", groupe: "whatsapp", court: "Présentation client" },
     // Fiches descriptives (ce que fait l'appli, son état, son architecture), à ne
     // pas confondre avec les analyses SaaS, qui sont des audits. Fragments
