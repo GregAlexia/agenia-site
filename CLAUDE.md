@@ -544,6 +544,10 @@ du même dépôt ; le dossier interne complet (déploiement, tests, amélioratio
 la Console et la Configuration Meta sont passées à `leo.agenia.pro` ; leurs
 versions précédentes sont gardées en base sous `whatsapp-console-archive-2026-11-17`
 et `whatsapp-meta-archive-2026-11-17`, sans onglet.
+Le sous-onglet « Agent » (`whatsapp-agent`) décrivait jusqu'au 18/11/2026
+l'ancienne installation **Caléo** (août 2026) ; il décrit désormais **Léo**
+(source : `docs/GUIDE-AGENT-LEO.md` du dépôt de l'agent). L'ancien contenu
+est gardé sous `whatsapp-agent-caleo-archive-2026-11-08`, sans onglet.
 
 **Un document apporte souvent sa propre feuille de style.** Elle doit être
 cloisonnée sous `#doc` avant d'être stockée, sinon ses règles `body` et `:root`
