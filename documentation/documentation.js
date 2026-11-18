@@ -15,7 +15,7 @@
    celui-ci. Elles sont facultatives — une clé absente retire sa
    sous-rubrique sans masquer le reste. Le fragment (#priorites,
    #securite, #cibl, #margeo, #planeo, #maileo, #couteo, #keo, #trimailo,
-   #documeo, #keo-comptes, #prompt-analyse, #prd, #prd-documeo, #plan-documeo, #prd-keo, #plan-keo, #keo-douleurs, #keo-entretien, #keo-roadmap, #claude, #astuces, #cles-api, #n8n-hostinger, #whatsapp-agent, #whatsapp-console, #whatsapp-meta, #whatsapp-enrichir, #whatsapp-client, #app-admineo, #app-prospeo, #app-cibl, #app-voceo, #app-coach-sante,
+   #documeo, #keo-comptes, #prompt-analyse, #prd, #prd-documeo, #plan-documeo, #prd-keo, #plan-keo, #keo-douleurs, #keo-entretien, #keo-roadmap, #claude, #astuces, #cles-api, #n8n-hostinger, #whatsapp-agent, #whatsapp-console, #whatsapp-meta, #whatsapp-enrichir, #whatsapp-client, #whatsapp-demo-resto, #whatsapp-standardiste, #app-admineo, #app-prospeo, #app-cibl, #app-voceo, #app-coach-sante,
    #app-reseauteo, #app-marcheo, #app-permis3d, #app-speed-to-lead,
    #app-leadpage-studio, #app-resto-voice, #inventaire)
    ouvre directement la sienne, au chargement comme depuis un lien écrit
@@ -87,6 +87,12 @@
     // guide qu'on suit pour qu'il réponde sur tous les produits.
     { cle: "whatsapp-enrichir", fragment: "whatsapp-enrichir", libelle: "WhatsApp — enrichir Léo", groupe: "whatsapp", court: "Enrichir Léo" },
     { cle: "whatsapp-client", fragment: "whatsapp-client", libelle: "WhatsApp — présentation client", groupe: "whatsapp", court: "Présentation client" },
+    // La démo restaurant qu'on fait essayer aux restaurateurs (codes par
+    // prospect), puis le dossier interne du produit : téléphone après quatre
+    // sonneries, marché, prix et fonctionnalités. Prix compris, donc jamais à
+    // montrer tel quel à un client.
+    { cle: "whatsapp-demo-resto", fragment: "whatsapp-demo-resto", libelle: "WhatsApp — démo restaurant", groupe: "whatsapp", court: "Démo resto" },
+    { cle: "whatsapp-standardiste", fragment: "whatsapp-standardiste", libelle: "WhatsApp — standardiste restaurant", groupe: "whatsapp", court: "Standardiste resto" },
     // Fiches descriptives (ce que fait l'appli, son état, son architecture), à ne
     // pas confondre avec les analyses SaaS, qui sont des audits. Fragments
     // préfixés « app- » : #cibl appartient déjà à l'analyse du site vitrine.

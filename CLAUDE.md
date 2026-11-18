@@ -553,6 +553,15 @@ depuis le 18/11/2026, placé avant « Présentation client ») est le mode d'emp
 de la base de connaissances de Léo : dossier Drive, formats acceptés, ce qui
 manque par produit, plan d'action, modèle de document. Source :
 `docs/ENRICHIR-LEO.md` du dépôt de l'agent.
+Deux derniers sous-onglets, le même jour, après « Présentation client » :
+« Démo resto » (`whatsapp-demo-resto`, `#whatsapp-demo-resto`), le mode d'emploi
+de la démo restaurant (code par prospect, console, ce qu'on montre), source
+`docs/DEMO-RESTAURANT.md` ; et « Standardiste resto » (`whatsapp-standardiste`,
+`#whatsapp-standardiste`), le dossier interne du produit — améliorer ses
+réponses, renvoi d'appel après quatre sonneries, optimisation, étude de marché,
+prix, fonctionnalités pour se démarquer — source `docs/STANDARDISTE-RESTAURANT.md`.
+⚠️ Ce second **contient des prix et des marges** : ne pas en tirer la version
+client, qui reste « Présentation client ».
 
 **Un document apporte souvent sa propre feuille de style.** Elle doit être
 cloisonnée sous `#doc` avant d'être stockée, sinon ses règles `body` et `:root`
