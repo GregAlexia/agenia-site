@@ -535,6 +535,15 @@ dernières sont `docs/GUIDE-CONSOLE-LEO.md` et `docs/CHECKLIST-META-AGENT-WHATSA
 du dépôt privé `agent-whatsapp-leo` ; les lignes en base en sont la conversion
 HTML, CSS cloisonné sous `#doc .wam` (identique dans les deux, donc sans conflit).
 À régénérer quand un `.md` change, plutôt que de corriger le HTML en base.
+Depuis le 18/11/2026, un quatrième sous-onglet, `whatsapp-client`
+(`#whatsapp-client`, « Présentation client »), est la version à remettre aux
+clients (déroulé du projet, ce qu'on attend d'eux, recette, enrichissement de la
+base), **sans prix ni marges**. Source : `docs/offre/CLIENT-AGENT-WHATSAPP.md`
+du même dépôt ; le dossier interne complet (déploiement, tests, améliorations,
+étude de marché et prix) reste dans `docs/offre/`, hors du site. Le même jour,
+la Console et la Configuration Meta sont passées à `leo.agenia.pro` ; leurs
+versions précédentes sont gardées en base sous `whatsapp-console-archive-2026-11-17`
+et `whatsapp-meta-archive-2026-11-17`, sans onglet.
 
 **Un document apporte souvent sa propre feuille de style.** Elle doit être
 cloisonnée sous `#doc` avant d'être stockée, sinon ses règles `body` et `:root`
