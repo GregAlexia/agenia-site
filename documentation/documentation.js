@@ -15,7 +15,7 @@
    celui-ci. Elles sont facultatives — une clé absente retire sa
    sous-rubrique sans masquer le reste. Le fragment (#priorites,
    #securite, #cibl, #margeo, #planeo, #maileo, #couteo, #keo, #trimailo,
-   #documeo, #keo-comptes, #prompt-analyse, #prd, #prd-documeo, #plan-documeo, #prd-keo, #plan-keo, #keo-douleurs, #keo-entretien, #keo-roadmap, #claude, #astuces, #cles-api, #n8n-hostinger, #whatsapp-agent, #whatsapp-console, #whatsapp-meta, #whatsapp-enrichir, #whatsapp-client, #whatsapp-demo-resto, #whatsapp-standardiste, #app-admineo, #app-prospeo, #app-cibl, #app-voceo, #app-coach-sante,
+   #documeo, #keo-comptes, #prompt-analyse, #prd, #prd-documeo, #plan-documeo, #prd-keo, #plan-keo, #keo-douleurs, #keo-entretien, #keo-roadmap, #claude, #astuces, #cles-api, #n8n-hostinger, #whatsapp-agent, #whatsapp-console, #whatsapp-meta, #whatsapp-enrichir, #whatsapp-client, #whatsapp-demo-resto, #whatsapp-standardiste, #whatsapp-demos-prospects, #app-admineo, #app-prospeo, #app-cibl, #app-voceo, #app-coach-sante,
    #app-reseauteo, #app-marcheo, #app-permis3d, #app-speed-to-lead,
    #app-leadpage-studio, #app-resto-voice, #inventaire)
    ouvre directement la sienne, au chargement comme depuis un lien écrit
@@ -93,6 +93,10 @@
     // montrer tel quel à un client.
     { cle: "whatsapp-demo-resto", fragment: "whatsapp-demo-resto", libelle: "WhatsApp — démo restaurant", groupe: "whatsapp", court: "Démo resto" },
     { cle: "whatsapp-standardiste", fragment: "whatsapp-standardiste", libelle: "WhatsApp — standardiste restaurant", groupe: "whatsapp", court: "Standardiste resto" },
+    // Vendre l'agent : message LinkedIn, puis démo générée depuis le site du
+    // prospect qui a répondu, relue et validée dans la console. Le pas à pas
+    // complet, de la recherche de prospects à la mise en place chez le client.
+    { cle: "whatsapp-demos-prospects", fragment: "whatsapp-demos-prospects", libelle: "WhatsApp — démos prospects", groupe: "whatsapp", court: "Démos prospects" },
     // Fiches descriptives (ce que fait l'appli, son état, son architecture), à ne
     // pas confondre avec les analyses SaaS, qui sont des audits. Fragments
     // préfixés « app- » : #cibl appartient déjà à l'analyse du site vitrine.

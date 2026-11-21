@@ -562,6 +562,12 @@ réponses, renvoi d'appel après quatre sonneries, optimisation, étude de march
 prix, fonctionnalités pour se démarquer — source `docs/STANDARDISTE-RESTAURANT.md`.
 ⚠️ Ce second **contient des prix et des marges** : ne pas en tirer la version
 client, qui reste « Présentation client ».
+Depuis le 21/11/2026, un dernier sous-onglet, « Démos prospects »
+(`whatsapp-demos-prospects`, `#whatsapp-demos-prospects`) : le pas à pas
+commercial — trouver les prospects sur LinkedIn, messages d'approche, générer
+une démo sur mesure depuis le site du prospect qui a répondu, la relire, la
+valider, relancer, puis passer au client. Source `docs/DEMOS-PROSPECTS.md` du
+dépôt de l'agent ; ligne en base compressée (gzip puis base64).
 
 **Un document apporte souvent sa propre feuille de style.** Elle doit être
 cloisonnée sous `#doc` avant d'être stockée, sinon ses règles `body` et `:root`
