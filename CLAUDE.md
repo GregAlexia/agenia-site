@@ -568,6 +568,10 @@ commercial — trouver les prospects sur LinkedIn, messages d'approche, génére
 une démo sur mesure depuis le site du prospect qui a répondu, la relire, la
 valider, relancer, puis passer au client. Source `docs/DEMOS-PROSPECTS.md` du
 dépôt de l'agent ; ligne en base compressée (gzip puis base64).
+Depuis le 22/11/2026, « Chatbot du site » (`whatsapp-chatbot-site`,
+`#whatsapp-chatbot-site`) : installer la bulle de discussion de l'agent sur le
+site d'un client, ce que voit le visiteur, répondre depuis la console. Source
+`docs/CHATBOT-SITE.md` du dépôt de l'agent ; ligne en base compressée.
 
 **Un document apporte souvent sa propre feuille de style.** Elle doit être
 cloisonnée sous `#doc` avant d'être stockée, sinon ses règles `body` et `:root`
