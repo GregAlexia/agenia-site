@@ -572,6 +572,9 @@ Depuis le 22/11/2026, « Chatbot du site » (`whatsapp-chatbot-site`,
 `#whatsapp-chatbot-site`) : installer la bulle de discussion de l'agent sur le
 site d'un client, ce que voit le visiteur, répondre depuis la console. Source
 `docs/CHATBOT-SITE.md` du dépôt de l'agent ; ligne en base compressée.
+Puis « Agent client » (`whatsapp-agent-client`, `#whatsapp-agent-client`) : créer
+l'agent d'un client en un clic depuis sa démo (ligne DNS `*` chez OVH, ce que
+l'agent sait au départ, dépannage). Source `docs/AGENT-CLIENT.md` ; ligne compressée.
 
 **Un document apporte souvent sa propre feuille de style.** Elle doit être
 cloisonnée sous `#doc` avant d'être stockée, sinon ses règles `body` et `:root`
