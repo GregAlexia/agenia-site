@@ -27,11 +27,27 @@
     { cle: "veille", fragment: "", libelle: "Concurrence et branding" },
     { cle: "veille-ia-us", fragment: "ia-us", libelle: "Tendances IA US" },
     { cle: "veille-youtube", fragment: "youtube", libelle: "Chaînes YouTube" },
+    { cle: "veille-reseaux", fragment: "reseaux", libelle: "Plan réseaux sociaux" },
   ];
+
+  // Les cases du plan d'action gardent leur état dans ce navigateur,
+  // comme celles d'Upwork : rien n'est renvoyé à la base.
+  var PREFIXE = "agenia_reseaux_tache_";
+  function brancherCases(racine) {
+    var cases = racine.querySelectorAll("input[type=checkbox][data-tache]");
+    Array.prototype.forEach.call(cases, function (c) {
+      var cle = c.getAttribute("data-tache");
+      try { c.checked = localStorage.getItem(PREFIXE + cle) === "1"; } catch (e) { c.checked = false; }
+      c.addEventListener("change", function () {
+        try { localStorage.setItem(PREFIXE + cle, c.checked ? "1" : "0"); } catch (e) { /* stockage indisponible */ }
+      });
+    });
+  }
 
   function afficher(presentes) {
     if (presentes.length === 1) {
       doc.innerHTML = presentes[0].html;
+      brancherCases(doc);
       return;
     }
     var boutons = "";
@@ -46,6 +62,7 @@
     // [hidden] laisseraient leurs feuilles de style se marcher dessus.
     function ouvrir(n, majFragment) {
       vue.innerHTML = presentes[n].html;
+      brancherCases(vue);
       for (var j = 0; j < liste.length; j++) {
         var actif = j === n;
         liste[j].className = actif ? "actif" : "";
