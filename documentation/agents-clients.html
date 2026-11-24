@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="robots" content="noindex,nofollow">
-  <title>AgenIA — Agents clients</title>
+  <title>AgenIA — Variante n8n + Twilio</title>
 
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src https://quygyeesmtxgykerjtjr.supabase.co; form-action 'self'; base-uri 'self'; object-src 'none'">
 
@@ -55,7 +55,7 @@
         <a href="audit.html">Audit</a>
         <a href="referencement.html">Référencement</a>
         <a href="whatsapp-ia.html">WhatsApp × IA</a>
-        <a href="agents-clients.html" class="actif" aria-current="page">Agents clients</a>
+        <a href="agents-clients.html" class="actif" aria-current="page">Variante n8n + Twilio</a>
         <a href="upwork.html">Upwork</a>
         <a href="zenithia.html">ZénithIA</a>
       </nav>
@@ -64,10 +64,18 @@
     <div id="doc">
 <div id="chargement">Chargement…</div>
 <div id="agents" hidden>
-<h1>Agents WhatsApp et chatbots : personnaliser pour un client</h1>
+<h1>Variante n8n + Twilio : personnaliser un agent WhatsApp ou un chatbot pour un client</h1>
 <p class="chapeau">Comment décliner un même agent (n8n + Twilio) sur le contexte d'un client :
 quoi lui demander, où le ranger, comment l'injecter dans l'agent, et comment le recetter
 avant la mise en ligne. Version du 24/11/2026.</p>
+
+<div class="note">
+  <strong>Variante, pas la méthode de Léo.</strong> L'agent Léo d'AgenIA est une application
+  Python branchée directement sur la Cloud API de Meta (n8n ne sert qu'à lire la base de
+  connaissances depuis Google Drive) : son déploiement par client est décrit dans l'onglet
+  « WhatsApp Agent » (Agent client, Enrichir Léo, Chatbot du site). Cette page-ci ne vaut que
+  pour un agent construit <em>dans n8n</em> avec Twilio comme passerelle WhatsApp.
+</div>
 
 <div class="note">
   Ce guide décrit un montage <strong>recommandé</strong> : les noms de champs et de tables sont

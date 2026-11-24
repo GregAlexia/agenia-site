@@ -417,8 +417,8 @@ référencement, la veille WhatsApp × IA, Upwork (plan d'action, étude de
 marché, offres du Project Catalog, clients de la zone, prix des premières
 missions — clé `upwork`, une sous-rubrique par
 `<section class="rubrique">`) et ZénithIA (dossier partenaire et préparation
-de séance — clé `zenithia`, même découpage en rubriques) et « Agents clients »
-(24/11/2026, `agents-clients.html` : méthode générale pour personnaliser un agent
+de séance — clé `zenithia`, même découpage en rubriques) et « Variante n8n + Twilio »
+(24/11/2026, `agents-clients.html`, fichier gardé sous son premier nom pour ne pas casser les liens : méthode générale pour personnaliser un agent
 WhatsApp ou un chatbot n8n + Twilio sur le contexte d'un client ; **seule page
 écrite en clair dans son fichier**, par choix du propriétaire — elle ne contient
 ni client, ni identifiant, ni secret, et `agents-clients.js` ne fait que vérifier
