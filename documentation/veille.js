@@ -13,7 +13,7 @@
    greffer dans « veille » les ferait écraser à la prochaine recopie du
    markdown. Elles sont facultatives — une clé absente retire sa
    sous-rubrique sans masquer la veille principale. Le fragment
-   (#ia-us, #youtube) ouvre directement la sienne, pour qu'un lien ou un
+   (#ia-us, #youtube, #reels) ouvre directement la sienne, pour qu'un lien ou un
    rechargement retombe au même endroit.
    ============================================================ */
 (function () {
@@ -28,6 +28,7 @@
     { cle: "veille-ia-us", fragment: "ia-us", libelle: "Tendances IA US" },
     { cle: "veille-youtube", fragment: "youtube", libelle: "Chaînes YouTube" },
     { cle: "veille-reseaux", fragment: "reseaux", libelle: "Plan réseaux sociaux" },
+    { cle: "veille-reels", fragment: "reels", libelle: "Reels viraux" },
   ];
 
   // Les cases du plan d'action gardent leur état dans ce navigateur,
