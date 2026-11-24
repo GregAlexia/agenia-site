@@ -65,6 +65,7 @@ les deux versions offrent la même chose, PDF des guides compris
 | `documentation/audit.html` | Audit technique et fonctionnel, **exécuté à chaque ouverture** |
 | `documentation/referencement.html` | Le plan de référencement : pourquoi chaque action, et comment la faire |
 | `documentation/whatsapp-ia.html` | Veille des offres Upwork « WhatsApp × IA » : besoins clients, étapes du process, offres où un PoC est facile |
+| `documentation/agents-clients.html` | Guide en clair (sans donnée client) : personnaliser un agent WhatsApp / chatbot n8n + Twilio sur le contexte d'un client |
 | `documentation/acces.js` | Connexion, réinitialisation et décompression, **partagé par les six pages** |
 | `documentation/style.css` | Feuille propre à l'espace interne |
 

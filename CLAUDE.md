@@ -411,14 +411,19 @@ Profile, le dépôt GitHub à passer en privé — est dans
 
 ## Espace interne (`documentation/`)
 
-Dix pages, un seul module d'accès (`acces.js`) : le guide, la veille, les
+Onze pages, un seul module d'accès (`acces.js`) : le guide, la veille, les
 outils, le playbook de prospection, les statistiques, l'audit, le plan de
 référencement, la veille WhatsApp × IA, Upwork (plan d'action, étude de
 marché, offres du Project Catalog, clients de la zone, prix des premières
 missions — clé `upwork`, une sous-rubrique par
 `<section class="rubrique">`) et ZénithIA (dossier partenaire et préparation
-de séance — clé `zenithia`, même découpage en rubriques). **Un onglet ajouté
-doit l'être dans les dix** — c'est le même piège que l'en-tête des pages
+de séance — clé `zenithia`, même découpage en rubriques) et « Agents clients »
+(24/11/2026, `agents-clients.html` : méthode générale pour personnaliser un agent
+WhatsApp ou un chatbot n8n + Twilio sur le contexte d'un client ; **seule page
+écrite en clair dans son fichier**, par choix du propriétaire — elle ne contient
+ni client, ni identifiant, ni secret, et `agents-clients.js` ne fait que vérifier
+la session avant de l'afficher ; ne jamais y ajouter de fiche client réelle). **Un
+onglet ajouté doit l'être dans les onze** — c'est le même piège que l'en-tête des pages
 publiques, en plus petit.
 
 Le dossier ZénithIA décrit des personnes réelles (dirigeants, âges, chiffres

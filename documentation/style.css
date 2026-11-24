@@ -172,3 +172,9 @@ label[hidden],#etapeMfa[hidden],#mfaSaisie[hidden],#mfaQr[hidden],#mfaPlusTard[h
 #mfaPlusTard{display:block;margin:12px auto 0;padding:0;background:none;color:var(--mu);
 font-size:13px;font-weight:400}
 #mfaPlusTard:hover{color:var(--ac);text-decoration:underline;background:none}
+
+/* ---- Agents clients : gabarit de prompt et encadré de réserve ---- */
+#doc pre{background:var(--sb);border:1px solid var(--ln);border-radius:8px;padding:14px 16px;
+font-size:13px;line-height:1.55;white-space:pre-wrap;overflow-wrap:anywhere;margin:0 0 18px}
+#doc .note{background:var(--sb);border:1px solid var(--ln);border-radius:8px;padding:12px 14px;
+color:var(--tx);font-size:14px;margin:0 0 8px}
