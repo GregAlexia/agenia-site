@@ -548,7 +548,10 @@ du même dépôt ; le dossier interne complet (déploiement, tests, amélioratio
 étude de marché et prix) reste dans `docs/offre/`, hors du site. Le même jour,
 la Console et la Configuration Meta sont passées à `leo.agenia.pro` ; leurs
 versions précédentes sont gardées en base sous `whatsapp-console-archive-2026-11-17`
-et `whatsapp-meta-archive-2026-11-17`, sans onglet.
+et `whatsapp-meta-archive-2026-11-17`, sans onglet. Le 24/11/2026, la Console a reçu
+la section « 2.4 bis Démo resto — les codes de démonstration » (ajoutée au `.md` le
+18/11 mais restée absente de la base) : sa version d'avant est gardée sous
+`whatsapp-console-archive-2026-11-18`, sans onglet.
 Le sous-onglet « Agent » (`whatsapp-agent`) décrivait jusqu'au 18/11/2026
 l'ancienne installation **Caléo** (août 2026) ; il décrit désormais **Léo**
 (source : `docs/GUIDE-AGENT-LEO.md` du dépôt de l'agent). L'ancien contenu
