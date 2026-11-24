@@ -584,6 +584,18 @@ Puis « Agent client » (`whatsapp-agent-client`, `#whatsapp-agent-client`) : cr
 l'agent d'un client en un clic depuis sa démo (ligne DNS `*` chez OVH, ce que
 l'agent sait au départ, dépannage). Source `docs/AGENT-CLIENT.md` ; ligne compressée.
 
+**« Vidéos Reels »** (groupe `videos`, `#videos`, depuis le 24/11/2026) : le studio
+de Reels Instagram que Claude fait tourner à partir d'un simple sujet (avatar 2D à
+poses, cartes animées, sous-titres mot à mot, voix off locale gratuite). Trois
+sous-onglets, HTML en clair, CSS cloisonné sous `#doc .vr` : « Générer un Reel »
+(`video-process`, `#video-process` : prérequis, comment demander, déroulé, formats,
+structure du script, poses, variantes A/B, retouche sur le PC, leçons de la
+journée), « Outils » (`video-outils`, `#video-outils` : la chaîne, son coût, les
+fichiers du projet, les outils écartés) et « Pistes d'amélioration »
+(`video-ameliorations`, `#video-ameliorations` : cases à cocher, préfixe
+`agenia_doc_tache_video-…`). Le projet lui-même vit hors de ce dépôt
+(`reel-studio.zip` chez le propriétaire, compétence Claude `reel-instagram-avatar`).
+
 **Un document apporte souvent sa propre feuille de style.** Elle doit être
 cloisonnée sous `#doc` avant d'être stockée, sinon ses règles `body` et `:root`
 repeignent la page entière, barre de navigation comprise. Attention aux trois

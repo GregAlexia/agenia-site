@@ -15,7 +15,7 @@
    celui-ci. Elles sont facultatives — une clé absente retire sa
    sous-rubrique sans masquer le reste. Le fragment (#priorites,
    #securite, #cibl, #margeo, #planeo, #maileo, #couteo, #keo, #trimailo,
-   #documeo, #keo-comptes, #prompt-analyse, #prd, #prd-documeo, #plan-documeo, #prd-keo, #plan-keo, #keo-douleurs, #keo-entretien, #keo-roadmap, #claude, #astuces, #cles-api, #n8n-hostinger, #whatsapp-agent, #whatsapp-console, #whatsapp-meta, #whatsapp-enrichir, #whatsapp-client, #whatsapp-demo-resto, #whatsapp-standardiste, #whatsapp-demos-prospects, #whatsapp-chatbot-site, #whatsapp-agent-client, #app-admineo, #app-prospeo, #app-cibl, #app-voceo, #app-coach-sante,
+   #documeo, #keo-comptes, #prompt-analyse, #prd, #prd-documeo, #plan-documeo, #prd-keo, #plan-keo, #keo-douleurs, #keo-entretien, #keo-roadmap, #claude, #astuces, #cles-api, #n8n-hostinger, #whatsapp-agent, #whatsapp-console, #whatsapp-meta, #whatsapp-enrichir, #whatsapp-client, #whatsapp-demo-resto, #whatsapp-standardiste, #whatsapp-demos-prospects, #whatsapp-chatbot-site, #whatsapp-agent-client, #video-process, #video-outils, #video-ameliorations, #app-admineo, #app-prospeo, #app-cibl, #app-voceo, #app-coach-sante,
    #app-reseauteo, #app-marcheo, #app-permis3d, #app-speed-to-lead,
    #app-leadpage-studio, #app-resto-voice, #inventaire)
    ouvre directement la sienne, au chargement comme depuis un lien écrit
@@ -103,6 +103,12 @@
     // Du « oui » du prospect à son propre agent en ligne : le bouton de la
     // console, la ligne DNS à poser une fois, ce que l'agent sait au départ.
     { cle: "whatsapp-agent-client", fragment: "whatsapp-agent-client", libelle: "WhatsApp — agent client en un clic", groupe: "whatsapp", court: "Agent client" },
+    // Studio de Reels Instagram (24/11/2026) : comment Claude produit une vidéo à
+    // partir d'un sujet, les outils de la chaîne, et ce qui reste à améliorer.
+    // #videos ouvre le premier présent.
+    { cle: "video-process", fragment: "video-process", libelle: "Vidéos Reels — générer un Reel", groupe: "videos", court: "Générer un Reel" },
+    { cle: "video-outils", fragment: "video-outils", libelle: "Vidéos Reels — outils", groupe: "videos", court: "Outils" },
+    { cle: "video-ameliorations", fragment: "video-ameliorations", libelle: "Vidéos Reels — pistes d'amélioration", groupe: "videos", court: "Pistes d'amélioration" },
     // Fiches descriptives (ce que fait l'appli, son état, son architecture), à ne
     // pas confondre avec les analyses SaaS, qui sont des audits. Fragments
     // préfixés « app- » : #cibl appartient déjà à l'analyse du site vitrine.
@@ -128,6 +134,7 @@
     prd: { fragment: "prd-groupe", libelle: "PRD" },
     keo: { fragment: "keo-marche", libelle: "Keo — marché" },
     whatsapp: { fragment: "whatsapp", libelle: "WhatsApp Agent" },
+    videos: { fragment: "videos", libelle: "Vidéos Reels" },
     applications: { fragment: "applications", libelle: "Fiches applications" },
   };
 
