@@ -36,6 +36,13 @@ jobs:
         with:
           path: .
 
+      # Le 24/11/2026, quatre déploiements de suite ont échoué sur « Fetching
+      # artifact metadata failed » : l'étape suivante démarrait 0,3 s après
+      # l'envoi de l'artefact, avant que GitHub ne le rende visible. Une courte
+      # attente coûte vingt secondes par envoi et évite une relance à la main.
+      - name: Laisser GitHub enregistrer l'artefact
+        run: sleep 20
+
       - name: Déployer sur GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
