@@ -514,6 +514,12 @@ ou change de statut — et quand une fiche ou une analyse est refaite : la synth
 reprend leur statut, leur verdict et leur manque le plus grave, avec un lien
 `#fragment` vers chacune.
 
+**« Sources »** (`sources`, `#sources`, depuis le 26/11/2026) : les sources web
+d'une analyse ou d'une page du site, un bloc `.src-bloc` par sujet, daté, avec
+ce à quoi elles ont servi. Premier bloc : le modèle de la page Services. HTML
+en clair, CSS cloisonné sous `#doc .src-…`. Un nouveau sujet s'ajoute en tête
+de la ligne en base, sans toucher aux blocs existants.
+
 **« Fiches applications »** (groupe `applications`, `#applications`, depuis le
 14/11/2026) : onze fiches — `app-admineo`, `app-prospeo`, `app-cibl`, puis
 `app-voceo`, `app-coach-sante`, `app-reseauteo`, `app-marcheo`, `app-permis3d`,

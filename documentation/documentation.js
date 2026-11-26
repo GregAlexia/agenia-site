@@ -17,7 +17,7 @@
    #securite, #cibl, #margeo, #planeo, #maileo, #couteo, #keo, #trimailo,
    #documeo, #keo-comptes, #prompt-analyse, #prd, #prd-documeo, #plan-documeo, #prd-keo, #plan-keo, #keo-douleurs, #keo-entretien, #keo-roadmap, #claude, #astuces, #cles-api, #n8n-hostinger, #whatsapp-agent, #whatsapp-console, #whatsapp-meta, #whatsapp-enrichir, #whatsapp-client, #whatsapp-demo-resto, #whatsapp-standardiste, #whatsapp-demos-prospects, #whatsapp-chatbot-site, #whatsapp-agent-client, #video-process, #video-outils, #video-ameliorations, #app-admineo, #app-prospeo, #app-cibl, #app-voceo, #app-coach-sante,
    #app-reseauteo, #app-marcheo, #app-permis3d, #app-speed-to-lead,
-   #app-leadpage-studio, #app-resto-voice, #inventaire)
+   #app-leadpage-studio, #app-resto-voice, #inventaire, #sources)
    ouvre directement la sienne, au chargement comme depuis un lien écrit
    dans une page.
 
@@ -124,6 +124,9 @@
     { cle: "app-leadpage-studio", fragment: "app-leadpage-studio", libelle: "Fiche LeadPage Studio", groupe: "applications", court: "LeadPage Studio" },
     { cle: "app-resto-voice", fragment: "app-resto-voice", libelle: "Fiche resto-voice", groupe: "applications", court: "resto-voice" },
     { cle: "inventaire-applications", fragment: "inventaire", libelle: "Inventaire des applications" },
+    // Les sources web d'une analyse ou d'une page du site, regroupées par sujet
+    // et datées : une affirmation reprise sans sa source ne se revérifie plus.
+    { cle: "sources", fragment: "sources", libelle: "Sources" },
   ];
 
   var GROUPES = {
