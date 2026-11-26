@@ -75,12 +75,14 @@ est derrière AgenIA.
 
 ---
 
-## Le piège de fond : vingt-six fichiers, un seul en-tête
+## Le piège de fond : vingt-huit fichiers, un seul en-tête
 
 Il n'y a pas de gabarit. L'en-tête, la navigation, le menu mobile et le pied de
-page sont **répétés dans les vingt-six pages publiques** — treize en
-français, treize en anglais (la page Services, `services.html` et
-`en/services.html`, a rejoint le club le 26/11/2026) — depuis le 3 octobre 2026, où `demo-margeo.html` et
+page sont **répétés dans les vingt-huit pages publiques** — quatorze en
+français, quatorze en anglais (la page Services, `services.html` et
+`en/services.html`, a rejoint le club le 26/11/2026 ; l'entrée « Services »
+du menu y mène depuis le 27/11, et non plus à l'ancre `#services` de
+l'accueil) — depuis le 3 octobre 2026, où `demo-margeo.html` et
 sa jumelle `en/margeo.html` ont été supprimées à la demande du propriétaire :
 l'application Margeo porte désormais sa propre page de vente, bilingue, et
 tous les liens Margeo du site y mènent (`URL Margeo (n/6)`). Les deux fichiers
@@ -166,7 +168,7 @@ forme sans `min()` est un débordement qui attend son écran.
 *derrière* la barre — mesuré à 65 px quand elle en occupe 77. Corrigé le
 22/09/2026 ; la règle doit suivre si la hauteur de l'en-tête change.
 
-**Le contrôle** : mesurer `scrollWidth − clientWidth` sur les vingt-six
+**Le contrôle** : mesurer `scrollWidth − clientWidth` sur les vingt-huit
 pages, de 320 à 412 px. C'est trois lignes de Playwright, et c'est le seul moyen
 de voir ce qu'aucune relecture ne montre. Les seuils utiles : **320** (vieil
 iPhone SE), **375** (iPhone 8 et SE 2022, encore très répandus), **390** (iPhone
