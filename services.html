@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services IA et automatisation pour PME — AgenIA</title>
+  <meta name="description" content="Factures, relances, demandes, saisie, reporting : AgenIA automatise vos tâches répétitives par l'IA. Audit gratuit de 30 min, prototype en 2 à 6 semaines." />
+  <meta name="theme-color" content="#f0efe8" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.agenia.pro/services.html" />
+
+  <!-- Couple hreflang réciproque avec en/services.html ; x-default sur le français. -->
+  <link rel="alternate" hreflang="fr" href="https://www.agenia.pro/services.html" />
+  <link rel="alternate" hreflang="en" href="https://www.agenia.pro/en/services.html" />
+  <link rel="alternate" hreflang="x-default" href="https://www.agenia.pro/services.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="AgenIA" />
+  <meta property="og:title" content="Services IA et automatisation pour PME — AgenIA" />
+  <meta property="og:description" content="Factures, relances, demandes, saisie, reporting : AgenIA automatise vos tâches répétitives par l'IA. Audit gratuit de 30 min, prototype en 2 à 6 semaines." />
+  <meta property="og:url" content="https://www.agenia.pro/services.html" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:image" content="https://www.agenia.pro/assets/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Services IA et automatisation pour PME — AgenIA" />
+  <meta name="twitter:description" content="Factures, relances, demandes, saisie, reporting : AgenIA automatise vos tâches répétitives par l'IA. Audit gratuit de 30 min, prototype en 2 à 6 semaines." />
+  <meta name="twitter:image" content="https://www.agenia.pro/assets/og-image.jpg" />
+
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://leo.agenia.pro; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src https://api.web3forms.com https://quygyeesmtxgykerjtjr.supabase.co https://leo.agenia.pro; form-action 'self' https://api.web3forms.com; base-uri 'self'; object-src 'none'" />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%236d8bff'/%3E%3Cstop offset='1' stop-color='%23b06bff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='8' fill='%23070b18'/%3E%3Cpath d='M16 6l8 20h-4l-1.4-3.8h-5.2L12 26H8L16 6zm0 7.2l-1.6 4.4h3.2L16 13.2z' fill='url(%23g)'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Données structurées. Le catalogue n'a pas de prix : ils se fixent à
+       l'audit, et un prix inventé serait une fausse déclaration (CLAUDE.md). -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "AgenIA",
+  "url": "https://www.agenia.pro/services.html",
+  "logo": "https://www.agenia.pro/assets/logo_agenia-hd.png",
+  "image": "https://www.agenia.pro/assets/og-image.jpg",
+  "description": "Automatisation des tâches répétitives par l'IA, assistants IA, développement sur mesure, conseil et formation pour les PME et ETI.",
+  "areaServed": {
+    "@type": "Country",
+    "name": "France"
+  },
+  "inLanguage": "fr-FR",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Services AgenIA",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Automatisation IA",
+          "description": "Cartographie des processus et workflows n8n reliés à vos outils (ERP, CRM)."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Assistants et chatbots IA",
+          "description": "Assistants connectés à vos données : support client, recherche documentaire, aide à la décision."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Développement sur mesure",
+          "description": "Applications web, extraction de documents, intégrations et tableaux de bord."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Conseil et formation IA",
+          "description": "Feuille de route IA, cadrage des cas d'usage et formation des équipes."
+        }
+      }
+    ]
+  },
+  "parentOrganization": {
+    "@type": "Organization",
+    "name": "AgenIA",
+    "url": "https://www.agenia.pro/"
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "À qui s'adressent vos services ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Aux dirigeants de PME et d'ETI, et aux petites structures qui passent trop de temps sur des tâches administratives ou commerciales répétitives. Un restaurant, une agence immobilière de trois personnes ou une entreprise industrielle relèvent tous de la même démarche."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Faut-il déjà avoir une « stratégie IA » ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Non. Les projets qui aboutissent partent d'une tâche précise qui agace tout le monde, pas d'une ambition générale. L'audit sert à la trouver."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Combien cela coûte-t-il ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cela dépend de la tâche et de vos volumes : c'est pourquoi le prix s'établit pendant l'audit, avant tout engagement. Si l'un de nos logiciels couvre déjà votre besoin, vous partez d'un abonnement plutôt que d'un développement."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Faut-il changer nos outils actuels ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Rarement. Nous connectons d'abord ce que vous avez déjà — ERP, CRM, messagerie, tableurs — plutôt que de tout remplacer."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Combien de temps avant de voir un résultat ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Un premier prototype fonctionnel est généralement livré en deux à six semaines, ce qui permet de vérifier la valeur avant tout déploiement à grande échelle."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Où sont hébergées nos données ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Dans l'Union européenne, et cloisonnées par client. Le détail figure dans la politique de confidentialité."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Que se passe-t-il après la mise en service ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nous assurons le suivi, la maintenance et l'amélioration continue, et nous formons vos équipes pour une adoption durable."
+      }
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Accueil",
+      "item": "https://www.agenia.pro/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Services",
+      "item": "https://www.agenia.pro/services.html"
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <header class="site-header" id="top">
+    <div class="container header__inner">
+      <a class="brand" href="index.html" aria-label="Agenia, accueil">
+        <img class="brand__logo" src="assets/logo_agenia-288.webp" width="615" height="450"
+             alt="Agenia" />
+      </a>
+
+      <nav class="nav" aria-label="Navigation principale">
+        <a href="index.html#services">Services</a>
+        <a href="index.html#methode">Méthode</a>
+        <a href="index.html#resultats">Résultats</a>
+        <a href="index.html#secteurs">Secteurs</a>
+        <a href="index.html#produit">Produits</a>
+        <a href="blog/">Blog</a>
+        <a href="index.html#faq">FAQ</a>
+      </nav>
+
+      <div class="lang-switch">
+        <a href="en/services.html" hreflang="en" lang="en" title="Read this page in English">EN</a>
+      </div>
+
+      <div class="header__cta">
+        <a class="btn btn--ghost" href="https://zcal.co/agenia/Rdv30min" target="_blank" rel="noopener">Parler à un expert</a>
+      </div>
+
+      <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu" hidden>
+      <a href="index.html#services">Services</a>
+      <a href="index.html#methode">Méthode</a>
+      <a href="index.html#resultats">Résultats</a>
+      <a href="index.html#secteurs">Secteurs</a>
+      <a href="index.html#produit">Produits</a>
+      <a href="blog/">Blog</a>
+      <a href="index.html#faq">FAQ</a>
+      <a class="btn btn--primary" href="https://zcal.co/agenia/Rdv30min" target="_blank" rel="noopener">Parler à un expert</a>
+    </div>
+  </header>
+
+    <main>
+    <!-- Page de présentation des services (26/11/2026). Elle suit la trame des
+         pages de vente de consultant — promesse, constat, tâches prises en
+         charge, offre, méthode, engagements, FAQ — parce que l'accueil, lui,
+         présente d'abord les logiciels : un dirigeant qui vient pour un besoin
+         sur mesure n'y trouvait le détail qu'en bas de page.
+         Chaque affirmation reprend ce que le site dit déjà ailleurs : aucun
+         prix, aucun avis, aucun client nommé. -->
+    <section class="hero">
+      <div class="container hero__inner">
+        <span class="pill reveal">
+          <span class="pill__dot"></span>
+          Services IA &amp; automatisation · PME &amp; ETI
+        </span>
+        <h1 class="hero__title reveal">
+          Vos tâches répétitives, <span class="grad-text">prises en charge par l'IA</span>.
+        </h1>
+        <p class="svc-chapo reveal">
+          Factures, relances, demandes entrantes, saisie, reporting&nbsp;: nous
+          automatisons ce qui vous coûte du temps sans rien rapporter — avec des
+          briques déjà exploitées en production dans nos propres logiciels, et
+          du sur-mesure quand il le faut. Vous décidez de ce qui part seul et de
+          ce qui attend votre validation.
+        </p>
+        <div class="hero__actions reveal">
+          <a class="btn btn--primary" href="https://zcal.co/agenia/Rdv30min"
+             target="_blank" rel="noopener">Réserver un audit gratuit</a>
+          <a class="btn btn--ghost" href="#taches">Voir ce que nous automatisons</a>
+        </div>
+
+        <ul class="hero__stats reveal">
+          <li><strong>30&nbsp;min</strong><span>d'audit offert, sans engagement</span></li>
+          <li><strong>2 à 6&nbsp;sem.</strong><span>pour un premier prototype sur vos données</span></li>
+          <li><strong>4</strong><span>logiciels métier déjà en production</span></li>
+        </ul>
+        <p class="hero__note reveal">
+          Les durées sont des <b>ordres de grandeur observés</b>&nbsp;: la vôtre se
+          chiffre pendant l'audit.
+        </p>
+      </div>
+    </section>
+
+    <section class="trust" aria-label="Ce que nous mettons en place">
+      <div class="container">
+        <p class="trust__label">Ce que nous mettons en place, de l'audit au suivi&nbsp;:</p>
+        <div class="trust__logos">
+          <span>Workflows n8n</span>
+          <span>Connecteurs ERP &amp; CRM</span>
+          <span>Assistants IA</span>
+          <span>Extraction de documents</span>
+          <span>Tableaux de bord</span>
+          <span>Formation des équipes</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Le constat : trois symptômes qu'un dirigeant reconnaît sans chiffre.
+         Pas de « X heures perdues par semaine » : ce serait un chiffre que
+         nous n'avons pas mesuré chez lui. -->
+    <section class="section" id="constat">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="eyebrow">Le constat</span>
+          <h2 class="section__title">Le temps perdu ne figure sur aucune facture</h2>
+          <p class="section__sub">
+            Il se cache dans des gestes de quelques minutes, répétés vingt fois
+            par jour. Personne ne les remet en question, parce qu'ils ont
+            toujours été faits ainsi.
+          </p>
+        </div>
+        <div class="cards svc-cards--3">
+          <article class="card reveal">
+            <span class="svc-num">01</span>
+            <h3>La ressaisie</h3>
+            <p>Une facture lue à l'écran puis recopiée dans un tableur, une
+              commande reçue par email puis retapée dans le logiciel de gestion.</p>
+          </article>
+          <article class="card reveal">
+            <span class="svc-num">02</span>
+            <h3>Les relances oubliées</h3>
+            <p>Un devis sans réponse, un impayé, un prospect qui attendait un
+              rappel&nbsp;: ce qui dépend de la mémoire de quelqu'un finit par
+              passer à la trappe.</p>
+          </article>
+          <article class="card reveal">
+            <span class="svc-num">03</span>
+            <h3>Les demandes qui attendent</h3>
+            <p>Un message arrivé le soir, un formulaire du week-end&nbsp;: le
+              client qui n'a pas de réponse rapide la trouve souvent ailleurs.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Les tâches prises en charge — le cœur de la page. Quand un de nos
+         logiciels fait déjà le travail, la tuile le nomme : c'est la preuve
+         que la brique tourne en production, pas une promesse. -->
+    <section class="section section--alt" id="taches">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="eyebrow">Ce que l'IA prend en charge</span>
+          <h2 class="section__title">Chaque tâche répétitive de la semaine a sa solution</h2>
+          <p class="section__sub">
+            L'IA lit, trie, prépare et relance. Une personne garde la main là où
+            l'enjeu le demande.
+          </p>
+        </div>
+        <div class="svc-taches">
+          <article class="svc-tache reveal">
+            <h3>Factures fournisseurs</h3>
+            <p>Photographiées ou reçues par email, lues par l'IA, rangées et
+              rapprochées sans ressaisie.</p>
+            <a class="svc-tache__lien" href="https://margeo.agenia.pro" target="_blank" rel="noopener">Déjà dans Margeo</a>
+          </article>
+          <article class="svc-tache reveal">
+            <h3>Demandes entrantes</h3>
+            <p>Qualifiées dès leur arrivée, fiche créée dans votre CRM, transmises
+              à la bonne personne avec une première réponse.</p>
+            <a class="svc-tache__lien" href="demo-keo.html">Déjà dans Keo</a>
+          </article>
+          <article class="svc-tache reveal">
+            <h3>Prospection</h3>
+            <p>Les entreprises qui ressemblent à votre client idéal, trouvées,
+              qualifiées et classées par priorité.</p>
+            <a class="svc-tache__lien" href="demo-prospeo.html">Déjà dans Prospeo</a>
+          </article>
+          <article class="svc-tache reveal">
+            <h3>Relances</h3>
+            <p>Devis sans réponse, impayés, rappels&nbsp;: les relances partent à
+              la bonne date, avec le bon message.</p>
+          </article>
+          <article class="svc-tache reveal">
+            <h3>Réponses aux clients</h3>
+            <p>Un assistant branché sur vos propres informations répond jour et
+              nuit, et vous passe la main quand il le faut.</p>
+          </article>
+          <article class="svc-tache reveal">
+            <h3>Documents</h3>
+            <p>Contrats, bons de livraison, formulaires&nbsp;: les informations
+              utiles extraites et classées, prêtes à servir.</p>
+          </article>
+          <article class="svc-tache reveal">
+            <h3>Saisie dans vos outils</h3>
+            <p>Connecteurs vers votre ERP, votre CRM ou votre suite bureautique,
+              pour que la donnée ne soit tapée qu'une fois.</p>
+          </article>
+          <article class="svc-tache reveal">
+            <h3>Reporting</h3>
+            <p>Vos chiffres à jour dans un tableau de bord, sans export ni
+              copier-coller en fin de mois.</p>
+          </article>
+        </div>
+        <p class="svc-garde reveal">
+          <strong>Vous gardez la main.</strong> Pour chaque automatisation, nous
+          décidons ensemble de ce qui part seul et de ce qui attend un clic de
+          validation. Rien n'est envoyé en votre nom sans que vous l'ayez choisi.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="offre">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="eyebrow">Nos services</span>
+          <h2 class="section__title">Quatre façons de travailler ensemble</h2>
+          <p class="section__sub">
+            Du simple conseil au logiciel sur mesure, c'est la même équipe — celle
+            qui édite et exploite nos quatre logiciels.
+          </p>
+        </div>
+        <div class="cards">
+          <article class="card reveal">
+            <div class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.5" stroke="currentColor" stroke-width="1.7"/><circle cx="18" cy="18" r="2.5" stroke="currentColor" stroke-width="1.7"/><path d="M8.5 6H14a3 3 0 0 1 3 3v6.5M6 8.5V15a3 3 0 0 0 3 3h6.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Automatisation IA</h3>
+            <p>Nous cartographions vos processus, repérons les tâches répétitives
+              et les confions à des workflows reliés à vos outils.</p>
+            <ul class="card__list">
+              <li>Audit &amp; cartographie des processus</li>
+              <li>Automatisations n8n</li>
+              <li>Connecteurs API sur mesure</li>
+            </ul>
+          </article>
+          <article class="card reveal">
+            <div class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M8.5 10.5h.01M12 10.5h.01M15.5 10.5h.01" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Assistants &amp; chatbots IA</h3>
+            <p>Des assistants connectés à vos données internes&nbsp;: support
+              client, recherche documentaire, aide à la décision.</p>
+            <ul class="card__list">
+              <li>Assistants métiers sur vos documents</li>
+              <li>Chatbots support &amp; ventes</li>
+              <li>Agents connectés à vos outils</li>
+            </ul>
+          </article>
+          <article class="card reveal">
+            <div class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="m8 7-5 5 5 5M16 7l5 5-5 5M13.5 4.5l-3 15" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>Développement sur mesure</h3>
+            <p>Applications web, moteurs d'extraction de documents, intégrations
+              et tableaux de bord, du prototype à la mise en production.</p>
+            <ul class="card__list">
+              <li>Applications &amp; API</li>
+              <li>Extraction de documents (OCR + IA)</li>
+              <li>Tableaux de bord &amp; flux de données</li>
+            </ul>
+          </article>
+          <article class="card reveal">
+            <div class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0-3.5 10.9V17h7v-3.1A6 6 0 0 0 12 3zM9.5 20.5h5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>Conseil &amp; formation IA</h3>
+            <p>Feuille de route, cadrage des cas d'usage au meilleur retour, et
+              montée en compétence de vos équipes.</p>
+            <ul class="card__list">
+              <li>Stratégie &amp; feuille de route IA</li>
+              <li>Ateliers de cadrage &amp; prototypage</li>
+              <li>Formation des équipes</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="logiciels">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="eyebrow">Déjà en production</span>
+          <h2 class="section__title">Quatre logiciels nés de missions comme la vôtre</h2>
+          <p class="section__sub">
+            Si l'un d'eux couvre votre besoin, vous démarrez sans attendre un
+            développement. Sinon, ses briques servent à construire le vôtre.
+          </p>
+        </div>
+        <div class="svc-logiciels">
+          <a class="svc-logiciel reveal" href="https://margeo.agenia.pro" target="_blank" rel="noopener">
+            <span class="card__tag">Restauration</span>
+            <strong>Margeo</strong>
+            <span>Le coût réel de chaque plat, depuis vos factures et vos ventes.</span>
+          </a>
+          <a class="svc-logiciel reveal" href="demo-prospeo.html">
+            <span class="card__tag">Prospection</span>
+            <strong>Prospeo</strong>
+            <span>Les entreprises qui ressemblent à votre client idéal.</span>
+          </a>
+          <a class="svc-logiciel reveal" href="demo-keo.html">
+            <span class="card__tag">Immobilier</span>
+            <strong>Keo</strong>
+            <span>Chaque demande qualifiée et transmise au bon agent.</span>
+          </a>
+          <a class="svc-logiciel reveal" href="demo-planeo.html">
+            <span class="card__tag">Construction</span>
+            <strong>Planeo</strong>
+            <span>Votre projet en 3D sur votre terrain, avant de construire.</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="methode">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="eyebrow">Comment ça se passe</span>
+          <h2 class="section__title">De la première conversation à l'outil en service</h2>
+          <p class="section__sub">
+            On commence petit, sur la tâche qui coûte le plus cher, et on élargit
+            une fois la valeur vérifiée.
+          </p>
+        </div>
+        <ol class="steps">
+          <li class="step reveal">
+            <span class="step__num">01</span>
+            <span class="svc-duree">30 min · offert</span>
+            <h3>Audit</h3>
+            <p>Nous passons en revue votre semaine type et repérons les tâches
+              qui méritent d'être automatisées — et celles qui ne le méritent pas.</p>
+          </li>
+          <li class="step reveal">
+            <span class="step__num">02</span>
+            <span class="svc-duree">Avant tout engagement</span>
+            <h3>Cadrage &amp; chiffrage</h3>
+            <p>Un périmètre précis et un prix établi sur vos propres volumes.
+              Vous décidez en connaissant le coût.</p>
+          </li>
+          <li class="step reveal">
+            <span class="step__num">03</span>
+            <span class="svc-duree">2 à 6 semaines</span>
+            <h3>Prototype</h3>
+            <p>Une première version qui tourne sur vos données, pour vérifier que
+              le gain est là avant de déployer.</p>
+          </li>
+          <li class="step reveal">
+            <span class="step__num">04</span>
+            <span class="svc-duree">Dans la durée</span>
+            <h3>Déploiement &amp; suivi</h3>
+            <p>Mise en service sécurisée, formation de l'équipe, maintenance et
+              améliorations au fil de l'usage.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="engagements">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="eyebrow">Nos engagements</span>
+          <h2 class="section__title">Ce sur quoi vous pouvez compter</h2>
+        </div>
+        <div class="svc-engagements">
+          <div class="svc-engagement reveal">
+            <h3>Un prix connu avant de commencer</h3>
+            <p>Le chiffrage se fait pendant l'audit, sur vos volumes. Pas de
+              surprise en cours de route.</p>
+          </div>
+          <div class="svc-engagement reveal">
+            <h3>Un premier pas petit</h3>
+            <p>Une tâche, un prototype, un résultat vérifié. L'investissement
+              suit la valeur, jamais l'inverse.</p>
+          </div>
+          <div class="svc-engagement reveal">
+            <h3>Vos données en Europe</h3>
+            <p>Hébergées dans l'Union européenne, cloisonnées par client, traitées
+              dans le respect du RGPD.</p>
+          </div>
+          <div class="svc-engagement reveal">
+            <h3>Une équipe autonome</h3>
+            <p>Nous formons vos équipes pour qu'elles se servent de l'outil sans
+              dépendre de nous.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="container faq">
+        <div class="section__head reveal">
+          <span class="eyebrow">FAQ</span>
+          <h2 class="section__title">Questions fréquentes</h2>
+        </div>
+        <div class="faq__list">
+          <details class="faq__item reveal">
+            <summary>À qui s'adressent vos services&nbsp;?</summary>
+            <p>Aux dirigeants de PME et d'ETI, et aux petites structures qui
+              passent trop de temps sur des tâches administratives ou
+              commerciales répétitives. Un restaurant, une agence immobilière de
+              trois personnes ou une entreprise industrielle relèvent tous de la
+              même démarche.</p>
+          </details>
+          <details class="faq__item reveal">
+            <summary>Faut-il déjà avoir une « stratégie IA »&nbsp;?</summary>
+            <p>Non. Les projets qui aboutissent partent d'une tâche précise qui
+              agace tout le monde, pas d'une ambition générale. L'audit sert à
+              la trouver.</p>
+          </details>
+          <details class="faq__item reveal">
+            <summary>Combien cela coûte-t-il&nbsp;?</summary>
+            <p>Cela dépend de la tâche et de vos volumes&nbsp;: c'est pourquoi le
+              prix s'établit pendant l'audit, avant tout engagement. Si l'un de
+              nos logiciels couvre déjà votre besoin, vous partez d'un
+              abonnement plutôt que d'un développement.</p>
+          </details>
+          <details class="faq__item reveal">
+            <summary>Faut-il changer nos outils actuels&nbsp;?</summary>
+            <p>Rarement. Nous connectons d'abord ce que vous avez déjà — ERP,
+              CRM, messagerie, tableurs — plutôt que de tout remplacer.</p>
+          </details>
+          <details class="faq__item reveal">
+            <summary>Combien de temps avant de voir un résultat&nbsp;?</summary>
+            <p>Un premier prototype fonctionnel est généralement livré en deux à
+              six semaines, ce qui permet de vérifier la valeur avant tout
+              déploiement à grande échelle.</p>
+          </details>
+          <details class="faq__item reveal">
+            <summary>Où sont hébergées nos données&nbsp;?</summary>
+            <p>Dans l'Union européenne, et cloisonnées par client. Le détail figure
+              dans la <a href="mentions-legales.html#confidentialite">politique de confidentialité</a>.</p>
+          </details>
+          <details class="faq__item reveal">
+            <summary>Que se passe-t-il après la mise en service&nbsp;?</summary>
+            <p>Nous assurons le suivi, la maintenance et l'amélioration continue,
+              et nous formons vos équipes pour une adoption durable.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band" id="audit">
+      <div class="container cta-band__inner reveal">
+        <div>
+          <span class="eyebrow">Audit gratuit — 30 minutes</span>
+          <h2>Trouvons la tâche qui vous coûte le plus cher</h2>
+          <p>Un échange sans engagement, en visio ou par téléphone&nbsp;:</p>
+          <ul class="cta-band__points">
+            <li>Votre semaine type passée en revue</li>
+            <li>Les tâches automatisables identifiées et classées</li>
+            <li>Une estimation concrète du temps récupérable</li>
+          </ul>
+        </div>
+        <a class="btn btn--primary btn--lg" href="https://zcal.co/agenia/Rdv30min" target="_blank" rel="noopener">Réserver mon audit gratuit</a>
+      </div>
+    </section>
+  </main>
+
+<footer class="site-footer">
+    <div class="container footer__bottom">
+      <p>© <span id="year">2026</span> AgenIA — SASU au capital de 1 000 € — RCS Thonon-les-Bains 108 486 598.</p>
+      <nav class="social" aria-label="AgenIA sur les réseaux sociaux">
+        <a href="https://www.facebook.com/profile.php?id=61594047287299" target="_blank" rel="noopener"
+           aria-label="AgenIA sur Facebook" title="Facebook">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/agenia_pro/" target="_blank" rel="noopener"
+           aria-label="AgenIA sur Instagram" title="Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 1 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm7.846-10.405a1.441 1.441 0 0 1-2.88 0 1.44 1.44 0 0 1 2.88 0z"/></svg>
+        </a>
+        <a href="https://www.youtube.com/@AgenAI_agency" target="_blank" rel="noopener"
+           aria-label="AgenIA sur YouTube" title="YouTube">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        </a>
+        <a href="https://www.pinterest.com/AGENIA_PRO/" target="_blank" rel="noopener"
+           aria-label="AgenIA sur Pinterest" title="Pinterest">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/company/agenia-fr/" target="_blank" rel="noopener"
+           aria-label="AgenIA sur LinkedIn" title="LinkedIn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg>
+        </a>
+      </nav>
+      <p class="footer__legal"><a href="mentions-legales.html">Mentions légales</a> · <a href="mentions-legales.html#confidentialite">Confidentialité</a> · <a href="documentation/">Documentation</a></p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="ressources/gate.js"></script>
+  <!-- Chatbot : Léo, l'assistant IA d'AgenIA, en bulle (même IA que sur WhatsApp). -->
+  <script src="https://leo.agenia.pro/chatbot.js" defer data-couleur="#121210"></script>
+</body>
+</html>

@@ -632,3 +632,55 @@ letter-spacing:.02em;opacity:.65;text-transform:uppercase;white-space:nowrap}
 }
 .social a:hover, .social a:focus-visible { color: var(--text); background: var(--surface); }
 .social svg { width: 19px; height: 19px; fill: currentColor; display: block; }
+
+
+/* ---- Page Services (services.html et en/services.html) ----
+   Préfixe svc- : ces composants n'existent que là, et le préfixe évite qu'une
+   règle de la page ne repeigne un jour une carte de l'accueil. */
+.svc-chapo { max-width: 720px; margin: 22px 0 0; color: var(--text-muted); font-size: 1.12rem; }
+.svc-cards--3 { grid-template-columns: repeat(3, 1fr); }
+.svc-num {
+  display: block; font-family: var(--font-head); font-weight: 700; font-size: 1.6rem;
+  line-height: 1; margin-bottom: 14px; padding-bottom: 12px; border-bottom: 1px solid var(--border);
+}
+/* minmax(min(…, 100%)) et non minmax(240px, 1fr) : la piste ne doit jamais
+   dépasser le conteneur sur un petit téléphone (CLAUDE.md, « Sur téléphone »). */
+.svc-taches { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(240px, 100%), 1fr)); gap: 16px; }
+.svc-tache {
+  display: flex; flex-direction: column; padding: 22px; border-radius: var(--radius);
+  background: var(--bg); border: 1px solid var(--border);
+}
+.svc-tache h3 { font-size: 1.08rem; font-weight: 600; margin-bottom: 8px; }
+.svc-tache p { color: var(--text-muted); font-size: .95rem; margin: 0; }
+.svc-tache__lien {
+  margin-top: auto; padding-top: 14px; font-family: var(--font-ui); font-weight: 600;
+  font-size: .85rem; color: var(--text); text-decoration: none;
+}
+.svc-tache__lien::after { content: " \2192"; }
+.svc-tache__lien:hover { text-decoration: underline; }
+.svc-garde {
+  max-width: 780px; margin: 34px auto 0; padding: 18px 22px; border-radius: var(--radius);
+  background: var(--ink); color: var(--ink-text); text-align: center;
+}
+.svc-logiciels { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(230px, 100%), 1fr)); gap: 16px; }
+.svc-logiciel {
+  display: flex; flex-direction: column; gap: 8px; padding: 22px; border-radius: var(--radius);
+  background: var(--surface); color: inherit; text-decoration: none;
+  transition: background .25s ease, transform .25s ease;
+}
+.svc-logiciel:hover { background: var(--surface-2); transform: translateY(-3px); }
+.svc-logiciel .card__tag { margin-left: 0; align-self: flex-start; }
+.svc-logiciel strong { font-family: var(--font-head); font-size: 1.35rem; }
+.svc-logiciel span:last-child { color: var(--text-muted); font-size: .95rem; }
+.svc-duree {
+  display: inline-block; margin-bottom: 10px; font-family: var(--font-ui); font-weight: 600;
+  font-size: .78rem; letter-spacing: .06em; text-transform: uppercase; color: var(--text-dim);
+}
+.svc-engagements { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(240px, 100%), 1fr)); gap: 16px; }
+.svc-engagement { padding: 24px 22px; border-top: 2px solid var(--ink); background: var(--surface); border-radius: 0 0 var(--radius) var(--radius); }
+.svc-engagement h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 8px; }
+.svc-engagement p { color: var(--text-muted); font-size: .95rem; margin: 0; }
+@media (max-width: 900px) { .svc-cards--3 { grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion: reduce) { .svc-logiciel { transition: none; } }
+/* Lien de l'accueil vers la page Services, sous les cartes du sur-mesure. */
+.svc-suite { margin: 30px 0 0; text-align: center; }
